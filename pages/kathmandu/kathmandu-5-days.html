@@ -1,0 +1,2535 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5-Day Kathmandu Cultural Tour - Honest Travel Tours</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../../css/individual-packages.css" />
+    
+    <!-- Add EmailJS script -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+      (function () {
+        // Initialize EmailJS with your public key
+        emailjs.init("cjcB4sLQKii3OPWJ1");
+      })();
+    </script>
+    
+    <style>
+      /* Additional styles specific to this page */
+      .cultural-highlight {
+        background: linear-gradient(135deg, #fff8f0 0%, #fff0e6 100%);
+        padding: 1.5rem;
+        border-radius: 12px;
+        border-left: 4px solid #e67e22;
+        margin: 1.5rem 0;
+      }
+
+      .heritage-icon {
+        color: #e67e22;
+        margin-right: 0.5rem;
+      }
+
+      .price-tag {
+        background: #27ae60;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        display: inline-block;
+        margin: 0.5rem 0;
+      }
+
+      /* Modal Styles */
+      .confirmation-modal,
+      .booking-modal,
+      .submission-modal,
+      .mobile-alert-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .confirmation-modal>div,
+      .booking-modal>div,
+      .submission-modal>div,
+      .mobile-alert-overlay>div {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        max-width: 500px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        animation: slideIn 0.3s ease;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      .booking-modal>div {
+        max-width: 600px;
+      }
+
+      .close-modal {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: none;
+        border: none;
+        font-size: 28px;
+        color: #666;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+      }
+
+      .close-modal:hover {
+        background: #f5f5f5;
+        color: #333;
+      }
+
+      .close-submission-modal {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: none;
+        border: none;
+        font-size: 28px;
+        color: #666;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+      }
+
+      .close-submission-modal:hover {
+        background: #f5f5f5;
+        color: #333;
+      }
+
+      .choice-options {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin: 25px 0;
+      }
+
+      .choice-btn {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+        background: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: left;
+        width: 100%;
+      }
+
+      .choice-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .whatsapp-choice:hover {
+        border-color: #25D366;
+        background: rgba(37, 211, 102, 0.05);
+      }
+
+      .email-choice:hover {
+        border-color: #5865F2;
+        background: rgba(88, 101, 242, 0.05);
+      }
+
+      .choice-btn i {
+        font-size: 2.5rem;
+        min-width: 40px;
+      }
+
+      .whatsapp-choice i {
+        color: #25D366;
+      }
+
+      .email-choice i {
+        color: #5865F2;
+      }
+
+      .choice-btn-content {
+        flex: 1;
+      }
+
+      .choice-btn-content span {
+        display: block;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 5px;
+        font-size: 1.1rem;
+      }
+
+      .choice-btn-content small {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      .confirm-book-btn:hover {
+        background: linear-gradient(135deg, #4752c4 0%, #2a32b8 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(88, 101, 242, 0.3);
+      }
+
+      .cancel-choice:hover {
+        background: #e0e0e0;
+      }
+
+      /* Mobile Alert Styles */
+      .mobile-alert {
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .mobile-alert-icon {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .mobile-alert.success .mobile-alert-icon {
+        color: #28a745;
+      }
+
+      .mobile-alert.warning .mobile-alert-icon {
+        color: #ff9800;
+      }
+
+      .mobile-alert.error .mobile-alert-icon {
+        color: #dc3545;
+      }
+
+      .mobile-alert.info .mobile-alert-icon {
+        color: #5865f2;
+      }
+
+      .mobile-alert h3 {
+        color: #2c3e50;
+        margin: 0 0 1.5rem 0;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .mobile-alert-message {
+        color: #666;
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+
+      .mobile-alert-ok-btn {
+        background: #5865f2;
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 1rem;
+      }
+
+      .mobile-alert-ok-btn:hover {
+        background: #4752c4;
+        transform: translateY(-2px);
+      }
+
+      .success-checkmark {
+        animation: checkmark 0.5s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes checkmark {
+        0% {
+          transform: scale(0);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .modal-open {
+        overflow: hidden;
+      }
+
+      /* Booking form styles */
+      form>div {
+        margin-bottom: 1.5rem;
+      }
+
+      /* Currency selector styles */
+      .currency-selector-container {
+        margin-top: 1rem;
+      }
+
+      .currency-selector {
+        position: relative;
+        width: fit-content;
+      }
+
+      .currency-selector #selectedCurrency {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 15px;
+        background: #f8f9fa;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.9rem;
+      }
+
+      .currency-selector #selectedCurrency i {
+        font-size: 0.8rem;
+        color: #666;
+        transition: transform 0.3s ease;
+      }
+
+      .currency-selector.active #selectedCurrency i {
+        transform: rotate(180deg);
+      }
+
+      .currency-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        margin-top: 5px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        display: none;
+        z-index: 100;
+      }
+
+      .currency-selector.active .currency-dropdown {
+        display: block;
+      }
+
+      .currency-option {
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .currency-option:hover {
+        background: #f0f0f0;
+      }
+
+      .currency-option.active {
+        background: #e67e22;
+        color: white;
+      }
+
+      /* Responsive adjustments for modals */
+      @media (max-width: 768px) {
+        .confirmation-modal>div,
+        .booking-modal>div,
+        .submission-modal>div {
+          padding: 1.5rem;
+          margin: 10px;
+        }
+
+        .choice-btn {
+          padding: 15px;
+        }
+
+        .choice-btn i {
+          font-size: 2rem;
+        }
+
+        .booking-modal>div {
+          max-height: 85vh;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .confirmation-buttons {
+          flex-direction: column;
+        }
+
+        .choice-btn {
+          flex-direction: column;
+          text-align: center;
+          gap: 10px;
+        }
+
+        .choice-btn-content small {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="top-bar">
+        <div class="container">
+          <div class="contact-info">
+            <span>
+              📞
+              <a
+                href="https://wa.me/9779851140110"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="wa-link"
+                >+977-9851140110</a
+              >
+              ,
+              <a
+                href="https://wa.me/9779856017867"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="wa-link"
+                >9856017867</a
+              >
+            </span>
+            <span>✉️ info@honesttraveltours.com</span>
+          </div>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-main">
+        <div class="logo">
+          <div class="logo-icon">
+            <img src="../../images/Logo Image.png" alt="Honest Travel Logo" />
+          </div>
+          <div class="logo-text">
+            <h1>HONEST TRAVEL</h1>
+            <p>TOURS AND EXPEDITION</p>
+          </div>
+        </div>
+
+        <!-- Burger Menu Button for Navigation -->
+        <button
+          class="burger-menu"
+          id="navBurger"
+          aria-label="Toggle navigation menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav id="mainNav">
+          <ul>
+            <li><a href="../../index.html">HOME</a></li>
+            <li><a href="../../index.html#tours">TOURS</a></li>
+            <li><a href="../../index.html#trekking">TREKKING</a></li>
+            <li><a href="../../index.html#contact">CONTACT US</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Tour Detail Section -->
+    <div class="tour-detail">
+      <div class="tour-header">
+        <h1 class="tour-title">5-Day Kathmandu Cultural Tour</h1>
+        <p class="tour-subtitle">
+          Explore the Heritage and Traditions of the Valley
+        </p>
+      </div>
+
+      <div class="tour-content-wrapper">
+        <!-- LEFT COLUMN -->
+        <div>
+          <!-- Image Gallery -->
+          <div class="image-gallery">
+            <img
+              src="../../images/Kathmandu.jpg"
+              class="gallery-image active"
+              alt="Kathmandu Durbar Square"
+            />
+            <img
+              src="../../images/Kathmandu1.jpg"
+              class="gallery-image"
+              alt="Boudhanath Stupa"
+            />
+            <img
+              src="../../images/kathmandu2.jpg"
+              class="gallery-image"
+              alt="Pashupatinath Temple"
+            />
+            <img
+              src="../../images/Kathmandu3.jpg"
+              class="gallery-image"
+              alt="Bhaktapur Durbar Square"
+            />
+
+            <div class="gallery-nav">
+              <button class="nav-btn" onclick="changeImage(-1)">‹</button>
+              <button class="nav-btn" onclick="changeImage(1)">›</button>
+            </div>
+            <div class="gallery-indicators">
+              <div class="indicator active" onclick="setImage(0)"></div>
+              <div class="indicator" onclick="setImage(1)"></div>
+              <div class="indicator" onclick="setImage(2)"></div>
+              <div class="indicator" onclick="setImage(3)"></div>
+            </div>
+          </div>
+
+          <!-- Tour Information Tabs -->
+          <div class="tour-info">
+            <!-- Mobile Tab Burger Menu -->
+            <div class="tab-burger-wrapper">
+              <button
+                class="tab-burger-menu"
+                id="tabBurger"
+                aria-label="Toggle tabs menu"
+              >
+                <i class="fas fa-bars"></i>
+                <span id="currentTabName">Overview</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+            </div>
+
+            <div class="info-tabs" id="tabsMenu">
+              <button class="tab active" onclick="openTab('overview')">
+                Overview
+              </button>
+              <button class="tab" onclick="openTab('itinerary')">
+                Itinerary
+              </button>
+              <button class="tab" onclick="openTab('costdates')">Cost</button>
+              <button class="tab" onclick="openTab('included')">
+                Included
+              </button>
+              <button class="tab" onclick="openTab('terms')">
+                Terms & Conditions
+              </button>
+              <button class="tab" onclick="openTab('videosmap')">
+                Videos & Map
+              </button>
+            </div>
+
+            <!-- OVERVIEW -->
+            <div id="overview" class="tab-content active">
+              <div class="info-section">
+                <h3>Tour Overview</h3>
+                <p>
+                  Immerse yourself in the rich cultural tapestry of Kathmandu
+                  Valley with this comprehensive 5-day tour. Explore ancient
+                  palaces, sacred temples, and traditional villages that
+                  showcase Nepal's vibrant heritage and architectural marvels.
+                </p>
+
+                <div class="cultural-highlight">
+                  <h4 style="color: #e67e22; margin-bottom: 1rem">
+                    <i class="fas fa-landmark heritage-icon"></i>Cultural
+                    Highlights
+                  </h4>
+                  <ul class="info-list">
+                    <li>
+                      <strong>UNESCO World Heritage Sites:</strong> Visit all
+                      seven cultural heritage sites in Kathmandu Valley
+                    </li>
+                    <li>
+                      <strong>Living Heritage:</strong> Experience ongoing
+                      religious and cultural traditions
+                    </li>
+                    <li>
+                      <strong>Traditional Arts:</strong> Witness ancient crafts
+                      including pottery, thangka painting, and wood carving
+                    </li>
+                    <li>
+                      <strong>Spiritual Diversity:</strong> Explore Hindu,
+                      Buddhist, and indigenous Newari religious sites
+                    </li>
+                    <li>
+                      <strong>Architectural Marvels:</strong> Discover intricate
+                      wood, stone, and metal craftsmanship
+                    </li>
+                    <li>
+                      <strong>Local Interactions:</strong> Engage with artisans
+                      and traditional communities
+                    </li>
+                  </ul>
+                </div>
+
+                <h3>Tour Facts</h3>
+                <ul class="info-list">
+                  <li><strong>Duration:</strong> 4 Nights 5 Days</li>
+                  <li><strong>Starting Point:</strong> Kathmandu, Nepal</li>
+                  <li>
+                    <strong>Transportation:</strong> Private Vehicle with A/C
+                  </li>
+                  <li><strong>Maximum Altitude:</strong> 2,195m (Nagarkot)</li>
+                  <li><strong>Difficulty:</strong> Easy to Moderate</li>
+                  <li>
+                    <strong>Best Season:</strong> Year-round (except monsoon:
+                    June-August)
+                  </li>
+                  <li><strong>Group Size:</strong> 1-12 people per group</li>
+                  <li>
+                    <strong>Accommodation:</strong> Luxury hotels and heritage
+                    resorts
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- ITINERARY -->
+            <div id="itinerary" class="tab-content">
+              <div class="info-section">
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 1.5rem;
+                    flex-wrap: wrap;
+                    gap: 1rem;
+                  "
+                >
+                  <h3
+                    style="
+                      margin: 0;
+                      color: #00b386;
+                      text-transform: uppercase;
+                      font-size: 1.2rem;
+                    "
+                  >
+                    Detailed Itinerary
+                  </h3>
+                  <button
+                    onclick="toggleAllDays(this)"
+                    style="
+                      background: none;
+                      border: 1px solid #00b386;
+                      color: #00b386;
+                      padding: 0.5rem 1rem;
+                      border-radius: 4px;
+                      cursor: pointer;
+                      font-size: 0.9rem;
+                    "
+                  >
+                    Expand All
+                  </button>
+                </div>
+
+                <!-- Day 1 -->
+                <div class="itinerary-day">
+                  <div class="day-header" onclick="toggleDay(this)">
+                    <div class="day-header-content">
+                      <span class="day-number">DAY 1</span>
+                      <span class="day-title">ARRIVAL IN KATHMANDU</span>
+                      <span class="day-altitude"
+                        ><i class="fas fa-city"></i> 1,400m</span
+                      >
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                  </div>
+                  <div class="day-details">
+                    <p style="margin-bottom: 1rem">
+                      <strong>Welcome to Nepal:</strong> Upon arrival at
+                      Tribhuvan International Airport, our representative will
+                      greet you with traditional welcome. Transfer to your
+                      luxury hotel in Kathmandu. After settling in, attend a
+                      tour briefing where our guide will explain the upcoming
+                      cultural journey. Enjoy the evening at leisure to relax or
+                      explore the vibrant streets of Thamel. Welcome dinner at a
+                      traditional Nepali restaurant with cultural performances.
+                    </p>
+                    <p><strong>Meals:</strong> Welcome Dinner Included</p>
+                    <p>
+                      <strong>Accommodation:</strong> Luxury Hotel in Kathmandu
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Day 2 -->
+                <div class="itinerary-day">
+                  <div class="day-header" onclick="toggleDay(this)">
+                    <div class="day-header-content">
+                      <span class="day-number">DAY 2</span>
+                      <span class="day-title"
+                        >KATHMANDU HERITAGE SIGHTSEEING</span
+                      >
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                  </div>
+                  <div class="day-details">
+                    <p style="margin-bottom: 1rem">
+                      <strong>UNESCO Heritage Exploration:</strong> Begin with
+                      Kathmandu Durbar Square, a living museum of palaces,
+                      courtyards, and temples showcasing Newari architecture.
+                      Visit the Kumari Ghar to see the living goddess. Proceed
+                      to Swayambhunath (Monkey Temple) for panoramic views of
+                      the valley. After lunch, explore Pashupatinath Temple,
+                      Nepal's most sacred Hindu shrine. Witness evening Aarti
+                      ceremony on the banks of the Bagmati River. Continue to
+                      Boudhanath Stupa, the largest spherical stupa in Nepal,
+                      and join pilgrims in clockwise circumambulation.
+                    </p>
+                    <p><strong>Meals:</strong> Breakfast and Lunch Included</p>
+                    <p>
+                      <strong>Accommodation:</strong> Luxury Hotel in Kathmandu
+                    </p>
+                    <p><strong>Sightseeing:</strong> 6-7 hours</p>
+                  </div>
+                </div>
+
+                <!-- Day 3 -->
+                <div class="itinerary-day">
+                  <div class="day-header" onclick="toggleDay(this)">
+                    <div class="day-header-content">
+                      <span class="day-number">DAY 3</span>
+                      <span class="day-title"
+                        >KATHMANDU VALLEY OUTSKIRTS & DHULIKHEL</span
+                      >
+                      <span class="day-altitude"
+                        ><i class="fas fa-mountain"></i> 1,550m</span
+                      >
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                  </div>
+                  <div class="day-details">
+                    <p style="margin-bottom: 1rem">
+                      <strong>Scenic Drive to Ancient Towns:</strong> Morning
+                      drive to Changu Narayan Temple, the oldest temple in Nepal
+                      dating back to the 4th century. Explore its exquisite
+                      stone, wood, and metal artwork. Continue to Bhaktapur
+                      Durbar Square, the best-preserved medieval city in Nepal.
+                      Witness pottery square, peacock window, and Nyatapola
+                      Temple. After lunch of traditional Newari cuisine, drive
+                      to Dhulikhel. Enjoy sunset views of the Himalayan range
+                      from Dhulikhel viewpoint. Overnight at a heritage resort
+                      with traditional architecture.
+                    </p>
+                    <p>
+                      <strong>Meals:</strong> Breakfast, Lunch, and Dinner
+                      Included
+                    </p>
+                    <p>
+                      <strong>Accommodation:</strong> Heritage Resort in
+                      Dhulikhel
+                    </p>
+                    <p><strong>Drive Duration:</strong> 1.5 hours</p>
+                  </div>
+                </div>
+
+                <!-- Day 4 -->
+                <div class="itinerary-day">
+                  <div class="day-header" onclick="toggleDay(this)">
+                    <div class="day-header-content">
+                      <span class="day-number">DAY 4</span>
+                      <span class="day-title">BHAKTAPUR TO NAGARKOT</span>
+                      <span class="day-altitude"
+                        ><i class="fas fa-mountain"></i> 2,195m</span
+                      >
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                  </div>
+                  <div class="day-details">
+                    <p style="margin-bottom: 1rem">
+                      <strong>Sunrise and Cultural Immersion:</strong> Early
+                      morning sunrise view over the Himalayas from Dhulikhel.
+                      After breakfast, return to Bhaktapur for in-depth
+                      exploration. Visit traditional handicraft centers -
+                      pottery square, thangka painting studios, and wood carving
+                      workshops. Interact with master craftsmen preserving
+                      ancient techniques. After lunch, drive to Nagarkot, famous
+                      for its breathtaking mountain views. Check into a mountain
+                      resort. Evening at leisure to enjoy the serene mountain
+                      atmosphere. Spectacular sunset views over the Himalayan
+                      range.
+                    </p>
+                    <p>
+                      <strong>Meals:</strong> Breakfast, Lunch, and Dinner
+                      Included
+                    </p>
+                    <p>
+                      <strong>Accommodation:</strong> Mountain Resort in
+                      Nagarkot
+                    </p>
+                    <p><strong>Drive Duration:</strong> 1 hour</p>
+                  </div>
+                </div>
+
+                <!-- Day 5 -->
+                <div class="itinerary-day">
+                  <div class="day-header" onclick="toggleDay(this)">
+                    <div class="day-header-content">
+                      <span class="day-number">DAY 5</span>
+                      <span class="day-title">PATAN & DEPARTURE</span>
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                  </div>
+                  <div class="day-details">
+                    <p style="margin-bottom: 1rem">
+                      <strong>Final Heritage Exploration:</strong> Morning
+                      sunrise view of Mount Everest and other Himalayan peaks
+                      from Nagarkot viewpoint. After breakfast, drive back to
+                      Kathmandu and visit Patan Durbar Square, renowned for its
+                      fine arts and architecture. Explore the Patan Museum with
+                      its exquisite collection of bronze statues and religious
+                      artifacts. Visit traditional metalworking workshops in the
+                      backstreets. After lunch, transfer to Tribhuvan
+                      International Airport for your departure flight, carrying
+                      with you unforgettable memories of Nepal's rich cultural
+                      heritage.
+                    </p>
+                    <p><strong>Meals:</strong> Breakfast and Lunch Included</p>
+                    <p style="font-style: italic; color: #5865f2">
+                      May your journey be filled with cultural enlightenment and
+                      beautiful memories!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- COST & DATES -->
+            <div id="costdates" class="tab-content">
+              <div class="info-section">
+                <h3>Package Investment</h3>
+                <div
+                  class="highlight-box"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #667eea15 0%,
+                      #764ba215 100%
+                    );
+                  "
+                >
+                  <div style="text-align: center">
+                    <div style="margin: 1.5rem 0; padding: 1rem; background: white; border-radius: 8px;">
+                      <table class="price-table" id="priceTable" style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                          <tr style="background: #f8f9fa;">
+                            <th style="padding: 12px; border: 1px solid #ddd;">Group Size</th>
+                            <th style="padding: 12px; border: 1px solid #ddd;" id="priceTableHeader">Cost Per Person (INR)</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">1-3 People</td>
+                            <td class="price-display" style="padding: 10px; border: 1px solid #ddd; color: #e67e22; font-weight: bold;" data-inr="207500" >₹207,500</td>
+                          </tr>
+                          <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">4-6 People</td>
+                            <td class="price-display" style="padding: 10px; border: 1px solid #ddd; color: #27ae60; font-weight: bold;" data-inr="204375" >₹204,375</td>
+                          </tr>
+                          <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">7+ People</td>
+                            <td class="price-display" style="padding: 10px; border: 1px solid #ddd; color: #3498db; font-weight: bold;" data-inr="201250" >₹201,250</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">
+                        <i class="fas fa-info-circle"></i> Discount: Save ₹3,125 for 4-6 persons | Save ₹6,250 for 7+ persons
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <h3 style="margin-top: 2rem">
+                  What Makes This Cultural Tour Special
+                </h3>
+                <ul class="info-list">
+                  <li>
+                    Comprehensive coverage of all Kathmandu Valley UNESCO sites
+                  </li>
+                  <li>
+                    Stay at luxury heritage properties and mountain resorts
+                  </li>
+                  <li>Expert cultural guide with deep historical knowledge</li>
+                  <li>
+                    Authentic interactions with local artisans and communities
+                  </li>
+                  <li>Sunrise and sunset Himalayan view experiences</li>
+                  <li>Traditional Nepali cuisine at selected restaurants</li>
+                </ul>
+
+                <h3 style="margin-top: 2rem">Seasonal Pricing</h3>
+                <div style="overflow-x: auto">
+                  <table
+                    style="
+                      width: 100%;
+                      border-collapse: collapse;
+                      margin-top: 1rem;
+                    "
+                  >
+                    <thead>
+                      <tr style="background: #f8f9fa">
+                        <th style="padding: 12px; border: 1px solid #ddd">
+                          Season
+                        </th>
+                        <th style="padding: 12px; border: 1px solid #ddd">
+                          Months
+                        </th>
+                        <th style="padding: 12px; border: 1px solid #ddd">
+                          Price per Person
+                        </th>
+                        <th style="padding: 12px; border: 1px solid #ddd">
+                          Features
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd">
+                          Peak
+                        </td>
+                        <td style="padding: 10px; border: 1px solid #ddd">
+                          Mar-May, Sep-Nov
+                        </td>
+                        <td
+                          style="
+                            padding: 10px;
+                            border: 1px solid #ddd;
+                            color: #e67e22;
+                            font-weight: bold;
+                          "
+                        >
+                          ₹207,500
+                        </td>
+                        <td style="padding: 10px; border: 1px solid #ddd">
+                          Best weather, clear mountain views
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd">
+                          Shoulder
+                        </td>
+                        <td style="padding: 10px; border: 1px solid #ddd">
+                          Dec-Feb
+                        </td>
+                        <td
+                          style="
+                            padding: 10px;
+                            border: 1px solid #ddd;
+                            color: #27ae60;
+                            font-weight: bold;
+                          "
+                        >
+                          ₹182,600
+                        </td>
+                        <td style="padding: 10px; border: 1px solid #ddd">
+                          Cool weather, fewer crowds
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd">
+                          Low
+                        </td>
+                        <td style="padding: 10px; border: 1px solid #ddd">
+                          Jun-Aug
+                        </td>
+                        <td
+                          style="
+                            padding: 10px;
+                            border: 1px solid #ddd;
+                            color: #3498db;
+                            font-weight: bold;
+                          "
+                        >
+                          ₹157,700
+                        </td>
+                        <td style="padding: 10px; border: 1px solid #ddd">
+                          Lush greenery, monsoon discounts
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- INCLUDED -->
+            <div id="included" class="tab-content">
+              <div class="info-section">
+                <h3>What's Included</h3>
+                <ul class="info-list">
+                  <li>Airport transfers on arrival and departure</li>
+                  <li>Private air-conditioned vehicle for all sightseeing</li>
+                  <li>
+                    4 nights accommodation at luxury hotels and heritage resorts
+                  </li>
+                  <li>Daily breakfast at hotels</li>
+                  <li>Welcome dinner with cultural performance</li>
+                  <li>English-speaking professional cultural guide</li>
+                  <li>All monument entrance fees and heritage site tickets</li>
+                  <li>One local SIM card (returnable) during your stay</li>
+                  <li>All government taxes and service charges</li>
+                  <li>Farewell Nepali cultural dinner on last night</li>
+                </ul>
+
+                <h3 style="margin-top: 2rem">What's Not Included</h3>
+                <ul class="info-list" style="color: #999">
+                  <li>International airfare to/from Kathmandu</li>
+                  <li>Nepal visa fee (USD 30 for 15 days)</li>
+                  <li>Travel insurance (recommended)</li>
+                  <li>Lunches and dinners not specified in itinerary</li>
+                  <li>Personal expenses and beverages</li>
+                  <li>Tips for driver and guide (optional but appreciated)</li>
+                  <li>Any services not mentioned in inclusions</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- TERMS -->
+            <div id="terms" class="tab-content">
+              <div class="info-section">
+                <h3>Terms & Conditions</h3>
+                <div
+                  style="
+                    background: #f8f9fa;
+                    padding: 1.5rem;
+                    border-radius: 8px;
+                    border-left: 4px solid #e67e22;
+                  "
+                >
+                  <ul
+                    class="info-list"
+                    style="list-style-type: none; padding-left: 0"
+                  >
+                    <li style="margin-bottom: 1rem">
+                      <strong>Booking:</strong> 30% deposit required to confirm
+                      booking
+                    </li>
+                    <li style="margin-bottom: 1rem">
+                      <strong>Balance Payment:</strong> Full payment 15 days
+                      before arrival
+                    </li>
+                    <li style="margin-bottom: 1rem">
+                      <strong>Cancellation:</strong> 20% fee if cancelled 30
+                      days prior; 50% fee if 15 days prior; No refund if
+                      cancelled within 7 days
+                    </li>
+                    <li style="margin-bottom: 1rem">
+                      <strong>Changes:</strong> Itinerary subject to change due
+                      to weather, local conditions, or heritage site closures
+                    </li>
+                    <li style="margin-bottom: 1rem">
+                      <strong>Responsibility:</strong> Company not responsible
+                      for delays/cancellations due to circumstances beyond
+                      control
+                    </li>
+                    <li style="margin-bottom: 1rem">
+                      <strong>Health:</strong> Participants should be in good
+                      health for moderate walking
+                    </li>
+                    <li style="margin-bottom: 1rem">
+                      <strong>Documents:</strong> Valid passport required for
+                      all international travelers
+                    </li>
+                  </ul>
+                </div>
+
+                <h3 style="margin-top: 2rem">Special Notes</h3>
+                <div
+                  style="
+                    background: #fff8f0;
+                    padding: 1.5rem;
+                    border-radius: 8px;
+                    margin-top: 1rem;
+                  "
+                >
+                  <ul class="info-list">
+                    <li>
+                      Tour involves moderate walking - comfortable shoes
+                      recommended
+                    </li>
+                    <li>
+                      Respect local customs, especially when visiting religious
+                      sites
+                    </li>
+                    <li>Some temples may have restrictions on photography</li>
+                    <li>
+                      Hotel check-in time is 2 PM, check-out time is 12 PM
+                    </li>
+                    <li>
+                      Early check-in/late check-out subject to availability and
+                      additional charge
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Updated VIDEOS & MAP SECTION -->
+            <div id="videosmap" class="tab-content">
+              <div class="info-section">
+                <h3>Experience Kathmandu's Cultural Heritage</h3>
+                <p>
+                  Watch our exclusive videos and explore the cultural route map
+                  to better understand this immersive cultural journey through
+                  Kathmandu Valley.
+                </p>
+
+                <!-- Video Section -->
+                <div class="video-section" style="margin-bottom: 2rem">
+                  <h4 style="color: #e67e22; margin-bottom: 1rem">
+                    <i class="fas fa-video"></i> Kathmandu Cultural Tour
+                    Experience
+                  </h4>
+                  <div class="video-container">
+                    <iframe
+                      width="560"
+                      height="315"
+                      src="https://www.youtube.com/embed/anvQw9GjSqw?si=QHzMoTfoC2Gd8U_a"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                  <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666">
+                    <i class="fas fa-info-circle"></i> Explore the UNESCO World
+                    Heritage sites of Kathmandu Valley and the rich cultural
+                    experiences on this tour.
+                  </p>
+                </div>
+
+                <!-- Map Section -->
+                <div class="map-section">
+                  <h4 style="color: #e67e22; margin-bottom: 1rem">
+                    <i class="fas fa-map-marked-alt"></i> Cultural Tour Route
+                    Map
+                  </h4>
+                  <div class="map-container">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.2208590890626!2d85.31222827620302!3d27.68537742749859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19c06c6a3b7d%3A0x3a0d59e432ff6f6f!2sKathmandu%20Durbar%20Square!5e0!3m2!1sen!2snp!4v1710000000000!5m2!1sen!2snp"
+                      width="100%"
+                      height="400"
+                      style="
+                        border: 0;
+                        border-radius: 12px;
+                        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                      "
+                      allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                      title="Kathmandu Cultural Tour Route Map"
+                    ></iframe>
+                  </div>
+                  <div
+                    style="
+                      margin-top: 1rem;
+                      display: flex;
+                      flex-wrap: wrap;
+                      gap: 1rem;
+                    "
+                  >
+                    <div style="flex: 1; min-width: 200px">
+                      <h5 style="color: #333; margin-bottom: 0.5rem">
+                        <i class="fas fa-route" style="color: #27ae60"></i>
+                        Tour Route Highlights
+                      </h5>
+                      <ul
+                        style="
+                          list-style-type: none;
+                          padding-left: 0;
+                          font-size: 0.9rem;
+                        "
+                      >
+                        <li style="margin-bottom: 0.3rem">
+                          <strong>Kathmandu:</strong> Durbar Square,
+                          Swayambhunath
+                        </li>
+                        <li style="margin-bottom: 0.3rem">
+                          <strong>Pashupatinath:</strong> Sacred Hindu Temple
+                        </li>
+                        <li style="margin-bottom: 0.3rem">
+                          <strong>Boudhanath:</strong> Tibetan Buddhist Stupa
+                        </li>
+                        <li style="margin-bottom: 0.3rem">
+                          <strong>Bhaktapur:</strong> Medieval City & Pottery
+                          Square
+                        </li>
+                        <li style="margin-bottom: 0.3rem">
+                          <strong>Dhulikhel:</strong> Himalayan Views
+                        </li>
+                        <li style="margin-bottom: 0.3rem">
+                          <strong>Nagarkot:</strong> Sunrise & Mountain Resort
+                        </li>
+                        <li style="margin-bottom: 0.3rem">
+                          <strong>Patan:</strong> Fine Arts & Metalwork
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="flex: 1; min-width: 200px">
+                      <h5 style="color: #333; margin-bottom: 0.5rem">
+                        <i class="fas fa-landmark" style="color: #e67e22"></i>
+                        UNESCO Heritage Sites
+                      </h5>
+                      <ul
+                        style="
+                          list-style-type: none;
+                          padding-left: 0;
+                          font-size: 0.9rem;
+                        "
+                      >
+                        <li style="margin-bottom: 0.3rem">
+                          Kathmandu Durbar Square
+                        </li>
+                        <li style="margin-bottom: 0.3rem">
+                          Patan Durbar Square
+                        </li>
+                        <li style="margin-bottom: 0.3rem">
+                          Bhaktapur Durbar Square
+                        </li>
+                        <li style="margin-bottom: 0.3rem">
+                          Swayambhunath Stupa
+                        </li>
+                        <li style="margin-bottom: 0.3rem">Boudhanath Stupa</li>
+                        <li style="margin-bottom: 0.3rem">
+                          Pashupatinath Temple
+                        </li>
+                        <li style="margin-bottom: 0.3rem">
+                          Changu Narayan Temple
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Additional Videos Section -->
+                <div class="additional-videos" style="margin-top: 2rem">
+                  <h4 style="color: #e67e22; margin-bottom: 1rem">
+                    <i class="fas fa-film"></i> More Cultural Experiences
+                  </h4>
+                  <div
+                    style="
+                      display: grid;
+                      grid-template-columns: repeat(
+                        auto-fit,
+                        minmax(250px, 1fr)
+                      );
+                      gap: 1rem;
+                    "
+                  >
+                    <div class="video-thumbnail">
+                      <h5 style="margin-bottom: 0.5rem; color: #333">
+                        Bhaktapur Cultural Heritage
+                      </h5>
+                      <div
+                        style="
+                          position: relative;
+                          padding-bottom: 56.25%;
+                          height: 0;
+                          overflow: hidden;
+                          border-radius: 8px;
+                        "
+                      >
+                        <iframe
+                          width="560"
+                          height="315"
+                          src="https://www.youtube.com/embed/Q3T-bjKo6F0?si=pPieUxqLFn7vsgo7"
+                          title="YouTube video player"
+                          frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          referrerpolicy="strict-origin-when-cross-origin"
+                          allowfullscreen
+                        ></iframe>
+                      </div>
+                    </div>
+                    <div class="video-thumbnail">
+                      <h5 style="margin-bottom: 0.5rem; color: #333">
+                        Traditional Newari Culture
+                      </h5>
+                      <div
+                        style="
+                          position: relative;
+                          padding-bottom: 56.25%;
+                          height: 0;
+                          overflow: hidden;
+                          border-radius: 8px;
+                        "
+                      >
+                        <iframe
+                          width="560"
+                          height="315"
+                          src="https://www.youtube.com/embed/i3Hae7cNG90?si=io9AiL2BRTtP5zu8"
+                          title="YouTube video player"
+                          frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          referrerpolicy="strict-origin-when-cross-origin"
+                          allowfullscreen
+                        ></iframe>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Journey Information -->
+                <div
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #fff8f0 0%,
+                      #ffeaa7 100%
+                    );
+                    padding: 1.5rem;
+                    border-radius: 12px;
+                    margin-top: 2rem;
+                    border: 1px solid rgba(230, 126, 34, 0.1);
+                  "
+                >
+                  <h4 style="color: #e67e22; margin-bottom: 1rem">
+                    <i class="fas fa-camera"></i> Cultural Tour Highlights
+                  </h4>
+                  <div style="display: flex; flex-wrap: wrap; gap: 1.5rem">
+                    <div style="flex: 1; min-width: 200px">
+                      <h5
+                        style="
+                          color: #333;
+                          margin-bottom: 0.5rem;
+                          font-size: 0.95rem;
+                        "
+                      >
+                        <i class="fas fa-walking" style="color: #e67e22"></i>
+                        Cultural Experiences
+                      </h5>
+                      <p
+                        style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        "
+                      >
+                        <strong>Traditional Crafts:</strong> Pottery, thangka
+                        painting, wood carving
+                      </p>
+                      <p
+                        style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        "
+                      >
+                        <strong>Religious Sites:</strong> Hindu temples,
+                        Buddhist stupas, monasteries
+                      </p>
+                      <p style="font-size: 0.9rem; color: #555">
+                        <strong>Local Interactions:</strong> Artisan workshops,
+                        cultural performances
+                      </p>
+                    </div>
+                    <div style="flex: 1; min-width: 200px">
+                      <h5
+                        style="
+                          color: #333;
+                          margin-bottom: 0.5rem;
+                          font-size: 0.95rem;
+                        "
+                      >
+                        <i class="fas fa-utensils" style="color: #27ae60"></i>
+                        Culinary Experiences
+                      </h5>
+                      <p
+                        style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        "
+                      >
+                        <strong>Welcome Dinner:</strong> Traditional Nepali
+                        cuisine with cultural show
+                      </p>
+                      <p
+                        style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        "
+                      >
+                        <strong>Local Cuisine:</strong> Newari delicacies,
+                        traditional thalis
+                      </p>
+                      <p style="font-size: 0.9rem; color: #555">
+                        <strong>Farewell Dinner:</strong> Cultural dinner with
+                        traditional performances
+                      </p>
+                    </div>
+                    <div style="flex: 1; min-width: 200px">
+                      <h5
+                        style="
+                          color: #333;
+                          margin-bottom: 0.5rem;
+                          font-size: 0.95rem;
+                        "
+                      >
+                        <i class="fas fa-hotel" style="color: #dc3545"></i>
+                        Accommodation
+                      </h5>
+                      <p
+                        style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        "
+                      >
+                        <strong>Kathmandu:</strong> Luxury hotel with modern
+                        amenities
+                      </p>
+                      <p
+                        style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        "
+                      >
+                        <strong>Dhulikhel:</strong> Heritage resort with
+                        traditional architecture
+                      </p>
+                      <p style="font-size: 0.9rem; color: #555">
+                        <strong>Nagarkot:</strong> Mountain resort with
+                        Himalayan views
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Video Resources -->
+                <div
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #f8f9ff 0%,
+                      #f0f2ff 100%
+                    );
+                    padding: 1.5rem;
+                    border-radius: 12px;
+                    margin-top: 2rem;
+                    border: 1px solid rgba(88, 101, 242, 0.1);
+                  "
+                >
+                  <h4 style="color: #5865f2; margin-bottom: 1rem">
+                    <i class="fas fa-video" style="color: #5865f2"></i>
+                    Video Resources
+                  </h4>
+                  <div style="display: flex; flex-wrap: wrap; gap: 1.5rem">
+                    <div style="flex: 1; min-width: 250px">
+                      <h5
+                        style="
+                          color: #333;
+                          margin-bottom: 0.5rem;
+                          font-size: 0.95rem;
+                        "
+                      >
+                        <i
+                          class="fas fa-check-circle"
+                          style="color: #28a745"
+                        ></i>
+                        Featured Videos
+                      </h5>
+                      <ul
+                        style="
+                          list-style-type: none;
+                          padding-left: 0;
+                          font-size: 0.9rem;
+                        "
+                      >
+                        <li style="margin-bottom: 0.5rem; color: #555">
+                          ✓ Kathmandu Valley UNESCO Tour
+                        </li>
+                        <li style="margin-bottom: 0.5rem; color: #555">
+                          ✓ Traditional Newari Culture
+                        </li>
+                        <li style="margin-bottom: 0.5rem; color: #555">
+                          ✓ Himalayan Sunrise from Nagarkot
+                        </li>
+                        <li style="margin-bottom: 0.5rem; color: #555">
+                          ✓ Ancient Artisans of Bhaktapur
+                        </li>
+                        <li style="color: #555">
+                          ✓ Spiritual Journey in Pashupatinath
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="flex: 1; min-width: 250px">
+                      <h5
+                        style="
+                          color: #333;
+                          margin-bottom: 0.5rem;
+                          font-size: 0.95rem;
+                        "
+                      >
+                        <i class="fas fa-map" style="color: #e67e22"></i>
+                        Interactive Map Features
+                      </h5>
+                      <ul
+                        style="
+                          list-style-type: none;
+                          padding-left: 0;
+                          font-size: 0.9rem;
+                        "
+                      >
+                        <li style="margin-bottom: 0.5rem; color: #555">
+                          • Day-by-day tour route visualization
+                        </li>
+                        <li style="margin-bottom: 0.5rem; color: #555">
+                          • UNESCO Heritage site locations
+                        </li>
+                        <li style="margin-bottom: 0.5rem; color: #555">
+                          • Hotel and accommodation locations
+                        </li>
+                        <li style="margin-bottom: 0.5rem; color: #555">
+                          • Best photo spots marked
+                        </li>
+                        <li style="color: #555">
+                          • Traditional craft workshop locations
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Booking Card -->
+        <div>
+          <div class="booking-card">
+            <div class="price-section">
+              <div class="price-icon"><i class="fas fa-landmark"></i></div>
+              <div class="price-info">
+                <div class="price-label">Starting from</div>
+                <div><span class="price" id="mainPriceDisplay">₹207,500</span></div>
+                <div style="font-size: 0.8rem; color: #666; margin-top: 0.3rem" id="alternatePriceRow">
+                  <span id="alternatePriceLabel">USD</span> <span id="alternatePrice">2,500</span> <span
+                    id="groupSizeLabel">(for 1-3 persons)</span>
+                </div>
+              </div>
+              <!-- Currency Selector -->
+              <div class="currency-selector-container">
+                <div class="currency-selector">
+                  <div id="selectedCurrency">
+                    <span>INR</span>
+                    <i class="fas fa-chevron-down"></i>
+                  </div>
+                  <div class="currency-dropdown">
+                    <div class="currency-option active" data-currency="INR">INR (₹)</div>
+                    <div class="currency-option" data-currency="USD">USD ($)</div>
+                    <div class="currency-option" data-currency="NPR">NPR (रु)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="background: #fff8f0; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; text-align: center;">
+              <div style="font-size: 0.9rem; color: #e67e22; margin-bottom: 0.5rem"><i class="fas fa-landmark"></i> UNESCO Heritage Tour</div>
+              <div style="font-size: 0.9rem">All 7 Kathmandu Valley UNESCO Sites • Luxury Accommodation</div>
+            </div>
+
+            <div class="quantity-section">
+              <div class="quantity-controls">
+                <button class="qty-btn" onclick="updatePrice(-1)">-</button>
+                <div class="qty-display" id="qtyDisplay">1</div>
+                <button class="qty-btn" onclick="updatePrice(1)">+</button>
+              </div>
+            </div>
+
+            <div class="price-breakdown">
+              <div class="price-row">
+                <span>Base Price (Per Person)</span>
+                <span><span id="baseCurrency">INR</span> <span id="basePrice">207,500</span></span>
+              </div>
+              <div class="price-row total">
+                <span>Total</span>
+                <span><span id="totalCurrency">INR</span> <span id="totalPrice">207,500</span></span>
+              </div>
+            </div>
+
+            <button class="booking-btn btn-instant" onclick="showBookingForm()">Instant Booking</button>
+            <button class="booking-btn btn-customize" onclick="showEnquiryModal()">Customize Tour</button>
+
+            <div class="contact-section">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <h3>Direct Booking Assistance</h3>
+              <div class="phone-numbers">
+                <a
+                  href="https://wa.me/9779851140110"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style="text-decoration: none; color: inherit; display: block"
+                >
+                  +977-9851140110
+                </a>
+                <a
+                  href="https://wa.me/9779856017867"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style="text-decoration: none; color: inherit; display: block"
+                >
+                  +977-9856017867
+                </a>
+              </div>
+              <div style="margin-top: 0.5rem; font-size: 0.9rem">
+                <i class="fab fa-whatsapp" style="color: #25D366;"></i> WhatsApp Available
+              </div>
+            </div>
+
+            <div
+              style="
+                margin-top: 1.5rem;
+                padding: 1rem;
+                background: #f8f9fa;
+                border-radius: 8px;
+              "
+            >
+              <h4 style="color: #333; margin-bottom: 0.5rem; font-size: 1rem">
+                <i class="fas fa-star" style="color: #f1c40f"></i> Why Book With
+                Us
+              </h4>
+              <ul style="font-size: 0.8rem; color: #555; padding-left: 1.2rem">
+                <li>Local cultural experts</li>
+                <li>Flexible customization options</li>
+                <li>Best price guarantee</li>
+                <li>24/7 customer support</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOTELS SECTION -->
+    <div class="tour-facilities-section">
+      <h3 class="facilities-title"><i class="fas fa-hotel"></i> HERITAGE HOTELS</h3>
+      <div class="facilities-slider-container">
+        <div class="facilities-slider" id="hotelsSlider">
+          <div class="facility-card">
+            <div class="facility-image-wrapper"><img src="../../images/Kathmandu.jpg" alt="Dwarika's Hotel"
+                class="facility-image" /></div>
+            <div class="facility-info">
+              <h4>Dwarika's Hotel</h4>
+              <p class="facility-location">Kathmandu (5-Star Heritage)</p>
+            </div>
+          </div>
+          <div class="facility-card">
+            <div class="facility-image-wrapper"><img src="../../images/Kathmandu1.jpg" alt="The Pavilion"
+                class="facility-image" /></div>
+            <div class="facility-info">
+              <h4>The Pavilion</h4>
+              <p class="facility-location">Kathmandu (Luxury Boutique)</p>
+            </div>
+          </div>
+          <div class="facility-card">
+            <div class="facility-image-wrapper"><img src="../../images/kathmandu2.jpg" alt="Mirage Dhulikhel"
+                class="facility-image" /></div>
+            <div class="facility-info">
+              <h4>Mirage Dhulikhel</h4>
+              <p class="facility-location">Dhulikhel (Heritage Resort)</p>
+            </div>
+          </div>
+          <div class="facility-card">
+            <div class="facility-image-wrapper"><img src="../../images/Kathmandu3.jpg" alt="Club Himalaya"
+                class="facility-image" /></div>
+            <div class="facility-info">
+              <h4>Club Himalaya</h4>
+              <p class="facility-location">Nagarkot (Mountain Resort)</p>
+            </div>
+          </div>
+          <div class="facility-card">
+            <div class="facility-image-wrapper"><img src="../../images/Kathmandu.jpg" alt="Hyatt Regency"
+                class="facility-image" /></div>
+            <div class="facility-info">
+              <h4>Hyatt Regency</h4>
+              <p class="facility-location">Kathmandu (5-Star Luxury)</p>
+            </div>
+          </div>
+        </div>
+        <button class="facilities-nav-btn prev" onclick="scrollFacilities('hotelsSlider', -1)"><i
+            class="fas fa-chevron-left"></i></button>
+        <button class="facilities-nav-btn next" onclick="scrollFacilities('hotelsSlider', 1)"><i
+            class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+
+    <!-- VEHICLES SECTION -->
+    <div class="tour-facilities-section">
+      <h3 class="facilities-title"><i class="fas fa-car"></i> TOUR VEHICLES</h3>
+      <div class="facilities-slider-container">
+        <div class="facilities-slider" id="vehiclesSlider">
+          <a href="../Vehicle/luxury-car.html" class="facility-card clickable">
+            <div class="facility-image-wrapper"><img src="../../images/car.webp" alt="Luxury Sedan" class="facility-image" />
+              <div class="facility-overlay"><i class="fas fa-arrow-right"></i></div>
+            </div>
+            <div class="facility-info">
+              <h4>Luxury Sedan</h4>
+              <p class="facility-location">1-3 Person • A/C</p>
+            </div>
+          </a>
+          <a href="../vehicle/luxury-suv.html" class="facility-card clickable">
+            <div class="facility-image-wrapper"><img src="../../images/scorpio.jpg" alt="Luxury SUV"
+                class="facility-image" />
+              <div class="facility-overlay"><i class="fas fa-arrow-right"></i></div>
+            </div>
+            <div class="facility-info">
+              <h4>Luxury SUV</h4>
+              <p class="facility-location">4-6 Person • A/C</p>
+            </div>
+          </a>
+          <a href="../vehicle/toyota-alphard.html" class="facility-card clickable">
+            <div class="facility-image-wrapper"><img src="../../images/luxury-vehicle.jpg" alt="Toyota Alphard"
+                class="facility-image" />
+              <div class="facility-overlay"><i class="fas fa-arrow-right"></i></div>
+            </div>
+            <div class="facility-info">
+              <h4>Toyota Alphard</h4>
+              <p class="facility-location">7-8 Person • Luxury Van</p>
+            </div>
+          </a>
+          <a href="../vehicle/hiace-van.html" class="facility-card clickable">
+            <div class="facility-image-wrapper"><img src="../../images/hiace-vehicle.jpeg" alt="Hiace Van"
+                class="facility-image" />
+              <div class="facility-overlay"><i class="fas fa-arrow-right"></i></div>
+            </div>
+            <div class="facility-info">
+              <h4>Hiace Van</h4>
+              <p class="facility-location">8-12 Person • A/C</p>
+            </div>
+          </a>
+        </div>
+        <button class="facilities-nav-btn prev" onclick="scrollFacilities('vehiclesSlider', -1)"><i
+            class="fas fa-chevron-left"></i></button>
+        <button class="facilities-nav-btn next" onclick="scrollFacilities('vehiclesSlider', 1)"><i
+            class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Honest Travel</h3>
+          <p>
+            Your trusted partner for authentic Himalayan experiences and
+            cultural journeys throughout Nepal.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Kathmandu, Nepal</p>
+          <p>info@honesttraveltours.com</p>
+          <p>+977-9851140110, +977-9856017867</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 HONEST TRAVEL Tours and Expedition. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      /* ========== CONSTANTS AND CONFIGURATION ========== */
+
+      const basePrice = 207500;
+      const price1to3 = basePrice;                    // ₹207,500
+      const price4to6 = basePrice - 3125;              // ₹204,375 (207,500 - 3,125)
+      const price7plus = basePrice - 6250;              // ₹201,250 (207,500 - 6,250)
+
+      const marketUsdToInr = 92;
+      const markupPercent = 15;
+
+      const exchangeRates = {
+        INR: { rate: 1, symbol: "₹", name: "INR" },
+        USD: {rate: (1 / marketUsdToInr) * (1 + markupPercent / 100), symbol: "$", name: "USD",},
+        NPR: { rate: 1.6, symbol: "रु", name: "NPR" },
+      };
+
+      let qty = 1;
+      let currentCurrency = "INR";
+
+      const currentPackage = {
+        name: "5-Day Kathmandu Cultural Tour",
+        duration: "4 Nights / 5 Days",
+        category: "Explore the Heritage and Traditions of the Valley",
+        altitude: "2,195m at Nagarkot",
+        location: "Kathmandu Valley, Nepal",
+      };
+
+      /* ========== HELPER FUNCTIONS ========== */
+
+      function getUnitPrice(persons) {
+        if (persons >= 7) return price7plus;
+        if (persons >= 4) return price4to6;
+        return price1to3;
+      }
+
+      function getConvertedPrice(persons, targetCurrency) {
+        const inrPrice = getUnitPrice(persons);
+        const rate = exchangeRates[targetCurrency]?.rate || 1;
+        return inrPrice * rate;
+      }
+
+      function getUnitUSDPrice(persons) {
+        return getConvertedPrice(persons, "USD");
+      }
+
+      function getUnitNPRPrice(persons) {
+        return getConvertedPrice(persons, "NPR");
+      }
+
+      function getCurrencySymbol() {
+        return exchangeRates[currentCurrency]?.symbol || "₹";
+      }
+
+      function formatNumber(num) {
+        if (num >= 1000) {
+          return Math.round(num).toLocaleString("en-IN");
+        } else if (num >= 100) {
+          return Math.round(num).toString();
+        } else {
+          return num.toFixed(2);
+        }
+      }
+
+      function getGroupSizeText(persons) {
+        if (persons >= 7) return "7+ People";
+        if (persons >= 4) return "4-6 People";
+        return "1-3 People";
+      }
+
+      function getGroupSizeLabel(persons) {
+        if (persons >= 7) return "(for 7+ persons)";
+        if (persons >= 4) return "(for 4-6 persons)";
+        return "(for 1-3 persons)";
+      }
+
+      function getDiscountText(persons) {
+        if (persons >= 7) return "Save ₹6,250 per person";
+        if (persons >= 4) return "Save ₹3,125 per person";
+        return "";
+      }
+
+      function getDisplayUnitPrice(persons) {
+        if (currentCurrency === "USD") return getUnitUSDPrice(persons);
+        if (currentCurrency === "NPR") return getUnitNPRPrice(persons);
+        return getUnitPrice(persons);
+      }
+
+      /* ========== PRICE UPDATE FUNCTION ========== */
+
+      function updatePrice(change) {
+        qty += change;
+        if (qty < 1) qty = 1;
+        document.getElementById("qtyDisplay").textContent = qty;
+
+        const unitPrice = getUnitPrice(qty);
+        const unitUSDPrice = getUnitUSDPrice(qty);
+        const displayUnitPrice = getDisplayUnitPrice(qty);
+
+        let alternatePrice, alternateLabel;
+        if (currentCurrency === "USD") {
+          alternatePrice = unitPrice;
+          alternateLabel = "INR";
+        } else if (currentCurrency === "NPR") {
+          alternatePrice = unitUSDPrice;
+          alternateLabel = "USD";
+        } else {
+          alternatePrice = unitUSDPrice;
+          alternateLabel = "USD";
+        }
+
+        document.getElementById("mainPriceDisplay").textContent = getCurrencySymbol() + " " + formatNumber(displayUnitPrice);
+        document.getElementById("basePrice").textContent = formatNumber(displayUnitPrice);
+        document.getElementById("totalPrice").textContent = formatNumber(qty * displayUnitPrice);
+        document.getElementById("baseCurrency").textContent = currentCurrency;
+        document.getElementById("totalCurrency").textContent = currentCurrency;
+
+        let alternateRow = document.getElementById("alternatePriceRow");
+        if (!alternateRow) {
+          const priceInfo = document.querySelector('.price-info');
+          alternateRow = document.createElement('div');
+          alternateRow.id = 'alternatePriceRow';
+          alternateRow.style.fontSize = '0.8rem';
+          alternateRow.style.color = '#666';
+          alternateRow.style.marginTop = '0.3rem';
+          priceInfo.appendChild(alternateRow);
+        }
+
+        const discountText = getDiscountText(qty);
+        const discountHtml = discountText ? `<br><span style="color: #28a745; font-size: 0.75rem;"><i class="fas fa-tag"></i> ${discountText}</span>` : '';
+        
+        alternateRow.innerHTML = `<span id="alternatePriceLabel">${alternateLabel}</span> <span id="alternatePrice">${formatNumber(alternatePrice)}</span> <span id="groupSizeLabel">${getGroupSizeLabel(qty)}</span>${discountHtml}`;
+      }
+
+      /* ========== CURRENCY CONVERTER ========== */
+
+      function initializeCurrencyConverter() {
+        const currencySelector = document.querySelector(".currency-selector");
+        const selectedCurrency = document.getElementById("selectedCurrency");
+        const currencyOptions = document.querySelectorAll(".currency-option");
+        const priceElements = document.querySelectorAll(".price-display");
+        const priceTableHeader = document.getElementById("priceTableHeader");
+
+        if (selectedCurrency) {
+          selectedCurrency.addEventListener("click", function (e) {
+            e.stopPropagation();
+            currencySelector.classList.toggle("active");
+          });
+        }
+
+        currencyOptions.forEach((option) => {
+          option.addEventListener("click", function () {
+            const newCurrency = this.getAttribute("data-currency");
+
+            if (newCurrency === "USD") {
+              selectedCurrency.querySelector("span").textContent = "USD";
+            } else if (newCurrency === "INR") {
+              selectedCurrency.querySelector("span").textContent = "INR";
+            } else if (newCurrency === "NPR") {
+              selectedCurrency.querySelector("span").textContent = "NPR";
+            }
+
+            currentCurrency = newCurrency;
+
+            currencyOptions.forEach((opt) => opt.classList.remove("active"));
+            this.classList.add("active");
+
+            if (priceTableHeader) {
+              priceTableHeader.textContent = `Cost Per Person`;
+            }
+
+            convertPrices(newCurrency);
+            updatePrice(0);
+
+            currencySelector.classList.remove("active");
+          });
+        });
+
+        document.addEventListener("click", function (e) {
+          if (currencySelector && !currencySelector.contains(e.target)) {
+            currencySelector.classList.remove("active");
+          }
+        });
+
+        function convertPrices(targetCurrency) {
+          const targetSymbol = exchangeRates[targetCurrency]?.symbol || "₹";
+
+          priceElements.forEach((element) => {
+            let convertedValue;
+
+            if (targetCurrency === "NPR" && element.hasAttribute("data-npr")) {
+              convertedValue = parseFloat(element.getAttribute("data-npr"));
+            } else if (targetCurrency === "USD" && element.hasAttribute("data-usd")) {
+              convertedValue = parseFloat(element.getAttribute("data-usd"));
+            } else {
+              const inrValue = parseFloat(element.getAttribute("data-inr"));
+              const targetRate = exchangeRates[targetCurrency]?.rate || 1;
+              convertedValue = inrValue * targetRate;
+            }
+
+            element.textContent = targetSymbol + " " + formatNumber(convertedValue);
+          });
+        }
+
+        convertPrices("INR");
+      }
+
+      /* ========== NAVIGATION BURGER MENU ========== */
+
+      function initializeNavigation() {
+        const navBurger = document.getElementById("navBurger");
+        const mainNav = document.getElementById("mainNav");
+
+        if (navBurger) {
+          navBurger.addEventListener("click", function () {
+            this.classList.toggle("active");
+            mainNav.classList.toggle("active");
+            document.body.classList.toggle("nav-open");
+          });
+
+          const navLinks = mainNav.querySelectorAll("a");
+          navLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+              navBurger.classList.remove("active");
+              mainNav.classList.remove("active");
+              document.body.classList.remove("nav-open");
+            });
+          });
+        }
+      }
+
+      /* ========== TAB SYSTEM ========== */
+
+      function initializeTabs() {
+        const tabBurger = document.getElementById("tabBurger");
+        const tabsMenu = document.getElementById("tabsMenu");
+
+        if (tabBurger) {
+          tabBurger.addEventListener("click", function () {
+            this.classList.toggle("active");
+            tabsMenu.classList.toggle("active");
+          });
+        }
+      }
+
+      function openTab(tabId) {
+        document.querySelectorAll(".tab-content").forEach((c) => c.classList.remove("active"));
+        document.querySelectorAll(".tab").forEach((t) => t.classList.remove("active"));
+
+        document.getElementById(tabId).classList.add("active");
+        event.currentTarget.classList.add("active");
+
+        const currentTabName = document.getElementById("currentTabName");
+        if (currentTabName) {
+          currentTabName.textContent = event.currentTarget.textContent.trim();
+        }
+
+        const tabBurger = document.getElementById("tabBurger");
+        const tabsMenu = document.getElementById("tabsMenu");
+        if (tabBurger) {
+          tabBurger.classList.remove("active");
+          tabsMenu.classList.remove("active");
+        }
+      }
+
+      /* ========== COLLAPSIBLE ITINERARY ========== */
+
+      function toggleDay(headerElement) {
+        headerElement.closest(".itinerary-day").classList.toggle("active");
+      }
+
+      function toggleAllDays(btn) {
+        const allDays = document.querySelectorAll(".itinerary-day");
+        const isExpanding = btn.innerText.trim() === "Expand All";
+
+        allDays.forEach((day) => {
+          if (isExpanding) {
+            day.classList.add("active");
+          } else {
+            day.classList.remove("active");
+          }
+        });
+
+        btn.innerText = isExpanding ? "Collapse All" : "Expand All";
+      }
+
+      /* ========== IMAGE GALLERY ========== */
+
+      let currentImageIndex = 0;
+      const images = document.querySelectorAll(".gallery-image");
+      const indicators = document.querySelectorAll(".indicator");
+
+      function showImage(index) {
+        if (index >= images.length) currentImageIndex = 0;
+        else if (index < 0) currentImageIndex = images.length - 1;
+        else currentImageIndex = index;
+
+        images.forEach((img) => img.classList.remove("active"));
+        indicators.forEach((ind) => ind.classList.remove("active"));
+
+        images[currentImageIndex].classList.add("active");
+        indicators[currentImageIndex].classList.add("active");
+      }
+
+      function changeImage(step) { showImage(currentImageIndex + step); }
+      function setImage(index) { showImage(index); }
+
+      setInterval(() => changeImage(1), 5000);
+
+      /* ========== BOOKING MODAL FUNCTIONS ========== */
+
+      function generateBookingId() {
+        const prefix = "HTT";
+        const timestamp = Date.now().toString().slice(-8);
+        const random = Math.floor(Math.random() * 1000).toString().padStart(3, "0");
+        const date = new Date();
+        const year = date.getFullYear().toString().slice(-2);
+        const month = (date.getMonth() + 1).toString().padStart(2, "0");
+        return `${prefix}-${year}${month}-${timestamp}-${random}`;
+      }
+
+      function showBookingForm() {
+        showConfirmationModal();
+      }
+
+      function showConfirmationModal() {
+        const displayUnitPrice = getDisplayUnitPrice(qty);
+        const symbol = getCurrencySymbol();
+        const groupSizeText = getGroupSizeText(qty);
+
+        const modalOverlay = document.createElement("div");
+        modalOverlay.className = "confirmation-modal";
+
+        modalOverlay.innerHTML = `
+          <div>
+            <div style="text-align: center;">
+              <div style="font-size: 3rem; color: #e67e22; margin-bottom: 15px;">
+                <i class="fas fa-landmark"></i>
+              </div>
+              <h3 style="color: #2c3e50; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <i class="fas fa-calendar-check" style="color: #e67e22;"></i> Confirm Cultural Tour Booking
+              </h3>
+              <div style="font-size: 1.1rem; color: #e67e22; font-weight: 600; margin-bottom: 20px; background: rgba(230, 126, 34, 0.1); padding: 12px; border-radius: 8px; border-left: 4px solid #e67e22;">
+                5-Day Kathmandu Cultural Tour
+              </div>
+              <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 20px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Duration:</span><span style="font-weight: 600;">4 Nights / 5 Days</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Tour Type:</span><span style="font-weight: 600;">Cultural Heritage Tour</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Group Size:</span><span style="font-weight: 600;">${groupSizeText}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Participants:</span><span style="font-weight: 600;">${qty} person(s)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Price Per Person:</span><span style="font-weight: 600;">${symbol} ${formatNumber(displayUnitPrice)}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 1.2rem; color: #28a745;">
+                  <span>Total Amount:</span><span style="font-weight: 700;">${symbol} ${formatNumber(qty * displayUnitPrice)}</span>
+                </div>
+              </div>
+              <div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; margin: 20px 0;">
+                <h4 style="color: #388e3c; margin-bottom: 0.5rem; font-size: 0.9rem;"><i class="fas fa-info-circle"></i> Important Information</h4>
+                <p style="margin: 0; color: #388e3c; font-size: 0.9rem;">Includes all UNESCO sites • Luxury accommodation • Expert cultural guide</p>
+              </div>
+              <p style="color: #666; margin-bottom: 25px; font-size: 16px;">Are you ready to book this immersive cultural journey through Kathmandu Valley?</p>
+              <div class="confirmation-buttons" style="display: flex; gap: 15px; margin-top: 25px;">
+                <button id="confirmCancel" class="cancel-choice" style="padding: 10px 20px; background: #f5f5f5; border: none; border-radius: 6px; color: #666; cursor: pointer; transition: all 0.3s ease; flex: 1;">Cancel</button>
+                <button id="confirmBook" class="confirm-book-btn" style="background: linear-gradient(135deg, #e67e22 0%, #d35400 100%); color: white; border: none; padding: 14px 24px; border-radius: 8px; font-size: 16px; font-weight: 500; cursor: pointer; flex: 1; transition: all 0.3s ease;">Yes, Book Now</button>
+              </div>
+            </div>
+          </div>
+        `;
+
+        document.body.appendChild(modalOverlay);
+        document.body.classList.add("modal-open");
+
+        modalOverlay.querySelector("#confirmCancel").addEventListener("click", () => closeModal(modalOverlay));
+        modalOverlay.querySelector("#confirmBook").addEventListener("click", () => {
+          closeModal(modalOverlay);
+          showBookingModal();
+        });
+        modalOverlay.addEventListener("click", (e) => { if (e.target === modalOverlay) closeModal(modalOverlay); });
+      }
+
+      function showBookingModal() {
+        const displayUnitPrice = getDisplayUnitPrice(qty);
+        const symbol = getCurrencySymbol();
+        const groupSizeText = getGroupSizeText(qty);
+
+        const modalOverlay = document.createElement("div");
+        modalOverlay.className = "booking-modal";
+
+        modalOverlay.innerHTML = `
+          <div>
+            <button class="close-modal">×</button>
+            <h2 style="color: #2c3e50; margin-bottom: 1.5rem; text-align: center; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+              <i class="fas fa-landmark" style="color: #e67e22;"></i> Book Kathmandu Cultural Tour
+            </h2>
+            <form id="bookingForm">
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">Full Name *</label>
+                <input type="text" id="bookingName" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box;" placeholder="Enter your full name">
+              </div>
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">Email Address *</label>
+                <input type="email" id="bookingEmail" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box;" placeholder="your@email.com">
+              </div>
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">Phone Number *</label>
+                <input type="tel" id="bookingPhone" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box;" placeholder="+977 98XXXXXXXX">
+              </div>
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">Country *</label>
+                <input type="text" id="bookingCountry" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box;" placeholder="Your country">
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div>
+                  <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">Persons *</label>
+                  <input type="number" min="1" value="${qty}" id="formPersons" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box;">
+                </div>
+                <div>
+                  <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">Preferred Date *</label>
+                  <input type="date" id="bookingDate" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box;">
+                </div>
+              </div>
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">Special Requirements</label>
+                <textarea id="bookingRequirements" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; min-height: 100px; resize: vertical; box-sizing: border-box;" placeholder="Any dietary restrictions, health concerns, or special requests..."></textarea>
+              </div>
+              <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; margin: 1rem 0;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Tour Package:</span><span style="font-weight: bold;">Kathmandu Cultural Tour</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Duration:</span><span>4 Nights / 5 Days</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Group Size:</span><span id="formGroupSize">${groupSizeText}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Price Per Person:</span><span id="formPricePerPerson">${symbol} ${formatNumber(displayUnitPrice)}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Persons:</span><span id="formTotalPersons">${qty}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 1.2rem; color: #28a745;">
+                  <span>Total Amount:</span>
+                  <span><span id="formCurrency">${currentCurrency}</span> <span id="formTotalAmount">${formatNumber(qty * displayUnitPrice)}</span></span>
+                </div>
+              </div>
+              <button type="submit" style="background: linear-gradient(135deg, #e67e22 0%, #d35400 100%); color: white; border: none; padding: 1rem; border-radius: 6px; font-size: 1.1rem; font-weight: 600; cursor: pointer; margin-top: 1rem; width: 100%;">
+                <i class="fas fa-paper-plane"></i> Submit Booking Request
+              </button>
+              <p style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 1rem;"><i class="fas fa-info-circle"></i> Includes all UNESCO sites • Luxury accommodation • Expert guide</p>
+              <p style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 0.5rem;">We'll contact you within 24 hours to confirm your booking</p>
+            </form>
+          </div>
+        `;
+
+        document.body.appendChild(modalOverlay);
+        document.body.classList.add("modal-open");
+
+        const modalContent = modalOverlay.querySelector("div");
+        modalContent.style.webkitOverflowScrolling = "touch";
+
+        modalOverlay.querySelector(".close-modal").addEventListener("click", () => closeModal(modalOverlay));
+        modalOverlay.addEventListener("click", (e) => { if (e.target === modalOverlay) closeModal(modalOverlay); });
+
+        const personsInput = modalOverlay.querySelector("#formPersons");
+        const groupSizeSpan = modalOverlay.querySelector("#formGroupSize");
+        const totalPersonsSpan = modalOverlay.querySelector("#formTotalPersons");
+        const totalAmountSpan = modalOverlay.querySelector("#formTotalAmount");
+        const pricePerPersonSpan = modalOverlay.querySelector("#formPricePerPerson");
+        const formCurrencySpan = modalOverlay.querySelector("#formCurrency");
+
+        function updateFormTotal() {
+          const persons = Math.max(1, parseInt(personsInput.value) || 1);
+          personsInput.value = persons;
+          const dispPrice = getDisplayUnitPrice(persons);
+          const sym = getCurrencySymbol();
+
+          groupSizeSpan.textContent = getGroupSizeText(persons);
+          totalPersonsSpan.textContent = persons;
+          pricePerPersonSpan.textContent = sym + " " + formatNumber(dispPrice);
+          totalAmountSpan.textContent = formatNumber(persons * dispPrice);
+          formCurrencySpan.textContent = currentCurrency;
+
+          qty = persons;
+          updatePrice(0);
+        }
+
+        personsInput.addEventListener("input", updateFormTotal);
+
+        // Handle form submission
+        modalOverlay.querySelector("#bookingForm").addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          const persons = Math.max(1, parseInt(personsInput.value) || 1);
+          const dispPrice = getDisplayUnitPrice(persons);
+
+          const formData = {
+            name: modalOverlay.querySelector("#bookingName").value.trim(),
+            email: modalOverlay.querySelector("#bookingEmail").value.trim(),
+            phone: modalOverlay.querySelector("#bookingPhone").value.trim(),
+            country: modalOverlay.querySelector("#bookingCountry").value.trim(),
+            persons: persons,
+            date: modalOverlay.querySelector("#bookingDate").value || "Not specified",
+            requirements: modalOverlay.querySelector("#bookingRequirements").value.trim() || "None",
+            package: currentPackage.name,
+            totalAmount: persons * dispPrice,
+            pricePerPerson: dispPrice,
+            currency: currentCurrency,
+            duration: currentPackage.duration,
+            groupSize: getGroupSizeText(persons),
+          };
+
+          // Validation
+          if (!formData.name) {
+            showMobileAlert("error", "Name Required", "Please enter your full name");
+            modalOverlay.querySelector("#bookingName").focus();
+            return;
+          }
+          if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
+            showMobileAlert("error", "Valid Email Required", "Please enter a valid email address");
+            modalOverlay.querySelector("#bookingEmail").focus();
+            return;
+          }
+          if (!formData.phone || !/^\+?[\d\s\-\(\)]{10,}$/.test(formData.phone)) {
+            showMobileAlert("error", "Valid Phone Required", "Please enter a valid phone number");
+            modalOverlay.querySelector("#bookingPhone").focus();
+            return;
+          }
+          if (!formData.country) {
+            showMobileAlert("error", "Country Required", "Please enter your country");
+            modalOverlay.querySelector("#bookingCountry").focus();
+            return;
+          }
+
+          submitBookingDirectly(formData, modalOverlay);
+        });
+      }
+
+      function submitBookingDirectly(formData, bookingModal) {
+        const submitBtn = bookingModal.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.disabled = true;
+
+        const bookingId = generateBookingId();
+        const symbol = exchangeRates[formData.currency]?.symbol || "₹";
+
+        const whatsappMessage =
+          `*CULTURAL TOUR BOOKING REQUEST - Kathmandu Cultural Tour*\n` +
+          `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
+          ` *Booking Details*\n` +
+          `Booking ID: ${bookingId}\n` +
+          `Package: ${formData.package}\n` +
+          `Duration: ${formData.duration}\n` +
+          `Preferred Date: ${formData.date}\n\n` +
+          ` *Customer Information*\n` +
+          `Name: ${formData.name}\n` +
+          `Email: ${formData.email}\n` +
+          `Phone: ${formData.phone}\n` +
+          `Country: ${formData.country}\n` +
+          `Number of Persons: ${formData.persons}\n\n` +
+          ` *Payment Details*\n` +
+          `Price per Person (${formData.currency}): ${symbol}${formatNumber(formData.pricePerPerson)}\n` +
+          `Total Amount (${formData.currency}): ${symbol}${formatNumber(formData.totalAmount)}\n\n` +
+          ` *Special Requirements*\n` +
+          `${formData.requirements || "None"}\n\n` +
+          `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+          `Submitted via HONEST TRAVEL TOURS AND EXPEDITION Website`;
+
+        const templateParams = {
+          booking_id: bookingId,
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          country: formData.country,
+          package_duration: formData.duration,
+          package_name: formData.package,
+          preferred_date: formData.date,
+          special_requirements: formData.requirements,
+          number_of_person: formData.persons,
+          company_name: "Honest Travel Tours and Expedition",
+          price_per_person: `${formData.currency} ${formatNumber(formData.pricePerPerson)}`,
+          total_amount: `${formData.currency} ${formatNumber(formData.totalAmount)}`,
+        };
+
+        const phoneNumber = "9779851140110";
+        window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`, "_blank");
+
+        emailjs.send("service_9fq6tb6", "template_kmaga4l", templateParams)
+          .then(
+            function (response) {
+              console.log("Email sent successfully:", response);
+              closeModal(bookingModal);
+              showMobileAlert(
+                "success",
+                "Booking Request Sent!",
+                `Your cultural tour booking request has been submitted successfully!\n\nBooking ID: ${bookingId}\n\nWe have opened WhatsApp and sent an email confirmation. Our team will contact you within 24 hours.`
+              );
+            },
+            function (error) {
+              console.error("Email send failed:", error);
+              closeModal(bookingModal);
+              showMobileAlert(
+                "info",
+                "WhatsApp Opened",
+                `Your booking request has been sent via WhatsApp but there was an issue sending the email.\n\nBooking ID: ${bookingId}\n\nPlease check your WhatsApp messages. Our team will contact you soon.`
+              );
+            }
+          )
+          .finally(() => {
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+          });
+      }
+
+      function showEnquiryModal() {
+        const packageName = "5-Day Kathmandu Cultural Tour";
+        const packagePrice = "INR 201,250 - 207,500 / USD 2,424 - 2,500 / NPR 322,000 - 332,000";
+        const packageDuration = "4 Nights / 5 Days";
+        const packageCategory = "Explore the Heritage and Traditions of the Valley";
+        const packageAltitude = "2,195m at Nagarkot";
+        const packageLocation = "Kathmandu Valley, Nepal";
+
+        const params = new URLSearchParams({
+          package: packageName,
+          price: packagePrice,
+          duration: packageDuration,
+          category: packageCategory,
+          altitude: packageAltitude,
+          location: packageLocation,
+          source: "kathmandu-cultural-5days",
+        }).toString();
+
+        window.location.href = `../enquiry-form.html?${params}`;
+      }
+
+      /* ========== MOBILE ALERT ========== */
+
+      function showMobileAlert(type, title, message) {
+        const alertOverlay = document.createElement("div");
+        alertOverlay.className = "mobile-alert-overlay";
+
+        alertOverlay.innerHTML = `
+          <div>
+            <div class="mobile-alert ${type}" style="text-align: center;">
+              <div class="mobile-alert-icon">
+                ${type === "success" ? '<i class="fas fa-check-circle"></i>' : '<i class="fas fa-exclamation-triangle"></i>'}
+              </div>
+              <h3 style="color: #2c3e50; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                ${type === "success" ? '<i class="fas fa-check-circle" style="color: #28a745;"></i>' : '<i class="fas fa-exclamation-triangle" style="color: #dc3545;"></i>'}
+                ${title}
+              </h3>
+              <div class="mobile-alert-message">${message.replace(/\n/g, "<br>")}</div>
+              <button class="mobile-alert-ok-btn" onclick="closeModal(this.closest('.mobile-alert-overlay'))">OK</button>
+            </div>
+          </div>
+        `;
+
+        document.body.appendChild(alertOverlay);
+        document.body.classList.add("modal-open");
+
+        if (type === "success") {
+          setTimeout(() => {
+            if (alertOverlay.parentNode) closeModal(alertOverlay);
+          }, 5000);
+        }
+
+        alertOverlay.addEventListener("click", (e) => {
+          if (e.target === alertOverlay) closeModal(alertOverlay);
+        });
+      }
+
+      /* ========== CLOSE MODAL ========== */
+
+      function closeModal(modalOverlay) {
+        modalOverlay.style.animation = "fadeOut 0.3s ease";
+        setTimeout(() => {
+          if (modalOverlay.parentNode) document.body.removeChild(modalOverlay);
+          if (!document.querySelector(".confirmation-modal, .booking-modal, .submission-modal, .mobile-alert-overlay")) {
+            document.body.classList.remove("modal-open");
+          }
+        }, 300);
+      }
+
+      /* ========== FACILITIES SLIDER ========== */
+
+      function scrollFacilities(sliderId, direction) {
+        const slider = document.getElementById(sliderId);
+        slider.scrollBy({ left: direction * 300, behavior: "smooth" });
+      }
+
+      /* ========== CLOSE MENUS WHEN CLICKING OUTSIDE ========== */
+
+      function initializeClickOutside() {
+        const navBurger = document.getElementById("navBurger");
+        const mainNav = document.getElementById("mainNav");
+        const tabBurger = document.getElementById("tabBurger");
+        const tabsMenu = document.getElementById("tabsMenu");
+
+        document.addEventListener("click", function (event) {
+          if (navBurger && !navBurger.contains(event.target) && !mainNav.contains(event.target)) {
+            navBurger.classList.remove("active");
+            mainNav.classList.remove("active");
+            document.body.classList.remove("nav-open");
+          }
+          if (tabBurger && !tabBurger.contains(event.target) && !tabsMenu.contains(event.target)) {
+            tabBurger.classList.remove("active");
+            tabsMenu.classList.remove("active");
+          }
+        });
+      }
+
+      /* ========== INITIALIZE EVERYTHING ========== */
+
+      document.addEventListener("DOMContentLoaded", function () {
+        initializeNavigation();
+        initializeTabs();
+        initializeCurrencyConverter();
+        initializeClickOutside();
+        updatePrice(0);
+      });
+
+      window.updatePrice = updatePrice;
+      window.changeImage = changeImage;
+      window.setImage = setImage;
+      window.openTab = openTab;
+      window.toggleDay = toggleDay;
+      window.toggleAllDays = toggleAllDays;
+      window.showBookingForm = showBookingForm;
+      window.showEnquiryModal = showEnquiryModal;
+      window.scrollFacilities = scrollFacilities;
+      window.closeModal = closeModal;
+    </script>
+  </body>
+</html>

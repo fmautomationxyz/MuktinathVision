@@ -1,0 +1,3211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upper Mustang 4WD Jeep Tour - Honest Travel Tours</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../../css/individual-packages.css" />
+
+  <!-- Add EmailJS script -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    (function () {
+      // Initialize EmailJS with your public key
+      emailjs.init("cjcB4sLQKii3OPWJ1");
+    })();
+  </script>
+
+  <style>
+    /* Currency Selector Styles */
+    .currency-selector-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 20px;
+    }
+
+    .currency-selector {
+      position: relative;
+      display: inline-block;
+    }
+
+    #selectedCurrency {
+      background: rgba(255, 152, 0, 0.1);
+      border: 1px solid #ff9800;
+      border-radius: 6px;
+      padding: 8px 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      color: #ff9800;
+      transition: all 0.3s ease;
+    }
+
+    #selectedCurrency:hover {
+      background: rgba(255, 152, 0, 0.2);
+    }
+
+    #selectedCurrency i {
+      font-size: 0.8rem;
+      transition: transform 0.3s ease;
+    }
+
+    .currency-selector.active #selectedCurrency i {
+      transform: rotate(180deg);
+    }
+
+    .currency-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      min-width: 120px;
+      margin-top: 5px;
+      display: none;
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    .currency-selector.active .currency-dropdown {
+      display: block;
+    }
+
+    .currency-option {
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #333;
+    }
+
+    .currency-option:hover {
+      background: #f5f5f5;
+      color: #ff9800;
+    }
+
+    .currency-option.active {
+      background: #ff9800;
+      color: white;
+    }
+
+    .currency-option i {
+      width: 20px;
+      font-size: 0.9rem;
+    }
+
+    /* Price grid styles for group pricing */
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .price-card {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .price-card .group-size {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-card .price-main {
+      font-size: 1.8rem;
+      color: #28a745;
+      font-weight: 700;
+    }
+
+    .price-card .price-alt {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 0.3rem;
+    }
+
+    /* Custom styles for Mustang Tour */
+    .mustang-tour-highlight {
+      background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 4px solid #ff9800;
+      margin: 1.5rem 0;
+    }
+
+    .mustang-icon {
+      color: #ff9800;
+      margin-right: 0.5rem;
+    }
+
+    .destination-badge {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      background: #795548;
+      color: white;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin: 0.2rem;
+    }
+
+    .price-tag-mustang {
+      background: #ff9800;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      display: inline-block;
+      margin: 0.5rem 0;
+    }
+
+    .destination-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .destination-card {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .destination-icon {
+      font-size: 2rem;
+      color: #795548;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Modal Styles */
+    .confirmation-modal,
+    .booking-modal,
+    .submission-modal,
+    .mobile-alert-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .confirmation-modal>div,
+    .booking-modal>div,
+    .submission-modal>div,
+    .mobile-alert-overlay>div {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      animation: slideIn 0.3s ease;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .booking-modal>div {
+      max-width: 600px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+
+      to {
+        opacity: 0;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes checkmark {
+      0% {
+        transform: scale(0);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .close-modal,
+    .close-submission-modal {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: #666;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .close-modal:hover,
+    .close-submission-modal:hover {
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    .modal-open {
+      overflow: hidden;
+    }
+
+    .choice-options {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .choice-btn {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      background: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: left;
+      width: 100%;
+    }
+
+    .choice-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .whatsapp-choice:hover {
+      border-color: #25D366;
+      background: rgba(37, 211, 102, 0.05);
+    }
+
+    .email-choice:hover {
+      border-color: #5865F2;
+      background: rgba(88, 101, 242, 0.05);
+    }
+
+    .choice-btn i {
+      font-size: 2.5rem;
+      min-width: 40px;
+    }
+
+    .whatsapp-choice i {
+      color: #25D366;
+    }
+
+    .email-choice i {
+      color: #5865F2;
+    }
+
+    .choice-btn-content {
+      flex: 1;
+    }
+
+    .choice-btn-content span {
+      display: block;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 5px;
+      font-size: 1.1rem;
+    }
+
+    .choice-btn-content small {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .confirm-book-btn:hover {
+      background: linear-gradient(135deg, #f57c00 0%, #e65100 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(255, 152, 0, 0.3);
+    }
+
+    .cancel-choice:hover {
+      background: #e0e0e0;
+    }
+
+    /* Mobile Alert Styles */
+    .mobile-alert {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .mobile-alert-icon {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .mobile-alert.success .mobile-alert-icon {
+      color: #28a745;
+    }
+
+    .mobile-alert.warning .mobile-alert-icon {
+      color: #ff9800;
+    }
+
+    .mobile-alert.error .mobile-alert-icon {
+      color: #dc3545;
+    }
+
+    .mobile-alert.info .mobile-alert-icon {
+      color: #ff9800;
+    }
+
+    .mobile-alert h3 {
+      color: #2c3e50;
+      margin: 0 0 1.5rem 0;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .mobile-alert-message {
+      color: #666;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .mobile-alert-ok-btn {
+      background: #ff9800;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .mobile-alert-ok-btn:hover {
+      background: #f57c00;
+      transform: translateY(-2px);
+    }
+
+    .success-checkmark {
+      animation: checkmark 0.5s ease;
+    }
+
+    /* Confirmation modal styles */
+    .confirmation-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .confirm-book-btn {
+      background: linear-gradient(135deg, #ff9800 0%, #e65100 100%);
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      flex: 1;
+      transition: all 0.3s ease;
+    }
+
+    .confirm-book-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
+    }
+
+    .cancel-choice {
+      padding: 10px 20px;
+      background: #f5f5f5;
+      border: none;
+      border-radius: 6px;
+      color: #666;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      flex: 1;
+    }
+
+    .cancel-choice:hover {
+      background: #e0e0e0;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+
+      .confirmation-modal>div,
+      .booking-modal>div,
+      .submission-modal>div {
+        padding: 1.5rem;
+        margin: 10px;
+      }
+
+      .choice-btn {
+        padding: 15px;
+      }
+
+      .choice-btn i {
+        font-size: 2rem;
+      }
+
+      .booking-modal>div {
+        max-height: 85vh;
+      }
+
+      .currency-selector-container {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+      }
+
+      .currency-selector {
+        width: 100%;
+      }
+
+      #selectedCurrency {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .currency-dropdown {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .confirmation-buttons {
+        flex-direction: column;
+      }
+
+      .choice-btn {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+
+      .choice-btn-content small {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="top-bar">
+      <div class="container">
+        <div class="contact-info">
+          <span>
+            📞
+            <a href="https://wa.me/9779851140110" target="_blank" rel="noopener noreferrer"
+              class="wa-link">+977-9851140110</a>
+            ,
+            <a href="https://wa.me/9779856017867" target="_blank" rel="noopener noreferrer"
+              class="wa-link">9856017867</a>
+          </span>
+          <span>✉️ infohonesttoursntravels@gmail.com</span>
+        </div>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="logo">
+        <div class="logo-icon">
+          <img src="../../images/Logo Image.png" alt="Honest Travel Logo" />
+        </div>
+        <div class="logo-text">
+          <h1>HONEST TRAVEL</h1>
+          <p>TOURS AND EXPEDITION</p>
+        </div>
+      </div>
+
+      <!-- Burger Menu Button for Navigation -->
+      <button class="burger-menu" id="navBurger" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="mainNav">
+        <ul>
+          <li><a href="../../index.html">HOME</a></li>
+          <li><a href="../../index.html#tours">TOURS</a></li>
+          <li><a href="../../index.html#trekking">TREKKING</a></li>
+          <li><a href="../../index.html#contact">CONTACT US</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Tour Detail Section -->
+  <div class="tour-detail">
+    <div class="tour-header">
+      <h1 class="tour-title">Upper Mustang 4WD Jeep Adventure Tour</h1>
+      <p class="tour-subtitle">Journey to Nepal's Last Forbidden Kingdom</p>
+    </div>
+
+    <div class="tour-content-wrapper">
+      <!-- LEFT COLUMN -->
+      <div>
+        <!-- Image Gallery -->
+        <div class="image-gallery">
+          <img src="../../images/upper-mustang.jpg" class="gallery-image active" alt="Upper Mustang Landscape" />
+          <img src="../../images/upper-mustang1.jpg" class="gallery-image" alt="Lo Manthang City" />
+          <img src="../../images/upper-mustang2.jpg" class="gallery-image" alt="Muktinath Temple" />
+          <img src="../../images/upper-mustang3.webp" class="gallery-image" alt="Muktinath Temple" />
+
+          <div class="gallery-nav">
+            <button class="nav-btn" onclick="changeImage(-1)">‹</button>
+            <button class="nav-btn" onclick="changeImage(1)">›</button>
+          </div>
+          <div class="gallery-indicators">
+            <div class="indicator active" onclick="setImage(0)"></div>
+            <div class="indicator" onclick="setImage(1)"></div>
+            <div class="indicator" onclick="setImage(2)"></div>
+            <div class="indicator" onclick="setImage(3)"></div>
+          </div>
+        </div>
+
+        <!-- Tour Information Tabs -->
+        <div class="tour-info">
+          <!-- Mobile Tab Burger Menu -->
+          <div class="tab-burger-wrapper">
+            <button class="tab-burger-menu" id="tabBurger" aria-label="Toggle tabs menu">
+              <i class="fas fa-bars"></i>
+              <span id="currentTabName">Overview</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+
+          <div class="info-tabs" id="tabsMenu">
+            <button class="tab active" onclick="openTab('overview')">
+              Overview
+            </button>
+            <button class="tab" onclick="openTab('itinerary')">
+              Itinerary
+            </button>
+            <button class="tab" onclick="openTab('costdates')">Price</button>
+            <button class="tab" onclick="openTab('included')">
+              Included
+            </button>
+            <button class="tab" onclick="openTab('terms')">
+              Terms & Conditions
+            </button>
+            <button class="tab" onclick="openTab('videosmap')">
+              Videos & Map
+            </button>
+          </div>
+
+          <!-- OVERVIEW -->
+          <div id="overview" class="tab-content active">
+            <div class="info-section">
+              <h3>Tour Overview</h3>
+              <p>
+                Embark on an epic 4WD jeep adventure through Nepal's mystical
+                Upper Mustang region, often called the "Last Forbidden
+                Kingdom." This 12-day journey takes you through ancient trade
+                routes, Tibetan-influenced villages, dramatic desert
+                landscapes, and to the remote walled city of Lo Manthang.
+                Experience a unique blend of Tibetan Buddhist culture,
+                stunning Himalayan scenery, and comfortable jeep travel
+                through one of Nepal's most restricted and fascinating
+                regions.
+              </p>
+
+              <div class="mustang-tour-highlight">
+                <h4 style="color: #ff9800; margin-bottom: 1rem">
+                  <i class="fas fa-archway mustang-icon"></i>Key Cultural
+                  Highlights
+                </h4>
+                <div class="destination-grid">
+                  <div class="destination-card">
+                    <div class="destination-icon">
+                      <i class="fas fa-university"></i>
+                    </div>
+                    <h5>Lo Manthang</h5>
+                    <span class="destination-badge">Ancient Kingdom</span>
+                  </div>
+                  <div class="destination-card">
+                    <div class="destination-icon">
+                      <i class="fas fa-torii-gate"></i>
+                    </div>
+                    <h5>Muktinath Temple</h5>
+                    <span class="destination-badge">Sacred Site</span>
+                  </div>
+                  <div class="destination-card">
+                    <div class="destination-icon">
+                      <i class="fas fa-vihara"></i>
+                    </div>
+                    <h5>Kagbeni Village</h5>
+                    <span class="destination-badge">Gateway Village</span>
+                  </div>
+                  <div class="destination-card">
+                    <div class="destination-icon">
+                      <i class="fas fa-mountain"></i>
+                    </div>
+                    <h5>Annapurna Circuit</h5>
+                    <span class="destination-badge">Scenic Route</span>
+                  </div>
+                  <div class="destination-card">
+                    <div class="destination-icon">
+                      <i class="fas fa-water"></i>
+                    </div>
+                    <h5>Tatopani Hot Springs</h5>
+                    <span class="destination-badge">Natural Relaxation</span>
+                  </div>
+                  <div class="destination-card">
+                    <div class="destination-icon">
+                      <i class="fas fa-history"></i>
+                    </div>
+                    <h5>Bandipur Heritage</h5>
+                    <span class="destination-badge">Cultural Town</span>
+                  </div>
+                </div>
+              </div>
+
+              <h3>Tour Facts</h3>
+              <ul class="info-list">
+                <li><strong>Duration:</strong> 11 Nights 12 Days</li>
+                <li><strong>Starting Point:</strong> Kathmandu, Nepal</li>
+                <li><strong>Ending Point:</strong> Kathmandu, Nepal</li>
+                <li>
+                  <strong>Transportation:</strong> 4WD Mahindra Scorpio Jeep
+                </li>
+                <li>
+                  <strong>Maximum Altitude:</strong> 3,800m (Lo Manthang)
+                </li>
+                <li>
+                  <strong>Difficulty:</strong> Moderate (Jeep travel with some
+                  high altitude)
+                </li>
+                <li>
+                  <strong>Best Season:</strong> March to June, September to
+                  November
+                </li>
+                <li><strong>Group Size:</strong> Max 4 per jeep</li>
+                <li>
+                  <strong>Accommodation:</strong> Hotels & Best Available
+                  Local Lodges
+                </li>
+              </ul>
+
+              <h3>Daily Highlights</h3>
+              <div style="overflow-x: auto; margin-top: 1rem">
+                <table style="
+                      width: 100%;
+                      border-collapse: collapse;
+                      font-size: 0.9rem;
+                    ">
+                  <thead>
+                    <tr style="background: #f5f5f5">
+                      <th style="padding: 10px; border: 1px solid #ddd">
+                        Day
+                      </th>
+                      <th style="padding: 10px; border: 1px solid #ddd">
+                        Destination
+                      </th>
+                      <th style="padding: 10px; border: 1px solid #ddd">
+                        Key Activities
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        1
+                      </td>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        Kathmandu
+                      </td>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        Arrival, Hotel Transfer
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        2
+                      </td>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        Kathmandu
+                      </td>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        Full Day Sightseeing
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        3
+                      </td>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        Bandipur
+                      </td>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        Scenic Drive, Heritage Stay
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        4
+                      </td>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        Tatopani
+                      </td>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        Drive, Natural Hot Springs
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        5
+                      </td>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        Kagbeni
+                      </td>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        Drive to Mustang, Village Exploration
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        6
+                      </td>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        Lo Manthang
+                      </td>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        Muktinath Visit, Arrive at Walled City
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        7
+                      </td>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        Lo Manthang
+                      </td>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        Full Day Exploration
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        8
+                      </td>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        Marpha
+                      </td>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        Return Drive, Apple Capital
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        9
+                      </td>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        Pokhara
+                      </td>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        Scenic Drive, Phewa Lake Kayaking
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        10
+                      </td>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        Pokhara
+                      </td>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        Full Day Sightseeing
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        11
+                      </td>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        Kathmandu
+                      </td>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        Scenic Flight, Cultural Dinner
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        12
+                      </td>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        Departure
+                      </td>
+                      <td style="padding: 8px; border: 1px solid #e0e0e0">
+                        Farewell, Airport Transfer
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITINERARY - WITH COLLAPSIBLE SECTIONS -->
+          <div id="itinerary" class="tab-content">
+            <div class="info-section">
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 1.5rem;
+                    flex-wrap: wrap;
+                    gap: 1rem;
+                  ">
+                <h3 style="
+                      margin: 0;
+                      color: #ff9800;
+                      text-transform: uppercase;
+                      font-size: 1.2rem;
+                    ">
+                  Detailed Itinerary
+                </h3>
+                <button onclick="toggleAllDays(this)" style="
+                      background: none;
+                      border: 1px solid #ff9800;
+                      color: #ff9800;
+                      padding: 0.5rem 1rem;
+                      border-radius: 4px;
+                      cursor: pointer;
+                      font-size: 0.9rem;
+                    ">
+                  Expand All
+                </button>
+              </div>
+
+              <!-- Day 1 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 1</span>
+                    <span class="day-title">ARRIVAL IN KATHMANDU</span>
+                    <span class="day-altitude"><i class="fas fa-city"></i> 1,400m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Welcome to Nepal:</strong> Arrive at Tribhuvan
+                    International Airport where our representative will
+                    welcome you with traditional greetings. Transfer to your
+                    hotel in Kathmandu. After check-in, attend a detailed tour
+                    briefing about your Upper Mustang jeep adventure. Rest and
+                    acclimate to the altitude. Evening at leisure.
+                  </p>
+                  <p><strong>Meals:</strong> Welcome Dinner Included</p>
+                  <p><strong>Accommodation:</strong> Hotel in Kathmandu</p>
+                </div>
+              </div>
+
+              <!-- Day 2 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 2</span>
+                    <span class="day-title">KATHMANDU FULL DAY SIGHTSEEING</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Cultural Exploration:</strong> Full day exploring
+                    Kathmandu's UNESCO World Heritage Sites. Visit
+                    Swayambhunath Stupa (Monkey Temple) for panoramic city
+                    views. Explore Kathmandu Durbar Square with its ancient
+                    palaces and temples. After lunch, visit the sacred
+                    Pashupatinath Temple and Boudhanath Stupa, one of the
+                    largest spherical stupas in the world. Prepare for your
+                    Mustang adventure.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast Included</p>
+                  <p><strong>Accommodation:</strong> Hotel in Kathmandu</p>
+                </div>
+              </div>
+
+              <!-- Day 3 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 3</span>
+                    <span class="day-title">DRIVE TO BANDIPUR</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 1,030m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Scenic Mountain Drive:</strong> Early morning
+                    departure from Kathmandu. Drive through picturesque
+                    landscapes to Bandipur, a beautifully preserved Newari
+                    town. Enjoy stunning views of the Himalayas along the way.
+                    Explore Bandipur's medieval architecture, traditional
+                    houses, and vibrant culture. Evening stroll through the
+                    town's cobbled streets. Overnight in a heritage hotel.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast, Dinner Included</p>
+                  <p>
+                    <strong>Accommodation:</strong> Heritage Hotel in Bandipur
+                  </p>
+                  <p><strong>Drive Duration:</strong> 5-6 hours</p>
+                </div>
+              </div>
+
+              <!-- Day 4 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 4</span>
+                    <span class="day-title">BANDIPUR SUNRISE & DRIVE TO TATOPANI</span>
+                    <span class="day-altitude"><i class="fas fa-water"></i> 1,190m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Sunrise & Natural Springs:</strong> Early morning
+                    sunrise view over the Himalayas from Bandipur. After
+                    breakfast, drive to Tatopani ("Hot Water" in Nepali).
+                    Descend through deep river gorges and scenic landscapes.
+                    Arrive at Tatopani and relax in natural hot springs beside
+                    the Kali Gandaki River - perfect for soothing muscles
+                    after the journey. Overnight at a local lodge.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast, Dinner Included</p>
+                  <p><strong>Accommodation:</strong> Lodge in Tatopani</p>
+                  <p><strong>Drive Duration:</strong> 4-5 hours</p>
+                </div>
+              </div>
+
+              <!-- Day 5 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 5</span>
+                    <span class="day-title">DRIVE TO KAGBENI, ENROUTE SIGHTSEEING</span>
+                    <span class="day-altitude"><i class="fas fa-vihara"></i> 2,800m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Gateway to Upper Mustang:</strong> Drive north
+                    along the Kali Gandaki River valley, the world's deepest
+                    gorge. Pass through dramatic landscapes transitioning to
+                    semi-arid desert. Visit Marpha village known for apple
+                    products. Continue to Kagbeni, the traditional gateway to
+                    Upper Mustang. Explore this ancient village with its
+                    medieval feel and Tibetan influence. Acclimatize to the
+                    higher altitude.
+                  </p>
+                  <p>
+                    <strong>Meals:</strong> Breakfast, Lunch, Dinner Included
+                  </p>
+                  <p><strong>Accommodation:</strong> Lodge in Kagbeni</p>
+                  <p><strong>Drive Duration:</strong> 5-6 hours</p>
+                </div>
+              </div>
+
+              <!-- Day 6 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 6</span>
+                    <span class="day-title">MUKTINATH TEMPLE VISIT, DRIVE TO LO MANTHANG</span>
+                    <span class="day-altitude"><i class="fas fa-torii-gate"></i> 3,800m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Sacred Site & Forbidden Kingdom:</strong> Morning
+                    visit to Muktinath Temple, one of Nepal's most sacred
+                    pilgrimage sites for both Hindus and Buddhists. See the
+                    108 water spouts and eternal flame. Continue your jeep
+                    journey through spectacular desert landscapes with
+                    colorful rock formations. Arrive at the walled city of Lo
+                    Manthang, capital of the former Kingdom of Mustang.
+                    Check-in and rest.
+                  </p>
+                  <p>
+                    <strong>Meals:</strong> Breakfast, Lunch, Dinner Included
+                  </p>
+                  <p><strong>Accommodation:</strong> Lodge in Lo Manthang</p>
+                  <p><strong>Drive Duration:</strong> 4-5 hours</p>
+                </div>
+              </div>
+
+              <!-- Day 7 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 7</span>
+                    <span class="day-title">LO MANTHANG EXPLORATION DAY</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Ancient Kingdom Discovery:</strong> Full day to
+                    explore the fascinating walled city of Lo Manthang. Visit
+                    the Royal Palace, three major monasteries (Thubchen,
+                    Chodey, and Jampa), and ancient cave dwellings. Experience
+                    the unique Tibetan Buddhist culture preserved for
+                    centuries. Option to take a short hike to nearby villages
+                    or viewpoints for panoramic photography. Evening
+                    interaction with local community.
+                  </p>
+                  <p>
+                    <strong>Meals:</strong> Breakfast, Lunch, Dinner Included
+                  </p>
+                  <p><strong>Accommodation:</strong> Lodge in Lo Manthang</p>
+                </div>
+              </div>
+
+              <!-- Day 8 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 8</span>
+                    <span class="day-title">DRIVE TO MARPHA</span>
+                    <span class="day-altitude"><i class="fas fa-apple-alt"></i> 2,670m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Return Journey & Apple Capital:</strong> Begin
+                    return journey with a drive back to Marpha. Enjoy
+                    different perspectives of the dramatic landscapes.
+                    Arriving in Marpha, explore this charming village known as
+                    the "Apple Capital of Nepal." Sample local apple brandy,
+                    cider, and other apple products. Walk through narrow stone
+                    paved streets lined with whitewashed houses. Relax and
+                    reflect on your Mustang experience.
+                  </p>
+                  <p>
+                    <strong>Meals:</strong> Breakfast, Lunch, Dinner Included
+                  </p>
+                  <p><strong>Accommodation:</strong> Lodge in Marpha</p>
+                  <p><strong>Drive Duration:</strong> 5-6 hours</p>
+                </div>
+              </div>
+
+              <!-- Day 9 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 9</span>
+                    <span class="day-title">DRIVE TO POKHARA, PHEWA LAKE KAYAKING</span>
+                    <span class="day-altitude"><i class="fas fa-kayaking"></i> 827m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Scenic Drive & Lake Adventure:</strong> Morning
+                    drive from Marpha to Pokhara through beautiful Himalayan
+                    scenery. Descend from the dry Tibetan plateau to the lush
+                    greenery of Pokhara valley. Arrive in Pokhara, check into
+                    your hotel. Afternoon kayaking on Phewa Lake with stunning
+                    views of the Annapurna range. Paddle to the Peace Pagoda
+                    for sunset views. Evening at leisure in Lakeside.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast Included</p>
+                  <p><strong>Accommodation:</strong> Hotel in Pokhara</p>
+                  <p><strong>Drive Duration:</strong> 6-7 hours</p>
+                </div>
+              </div>
+
+              <!-- Day 10 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 10</span>
+                    <span class="day-title">POKHARA FULL DAY SIGHTSEEING</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Adventure Capital Exploration:</strong> Full day
+                    exploring Pokhara's attractions. Visit Davis Falls,
+                    Gupteshwor Cave, and the International Mountain Museum.
+                    Take a boat ride on Phewa Lake (if time permits). Drive to
+                    Sarangkot viewpoint for panoramic Himalayan vistas
+                    (optional sunrise/sunset). Explore Lakeside area for
+                    shopping and dining. Relax after your adventurous Mustang
+                    journey.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast Included</p>
+                  <p><strong>Accommodation:</strong> Hotel in Pokhara</p>
+                </div>
+              </div>
+
+              <!-- Day 11 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 11</span>
+                    <span class="day-title">FLY TO KATHMANDU, CULTURAL DINNER</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Scenic Flight & Celebration:</strong> Morning
+                    transfer to Pokhara Airport for flight to Kathmandu (25
+                    minutes) with breathtaking mountain views. Upon arrival,
+                    transfer to hotel. Free time for last-minute shopping or
+                    optional sightseeing. Evening farewell Nepali cultural
+                    dinner with traditional music, dance performances, and
+                    authentic cuisine. Celebrate your successful Upper Mustang
+                    adventure.
+                  </p>
+                  <p>
+                    <strong>Meals:</strong> Breakfast, Farewell Dinner
+                    Included
+                  </p>
+                  <p><strong>Accommodation:</strong> Hotel in Kathmandu</p>
+                </div>
+              </div>
+
+              <!-- Day 12 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 12</span>
+                    <span class="day-title">DEPARTURE FROM NEPAL</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Journey Ends:</strong> After breakfast, transfer
+                    to Tribhuvan International Airport for your onward flight.
+                    Our representative will assist with check-in procedures.
+                    Depart with unforgettable memories of Nepal's Last
+                    Forbidden Kingdom, stunning landscapes, and rich cultural
+                    experiences.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast Included</p>
+                  <p style="font-style: italic; color: #ff9800">
+                    Thank you for choosing Honest Travel Tours. Safe travels
+                    and hope to welcome you back to Nepal!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COST & DATES - WITH GROUP PRICING AND CURRENCY CONVERTER -->
+          <div id="costdates" class="tab-content">
+            <div class="info-section">
+              <h3>Package Pricing (Per Person)</h3>
+              <div class="highlight-box" style="
+                    background: linear-gradient(
+                      135deg,
+                      #fff3e0 0%,
+                      #ffe0b2 100%
+                    );
+                  ">
+                <div style="text-align: center; padding: 1.5rem;">
+                  <h4 style="color: #ff9800; margin-bottom: 1.5rem;">
+                    Group Pricing with Discounts
+                  </h4>
+
+                  <div class="price-grid">
+                    <div class="price-card">
+                      <div class="group-size">1-3 People</div>
+                      <div class="price-main" id="price13main">₹2,64,000</div>
+                    </div>
+
+                    <div class="price-card">
+                      <div class="group-size">4-6 People</div>
+                      <div class="price-main" id="price46main">₹2,60,875</div>
+                    </div>
+
+                    <div class="price-card">
+                      <div class="group-size">7+ People</div>
+                      <div class="price-main" id="price7plusmain">₹2,57,750</div>
+                    </div>
+                  </div>
+
+                  <div style="
+                        margin: 1.5rem 0;
+                        padding: 1rem;
+                        background: white;
+                        border-radius: 8px;
+                        display: inline-block;
+                      ">
+                    <div style="
+                          font-size: 1.2rem;
+                          color: #ff9800;
+                          font-weight: 600;
+                        " id="priceRange">
+                      USD 2,440 - 2,500 (Approx)
+                    </div>
+                    <div style="font-size: 0.9rem; color: #666;">
+                      For International Travelers
+                    </div>
+                  </div>
+
+                  <div style="font-size: 0.9rem; color: #28a745; margin-top: 0.5rem;">
+                    <i class="fas fa-tag"></i> Discount applied: ₹3,125 off for 4-6 people, ₹6,250 off for 7+ people
+                  </div>
+
+                  <div class="price-tag-mustang" style="margin-top: 1.5rem;">
+                    Complete Upper Mustang Jeep Experience
+                  </div>
+                </div>
+              </div>
+
+              <h3 style="margin-top: 2rem">Package Value</h3>
+              <ul class="info-list">
+                <li>
+                  All Restricted Area Permits for Upper Mustang (Required)
+                </li>
+                <li>4WD Mahindra Scorpio Jeep for entire journey</li>
+                <li>Domestic Flight Pokhara-Kathmandu</li>
+                <li>11 Nights Accommodation in hotels & best lodges</li>
+                <li>Professional English-Speaking Guide Throughout</li>
+                <li>Experienced Driver for challenging terrain</li>
+                <li>All Meals in Upper Mustang Region</li>
+                <li>All Entrance Fees & Activity Charges</li>
+              </ul>
+
+              <h3 style="margin-top: 2rem">Seasonal Pricing</h3>
+              <div style="overflow-x: auto; margin-top: 1rem">
+                <table style="width: 100%; border-collapse: collapse">
+                  <thead>
+                    <tr style="background: #f5f5f5">
+                      <th style="padding: 12px; border: 1px solid #ddd">
+                        Season
+                      </th>
+                      <th style="padding: 12px; border: 1px solid #ddd">
+                        Months
+                      </th>
+                      <th style="padding: 12px; border: 1px solid #ddd">
+                        Price per Person
+                      </th>
+                      <th style="padding: 12px; border: 1px solid #ddd">
+                        Features
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="padding: 10px; border: 1px solid #ddd">
+                        Peak
+                      </td>
+                      <td style="padding: 10px; border: 1px solid #ddd">
+                        Mar-Jun, Sep-Nov
+                      </td>
+                      <td style="
+                            padding: 10px;
+                            border: 1px solid #ddd;
+                            color: #ff9800;
+                            font-weight: bold;
+                          " class="price-display" data-inr="232000" data-usd="2195" data-npr="371200">
+                        ₹2,32,000
+                      </td>
+                      <td style="padding: 10px; border: 1px solid #ddd">
+                        Best weather, clear mountain views
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 10px; border: 1px solid #ddd">
+                        Shoulder
+                      </td>
+                      <td style="padding: 10px; border: 1px solid #ddd">
+                        Dec-Feb
+                      </td>
+                      <td style="
+                            padding: 10px;
+                            border: 1px solid #ddd;
+                            color: #795548;
+                            font-weight: bold;
+                          " class="price-display" data-inr="205000" data-usd="1940" data-npr="328000">
+                        ₹2,05,000
+                      </td>
+                      <td style="padding: 10px; border: 1px solid #ddd">
+                        Cool weather, fewer tourists
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 10px; border: 1px solid #ddd">
+                        Closed
+                      </td>
+                      <td style="padding: 10px; border: 1px solid #ddd">
+                        Jul-Aug
+                      </td>
+                      <td style="
+                            padding: 10px;
+                            border: 1px solid #ddd;
+                            color: #999;
+                            font-weight: bold;
+                          ">
+                        Not Available
+                      </td>
+                      <td style="padding: 10px; border: 1px solid #ddd">
+                        Monsoon season, road conditions
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div style="
+                    margin-top: 2rem;
+                    padding: 1.5rem;
+                    background: #e8f5e9;
+                    border-radius: 8px;
+                  ">
+                <h4 style="color: #4caf50; margin-bottom: 1rem">
+                  <i class="fas fa-percentage"></i> Special Offers
+                </h4>
+                <div style="
+                      display: grid;
+                      grid-template-columns: repeat(
+                        auto-fit,
+                        minmax(250px, 1fr)
+                      );
+                      gap: 1rem;
+                    ">
+                  <div style="
+                        background: white;
+                        padding: 1rem;
+                        border-radius: 6px;
+                      ">
+                    <strong style="color: #ff9800">Group Discount</strong>
+                    <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem">
+                      8% off for groups of 4 (full jeep)
+                    </p>
+                  </div>
+                  <div style="
+                        background: white;
+                        padding: 1rem;
+                        border-radius: 6px;
+                      ">
+                    <strong style="color: #ff9800">Early Bird</strong>
+                    <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem">
+                      12% off for bookings 120+ days in advance
+                    </p>
+                  </div>
+                  <div style="
+                        background: white;
+                        padding: 1rem;
+                        border-radius: 6px;
+                      ">
+                    <strong style="color: #ff9800">Repeat Clients</strong>
+                    <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem">
+                      15% loyalty discount
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- INCLUDED -->
+          <div id="included" class="tab-content">
+            <div class="info-section">
+              <h3>What's Included</h3>
+              <ul class="info-list">
+                <li>All airport transfers during arrival and departure</li>
+                <li>A welcome dinner on the first day in Kathmandu</li>
+                <li>Private vehicle with A/C for Kathmandu sightseeing</li>
+                <li>
+                  4WD Mahindra Scorpio jeep from Kathmandu to Upper Mustang
+                  (max 4 passengers)
+                </li>
+                <li>
+                  All accommodations at mentioned hotels and best local lodges
+                </li>
+                <li>Meals as mentioned in the itinerary</li>
+                <li>
+                  All necessary paperwork (ACAP, Restricted Area Permit, TIMS
+                  Card)
+                </li>
+                <li>
+                  English-speaking, experienced, licensed, professional guide
+                  throughout
+                </li>
+                <li>Guide's and driver's salary, food, and accommodation</li>
+                <li>Well-equipped medical kit (carried by guide)</li>
+                <li>All sightseeing entrance fees and permits</li>
+                <li>One local SIM card (returnable) during your stay</li>
+                <li>All government and local taxes</li>
+                <li>Farewell Nepali cultural dinner in Kathmandu</li>
+              </ul>
+
+              <h3 style="margin-top: 2rem">Important Inclusions</h3>
+              <div style="
+                    background: #fff3e0;
+                    padding: 1.5rem;
+                    border-radius: 8px;
+                    margin-top: 1rem;
+                  ">
+                <div style="
+                      display: grid;
+                      grid-template-columns: repeat(
+                        auto-fit,
+                        minmax(250px, 1fr)
+                      );
+                      gap: 1rem;
+                    ">
+                  <div style="
+                        background: white;
+                        padding: 1rem;
+                        border-radius: 6px;
+                      ">
+                    <strong style="color: #795548">Restricted Area Permit</strong>
+                    <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem">
+                      Mandatory for Upper Mustang access
+                    </p>
+                  </div>
+                  <div style="
+                        background: white;
+                        padding: 1rem;
+                        border-radius: 6px;
+                      ">
+                    <strong style="color: #795548">4WD Jeep Transport</strong>
+                    <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem">
+                      Comfortable travel through rugged terrain
+                    </p>
+                  </div>
+                  <div style="
+                        background: white;
+                        padding: 1rem;
+                        border-radius: 6px;
+                      ">
+                    <strong style="color: #795548">High Altitude Support</strong>
+                    <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem">
+                      Medical kit and experienced guide
+                    </p>
+                  </div>
+                  <div style="
+                        background: white;
+                        padding: 1rem;
+                        border-radius: 6px;
+                      ">
+                    <strong style="color: #795548">Domestic Flight</strong>
+                    <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem">
+                      Pokhara to Kathmandu scenic flight
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <h3 style="margin-top: 2rem">What's Not Included</h3>
+              <ul class="info-list" style="color: #999">
+                <li>Personal expenses</li>
+                <li>International flight tickets</li>
+                <li>
+                  Nepal visa cost (USD 30 for 15 days, 2 passport photos
+                  required)
+                </li>
+                <li>Lunch and dinner in Kathmandu, Bandipur, and Pokhara</li>
+                <li>Travel insurance (highly recommended)</li>
+                <li>Tips for guide, driver (recommended)</li>
+                <li>Any alcoholic and non-alcoholic drinks</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- TERMS -->
+          <div id="terms" class="tab-content">
+            <div class="info-section">
+              <h3>Terms & Conditions</h3>
+              <div style="
+                    background: #f8f9fa;
+                    padding: 1.5rem;
+                    border-radius: 8px;
+                    border-left: 4px solid #ff9800;
+                  ">
+                <ul class="info-list" style="list-style-type: none; padding-left: 0">
+                  <li style="margin-bottom: 1rem">
+                    <strong>Restricted Area:</strong> Special permit required
+                    for Upper Mustang (arranged by us)
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Booking:</strong> 40% deposit required at booking
+                    confirmation
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Balance Payment:</strong> Full payment 45 days
+                    before tour departure
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Passport Details:</strong> Passport copy required
+                    60 days before for permit processing
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Travel Insurance:</strong> Mandatory insurance
+                    covering high altitude travel
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Road Conditions:</strong> Itinerary subject to
+                    change due to road/weather conditions
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Cancellation:</strong> 25% fee if cancelled 90
+                    days prior; 50% if 60 days prior; No refund within 30 days
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Documents:</strong> Valid passport with 6 months
+                    validity required
+                  </li>
+                </ul>
+              </div>
+
+              <h3 style="margin-top: 2rem">Important Notes</h3>
+              <div style="
+                    background: #e8f5e9;
+                    padding: 1.5rem;
+                    border-radius: 8px;
+                    margin-top: 1rem;
+                  ">
+                <ul class="info-list">
+                  <li>
+                    Upper Mustang is a restricted area requiring special
+                    permits
+                  </li>
+                  <li>
+                    Roads in Mustang region are rough - expect bumpy travel
+                  </li>
+                  <li>
+                    Altitude ranges from 800m to 3,800m - acclimatization
+                    needed
+                  </li>
+                  <li>
+                    Limited accommodation options in Upper Mustang - basic
+                    facilities
+                  </li>
+                  <li>
+                    No ATM facilities in Upper Mustang - carry sufficient cash
+                  </li>
+                  <li>Limited mobile network in remote areas</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- VIDEOS & MAP SECTION -->
+          <div id="videosmap" class="tab-content">
+            <div class="info-section">
+              <h3>Experience Upper Mustang Jeep Tour</h3>
+              <p>
+                Watch our featured video and explore the tour route map to see
+                the incredible journey through Nepal's Last Forbidden Kingdom.
+              </p>
+
+              <!-- Video Section -->
+              <div class="video-section" style="margin-bottom: 2rem">
+                <h4 style="color: #ff9800; margin-bottom: 1rem">
+                  <i class="fas fa-video"></i> Upper Mustang Adventure
+                </h4>
+                <div class="video-container">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/vTtqft4N5mU?si=gXNxGhvtft6wyJPp"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666">
+                  <i class="fas fa-info-circle"></i> Experience the unique
+                  landscapes, Tibetan culture, and adventure of Upper Mustang.
+                </p>
+              </div>
+
+              <!-- Map Section -->
+              <div class="map-section">
+                <h4 style="color: #ff9800; margin-bottom: 1rem">
+                  <i class="fas fa-map-marked-alt"></i> Upper Mustang Tour
+                  Route
+                </h4>
+                <div class="map-container">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d899063.7650766559!2d83.10268454116812!3d28.329575165288787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39be48b31d328df7%3A0x50958096d6500ee1!2sSurkhang!5e0!3m2!1sen!2snp!4v1767861694966!5m2!1sen!2snp"
+                    width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div style="
+                      margin-top: 1rem;
+                      display: flex;
+                      flex-wrap: wrap;
+                      gap: 1rem;
+                    ">
+                  <div style="flex: 1; min-width: 200px">
+                    <h5 style="color: #333; margin-bottom: 0.5rem">
+                      <i class="fas fa-route" style="color: #795548"></i>
+                      Tour Route Overview
+                    </h5>
+                    <ul style="
+                          list-style-type: none;
+                          padding-left: 0;
+                          font-size: 0.9rem;
+                        ">
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Days 1-2:</strong> Kathmandu
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Day 3:</strong> Kathmandu → Bandipur
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Day 4:</strong> Bandipur → Tatopani
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Day 5:</strong> Tatopani → Kagbeni
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Day 6:</strong> Kagbeni → Lo Manthang
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Day 7:</strong> Lo Manthang Exploration
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Day 8:</strong> Lo Manthang → Marpha
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Day 9:</strong> Marpha → Pokhara
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Day 10:</strong> Pokhara Sightseeing
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Day 11:</strong> Pokhara → Kathmandu
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Day 12:</strong> Departure
+                      </li>
+                    </ul>
+                  </div>
+                  <div style="flex: 1; min-width: 200px">
+                    <h5 style="color: #333; margin-bottom: 0.5rem">
+                      <i class="fas fa-landmark" style="color: #ff9800"></i>
+                      Cultural Highlights
+                    </h5>
+                    <ul style="
+                          list-style-type: none;
+                          padding-left: 0;
+                          font-size: 0.9rem;
+                        ">
+                      <li style="margin-bottom: 0.3rem">
+                        Walled City of Lo Manthang
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        Sacred Muktinath Temple
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        Medieval Kagbeni Village
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        Heritage Town of Bandipur
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        Pokhara's Natural Beauty
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        Kathmandu's UNESCO Sites
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Journey Information -->
+              <div style="
+                    background: linear-gradient(
+                      135deg,
+                      #fff3e0 0%,
+                      #ffe0b2 100%
+                    );
+                    padding: 1.5rem;
+                    border-radius: 12px;
+                    margin-top: 2rem;
+                    border: 1px solid rgba(255, 152, 0, 0.1);
+                  ">
+                <h4 style="color: #ff9800; margin-bottom: 1rem">
+                  <i class="fas fa-car"></i> Jeep Tour Details
+                </h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 1.5rem">
+                  <div style="flex: 1; min-width: 200px">
+                    <h5 style="
+                          color: #333;
+                          margin-bottom: 0.5rem;
+                          font-size: 0.95rem;
+                        ">
+                      <i class="fas fa-road" style="color: #795548"></i>
+                      Travel Information
+                    </h5>
+                    <p style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        ">
+                      <strong>Vehicle:</strong> 4WD Mahindra Scorpio Jeep
+                    </p>
+                    <p style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        ">
+                      <strong>Max Passengers:</strong> 4 per jeep
+                    </p>
+                    <p style="font-size: 0.9rem; color: #555">
+                      <strong>Road Conditions:</strong> Mixed paved and rough
+                      dirt roads
+                    </p>
+                  </div>
+                  <div style="flex: 1; min-width: 200px">
+                    <h5 style="
+                          color: #333;
+                          margin-bottom: 0.5rem;
+                          font-size: 0.95rem;
+                        ">
+                      <i class="fas fa-mountain" style="color: #ff9800"></i>
+                      Altitude Information
+                    </h5>
+                    <p style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        ">
+                      <strong>Highest Point:</strong> Lo Manthang (3,800m)
+                    </p>
+                    <p style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        ">
+                      <strong>Acclimatization:</strong> Built into itinerary
+                    </p>
+                    <p style="font-size: 0.9rem; color: #555">
+                      <strong>Climate:</strong> Dry, desert-like in Mustang
+                    </p>
+                  </div>
+                  <div style="flex: 1; min-width: 200px">
+                    <h5 style="
+                          color: #333;
+                          margin-bottom: 0.5rem;
+                          font-size: 0.95rem;
+                        ">
+                      <i class="fas fa-passport" style="color: #795548"></i>
+                      Permit Information
+                    </h5>
+                    <p style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        ">
+                      <strong>Restricted Area Permit:</strong> Required
+                    </p>
+                    <p style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        ">
+                      <strong>ACAP Permit:</strong> Required
+                    </p>
+                    <p style="font-size: 0.9rem; color: #555">
+                      <strong>TIMS Card:</strong> Required
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: Booking Card with Dynamic Pricing -->
+      <div>
+        <div class="booking-card">
+          <div class="price-section">
+            <div class="price-icon"><i class="fas fa-car"></i></div>
+            <div class="price-info">
+              <div class="price-label">Starting from</div>
+              <div><span class="price" id="mainPriceDisplay">₹2,57,750</span></div>
+              <div style="font-size: 0.8rem; color: #666; margin-top: 0.3rem" id="groupSizeLabel">
+                (7+ people)
+              </div>
+              <div style="font-size: 0.8rem; color: #666; margin-top: 0.3rem" id="alternatePriceRow">
+                <span id="alternatePriceLabel">USD</span> <span id="alternatePrice">2,440</span>
+              </div>
+            </div>
+            <!-- Currency Selector -->
+            <div class="currency-selector-container">
+              <div class="currency-selector">
+                <div id="selectedCurrency">
+                  <span>INR</span>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="currency-dropdown">
+                  <div class="currency-option active" data-currency="INR"> INR (₹)</div>
+                  <div class="currency-option" data-currency="USD"> USD ($)</div>
+                  <div class="currency-option" data-currency="NPR"> NPR (रु)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="quantity-section">
+            <div class="quantity-controls">
+              <button class="qty-btn" onclick="updatePrice(-1)">-</button>
+              <div class="qty-display" id="qtyDisplay">1</div>
+              <button class="qty-btn" onclick="updatePrice(1)">+</button>
+            </div>
+            <div style="
+                  font-size: 0.8rem;
+                  color: #666;
+                  margin-top: 0.5rem;
+                  text-align: center;
+                ">
+              Max 4 per jeep
+            </div>
+          </div>
+
+          <div class="price-breakdown">
+            <div class="price-row">
+              <span>Base Price (Per Person)</span>
+              <span><span id="baseCurrency">INR</span> <span id="basePrice">2,57,750</span></span>
+            </div>
+            <div class="price-row total">
+              <span>Total</span>
+              <span><span id="totalCurrency">INR</span> <span id="totalPrice">2,57,750</span></span>
+            </div>
+          </div>
+
+          <button class="booking-btn btn-instant" onclick="showBookingForm()">
+            Book Now
+          </button>
+          <button class="booking-btn btn-customize" onclick="showEnquiryModal()">
+            Send Enquiry
+          </button>
+
+          <div class="contact-section">
+            <div style="font-size: 2.5rem; margin-bottom: 0.5rem">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <h3>Mustang Tour Support</h3>
+            <div class="phone-numbers">
+              <a href="https://wa.me/9779851140110" target="_blank" rel="noopener noreferrer" style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    font-size: 1.2rem;
+                  ">
+                +977-9851140110
+              </a>
+              <a href="https://wa.me/9779856017867" target="_blank" rel="noopener noreferrer" style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    font-size: 1.2rem;
+                  ">
+                +977-9856017867
+              </a>
+            </div>
+            <div style="margin-top: 1rem; font-size: 0.9rem; color: #666">
+              <i class="fas fa-envelope"></i> mustang@honesttraveltours.com
+            </div>
+          </div>
+
+          <div style="
+                margin-top: 1.5rem;
+                padding: 1rem;
+                background: #fff3e0;
+                border-radius: 8px;
+              ">
+            <h4 style="color: #ff9800; margin-bottom: 0.5rem; font-size: 1rem">
+              <i class="fas fa-star" style="color: #ff9800"></i> Package
+              Highlights
+            </h4>
+            <ul style="font-size: 0.8rem; color: #555; padding-left: 1.2rem">
+              <li>Complete Restricted Area Access</li>
+              <li>4WD Jeep Comfort in Remote Areas</li>
+              <li>Walled City of Lo Manthang</li>
+              <li>Sacred Muktinath Temple Visit</li>
+              <li>All Permits & Documentation Included</li>
+            </ul>
+          </div>
+
+          <div style="
+                margin-top: 1rem;
+                padding: 1rem;
+                background: #e8f5e9;
+                border-radius: 8px;
+                border-left: 4px solid #4caf50;
+              ">
+            <h4 style="color: #4caf50; margin-bottom: 0.5rem; font-size: 0.9rem">
+              <i class="fas fa-clock"></i> Quick Facts
+            </h4>
+            <div style="font-size: 0.8rem; color: #555">
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 0.3rem;
+                  ">
+                <span>Duration:</span>
+                <span>12 Days / 11 Nights</span>
+              </div>
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 0.3rem;
+                  ">
+                <span>Max Altitude:</span>
+                <span>3,800m</span>
+              </div>
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 0.3rem;
+                  ">
+                <span>Best Time:</span>
+                <span>Mar-Jun, Sep-Nov</span>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <span>Difficulty:</span>
+                <span>Moderate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Honest Travel Tours</h3>
+        <p>
+          Your trusted partner for adventure tours and cultural experiences in
+          Nepal.
+        </p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p>Kathmandu, Nepal</p>
+        <p> infohonesttoursntravels@gmail.com</p>
+        <p>+977-9851140110, +977-9856017867</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>
+        &copy; 2025 HONEST TRAVEL Tours and Expedition. All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    /* ========== CONSTANTS AND CONFIGURATION ========== */
+
+    // Base price for 1-3 people in INR (converted from USD 2,500 ≈ ₹2,64,000)
+    const price13inr = 264000;
+
+    // Pricing tables by group size (INR) - with exact discounts
+    // Group sizes: 1-3 People, 4-6 People, 7+ People
+    const pricingTables = {
+      "1-3": 264000,
+      "4-6": 260875,
+      "7+": 257750,
+    };
+
+    const marketUsdToInr = 92;
+    const markupPercent = 15;
+
+    // Exchange rates based on market rate with markup
+    const exchangeRates = {
+      INR: { rate: 1, symbol: "₹", name: "INR" },
+      USD: { rate: (1 / marketUsdToInr) * (1 + markupPercent / 100), symbol: "$", name: "USD" },
+      NPR: { rate: 1.6, symbol: "रु", name: "NPR" },
+    };
+
+    let qty = 1; // Minimum 1 person for jeep tour
+    let currentCurrency = "INR";
+
+    /* ========== HELPER FUNCTIONS ========== */
+
+    function getGroupSize(persons) {
+      if (persons >= 7) return "7+";
+      if (persons >= 4) return "4-6";
+      return "1-3";
+    }
+
+    function getUnitINRPrice(persons) {
+      const groupSize = getGroupSize(persons);
+      return pricingTables[groupSize];
+    }
+
+    function getConvertedPrice(persons, targetCurrency) {
+      const inrPrice = getUnitINRPrice(persons);
+
+      if (targetCurrency === 'INR') {
+        return inrPrice;
+      }
+
+      const rate = exchangeRates[targetCurrency]?.rate;
+      if (!rate) return inrPrice;
+
+      // Convert and round appropriately
+      let converted = inrPrice * rate;
+
+      // Round based on currency
+      if (targetCurrency === 'USD') {
+        return Math.round(converted); // Round to nearest dollar
+      } else if (targetCurrency === 'NPR') {
+        return Math.round(converted / 100) * 100; // Round to nearest 100 NPR
+      }
+
+      return Math.round(converted);
+    }
+
+    function getConvertedPriceForGroup(groupSize, targetCurrency) {
+      const inrPrice = pricingTables[groupSize];
+
+      if (targetCurrency === 'INR') {
+        return inrPrice;
+      }
+
+      const rate = exchangeRates[targetCurrency]?.rate;
+      if (!rate) return inrPrice;
+
+      let converted = inrPrice * rate;
+
+      // Round based on currency
+      if (targetCurrency === 'USD') {
+        return Math.round(converted);
+      } else if (targetCurrency === 'NPR') {
+        return Math.round(converted / 100) * 100;
+      }
+
+      return Math.round(converted);
+    }
+
+    function getCurrencySymbol() {
+      return exchangeRates[currentCurrency]?.symbol || "₹";
+    }
+
+    function formatNumber(num) {
+      if (num >= 1000) {
+        return Math.round(num).toLocaleString("en-IN");
+      } else {
+        return num.toString();
+      }
+    }
+
+    function formatNumberForCurrency(num, currency) {
+      if (currency === 'USD') {
+        return Math.round(num).toLocaleString('en-US');
+      } else if (currency === 'NPR') {
+        return Math.round(num).toLocaleString('en-IN');
+      } else {
+        return Math.round(num).toLocaleString('en-IN');
+      }
+    }
+
+    function getGroupSizeText(persons) {
+      const groupSize = getGroupSize(persons);
+      if (groupSize === "7+") return "7+ People";
+      if (groupSize === "4-6") return "4-6 People";
+      return "1-3 People";
+    }
+
+    function getGroupSizeLabel(persons) {
+      const groupSize = getGroupSize(persons);
+      if (groupSize === "7+") return "(7+ people)";
+      if (groupSize === "4-6") return "(4-6 people)";
+      return "(1-3 people)";
+    }
+
+    function getDisplayUnitPrice(persons) {
+      return getConvertedPrice(persons, currentCurrency);
+    }
+
+    /* ========== PRICE UPDATE FUNCTIONS ========== */
+
+    function updatePrice(change) {
+      qty += change;
+      if (qty < 1) qty = 1;
+      if (qty > 4) qty = 4; // Maximum 4 per jeep
+      document.getElementById("qtyDisplay").textContent = qty;
+
+      const displayUnitPrice = getConvertedPrice(qty, currentCurrency);
+      const symbol = getCurrencySymbol();
+      const groupSize = getGroupSize(qty);
+
+      // Get alternate price (USD for INR/NPR, INR for USD)
+      let alternatePrice, alternateLabel, alternateSymbol;
+      if (currentCurrency === "USD") {
+        alternatePrice = getConvertedPrice(qty, 'INR');
+        alternateLabel = "INR";
+        alternateSymbol = "₹";
+      } else if (currentCurrency === "NPR") {
+        alternatePrice = getConvertedPrice(qty, 'USD');
+        alternateLabel = "USD";
+        alternateSymbol = "$";
+      } else {
+        alternatePrice = getConvertedPrice(qty, 'USD');
+        alternateLabel = "USD";
+        alternateSymbol = "$";
+      }
+
+      // Format alternate price with symbol
+      let alternatePriceFormatted = alternateSymbol + ' ' + formatNumberForCurrency(alternatePrice, alternateLabel);
+
+      // Update displays
+      document.getElementById("basePrice").textContent = formatNumberForCurrency(displayUnitPrice, currentCurrency);
+      document.getElementById("totalPrice").textContent = formatNumberForCurrency(qty * displayUnitPrice, currentCurrency);
+      document.getElementById("mainPriceDisplay").textContent = symbol + ' ' + formatNumberForCurrency(displayUnitPrice, currentCurrency);
+      document.getElementById("alternatePriceLabel").textContent = alternateLabel;
+      document.getElementById("alternatePrice").textContent = alternatePriceFormatted;
+
+      // Update currency labels
+      document.getElementById("baseCurrency").textContent = currentCurrency;
+      document.getElementById("totalCurrency").textContent = currentCurrency;
+
+      // Update group size label
+      document.getElementById("groupSizeLabel").textContent = getGroupSizeLabel(qty);
+
+      // Update price cards in cost tab
+      updatePriceCards(currentCurrency);
+    }
+
+    function updatePriceCards(currency) {
+      const symbol = exchangeRates[currency]?.symbol || "₹";
+
+      // Get prices for each group size using conversion logic
+      const price13 = getConvertedPriceForGroup('1-3', currency);
+      const price46 = getConvertedPriceForGroup('4-6', currency);
+      const price7plus = getConvertedPriceForGroup('7+', currency);
+
+      // Get USD and NPR prices for reference
+      const usdPrice13 = getConvertedPriceForGroup('1-3', 'USD');
+      const usdPrice46 = getConvertedPriceForGroup('4-6', 'USD');
+      const usdPrice7plus = getConvertedPriceForGroup('7+', 'USD');
+
+      const nprPrice13 = getConvertedPriceForGroup('1-3', 'NPR');
+      const nprPrice46 = getConvertedPriceForGroup('4-6', 'NPR');
+      const nprPrice7plus = getConvertedPriceForGroup('7+', 'NPR');
+
+      // Update price cards
+      if (document.getElementById('price13main')) {
+        document.getElementById('price13main').textContent = symbol + ' ' + formatNumberForCurrency(price13, currency);
+        document.getElementById('price46main').textContent = symbol + ' ' + formatNumberForCurrency(price46, currency);
+        document.getElementById('price7plusmain').textContent = symbol + ' ' + formatNumberForCurrency(price7plus, currency);
+      }
+
+      // Update USD references
+      if (document.getElementById('price13usd')) {
+        document.getElementById('price13usd').textContent = 'USD ' + usdPrice13;
+        document.getElementById('price46usd').textContent = 'USD ' + usdPrice46;
+        document.getElementById('price7plususd').textContent = 'USD ' + usdPrice7plus;
+      }
+
+      // Update NPR references
+      if (document.getElementById('price13npr')) {
+        document.getElementById('price13npr').textContent = 'NPR ' + nprPrice13.toLocaleString('en-IN');
+        document.getElementById('price46npr').textContent = 'NPR ' + nprPrice46.toLocaleString('en-IN');
+        document.getElementById('price7plusnpr').textContent = 'NPR ' + nprPrice7plus.toLocaleString('en-IN');
+      }
+
+      // Update price range display
+      if (document.getElementById('priceRange')) {
+        document.getElementById('priceRange').textContent = `USD ${usdPrice13} - ${usdPrice7plus} (Approx)`;
+      }
+    }
+
+    /* ========== CURRENCY CONVERTER ========== */
+
+    function initializeCurrencyConverter() {
+      const currencySelector = document.querySelector(".currency-selector");
+      const selectedCurrency = document.getElementById("selectedCurrency");
+      const currencyOptions = document.querySelectorAll(".currency-option");
+      const priceElements = document.querySelectorAll(".price-display");
+
+      // Toggle currency dropdown
+      if (selectedCurrency) {
+        selectedCurrency.addEventListener("click", function (e) {
+          e.stopPropagation();
+          currencySelector.classList.toggle("active");
+        });
+      }
+
+      // Select currency option
+      currencyOptions.forEach((option) => {
+        option.addEventListener("click", function () {
+          const newCurrency = this.getAttribute("data-currency");
+
+          // Update selected currency display
+          selectedCurrency.querySelector("span").textContent = newCurrency;
+
+          currentCurrency = newCurrency;
+
+          // Update active state
+          currencyOptions.forEach((opt) => opt.classList.remove("active"));
+          this.classList.add("active");
+
+          // Update price table header if exists
+          const priceTableHeaders = document.querySelectorAll('[id^="priceTableHeader"]');
+          priceTableHeaders.forEach(header => {
+            if (header) header.textContent = `Cost Per Person`;
+          });
+
+          // Convert all prices
+          convertPrices(newCurrency);
+
+          // Update main price display
+          updatePrice(0);
+
+          // Update price cards
+          updatePriceCards(newCurrency);
+
+          // Close dropdown
+          currencySelector.classList.remove("active");
+        });
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener("click", function (e) {
+        if (currencySelector && !currencySelector.contains(e.target)) {
+          currencySelector.classList.remove("active");
+        }
+      });
+
+      // Function to convert prices
+      function convertPrices(targetCurrency) {
+        const targetSymbol = exchangeRates[targetCurrency]?.symbol || "₹";
+
+        priceElements.forEach(element => {
+          let convertedValue;
+          const inrValue = parseFloat(element.getAttribute("data-inr"));
+
+          if (!isNaN(inrValue)) {
+            if (targetCurrency === 'USD') {
+              convertedValue = Math.round(inrValue * exchangeRates.USD.rate);
+            } else if (targetCurrency === 'NPR') {
+              convertedValue = Math.round(inrValue * exchangeRates.NPR.rate / 100) * 100;
+            } else {
+              convertedValue = inrValue;
+            }
+
+            element.textContent = targetSymbol + ' ' + formatNumberForCurrency(convertedValue, targetCurrency);
+          }
+        });
+      }
+
+      // Initialize with INR
+      convertPrices('INR');
+    }
+
+    /* ========== NAVIGATION BURGER MENU ========== */
+
+    function initializeNavigation() {
+      const navBurger = document.getElementById("navBurger");
+      const mainNav = document.getElementById("mainNav");
+
+      if (navBurger) {
+        navBurger.addEventListener("click", function () {
+          this.classList.toggle("active");
+          mainNav.classList.toggle("active");
+          document.body.classList.toggle("nav-open");
+        });
+
+        const navLinks = mainNav.querySelectorAll("a");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            navBurger.classList.remove("active");
+            mainNav.classList.remove("active");
+            document.body.classList.remove("nav-open");
+          });
+        });
+      }
+    }
+
+    /* ========== TAB SYSTEM ========== */
+
+    function initializeTabs() {
+      const tabBurger = document.getElementById("tabBurger");
+      const tabsMenu = document.getElementById("tabsMenu");
+
+      if (tabBurger) {
+        tabBurger.addEventListener("click", function () {
+          this.classList.toggle("active");
+          tabsMenu.classList.toggle("active");
+        });
+      }
+    }
+
+    function openTab(tabId) {
+      // Hide all tab contents
+      const contents = document.querySelectorAll(".tab-content");
+      contents.forEach((content) => content.classList.remove("active"));
+
+      // Remove active class from all tab buttons
+      const tabs = document.querySelectorAll(".tab");
+      tabs.forEach((tab) => tab.classList.remove("active"));
+
+      // Show current tab and add active class to button
+      document.getElementById(tabId).classList.add("active");
+      event.currentTarget.classList.add("active");
+
+      // Update mobile tab name if available
+      const currentTabName = document.getElementById("currentTabName");
+      if (currentTabName) {
+        currentTabName.textContent = event.currentTarget.textContent.trim();
+      }
+
+      // Close tab menu on mobile
+      const tabBurger = document.getElementById("tabBurger");
+      const tabsMenu = document.getElementById("tabsMenu");
+      if (tabBurger) {
+        tabBurger.classList.remove("active");
+        tabsMenu.classList.remove("active");
+      }
+    }
+
+    /* ========== COLLAPSIBLE ITINERARY ========== */
+
+    function toggleDay(headerElement) {
+      const dayContainer = headerElement.closest(".itinerary-day");
+      dayContainer.classList.toggle("active");
+    }
+
+    function toggleAllDays(btn) {
+      const allDays = document.querySelectorAll(".itinerary-day");
+      const isExpanding = btn.innerText.trim() === "Expand All";
+
+      allDays.forEach((day) => {
+        if (isExpanding) {
+          day.classList.add("active");
+        } else {
+          day.classList.remove("active");
+        }
+      });
+
+      btn.innerText = isExpanding ? "Collapse All" : "Expand All";
+    }
+
+    /* ========== IMAGE GALLERY ========== */
+
+    let currentImageIndex = 0;
+    const images = document.querySelectorAll(".gallery-image");
+    const indicators = document.querySelectorAll(".indicator");
+
+    function showImage(index) {
+      if (index >= images.length) currentImageIndex = 0;
+      else if (index < 0) currentImageIndex = images.length - 1;
+      else currentImageIndex = index;
+
+      images.forEach((img) => img.classList.remove("active"));
+      indicators.forEach((ind) => ind.classList.remove("active"));
+
+      images[currentImageIndex].classList.add("active");
+      indicators[currentImageIndex].classList.add("active");
+    }
+
+    function changeImage(step) {
+      showImage(currentImageIndex + step);
+    }
+
+    function setImage(index) {
+      showImage(index);
+    }
+
+    // Auto-slide gallery every 5 seconds
+    setInterval(() => changeImage(1), 5000);
+
+    /* ========== CLOSE MENUS WHEN CLICKING OUTSIDE ========== */
+
+    function initializeClickOutside() {
+      const navBurger = document.getElementById("navBurger");
+      const mainNav = document.getElementById("mainNav");
+      const tabBurger = document.getElementById("tabBurger");
+      const tabsMenu = document.getElementById("tabsMenu");
+
+      document.addEventListener("click", function (event) {
+        // Close nav menu
+        if (
+          navBurger &&
+          !navBurger.contains(event.target) &&
+          !mainNav.contains(event.target)
+        ) {
+          navBurger.classList.remove("active");
+          mainNav.classList.remove("active");
+          document.body.classList.remove("nav-open");
+        }
+
+        // Close tab menu
+        if (
+          tabBurger &&
+          !tabBurger.contains(event.target) &&
+          !tabsMenu.contains(event.target)
+        ) {
+          tabBurger.classList.remove("active");
+          tabsMenu.classList.remove("active");
+        }
+      });
+    }
+
+    /* ========== BOOKING MODAL FUNCTIONS ========== */
+
+    const currentPackage = {
+      name: 'Upper Mustang 4WD Jeep Adventure Tour',
+      duration: '12 Days',
+      nights: '11 Nights 12 Days',
+      category: 'Jeep Tours',
+      includes: '4WD jeep transport, permits, accommodation, most meals, guide, domestic flight'
+    };
+
+    function generateBookingId() {
+      const prefix = 'HTT';
+      const timestamp = Date.now().toString().slice(-8);
+      const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+      const date = new Date();
+      const year = date.getFullYear().toString().slice(-2);
+      const month = (date.getMonth() + 1).toString().padStart(2, '2');
+
+      return `${prefix}-${year}${month}-${timestamp}-${random}`;
+    }
+
+    function showBookingForm() {
+      showConfirmationModal();
+    }
+
+    // Create confirmation modal
+    function showConfirmationModal() {
+      const displayUnitPrice = getConvertedPrice(qty, currentCurrency);
+      const unitUSDPrice = getConvertedPrice(qty, 'USD');
+      const symbol = getCurrencySymbol();
+      const groupSizeText = getGroupSizeText(qty);
+
+      const modalOverlay = document.createElement('div');
+      modalOverlay.className = 'confirmation-modal';
+
+      modalOverlay.innerHTML = `
+          <div>
+            <div style="text-align: center;">
+              <div style="font-size: 3rem; color: #ff9800; margin-bottom: 15px;">
+                <i class="fas fa-car"></i>
+              </div>
+              
+              <h3 style="color: #2c3e50; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <i class="fas fa-calendar-check" style="color: #ff9800;"></i> Confirm Upper Mustang Jeep Tour Booking
+              </h3>
+              
+              <div class="package-info" style="font-size: 1.1rem; color: #ff9800; font-weight: 600; margin-bottom: 20px; background: rgba(255, 152, 0, 0.1); padding: 12px; border-radius: 8px; border-left: 4px solid #ff9800;">
+                Upper Mustang 4WD Jeep Adventure Tour
+              </div>
+              
+              <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 20px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Duration:</span>
+                  <span style="font-weight: 600;">12 Days (11 Nights)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Group Size:</span>
+                  <span style="font-weight: 600;">${groupSizeText}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Participants:</span>
+                  <span style="font-weight: 600;">${qty} person(s)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Price Per Person:</span>
+                  <span style="font-weight: 600;">${symbol} ${formatNumberForCurrency(displayUnitPrice, currentCurrency)} / USD $${formatNumberForCurrency(unitUSDPrice, 'USD')}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 1.2rem; color: #28a745;">
+                  <span>Total Amount:</span>
+                  <span style="font-weight: 700;">${symbol} ${formatNumberForCurrency(qty * displayUnitPrice, currentCurrency)}</span>
+                </div>
+              </div>
+              
+              <p style="color: #666; margin-bottom: 25px; font-size: 16px;">
+                Are you ready to book this epic Jeep adventure to Nepal's Last Forbidden Kingdom?
+              </p>
+              
+              <div class="confirmation-buttons" style="display: flex; gap: 15px; margin-top: 25px;">
+                <button id="confirmCancel" class="cancel-choice" style="
+                  padding: 10px 20px;
+                  background: #f5f5f5;
+                  border: none;
+                  border-radius: 6px;
+                  color: #666;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
+                  flex: 1;
+                ">
+                  Cancel
+                </button>
+                
+                <button id="confirmBook" class="confirm-book-btn" style="
+                  background: linear-gradient(135deg, #ff9800 0%, #e65100 100%);
+                  color: white;
+                  border: none;
+                  padding: 14px 24px;
+                  border-radius: 8px;
+                  font-size: 16px;
+                  font-weight: 500;
+                  cursor: pointer;
+                  flex: 1;
+                  transition: all 0.3s ease;
+                ">
+                  Yes, Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+
+      document.body.appendChild(modalOverlay);
+      document.body.classList.add('modal-open');
+
+      // Handle button clicks
+      modalOverlay.querySelector('#confirmCancel').addEventListener('click', () => {
+        closeModal(modalOverlay);
+      });
+
+      modalOverlay.querySelector('#confirmBook').addEventListener('click', () => {
+        closeModal(modalOverlay);
+        showBookingModal();
+      });
+
+      // Close on backdrop click
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+          closeModal(modalOverlay);
+        }
+      });
+    }
+
+    // Show booking modal
+    function showBookingModal() {
+      const displayUnitPrice = getConvertedPrice(qty, currentCurrency);
+      const unitUSDPrice = getConvertedPrice(qty, 'USD');
+      const unitNPRPrice = getConvertedPrice(qty, 'NPR');
+      const symbol = getCurrencySymbol();
+      const groupSizeText = getGroupSizeText(qty);
+
+      const modalOverlay = document.createElement('div');
+      modalOverlay.className = 'booking-modal';
+
+      modalOverlay.innerHTML = `
+          <div>
+            <button class="close-modal">×</button>
+            
+            <h2 style="color: #2c3e50; margin-bottom: 1.5rem; text-align: center; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+              <i class="fas fa-car" style="color: #ff9800;"></i>
+              Book Upper Mustang Jeep Tour
+            </h2>
+            
+            <form id="bookingForm">
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Full Name *
+                </label>
+                <input type="text" id="bookingName" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="Enter your full name">
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Email Address *
+                </label>
+                <input type="email" id="bookingEmail" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="your@email.com">
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Phone Number *
+                </label>
+                <input type="tel" id="bookingPhone" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="+977 98XXXXXXXX">
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Country *
+                </label>
+                <input type="text" id="bookingCountry" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="Your country">
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Passport Number *
+                </label>
+                <input type="text" id="bookingPassport" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="Enter your passport number (required for permits)">
+              </div>
+              
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div>
+                  <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                    Persons *
+                  </label>
+                  <input type="number" min="1" max="4" value="${qty}" id="formPersons" required style="
+                    width: 100%;
+                    padding: 0.8rem;
+                    border: 1px solid #ddd;
+                    border-radius: 6px;
+                    font-size: 1rem;
+                    box-sizing: border-box;
+                  " oninput="updateBookingFormPrice()">
+                </div>
+                
+                <div>
+                  <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                    Preferred Date *
+                  </label>
+                  <input type="date" id="bookingDate" required style="
+                    width: 100%;
+                    padding: 0.8rem;
+                    border: 1px solid #ddd;
+                    border-radius: 6px;
+                    font-size: 1rem;
+                    box-sizing: border-box;
+                  ">
+                </div>
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Special Requirements
+                </label>
+                <textarea id="bookingRequirements" style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  min-height: 100px;
+                  resize: vertical;
+                  box-sizing: border-box;
+                " placeholder="Any dietary restrictions, health concerns for high altitude, or special requests..."></textarea>
+              </div>
+              
+              <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; margin: 1rem 0;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Tour Package:</span>
+                  <span style="font-weight: bold;">Upper Mustang Jeep Tour</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Duration:</span>
+                  <span>12 Days (11 Nights)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Group Size:</span>
+                  <span id="formGroupSize">${groupSizeText}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Price Per Person:</span>
+                  <span><span id="formCurrency">${currentCurrency}</span> <span id="formPricePerPerson">${formatNumberForCurrency(displayUnitPrice, currentCurrency)}</span> / $${formatNumberForCurrency(unitUSDPrice, 'USD')}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Total Persons:</span>
+                  <span id="formTotalPersons">${qty}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 1.2rem; color: #28a745;">
+                  <span>Total Amount:</span>
+                  <span><span id="formTotalCurrency">${currentCurrency}</span> <span id="formTotalAmount">${formatNumberForCurrency(qty * displayUnitPrice, currentCurrency)}</span></span>
+                </div>
+              </div>
+              
+              <button type="submit" style="
+                background: linear-gradient(135deg, #ff9800 0%, #e65100 100%);
+                color: white;
+                border: none;
+                padding: 1rem;
+                border-radius: 6px;
+                font-size: 1.1rem;
+                font-weight: 600;
+                cursor: pointer;
+                margin-top: 1rem;
+                width: 100%;
+              ">
+                <i class="fas fa-paper-plane"></i> Submit Booking Request
+              </button>
+              
+              <p style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 1rem;">
+                <i class="fas fa-info-circle"></i> Note: Passport required for permit processing
+              </p>
+              
+              <p style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 1rem;">
+                We'll contact you within 24 hours to confirm your booking
+              </p>
+            </form>
+          </div>
+        `;
+
+      document.body.appendChild(modalOverlay);
+      document.body.classList.add('modal-open');
+
+      // Make modal content scrollable on mobile
+      const modalContent = modalOverlay.querySelector('div');
+      modalContent.style.webkitOverflowScrolling = 'touch';
+
+      // Close modal when X is clicked
+      modalOverlay.querySelector('.close-modal').addEventListener('click', () => {
+        closeModal(modalOverlay);
+      });
+
+      // Close modal when clicking outside
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+          closeModal(modalOverlay);
+        }
+      });
+
+      // Update form totals when persons change
+      const personsInput = modalOverlay.querySelector('#formPersons');
+      const groupSizeSpan = modalOverlay.querySelector('#formGroupSize');
+      const totalPersonsSpan = modalOverlay.querySelector('#formTotalPersons');
+      const totalAmountSpan = modalOverlay.querySelector('#formTotalAmount');
+      const pricePerPersonSpan = modalOverlay.querySelector('#formPricePerPerson');
+      const formTotalCurrencySpan = modalOverlay.querySelector('#formTotalCurrency');
+
+      function updateFormTotal() {
+        let persons = Math.max(1, parseInt(personsInput.value) || 1);
+        if (persons > 4) persons = 4;
+        personsInput.value = persons;
+        const dispPrice = getConvertedPrice(persons, currentCurrency);
+        const sym = getCurrencySymbol();
+
+        groupSizeSpan.textContent = getGroupSizeText(persons);
+        totalPersonsSpan.textContent = persons;
+        pricePerPersonSpan.textContent = sym + " " + formatNumberForCurrency(dispPrice, currentCurrency);
+        totalAmountSpan.textContent = formatNumberForCurrency(persons * dispPrice, currentCurrency);
+        formTotalCurrencySpan.textContent = currentCurrency;
+
+        qty = persons;
+        updatePrice(0);
+      }
+
+      personsInput.addEventListener('input', updateFormTotal);
+
+      // Handle form submission - DIRECT SUBMISSION (NO CHOICE MODAL)
+      modalOverlay.querySelector('#bookingForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const persons = Math.max(1, parseInt(personsInput.value) || 1);
+        if (persons > 4) {
+          alert('Maximum 4 persons per jeep for Upper Mustang tour');
+          personsInput.value = 4;
+          return;
+        }
+
+        const displayPrice = getConvertedPrice(persons, currentCurrency);
+        const unitUSDPrice = getConvertedPrice(persons, 'USD');
+        const unitNPRPrice = getConvertedPrice(persons, 'NPR');
+        const groupSizeText = getGroupSizeText(persons);
+
+        const formData = {
+          name: modalOverlay.querySelector('#bookingName').value.trim(),
+          email: modalOverlay.querySelector('#bookingEmail').value.trim(),
+          phone: modalOverlay.querySelector('#bookingPhone').value.trim(),
+          country: modalOverlay.querySelector('#bookingCountry').value.trim(),
+          passport: modalOverlay.querySelector('#bookingPassport').value.trim(),
+          persons: persons,
+          groupSize: groupSizeText,
+          date: modalOverlay.querySelector('#bookingDate').value || 'Not specified',
+          requirements: modalOverlay.querySelector('#bookingRequirements').value.trim() || 'None',
+          package: currentPackage.name,
+          pricePerPerson: displayPrice,
+          usdPricePerPerson: unitUSDPrice,
+          nprPricePerPerson: unitNPRPrice,
+          totalAmount: persons * displayPrice,
+          currency: currentCurrency,
+          duration: currentPackage.duration,
+          nights: currentPackage.nights,
+          includes: currentPackage.includes,
+        };
+
+        // Validation
+        if (!formData.name) {
+          showMobileAlert('error', 'Name Required', 'Please enter your full name');
+          modalOverlay.querySelector('#bookingName').focus();
+          return;
+        }
+
+        if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
+          showMobileAlert('error', 'Valid Email Required', 'Please enter a valid email address');
+          modalOverlay.querySelector('#bookingEmail').focus();
+          return;
+        }
+
+        if (!formData.phone || !/^\+?[\d\s\-\(\)]{10,}$/.test(formData.phone)) {
+          showMobileAlert('error', 'Valid Phone Required', 'Please enter a valid phone number');
+          modalOverlay.querySelector('#bookingPhone').focus();
+          return;
+        }
+
+        if (!formData.country) {
+          showMobileAlert('error', 'Country Required', 'Please enter your country');
+          modalOverlay.querySelector('#bookingCountry').focus();
+          return;
+        }
+
+        if (!formData.passport) {
+          showMobileAlert('error', 'Passport Required', 'Passport number is required for Upper Mustang permit processing');
+          modalOverlay.querySelector('#bookingPassport').focus();
+          return;
+        }
+
+        if (!modalOverlay.querySelector('#bookingDate').value) {
+          showMobileAlert('error', 'Date Required', 'Please select a preferred start date');
+          modalOverlay.querySelector('#bookingDate').focus();
+          return;
+        }
+
+        // Direct submission - send via both WhatsApp and email immediately
+        submitDirectBooking(formData, modalOverlay);
+      });
+    }
+
+    // Update price in booking form
+    function updateBookingFormPrice() {
+      const modal = document.querySelector(".booking-modal");
+      if (!modal) return;
+
+      const personsInput = modal.querySelector("#formPersons");
+      const groupSizeSpan = modal.querySelector("#formGroupSize");
+      const pricePerPersonSpan = modal.querySelector("#formPricePerPerson");
+      const totalPersonsSpan = modal.querySelector("#formTotalPersons");
+      const totalAmountSpan = modal.querySelector("#formTotalAmount");
+      const formCurrencySpan = modal.querySelector("#formCurrency");
+      const formTotalCurrencySpan = modal.querySelector("#formTotalCurrency");
+
+      let persons = Math.max(1, parseInt(personsInput.value) || 1);
+      if (persons > 4) persons = 4;
+      personsInput.value = persons;
+      const dispPrice = getConvertedPrice(persons, currentCurrency);
+      const sym = getCurrencySymbol();
+
+      groupSizeSpan.textContent = getGroupSizeText(persons);
+      formCurrencySpan.textContent = currentCurrency;
+      formTotalCurrencySpan.textContent = currentCurrency;
+      pricePerPersonSpan.textContent = sym + " " + formatNumberForCurrency(dispPrice, currentCurrency);
+      totalPersonsSpan.textContent = persons;
+      totalAmountSpan.textContent = formatNumberForCurrency(persons * dispPrice, currentCurrency);
+
+      qty = persons;
+      updatePrice(0);
+    }
+
+    // Direct submission function that sends both WhatsApp and email without asking
+    function submitDirectBooking(formData, bookingModal) {
+      // Disable submit button and show loading
+      const submitBtn = bookingModal.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+      submitBtn.disabled = true;
+
+      const bookingId = generateBookingId();
+      const symbol = exchangeRates[formData.currency]?.symbol || "₹";
+
+      // Prepare WhatsApp message
+      const whatsappMessage =
+        `*UPPER MUSTANG JEEP TOUR BOOKING*\n` +
+        `━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
+        ` *Booking Details*\n` +
+        `Booking ID: ${bookingId}\n` +
+        `Package: ${formData.package}\n` +
+        `Duration: ${formData.duration} (${formData.nights})\n` +
+        `Group Size: ${formData.groupSize}\n` +
+        `Preferred Date: ${formData.date}\n\n` +
+        ` *Customer Information*\n` +
+        `Name: ${formData.name}\n` +
+        `Email: ${formData.email}\n` +
+        `Phone: ${formData.phone}\n` +
+        `Country: ${formData.country}\n` +
+        `Passport: ${formData.passport}\n` +
+        `Number of Persons: ${formData.persons}\n\n` +
+        ` *Payment Details*\n` +
+        `Price per Person (${formData.currency}): ${symbol}${formatNumberForCurrency(formData.pricePerPerson, formData.currency)}\n` +
+        `Total Amount (${formData.currency}): ${symbol}${formatNumberForCurrency(formData.totalAmount, formData.currency)}\n\n` +
+        ` *Special Requirements*\n` +
+        `${formData.requirements}\n\n` +
+        `━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+        `Submitted via HONEST TRAVEL TOURS AND EXPEDITION Website`;
+
+      // Prepare email template parameters
+      const templateParams = {
+        booking_id: bookingId,
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        country: formData.country,
+        passport: formData.passport,
+        package_name: formData.package,
+        package_duration: formData.duration,
+        number_of_person: formData.persons,
+        preferred_date: formData.date,
+        special_requirements: formData.requirements || "None",
+        company_name: "Honest Travel Tours and Expedition",
+        price_per_person: `${formData.currency} ${formatNumberForCurrency(formData.pricePerPerson, formData.currency)}`,
+        total_amount: `${formData.currency} ${formatNumberForCurrency(formData.totalAmount, formData.currency)}`,
+      };
+
+      // Open WhatsApp in a new tab
+      const phoneNumber = "9779851140110";
+      window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`, "_blank");
+
+      // Send email via EmailJS
+      emailjs.send("service_9fq6tb6", "template_kmaga4l", templateParams)
+        .then(
+          function () {
+            console.log("Email sent successfully");
+            // Close the booking modal
+            closeModal(bookingModal);
+            // Show success message
+            showMobileAlert(
+              "success",
+              "Booking Request Submitted!",
+              `Your Upper Mustang Jeep Tour booking request has been sent successfully.\n\nBooking ID: ${bookingId}\n\nWe have opened WhatsApp and sent an email confirmation. Our Mustang specialists will contact you within 24 hours to confirm your booking and start permit processing.`
+            );
+          },
+          function (error) {
+            console.error("Email failed:", error);
+            // Close the booking modal
+            closeModal(bookingModal);
+            // Show warning message
+            showMobileAlert(
+              "warning",
+              "WhatsApp Opened - Email Pending",
+              `Your booking details have been opened in WhatsApp.\n\nBooking ID: ${bookingId}\n\nThere was an issue sending the email. Please send an email to mustang@honesttraveltours.com with your booking details to complete the process.`
+            );
+          }
+        )
+        .finally(() => {
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.disabled = false;
+        });
+    }
+
+    /* ========== ENQUIRY MODAL FUNCTION ========== */
+    function showEnquiryModal() {
+      const packageName = 'Upper Mustang 4WD Jeep Adventure Tour';
+      const packagePrice = '₹2,57,750 - 2,64,000 (based on group size)';
+      const packageDuration = '12 Days / 11 Nights';
+      const packageCategory = 'Jeep Tours';
+
+      const params = new URLSearchParams({
+        package: encodeURIComponent(packageName),
+        price: encodeURIComponent(packagePrice),
+        duration: encodeURIComponent(packageDuration),
+        category: encodeURIComponent(packageCategory),
+        source: 'upper-mustang-jeep-tour'
+      }).toString();
+
+      // Redirect immediately without showing alert
+      window.location.href = `../enquiry-form.html?${params}`;
+    }
+
+    /* ========== MOBILE ALERT FUNCTION ========== */
+    function showMobileAlert(type, title, message) {
+      // Remove any existing alerts
+      const existingAlerts = document.querySelectorAll('.mobile-alert-overlay');
+      existingAlerts.forEach(alert => closeModal(alert));
+
+      const alertOverlay = document.createElement('div');
+      alertOverlay.className = 'mobile-alert-overlay';
+
+      const icons = {
+        success: 'fa-check-circle',
+        warning: 'fa-exclamation-triangle',
+        error: 'fa-times-circle',
+        info: 'fa-info-circle'
+      };
+
+      const colors = {
+        success: '#28a745',
+        warning: '#ff9800',
+        error: '#dc3545',
+        info: '#ff9800'
+      };
+
+      alertOverlay.innerHTML = `
+          <div>
+            <div class="mobile-alert ${type}" style="text-align: center;">
+              <div class="mobile-alert-icon">
+                <i class="fas ${icons[type]}" style="color: ${colors[type]}"></i>
+              </div>
+              <h3 style="color: #2c3e50; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <i class="fas ${icons[type]}" style="color: ${colors[type]}"></i>
+                ${title}
+              </h3>
+              <div class="mobile-alert-message">${message.replace(/\n/g, '<br>')}</div>
+              <button class="mobile-alert-ok-btn" onclick="closeModal(this.closest('.mobile-alert-overlay'))">OK</button>
+            </div>
+          </div>
+        `;
+
+      document.body.appendChild(alertOverlay);
+      document.body.classList.add('modal-open');
+
+      if (type === 'success') {
+        setTimeout(() => {
+          if (alertOverlay.parentNode) closeModal(alertOverlay);
+        }, 5000);
+      }
+
+      alertOverlay.addEventListener('click', (e) => {
+        if (e.target === alertOverlay) {
+          closeModal(alertOverlay);
+        }
+      });
+    }
+
+    // Universal close modal function
+    function closeModal(modalOverlay) {
+      modalOverlay.style.animation = 'fadeOut 0.3s ease';
+
+      setTimeout(() => {
+        if (modalOverlay.parentNode) {
+          document.body.removeChild(modalOverlay);
+        }
+        // Remove modal-open class if no other modals are open
+        if (!document.querySelector('.confirmation-modal, .mobile-alert-overlay, .booking-modal, .submission-modal')) {
+          document.body.classList.remove('modal-open');
+        }
+      }, 300);
+    }
+
+    /* ========== FACILITIES SLIDER NAVIGATION ========== */
+    function scrollFacilities(sliderId, direction) {
+      const slider = document.getElementById(sliderId);
+      const scrollAmount = 300;
+      slider.scrollBy({
+        left: direction * scrollAmount,
+        behavior: "smooth",
+      });
+    }
+
+    /* ========== INITIALIZE EVERYTHING ========== */
+    document.addEventListener("DOMContentLoaded", function () {
+      initializeNavigation();
+      initializeTabs();
+      initializeCurrencyConverter();
+      initializeClickOutside();
+      updatePrice(0);
+      updatePriceCards('INR');
+    });
+
+    // Attach functions to window for global access
+    window.openTab = openTab;
+    window.toggleDay = toggleDay;
+    window.toggleAllDays = toggleAllDays;
+    window.changeImage = changeImage;
+    window.setImage = setImage;
+    window.updatePrice = updatePrice;
+    window.showBookingForm = showBookingForm;
+    window.showEnquiryModal = showEnquiryModal;
+    window.scrollFacilities = scrollFacilities;
+    window.updateBookingFormPrice = updateBookingFormPrice;
+    window.closeModal = closeModal;
+  </script>
+</body>
+
+</html>

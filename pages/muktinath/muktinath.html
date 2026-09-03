@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muktinath Temple - Honest Travel Tours</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../../css/kailash.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="top-bar">
+        <div class="container">
+          <div class="contact-info">
+            <span>
+              📞
+              <a
+                href="https://wa.me/9779851140110"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="wa-link"
+                >+977-9851140110</a
+              >
+              ,
+              <a
+                href="https://wa.me/9779856017867"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="wa-link"
+                >9856017867</a
+              >
+            </span>
+            <span> ✉️ info@honesttraveltours.com </span>
+          </div>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-main">
+        <div class="logo">
+          <div class="logo-icon">
+            <img src="../../images/Logo Image.png" alt="Honest Travel Logo" />
+          </div>
+          <div class="logo-text">
+            <h1>HONEST TRAVEL</h1>
+            <p>TOURS AND EXPEDITION</p>
+          </div>
+        </div>
+
+        <!-- Hamburger Menu Button -->
+        <button class="hamburger-menu" aria-label="Menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+
+        <nav class="main-nav">
+          <ul>
+            <li><a href="../../index.html">HOME</a></li>
+            <li><a href="../../index.html#tours">TOURS</a></li>
+            <li><a href="../../index.html#trekking">TREKKING</a></li>
+            <li><a href="../../index.html#contact">CONTACT US</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Photo Gallery Section -->
+    <div class="photo-gallery-section">
+      <div class="gallery-header">
+        <h1>Muktinath Temple</h1>
+        <p>
+          Discover the sacred sanctuary of Muktinath, where Hindu and Buddhist
+          traditions converge at 3,800 meters. A pilgrimage destination that
+          promises spiritual liberation and eternal peace.
+        </p>
+      </div>
+
+      <!-- Main Featured Image with Carousel -->
+      <div class="main-image-container">
+        <img
+          src="../../images/Muktinath.jpg"
+          class="main-image active-slide"
+          alt="Muktinath Temple"
+        />
+        <img
+          src="../../images/Muktinath1.jpg"
+          class="main-image"
+          alt="Muktinath Spouts"
+        />
+        <img
+          src="../../images/Muktinath2.jpeg"
+          class="main-image"
+          alt="Muktinath Valley"
+        />
+        <img
+          src="../../images/Muktinath3.jpg"
+          class="main-image"
+          alt="Muktinath Pilgrims"
+        />
+
+        <div class="gallery-nav">
+          <button class="nav-btn" onclick="changeSlide(-1)">‹</button>
+          <button class="nav-btn" onclick="changeSlide(1)">›</button>
+        </div>
+
+        <div class="gallery-indicators">
+          <div class="indicator active" onclick="goToSlide(0)"></div>
+          <div class="indicator" onclick="goToSlide(1)"></div>
+          <div class="indicator" onclick="goToSlide(2)"></div>
+          <div class="indicator" onclick="goToSlide(3)"></div>
+        </div>
+      </div>
+
+      <!-- Image Grid -->
+      <div class="image-grid">
+        <div class="grid-item" onclick="goToSlide(0)">
+          <img src="../../images/Muktinath.jpg" alt="Muktinath Main Temple" />
+        </div>
+        <div class="grid-item" onclick="goToSlide(1)">
+          <img src="../../images/Muktinath1.jpg" alt="Sacred Water Spouts" />
+        </div>
+        <div class="grid-item" onclick="goToSlide(2)">
+          <img src="../../images/Muktinath2.jpeg" alt="Muktinath Landscape" />
+        </div>
+        <div class="grid-item" onclick="goToSlide(3)">
+          <img src="../../images/Muktinath3.jpg" alt="Devotees at Temple" />
+        </div>
+      </div>
+
+      <!-- Call to Action Section -->
+      <div class="cta-section">
+        <h2>Ready to Begin Your Spiritual Journey?</h2>
+        <p>
+          Explore our specially designed tour packages to experience the divine
+          serenity of Muktinath Temple with comfort and devotion.
+        </p>
+        <a href="muktinath-packages.html" class="cta-button">
+          <i class="fas fa-temple"></i> View Tour Packages
+        </a>
+      </div>
+    </div>
+
+    <!-- Detailed Content Section -->
+    <div class="content-section">
+      <h2 class="section-title">The Sacred Sanctuary of Muktinath</h2>
+      <p class="intro-text">
+        Nestled in the Mustang district of Nepal at an altitude of 3,800 meters,
+        Muktinath Temple stands as one of the most revered pilgrimage sites in
+        the Himalayas. Known as "Mukti Kshetra" (place of liberation), this
+        sacred temple holds profound spiritual significance for both Hindus and
+        Buddhists, making it a unique confluence of two major religions in the
+        shadow of the Annapurna and Dhaulagiri mountain ranges.
+      </p>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-om"></i>
+          </div>
+          <h3>Hindu Significance</h3>
+          <p>
+            For Hindus, Muktinath is one of the 108 Divya Desams (divine places)
+            dedicated to Lord Vishnu. Known as "Muktinath" meaning "the provider
+            of salvation," it is believed that a single visit to this sacred
+            temple can liberate devotees from the cycle of birth and death.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-dharmachakra"></i>
+          </div>
+          <h3>Buddhist Connection</h3>
+          <p>
+            Buddhists revere Muktinath as a place of spiritual power associated
+            with Guru Rinpoche (Padmasambhava), who is said to have meditated
+            here. Known to Buddhists as "Chumig Gyatsa" meaning "Hundred
+            Waters," the site represents enlightenment and is considered one of
+            the 24 tantric places.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-fire"></i>
+          </div>
+          <h3>The Eternal Flame</h3>
+          <p>
+            Inside the main temple, a natural flame burns continuously, fed by
+            underground natural gas. This miraculous phenomenon, where fire
+            burns alongside water in a sacred spring, is considered highly
+            auspicious by both religions.
+          </p>
+        </div>
+      </div>
+
+      <div class="highlight-banner">
+        <h3><i class="fas fa-mountain"></i> The Journey to Muktinath</h3>
+        <p>
+          The pilgrimage to Muktinath is as spiritually significant as the
+          destination itself. The journey through the Mustang region offers
+          breathtaking views of the Annapurna and Dhaulagiri ranges, passes
+          through traditional Tibetan villages, and exposes travelers to unique
+          landscapes that transition from lush valleys to arid high-altitude
+          desert. Whether trekking the ancient trails or taking the modern road
+          route, every step toward Muktinath is considered a step toward
+          spiritual awakening.
+        </p>
+      </div>
+
+      <div class="facts-container">
+        <h2 class="section-title">Essential Travel Information</h2>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Best Time to Visit</h4>
+            <p>
+              The ideal time to visit Muktinath is during spring (March to May)
+              and autumn (September to November) when the weather is pleasant
+              and skies are clear. Summer monsoons (June to August) can make
+              roads challenging, though the Mustang region receives less
+              rainfall than other parts of Nepal. Winter (December to February)
+              brings heavy snowfall and extreme cold, making access difficult
+              but offering a serene, snow-covered landscape for the adventurous.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-route"></i>
+          </div>
+          <div class="fact-content">
+            <h4>How to Reach</h4>
+            <p>
+              From Kathmandu, most travelers fly to Pokhara and then take a
+              scenic flight to Jomsom, followed by a 2-3 hour jeep ride or trek
+              to Muktinath. Alternatively, adventurous pilgrims can trek the
+              classic Annapurna Circuit route, which takes 7-10 days from
+              Besisahar. The newly constructed road from Pokhara via Beni and
+              Jomsom allows for direct bus or jeep access, though the journey
+              takes 8-10 hours. For the ultimate luxury, helicopter services
+              operate from Pokhara, reaching Muktinath in just 30 minutes.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-home"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Accommodation Options</h4>
+            <p>
+              Muktinath offers a range of accommodation from basic guesthouses
+              to comfortable lodges with heated rooms. Nearby Ranipauwa village
+              has numerous hotels catering to pilgrims, with facilities
+              improving each year. Most lodges provide hot showers, WiFi, and
+              multi-cuisine restaurants serving vegetarian food. During peak
+              pilgrimage season (April-May and October-November), advance
+              booking is highly recommended. Prices range from budget options at
+              $10-15 per night to premium lodges at $40-60 per night.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-heartbeat"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Altitude Considerations</h4>
+            <p>
+              At 3,800 meters, altitude sickness is a real concern for
+              travelers. Symptoms include headaches, nausea, and shortness of
+              breath. Proper acclimatization is essential—spend at least one
+              night in Jomsom (2,700m) before ascending to Muktinath. Stay
+              well-hydrated, avoid alcohol, and walk slowly. Most people adjust
+              within 24-48 hours. Those with heart conditions or respiratory
+              issues should consult doctors before planning the trip. Diamox
+              tablets can help prevent altitude sickness if taken
+              preventatively.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-hiking"></i>
+          </div>
+          <div class="fact-content">
+            <h4>What to Pack</h4>
+            <p>
+              Essential items include warm layers (temperatures can drop to
+              -10°C at night), comfortable trekking shoes, sunscreen (SPF 50+),
+              sunglasses, lip balm, personal medications, and toiletries. Bring
+              a good quality sleeping bag if trekking, thermal wear, wind-proof
+              jacket, woolen cap, and gloves. Power banks are useful as
+              electricity can be intermittent. Most importantly, carry your
+              faith and an open heart—the spiritual experience transcends
+              material preparation.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-coins"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Budget Planning</h4>
+            <p>
+              A typical 5-6 day Muktinath tour from Kathmandu costs between
+              $300-$600 per person depending on travel mode and accommodation
+              choices. Budget travelers can manage with $40-50 per day including
+              food and lodging. Mid-range comfort costs $80-120 per day.
+              Helicopter packages start from $1,500 for roundtrip from
+              Kathmandu. Entrance fees are minimal (around NPR 50), but
+              donations to the temple are customary. Carry sufficient Nepali
+              rupees as ATMs are unreliable in remote areas.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-banner">
+        <h3>
+          <i class="fas fa-praying-hands"></i> Spiritual Practices at Muktinath
+        </h3>
+        <p>
+          The ritual bath under the 108 water spouts is the primary spiritual
+          practice at Muktinath. Devotees typically begin early morning, bathing
+          under each spout while chanting prayers or mantras. Inside the main
+          temple, offerings of flowers, incense, and butter lamps are made to
+          Lord Vishnu. The eternal flame is worshipped with special reverence.
+          Many pilgrims circumambulate the temple complex multiple times.
+          Buddhist practitioners perform prostrations and prayer flag offerings.
+          The entire experience is designed to purify body, mind, and soul.
+        </p>
+      </div>
+
+      <div class="info-grid" style="margin-top: 4rem">
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-mountain"></i>
+          </div>
+          <h3>Nearby Attractions</h3>
+          <p>
+            The region around Muktinath offers several additional pilgrimage and
+            tourist sites. Jwala Mai Temple, located below the main temple,
+            features another eternal flame. The ancient village of Kagbeni, a
+            gateway to Upper Mustang, offers stunning medieval architecture.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Cultural Experience</h3>
+          <p>
+            The Mustang region offers a unique blend of Tibetan Buddhist and
+            Hindu cultures. Villages showcase traditional Tibetan architecture
+            with white-washed houses and Buddhist monasteries. Locals practice
+            ancient customs and speak Tibetan dialects.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-camera"></i>
+          </div>
+          <h3>Photography Paradise</h3>
+          <p>
+            Muktinath and its surroundings offer spectacular photography
+            opportunities. Capture the golden sunrise over snow-capped peaks,
+            the stark beauty of high-altitude desert landscapes, colorful prayer
+            flags fluttering against blue skies, and devotees performing rituals
+            under water spouts.
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="highlight-banner"
+        style="
+          margin-top: 4rem;
+          background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        "
+      >
+        <h3><i class="fas fa-heart"></i> A Journey of Transformation</h3>
+        <p>
+          Visiting Muktinath is more than a pilgrimage—it's a transformative
+          experience that touches the soul. Standing at 3,800 meters, surrounded
+          by towering Himalayan peaks, bathing under ice-cold sacred waters, and
+          witnessing the eternal flame burning alongside water, pilgrims often
+          describe feelings of profound peace and spiritual awakening. Many
+          return with renewed faith, clarity of purpose, and a deep sense of
+          inner liberation. The journey tests your physical limits while
+          elevating your spiritual consciousness.
+        </p>
+      </div>
+
+      <div class="facts-container" style="margin-top: 4rem">
+        <h2 class="section-title">Temple Rituals and Customs</h2>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-spa"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Sacred Bath Ritual</h4>
+            <p>
+              The most important ritual at Muktinath is bathing under all 108
+              water spouts. Devotees typically start early morning (4-5 AM) when
+              water is coldest but the spiritual power is strongest. Move
+              clockwise around the spouts, pausing briefly under each one while
+              chanting mantras or prayers. Many believe completing the circuit
+              absolves sins of countless lifetimes. Despite the freezing water,
+              thousands perform this ritual daily during peak season, testament
+              to their unwavering devotion.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-hands-praying"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Temple Darshan</h4>
+            <p>
+              After the sacred bath, devotees enter the main temple for darshan
+              (viewing of the deity). Remove shoes before entering, dress
+              modestly covering shoulders and knees, and maintain a reverent
+              attitude. Inside, offer flowers, fruits, or monetary donations.
+              The eternal flame and sacred spring require special reverence.
+              Photography is generally prohibited inside the sanctum. Temple
+              opens early morning (4 AM) and closes after evening aarti. Fridays
+              and Ekadashi days see maximum crowds.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-flag"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Prayer Flag Offerings</h4>
+            <p>
+              Buddhist pilgrims traditionally offer prayer flags around the
+              temple complex. These colorful flags inscribed with sacred texts
+              are believed to spread blessings as the wind carries their prayers
+              across the mountains. The five colors represent the five elements:
+              blue (sky), white (air), red (fire), green (water), and yellow
+              (earth). Hanging prayer flags is considered highly meritorious,
+              with the act of offering bringing peace and compassion to all
+              beings.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-book-open"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Scriptural Significance</h4>
+            <p>
+              Muktinath is mentioned in ancient Hindu texts including the Vishnu
+              Purana and Mahabharata. The site is believed to be where Lord
+              Brahma lit a sacred fire. Buddhist scriptures describe it as one
+              of the 24 tantric places where practitioners achieve
+              enlightenment. The Swasthani Purana narrates how sage Jalandhara
+              performed penance here. These ancient references spanning
+              thousands of years underscore Muktinath's enduring spiritual
+              importance across generations and traditions.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-sun"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Festival Celebrations</h4>
+            <p>
+              Major festivals at Muktinath include Janai Purnima (July/August)
+              when thousands of Hindu pilgrims gather for sacred thread
+              ceremonies, and Buddha Jayanti (April/May) when Buddhist devotees
+              celebrate Buddha's birth, enlightenment, and passing. During these
+              festivals, the temple complex comes alive with special pujas,
+              butter lamp offerings, and religious discourses. Attending
+              festivals provides deep insight into living religious traditions
+              and creates memorable spiritual experiences.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Universal Appeal</h4>
+            <p>
+              What makes Muktinath truly special is its acceptance and reverence
+              across religious boundaries. Hindu and Buddhist pilgrims worship
+              side by side in harmony, sharing the same sacred space peacefully.
+              This religious tolerance and coexistence serves as a powerful
+              reminder of humanity's common spiritual aspirations. People from
+              diverse backgrounds—Indian, Nepali, Tibetan, and international
+              travelers—all find meaning and solace here, proving that faith
+              transcends cultural and geographical boundaries.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-banner">
+        <h3><i class="fas fa-quote-left"></i> Pilgrim Testimonials</h3>
+        <p>
+          "The moment I bathed under the 108 spouts in freezing water, I felt
+          every burden, every worry, every regret wash away. It was as if I was
+          reborn, cleansed not just physically but spiritually. Standing before
+          the eternal flame, I understood why this place is called the provider
+          of salvation. Muktinath doesn't just offer blessings—it offers
+          transformation." - This sentiment echoes through countless pilgrims
+          who have experienced the profound power of this sacred sanctuary in
+          the Himalayas.
+        </p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Honest Travel</h3>
+          <p>
+            Your trusted partner for authentic Himalayan experiences. We
+            specialize in trekking, cultural tours, and pilgrimage journeys.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Kathmandu, Nepal</p>
+          <p>info@honesttraveltours.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 HONEST TRAVEL Tours and Expedition. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile Navigation Toggle
+      const hamburgerMenu = document.querySelector(".hamburger-menu");
+      const mainNav = document.querySelector(".main-nav");
+      const body = document.body;
+
+      hamburgerMenu.addEventListener("click", (e) => {
+        e.stopPropagation();
+        mainNav.classList.toggle("active");
+        hamburgerMenu.classList.toggle("active");
+        body.classList.toggle("menu-open");
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (event) => {
+        if (
+          mainNav.classList.contains("active") &&
+          !hamburgerMenu.contains(event.target) &&
+          !mainNav.contains(event.target)
+        ) {
+          mainNav.classList.remove("active");
+          hamburgerMenu.classList.remove("active");
+          body.classList.remove("menu-open");
+        }
+      });
+
+      // Close menu when clicking on a link
+      const navLinks = document.querySelectorAll(".main-nav a");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mainNav.classList.remove("active");
+          hamburgerMenu.classList.remove("active");
+          body.classList.remove("menu-open");
+        });
+      });
+
+      // Carousel functionality
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".main-image");
+      const indicators = document.querySelectorAll(".indicator");
+
+      function showSlide(n) {
+        slides.forEach((slide) => slide.classList.remove("active-slide"));
+        indicators.forEach((dot) => dot.classList.remove("active"));
+
+        if (n >= slides.length) currentSlide = 0;
+        if (n < 0) currentSlide = slides.length - 1;
+
+        slides[currentSlide].classList.add("active-slide");
+        indicators[currentSlide].classList.add("active");
+      }
+
+      function changeSlide(direction) {
+        currentSlide += direction;
+        showSlide(currentSlide);
+      }
+
+      function goToSlide(n) {
+        currentSlide = n;
+        showSlide(currentSlide);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      // Auto-advance slides every 5 seconds
+      setInterval(() => {
+        currentSlide++;
+        showSlide(currentSlide);
+      }, 5000);
+
+      // Show first slide on load
+      showSlide(currentSlide);
+
+      // Close menu on escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && mainNav.classList.contains("active")) {
+          mainNav.classList.remove("active");
+          hamburgerMenu.classList.remove("active");
+          body.classList.remove("menu-open");
+        }
+      });
+    </script>
+  </body>
+</html>

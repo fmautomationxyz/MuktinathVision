@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kathmandu Cultural Tour - Honest Travel Tours</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <!-- Link to the same CSS as the Kailash page -->
+    <link rel="stylesheet" href="../../css/kailash.css" />
+  </head>
+  <body>
+    <!-- Header (Identical to Kailash page) -->
+    <header>
+      <div class="top-bar">
+        <div class="container">
+          <div class="contact-info">
+            <span>
+              📞
+              <a
+                href="https://wa.me/9779851140110"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="wa-link"
+                >+977-9851140110</a
+              >
+              ,
+              <a
+                href="https://wa.me/9779856017867"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="wa-link"
+                >9856017867</a
+              >
+            </span>
+            <span> ✉️ infohonesttoursntravels@gmail.com </span>
+          </div>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-main">
+        <div class="logo">
+          <div class="logo-icon">
+            <img src="../../images/Logo Image.png" alt="Honest Travel Logo" />
+          </div>
+          <div class="logo-text">
+            <h1>HONEST TRAVEL</h1>
+            <p>TOURS AND EXPEDITION</p>
+          </div>
+        </div>
+
+        <!-- Hamburger Menu Button -->
+        <button class="hamburger-menu" aria-label="Menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+
+        <nav class="main-nav">
+          <ul>
+            <li><a href="../../index.html">HOME</a></li>
+            <li><a href="../../index.html#tours">TOURS</a></li>
+            <li><a href="../../index.html#trekking">TREKKING</a></li>
+            <li><a href="../../index.html#contact">CONTACT US</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Photo Gallery Section -->
+    <div class="photo-gallery-section">
+      <div class="gallery-header">
+        <h1>Kathmandu Cultural Tour</h1>
+        <p>
+          Journey through centuries of living history. Explore the sacred
+          stupas, ancient palaces, and vibrant traditions of the Kathmandu
+          Valley, a UNESCO World Heritage Site.
+        </p>
+      </div>
+
+      <!-- Main Featured Image with Carousel -->
+      <div class="main-image-container">
+        <!-- REPLACE THESE SRC PATHS WITH YOUR KATHMANDU TOUR IMAGES -->
+        <img
+          src="../../images/Kathmandu.jpg"
+          class="main-image active-slide"
+          alt="Boudhanath Stupa"
+        />
+        <img
+          src="../../images/Kathmandu1.jpg"
+          class="main-image"
+          alt="Pashupatinath Temple"
+        />
+        <img
+          src="../../images/kathmandu2.jpg"
+          class="main-image"
+          alt="Bhaktapur Durbar Square"
+        />
+        <img
+          src="../../images/Kathmandu3.jpg"
+          class="main-image"
+          alt="Swayambhunath Stupa"
+        />
+
+        <div class="gallery-nav">
+          <button class="nav-btn" onclick="changeSlide(-1)">‹</button>
+          <button class="nav-btn" onclick="changeSlide(1)">›</button>
+        </div>
+
+        <div class="gallery-indicators">
+          <div class="indicator active" onclick="goToSlide(0)"></div>
+          <div class="indicator" onclick="goToSlide(1)"></div>
+          <div class="indicator" onclick="goToSlide(2)"></div>
+          <div class="indicator" onclick="goToSlide(3)"></div>
+          <div class="indicator" onclick="goToSlide(4)"></div>
+        </div>
+      </div>
+
+      <!-- Image Grid -->
+      <div class="image-grid">
+        <!-- REPLACE THESE SRC PATHS WITH YOUR KATHMANDU TOUR GRID IMAGES -->
+        <div class="grid-item" onclick="goToSlide(0)">
+          <img src="../../images/Kathmandu.jpg" alt="Golden Temple Patan" />
+        </div>
+        <div class="grid-item" onclick="goToSlide(1)">
+          <img src="../../images/Kathmandu1.jpg" alt="Namo Buddha" />
+        </div>
+        <div class="grid-item" onclick="goToSlide(2)">
+          <img
+            src="../../images/kathmandu2.jpg"
+            alt="Bhaktapur Pottery Square"
+          />
+        </div>
+        <div class="grid-item" onclick="goToSlide(3)">
+          <img src="../../images/Kathmandu3.jpg" alt="Ancient Window" />
+        </div>
+      </div>
+
+      <!-- Call to Action Section -->
+      <div class="cta-section">
+        <h2>Ready to Discover Living Heritage?</h2>
+        <p>
+          Immerse yourself in the spiritual and artistic heart of Nepal with our
+          curated 5-day cultural tour package, encompassing all major UNESCO
+          sites and hidden gems.
+        </p>
+        <a href="kathmandu-packages.html" class="cta-button">
+          <i class="fas fa-university"></i> View Tour Package
+        </a>
+      </div>
+    </div>
+
+    <!-- New Detailed Content Section -->
+    <div class="content-section">
+      <h2 class="section-title">The Soul of the Himalayas: Kathmandu Valley</h2>
+      <p class="intro-text">
+        The Kathmandu Valley is not just the capital of Nepal; it is a vast,
+        open-air museum of medieval art, architecture, and living religious
+        traditions. For over two millennia, it has been the cultural and
+        spiritual crossroads of the Himalayas, where Hinduism and Buddhism have
+        intertwined to create a unique syncretic culture. Within a radius of
+        just 20 kilometers, you can find seven UNESCO World Heritage Sites, each
+        telling a story of divine kingship, intricate craftsmanship, and
+        profound faith that continues to animate daily life.
+      </p>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-om"></i>
+          </div>
+          <h3>Spiritual Harmony</h3>
+          <p>
+            Witness the seamless blend of Hinduism and Buddhism. At
+            Swayambhunath, see Hindu shrines beside the Buddhist stupa. At
+            Pashupatinath, one of Hinduism's most sacred Shiva temples, Buddhist
+            rituals are also performed. This co-existence is the valley's
+            defining spiritual characteristic.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-landmark"></i>
+          </div>
+          <h3>The Three Kingdoms</h3>
+          <p>
+            Explore the distinct characters of the three ancient Malla kingdom
+            capitals: <strong>Kathmandu</strong> (Kantipur), the vibrant modern
+            hub; <strong>Patan</strong> (Lalitpur), the city of fine arts and
+            unparalleled craftsmanship; and <strong>Bhaktapur</strong>
+            (Bhadgaon), the best-preserved, a time capsule of medieval Newari
+            culture.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-hands"></i>
+          </div>
+          <h3>Living Culture</h3>
+          <p>
+            This is not a tour of ruins. It's an immersion into a living
+            culture. Watch devotees circle Boudhanath Stupa at dawn, see
+            traditional potters at their wheels in Bhaktapur, observe intricate
+            metalwork being done in Patan's backstreets, and smell the incense
+            and offerings at local neighborhood shrines.
+          </p>
+        </div>
+      </div>
+
+      <div class="highlight-banner">
+        <h3><i class="fas fa-star"></i> A Valley of UNESCO Heritage</h3>
+        <p>
+          The Kathmandu Valley holds one of the highest densities of UNESCO
+          World Heritage Sites in the world. This recognition was given not just
+          for individual monuments, but for the entire cultural landscape and
+          the exceptional demonstration of integrated urban and architectural
+          design over centuries. The valley represents a masterpiece of human
+          creative genius, with its unique pagoda-style architecture, intricate
+          wood and stone carvings, and urban planning centered around royal
+          squares, courtyards, and sacred waterways.
+        </p>
+      </div>
+
+      <div class="facts-container">
+        <h2 class="section-title">Exploring the Sacred Sites</h2>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-eye"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Swayambhunath (The Monkey Temple)</h4>
+            <p>
+              Perched atop a hill west of Kathmandu, this 2,000-year-old stupa
+              is one of the world's oldest and most glorious Buddhist chaityas.
+              The iconic all-seeing eyes of Buddha gaze in all four directions.
+              The climb of 365 steps is a symbolic journey. It's a sacred site
+              for both Buddhists and Hindus, with numerous shrines and a colony
+              of revered monkeys.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-water"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Pashupatinath Temple</h4>
+            <p>
+              The most sacred Hindu temple complex dedicated to Lord Shiva,
+              located on the banks of the Bagmati River. Non-Hindus cannot enter
+              the main temple but can observe rituals from the east bank. It is
+              a profound place to witness the cycle of life and death through
+              open-air cremation ceremonies. The architecture, sculptures, and
+              the presence of Sadhus (holy men) create a powerful atmosphere.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-dharmachakra"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Boudhanath Stupa</h4>
+            <p>
+              One of the largest spherical stupas in the world and the center of
+              Tibetan Buddhism in Nepal. Built in the 5th century, its massive
+              mandala design is breathtaking. Circumambulate with pilgrims
+              spinning prayer wheels, listen to monastic chants from surrounding
+              monasteries, and feel the powerful, peaceful energy of this
+              important pilgrimage site.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-crown"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Kathmandu Durbar Square (Basantapur)</h4>
+            <p>
+              The historic seat of the Malla and Shah kings. Explore the old
+              royal palace (Hanuman Dhoka), the towering temple of Taleju
+              Bhawani, the nine-story Basantapur Tower, and the Kumari Ghar—home
+              to the living child goddess, Kumari. The square is a showcase of
+              Newari architecture at its peak, though still bearing scars from
+              the 2015 earthquake.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-gem"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Patan Durbar Square & Museum</h4>
+            <p>
+              Often considered the finest collection of craftsmanship in the
+              valley. Marvel at the Krishna Mandir built entirely of stone, the
+              Bhimsen Temple, and the Royal Bath. The Patan Museum, housed in
+              the former royal residence, is world-class, displaying exquisite
+              bronze statues and religious artifacts. Don't miss the nearby
+              Golden Temple (Hiranya Varna Mahavihar).
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-history"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Bhaktapur Durbar Square & Beyond</h4>
+            <p>
+              Step back in time in Nepal's best-preserved medieval city. See the
+              Golden Gate, the 55-Window Palace, the magnificent Nyatapola
+              Temple (Nepal's tallest pagoda), and the Dattatreya Square. Wander
+              to Pottery Square to see artisans using traditional methods.
+              Bhaktapur's strict vehicle restrictions and community-led
+              preservation efforts have maintained its unique atmosphere.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Itinerary Section -->
+      <div class="highlight-banner" style="margin-top: 4rem">
+        <h3>
+          <i class="fas fa-map-marked-alt"></i> 5-Day Cultural Journey Overview
+        </h3>
+        <p style="margin-bottom: 2rem">
+          Our classic tour is designed for depth and immersion, providing a
+          perfect blend of iconic landmarks, cultural interaction, and serene
+          nature.
+        </p>
+
+        <div style="margin-top: 2rem">
+          <!-- Day 1 -->
+          <div
+            style="
+              background: rgba(255, 255, 255, 0.9);
+              border-left: 4px solid #3498db;
+              padding: 1.5rem;
+              margin-bottom: 1.5rem;
+              border-radius: 8px;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              transition: transform 0.3s ease, box-shadow 0.3s ease;
+            "
+          >
+            <h4
+              style="
+                color: #2c3e50;
+                margin-bottom: 1rem;
+                font-size: 1.3rem;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+              "
+            >
+              <span
+                style="
+                  background: #3498db;
+                  color: white;
+                  padding: 0.3rem 0.8rem;
+                  border-radius: 4px;
+                  font-size: 0.9rem;
+                  font-weight: bold;
+                "
+                >Day 1</span
+              >
+              Arrival & Orientation
+            </h4>
+            <ul style="list-style-type: none; padding-left: 0">
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  border-bottom: 1px solid #eee;
+                  position: relative;
+                  padding-left: 1.5rem;
+                "
+              >
+                Arrive in Kathmandu and transfer to your hotel in the vibrant
+                Thamel district.
+              </li>
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  border-bottom: 1px solid #eee;
+                  position: relative;
+                  padding-left: 1.5rem;
+                "
+              >
+                Brief orientation and welcome dinner.
+              </li>
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  position: relative;
+                  padding-left: 1.5rem;
+                "
+              >
+                Free time to relax and explore the local streets at your own
+                pace.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Day 2 -->
+          <div
+            style="
+              background: rgba(255, 255, 255, 0.9);
+              border-left: 4px solid #e74c3c;
+              padding: 1.5rem;
+              margin-bottom: 1.5rem;
+              border-radius: 8px;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              transition: transform 0.3s ease, box-shadow 0.3s ease;
+            "
+          >
+            <h4
+              style="
+                color: #2c3e50;
+                margin-bottom: 1rem;
+                font-size: 1.3rem;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+              "
+            >
+              <span
+                style="
+                  background: #e74c3c;
+                  color: white;
+                  padding: 0.3rem 0.8rem;
+                  border-radius: 4px;
+                  font-size: 0.9rem;
+                  font-weight: bold;
+                "
+                >Day 2</span
+              >
+              Spiritual Epicenters
+            </h4>
+            <ul style="list-style-type: none; padding-left: 0">
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  border-bottom: 1px solid #eee;
+                  position: relative;
+                  padding-left: 1.5rem;
+                "
+              >
+                Visit
+                <strong style="color: #2980b9">Pashupatinath Temple</strong>,
+                Nepal's most sacred Hindu site.
+              </li>
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  border-bottom: 1px solid #eee;
+                  position: relative;
+                  padding-left: 1.5rem;
+                "
+              >
+                Experience the serene grandeur of
+                <strong style="color: #2980b9">Boudhanath Stupa</strong>.
+              </li>
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  position: relative;
+                  padding-left: 1.5rem;
+                "
+              >
+                Explore the historic
+                <strong style="color: #2980b9"
+                  >Kathmandu Durbar Square (Basantapur)</strong
+                >.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Day 3 -->
+          <div
+            style="
+              background: rgba(255, 255, 255, 0.9);
+              border-left: 4px solid #2ecc71;
+              padding: 1.5rem;
+              margin-bottom: 1.5rem;
+              border-radius: 8px;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              transition: transform 0.3s ease, box-shadow 0.3s ease;
+            "
+          >
+            <h4
+              style="
+                color: #2c3e50;
+                margin-bottom: 1rem;
+                font-size: 1.3rem;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+              "
+            >
+              <span
+                style="
+                  background: #2ecc71;
+                  color: white;
+                  padding: 0.3rem 0.8rem;
+                  border-radius: 4px;
+                  font-size: 0.9rem;
+                  font-weight: bold;
+                "
+                >Day 3</span
+              >
+              The Ancient Kingdoms
+            </h4>
+            <ul style="list-style-type: none; padding-left: 0">
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  border-bottom: 1px solid #eee;
+                  position: relative;
+                  padding-left: 1.5rem;
+                "
+              >
+                Discover the artistic heritage of
+                <strong style="color: #2980b9">Patan (Lalitpur)</strong>.
+              </li>
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  border-bottom: 1px solid #eee;
+                  position: relative;
+                  padding-left: 1.5rem;
+                "
+              >
+                Travel to <strong style="color: #2980b9">Bhaktapur</strong>, a
+                well-preserved medieval city.
+              </li>
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  position: relative;
+                  padding-left: 1.5rem;
+                "
+              >
+                Explore Bhaktapur Durbar Square and witness traditional
+                craftsmanship.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Day 4 -->
+          <div
+            style="
+              background: rgba(255, 255, 255, 0.9);
+              border-left: 4px solid #f39c12;
+              padding: 1.5rem;
+              margin-bottom: 1.5rem;
+              border-radius: 8px;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              transition: transform 0.3s ease, box-shadow 0.3s ease;
+            "
+          >
+            <h4
+              style="
+                color: #2c3e50;
+                margin-bottom: 1rem;
+                font-size: 1.3rem;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+              "
+            >
+              <span
+                style="
+                  background: #f39c12;
+                  color: white;
+                  padding: 0.3rem 0.8rem;
+                  border-radius: 4px;
+                  font-size: 0.9rem;
+                  font-weight: bold;
+                "
+                >Day 4</span
+              >
+              Serenity & Rural Vistas
+            </h4>
+            <ul style="list-style-type: none; padding-left: 0">
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  border-bottom: 1px solid #eee;
+                  position: relative;
+                  padding-left: 1.5rem;
+                "
+              >
+                Enjoy a scenic drive and hike to the peaceful
+                <strong style="color: #2980b9">Namo Buddha</strong> monastery.
+              </li>
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  border-bottom: 1px solid #eee;
+                  position: relative;
+                  padding-left: 1.5rem;
+                "
+              >
+                Take in stunning panoramic Himalayan views.
+              </li>
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  position: relative;
+                  padding-left: 1.5rem;
+                "
+              >
+                Experience rural Tamang culture at this pilgrimage site.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Day 5 -->
+          <div
+            style="
+              background: rgba(255, 255, 255, 0.9);
+              border-left: 4px solid #9b59b6;
+              padding: 1.5rem;
+              margin-bottom: 0;
+              border-radius: 8px;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              transition: transform 0.3s ease, box-shadow 0.3s ease;
+            "
+          >
+            <h4
+              style="
+                color: #2c3e50;
+                margin-bottom: 1rem;
+                font-size: 1.3rem;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+              "
+            >
+              <span
+                style="
+                  background: #9b59b6;
+                  color: white;
+                  padding: 0.3rem 0.8rem;
+                  border-radius: 4px;
+                  font-size: 0.9rem;
+                  font-weight: bold;
+                "
+                >Day 5</span
+              >
+              Farewell & Panoramic Views
+            </h4>
+            <ul style="list-style-type: none; padding-left: 0">
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  border-bottom: 1px solid #eee;
+                  position: relative;
+                  padding-left: 1.5rem;
+                "
+              >
+                Final morning visit to
+                <strong style="color: #2980b9"
+                  >Swayambhunath Stupa (Monkey Temple)</strong
+                >.
+              </li>
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  border-bottom: 1px solid #eee;
+                  position: relative;
+                  padding-left: 1.5rem;
+                "
+              >
+                Last-minute souvenir shopping or personal exploration.
+              </li>
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  position: relative;
+                  padding-left: 1.5rem;
+                "
+              >
+                Transfer to Tribhuvan International Airport for departure.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-grid" style="margin-top: 4rem">
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-utensils"></i>
+          </div>
+          <h3>Culinary Experience</h3>
+          <p>
+            No cultural tour is complete without food. Savor Newari delicacies
+            like Bara, Chatamari, and Yomari. Try a traditional Dal Bhat (lentil
+            curry with rice) meal, and enjoy a cup of Nepali chiya (tea) in a
+            local shop. We include meals at authentic local restaurants.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-hands-helping"></i>
+          </div>
+          <h3>Cultural Etiquette</h3>
+          <p>
+            Dress modestly, especially at temples (cover shoulders and knees).
+            Remove shoes before entering temples/homes. Always walk clockwise
+            around stupas and chortens. Ask permission before photographing
+            people, particularly at Pashupatinath during private rituals. Use
+            your right hand for giving and receiving.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-shopping-bag"></i>
+          </div>
+          <h3>Artisan Souvenirs</h3>
+          <p>
+            The valley is famous for handicrafts. Look for
+            <em>thangka</em> paintings (Boudha), handmade paper products, fine
+            metal statues (Patan), wooden masks, felt items, and traditional
+            jewelry. We guide you to ethical cooperatives and artisan workshops
+            where your purchase directly supports the craft tradition.
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="highlight-banner"
+        style="
+          margin-top: 4rem;
+          background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        "
+      >
+        <h3><i class="fas fa-heart"></i> More Than a Sightseeing Tour</h3>
+        <p>
+          This journey is an invitation to connect—with ancient wisdom, with
+          sublime art, and with the warm, resilient spirit of the Nepali people.
+          It's about feeling the devotion at Boudhanath at dusk, understanding
+          the stories carved into a temple strut, and sharing a smile with a
+          local artisan. The Kathmandu Valley doesn't just show you its history;
+          it lets you experience its vibrant, living heart. You'll leave not
+          just with photographs, but with a deeper appreciation for a culture
+          that has gracefully woven its past into the fabric of its present.
+        </p>
+      </div>
+    </div>
+
+    <!-- Footer (Identical to Kailash page) -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Honest Travel</h3>
+          <p>
+            Your trusted partner for authentic Himalayan experiences. We
+            specialize in trekking, cultural tours, and pilgrimage journeys.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Kathmandu, Nepal</p>
+          <p>infohonesttoursntravels@gmail.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 HONEST TRAVEL Tours and Expedition. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // --- JavaScript from Kailash page (REUSED) ---
+      // Mobile Navigation Toggle
+      const hamburgerMenu = document.querySelector(".hamburger-menu");
+      const mainNav = document.querySelector(".main-nav");
+      const body = document.body;
+
+      hamburgerMenu.addEventListener("click", (e) => {
+        e.stopPropagation();
+        mainNav.classList.toggle("active");
+        hamburgerMenu.classList.toggle("active");
+        body.classList.toggle("menu-open");
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (event) => {
+        if (
+          mainNav.classList.contains("active") &&
+          !hamburgerMenu.contains(event.target) &&
+          !mainNav.contains(event.target)
+        ) {
+          mainNav.classList.remove("active");
+          hamburgerMenu.classList.remove("active");
+          body.classList.remove("menu-open");
+        }
+      });
+
+      // Add hover effects to day cards
+      document.addEventListener("DOMContentLoaded", function () {
+        const dayCards = document.querySelectorAll(
+          ".highlight-banner > div > div"
+        );
+
+        dayCards.forEach((card) => {
+          card.addEventListener("mouseenter", function () {
+            this.style.transform = "translateY(-5px)";
+            this.style.boxShadow = "0 6px 12px rgba(0, 0, 0, 0.15)";
+          });
+
+          card.addEventListener("mouseleave", function () {
+            this.style.transform = "translateY(0)";
+            this.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+          });
+        });
+      });
+
+      // Close menu when clicking on a link
+      const navLinks = document.querySelectorAll(".main-nav a");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mainNav.classList.remove("active");
+          hamburgerMenu.classList.remove("active");
+          body.classList.remove("menu-open");
+        });
+      });
+
+      // Carousel functionality
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".main-image");
+      const indicators = document.querySelectorAll(".indicator");
+
+      function showSlide(n) {
+        slides.forEach((slide) => slide.classList.remove("active-slide"));
+        indicators.forEach((dot) => dot.classList.remove("active"));
+
+        if (n >= slides.length) currentSlide = 0;
+        if (n < 0) currentSlide = slides.length - 1;
+
+        slides[currentSlide].classList.add("active-slide");
+        indicators[currentSlide].classList.add("active");
+      }
+
+      function changeSlide(direction) {
+        currentSlide += direction;
+        showSlide(currentSlide);
+      }
+
+      function goToSlide(n) {
+        currentSlide = n;
+        showSlide(currentSlide);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      // Auto-advance slides every 5 seconds
+      setInterval(() => {
+        currentSlide++;
+        showSlide(currentSlide);
+      }, 5000);
+
+      // Show first slide on load
+      showSlide(currentSlide);
+
+      // Close menu on escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && mainNav.classList.contains("active")) {
+          mainNav.classList.remove("active");
+          hamburgerMenu.classList.remove("active");
+          body.classList.remove("menu-open");
+        }
+      });
+    </script>
+  </body>
+</html>

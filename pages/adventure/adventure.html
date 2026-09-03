@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nepal Adventure Tours - Honest Travel Tours</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <!-- Link to the same CSS as the Kailash page -->
+    <link rel="stylesheet" href="../../css/kailash.css" />
+  </head>
+  <body>
+    <!-- Header (Identical to Kailash page) -->
+    <header>
+      <div class="top-bar">
+        <div class="container">
+          <div class="contact-info">
+            <span>
+              📞
+              <a
+                href="https://wa.me/9779851140110"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="wa-link"
+                >+977-9851140110</a
+              >
+              ,
+              <a
+                href="https://wa.me/9779856017867"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="wa-link"
+                >9856017867</a
+              >
+            </span>
+            <span> ✉️ infohonesttoursntravels@gmail.com </span>
+          </div>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-main">
+        <div class="logo">
+          <div class="logo-icon">
+            <img src="../../images/Logo Image.png" alt="Honest Travel Logo" />
+          </div>
+          <div class="logo-text">
+            <h1>HONEST TRAVEL</h1>
+            <p>TOURS AND EXPEDITION</p>
+          </div>
+        </div>
+
+        <!-- Hamburger Menu Button -->
+        <button class="hamburger-menu" aria-label="Menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+
+        <nav class="main-nav">
+          <ul>
+            <li><a href="../../index.html">HOME</a></li>
+            <li><a href="../../index.html#tours">TOURS</a></li>
+            <li><a href="../../index.html#trekking">TREKKING</a></li>
+            <li><a href="../../index.html#contact">CONTACT US</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Photo Gallery Section -->
+    <div class="photo-gallery-section">
+      <div class="gallery-header">
+        <h1>Nepal Adventure Tours</h1>
+        <p>
+          From the world's second-highest bungee to Himalayan honey hunting.
+          Ignite your spirit with the ultimate adrenaline experiences in the
+          land of the Himalayas.
+        </p>
+      </div>
+
+      <!-- Main Featured Image with Carousel -->
+      <div class="main-image-container">
+        <!-- REPLACE THESE SRC PATHS WITH YOUR ADVENTURE TOUR IMAGES -->
+        <img
+          src="../../images/Adventure.jpg"
+          class="main-image active-slide"
+          alt="Bungee Jumping in Kushma"
+        />
+        <img
+          src="../../images/Adventure1.jpg"
+          class="main-image"
+          alt="White Water Rafting in Nepal"
+        />
+        <img
+          src="../../images/Adventure2.jpg"
+          class="main-image"
+          alt="Paragliding over Pokhara"
+        />
+        <img
+          src="../../images/Adventure3.jpg"
+          class="main-image"
+          alt="4WD Jeep Tour in Upper Mustang"
+        />
+
+        <div class="gallery-nav">
+          <button class="nav-btn" onclick="changeSlide(-1)">‹</button>
+          <button class="nav-btn" onclick="changeSlide(1)">›</button>
+        </div>
+
+        <div class="gallery-indicators">
+          <div class="indicator active" onclick="goToSlide(0)"></div>
+          <div class="indicator" onclick="goToSlide(1)"></div>
+          <div class="indicator" onclick="goToSlide(2)"></div>
+          <div class="indicator" onclick="goToSlide(3)"></div>
+          <div class="indicator" onclick="goToSlide(4)"></div>
+        </div>
+      </div>
+
+      <!-- Image Grid -->
+      <div class="image-grid">
+        <!-- REPLACE THESE SRC PATHS WITH YOUR ADVENTURE TOUR GRID IMAGES -->
+        <div class="grid-item" onclick="goToSlide(0)">
+          <img
+            src="../../images/Adventure.jpg"
+            alt="Kushma Bungee Jump"
+          />
+        </div>
+        <div class="grid-item" onclick="goToSlide(1)">
+          <img src="../../images/Adventure1.jpg" alt="River Rafting" />
+        </div>
+        <div class="grid-item" onclick="goToSlide(2)">
+          <img src="../../images/Adventure2.jpg" alt="Zip Flyer" />
+        </div>
+        <div class="grid-item" onclick="goToSlide(3)">
+          <img
+            src="../../images/Adventure3.jpg"
+            alt="Upper Mustang Jeep"
+          />
+        </div>
+      </div>
+
+      <!-- Call to Action Section -->
+      <div class="cta-section">
+        <h2>Ready to Unleash Your Adventurous Spirit?</h2>
+        <p>
+          Choose from our curated selection of high-adrenaline packages, from
+          single-day thrills to multi-day expeditions across Nepal's most
+          dramatic landscapes.
+        </p>
+        <a href="adventure-packages.html" class="cta-button">
+          <i class="fas fa-bolt"></i> View Adventure Packages
+        </a>
+      </div>
+    </div>
+
+    <!-- New Detailed Content Section -->
+    <div class="content-section">
+      <h2 class="section-title">The Ultimate Nepal Adventure Experience</h2>
+      <p class="intro-text">
+        Nepal, home to the world's highest mountains, offers more than serene
+        trekking trails. It is a premier global destination for heart-pounding
+        adventure sports. Here, ancient cultures meet the raw power of nature,
+        creating a playground for adrenaline seekers. Whether you're leaping
+        from towering suspension bridges, navigating wild Himalayan rivers, or
+        exploring the high-altitude desert of Mustang, Nepal delivers
+        unparalleled excitement amidst breathtaking scenery.
+      </p>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-mountain"></i>
+          </div>
+          <h3>Kushma Bungee</h3>
+          <p>
+            Plunge 228 meters from one of the world's highest suspension bridges
+            over the Kaligandaki River gorge. The Kushma Bungee is not just a
+            jump; it's a 7-second freefall offering a breathtaking,
+            once-in-a-lifetime perspective of Nepal's deepest gorge.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-water"></i>
+          </div>
+          <h3>Himalayan River Rafting</h3>
+          <p>
+            Navigate the thrilling rapids of the Trishuli, Bhote Koshi, and Seti
+            rivers. From family-friendly Class II rapids to the heart-pounding
+            Class V torrents of the Sun Koshi, Nepal's rivers offer world-class
+            rafting and kayaking experiences for all skill levels.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-parachute-box"></i>
+          </div>
+          <h3>Paragliding & ZipFlyer</h3>
+          <p>
+            Soar like a bird over the stunning Pokhara Valley with the Annapurna
+            range as your backdrop. For an even faster thrill, the ZipFlyer
+            Nepal is one of the world's steepest, longest, and fastest ziplines,
+            reaching speeds over 120 km/h.
+          </p>
+        </div>
+      </div>
+
+      <div class="highlight-banner">
+        <h3><i class="fas fa-star"></i> Why Nepal is an Adventure Capital</h3>
+        <p>
+          Nepal's unique geography provides a natural stage for extreme sports.
+          Its dramatic elevation changes create powerful rivers for rafting,
+          deep gorges for bungee, and thermal winds perfect for paragliding. The
+          culture of resilience and exploration, born from its mountaineering
+          history, permeates the adventure scene, ensuring professional,
+          world-class operators and guides who prioritize both thrill and
+          safety.
+        </p>
+      </div>
+
+      <div class="facts-container">
+        <h2 class="section-title">Essential Adventure Facts</h2>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-cloud-sun"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Best Time for Adventure</h4>
+            <p>
+              The post-monsoon months from
+              <strong>October to November</strong> offer clear skies, stable
+              weather, and optimal conditions for almost all adventure
+              activities. The pre-monsoon period from
+              <strong>March to May</strong> is also excellent, with warmer
+              temperatures and blooming rhododendrons. Winter offers clear skies
+              for flights and jeep tours, while monsoon season (June-August) is
+              ideal for challenging white-water rafting.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-user-check"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Fitness & Requirements</h4>
+            <p>
+              While peak physical fitness isn't mandatory for all activities, a
+              general level of health is important. Bungee, paragliding, and
+              ziplining have minimal fitness requirements but carry age, weight,
+              and health restrictions (e.g., no heart conditions, pregnancy,
+              back problems). Activities like the Upper Mustang Jeep Tour
+              require comfort with long drives on rough terrain. Always disclose
+              medical conditions to operators.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Safety & Certification</h4>
+            <p>
+              Safety is paramount.
+              <strong
+                >Always choose operators certified by the Nepal Tourism
+                Board</strong
+              >
+              and relevant international bodies (like APR for paragliding).
+              Check equipment inspection logs. Reputable companies provide
+              comprehensive safety briefings, professional guides, and
+              high-quality, internationally certified gear. Ensure your travel
+              insurance explicitly covers high-risk adventure activities.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-hiking"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Upper Mustang 4WD Expedition</h4>
+            <p>
+              This is an adventure in exploration. Traverse the rugged,
+              moon-like landscape of the former Buddhist kingdom of Mustang,
+              often called "the last forbidden kingdom." The journey involves
+              long drives on challenging roads at high altitudes (above 3,500m),
+              visiting ancient cave monasteries, medieval castles (dzongs), and
+              interacting with the preserved Tibetan culture. A special
+              restricted area permit is required.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-bee"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Honey Hunting Tours</h4>
+            <p>
+              Participate in an ancient tradition dating back thousands of
+              years. Local Gurung hunters scale sheer Himalayan cliffs using
+              handmade rope ladders to harvest honey from the world's largest
+              honeybees (<em>Apis laboriosa</em>). This cultural adventure
+              offers a unique blend of thrill and tradition. Shorter tours are
+              observational, while longer packages offer more immersive
+              experiences. It's seasonal, typically occurring twice a year
+              (spring and autumn).
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-suitcase-rolling"></i>
+          </div>
+          <div class="fact-content">
+            <h4>What to Pack</h4>
+            <p>
+              Pack for variable mountain weather: layered clothing, a warm
+              jacket, sturdy shoes, sunscreen, and sunglasses. For specific
+              activities: secure footwear for bungee/rafting, gloves for
+              ziplining, and motion sickness tablets for windy jeep roads.
+              Always carry a copy of your passport, insurance documents, and
+              necessary permits. A headlamp, power bank, and basic first-aid kit
+              are recommended for multi-day tours.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional sections about specific activities, cultural respect, etc., can be added here following the same structure as the Kailash page -->
+
+      <div class="highlight-banner" style="margin-top: 4rem">
+        <h3><i class="fas fa-quote-left"></i> The Spirit of Adventure</h3>
+        <p>
+          "In Nepal, adventure isn't just an activity; it's a feeling. It's the
+          wind rushing past as you freefall towards a emerald river, the roar of
+          white water as your raft plunges through a rapid, and the profound
+          silence of the Himalayan desert seen from a jeep window. It's about
+          pushing your boundaries while being humbled by the immense power and
+          beauty of nature. You return home not just with photos, but with
+          stories etched into your memory and a renewed sense of what's
+          possible."
+        </p>
+      </div>
+    </div>
+
+    <!-- Footer (Identical to Kailash page) -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Honest Travel</h3>
+          <p>
+            Your trusted partner for authentic Himalayan experiences. We
+            specialize in trekking, cultural tours, and pilgrimage journeys.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Kathmandu, Nepal</p>
+          <p>infohonesttoursntravels@gmail.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 HONEST TRAVEL Tours and Expedition. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // --- JavaScript from Kailash page (REUSED) ---
+      // Mobile Navigation Toggle
+      const hamburgerMenu = document.querySelector(".hamburger-menu");
+      const mainNav = document.querySelector(".main-nav");
+      const body = document.body;
+
+      hamburgerMenu.addEventListener("click", (e) => {
+        e.stopPropagation();
+        mainNav.classList.toggle("active");
+        hamburgerMenu.classList.toggle("active");
+        body.classList.toggle("menu-open");
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (event) => {
+        if (
+          mainNav.classList.contains("active") &&
+          !hamburgerMenu.contains(event.target) &&
+          !mainNav.contains(event.target)
+        ) {
+          mainNav.classList.remove("active");
+          hamburgerMenu.classList.remove("active");
+          body.classList.remove("menu-open");
+        }
+      });
+
+      // Close menu when clicking on a link
+      const navLinks = document.querySelectorAll(".main-nav a");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mainNav.classList.remove("active");
+          hamburgerMenu.classList.remove("active");
+          body.classList.remove("menu-open");
+        });
+      });
+
+      // Carousel functionality
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".main-image");
+      const indicators = document.querySelectorAll(".indicator");
+
+      function showSlide(n) {
+        slides.forEach((slide) => slide.classList.remove("active-slide"));
+        indicators.forEach((dot) => dot.classList.remove("active"));
+
+        if (n >= slides.length) currentSlide = 0;
+        if (n < 0) currentSlide = slides.length - 1;
+
+        slides[currentSlide].classList.add("active-slide");
+        indicators[currentSlide].classList.add("active");
+      }
+
+      function changeSlide(direction) {
+        currentSlide += direction;
+        showSlide(currentSlide);
+      }
+
+      function goToSlide(n) {
+        currentSlide = n;
+        showSlide(currentSlide);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      // Auto-advance slides every 5 seconds
+      setInterval(() => {
+        currentSlide++;
+        showSlide(currentSlide);
+      }, 5000);
+
+      // Show first slide on load
+      showSlide(currentSlide);
+
+      // Close menu on escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && mainNav.classList.contains("active")) {
+          mainNav.classList.remove("active");
+          hamburgerMenu.classList.remove("active");
+          body.classList.remove("menu-open");
+        }
+      });
+    </script>
+  </body>
+</html>

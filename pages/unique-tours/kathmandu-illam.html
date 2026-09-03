@@ -1,0 +1,2148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kathmandu to Ilam Tour - 5 Days - Honest Travel Tours</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="../../css/individual-packages.css" />
+    
+    <!-- EmailJS Configuration -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+      // EmailJS Configuration - Replace with your actual credentials
+      const EMAILJS_PUBLIC_KEY = 'cjcB4sLQKii3OPWJ1';
+      const EMAILJS_SERVICE_ID = 'service_9fq6tb6';
+      const EMAILJS_TEMPLATE_ID = 'template_kmaga4l';
+      
+      // Initialize EmailJS
+      (function() {
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+      })();
+    </script>
+    
+    <style>
+      /* Additional custom styles for Ilam Tour page */
+      .ilam-highlight {
+        background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+        border-left: 4px solid #4caf50;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin: 1.5rem 0;
+      }
+
+      .tea-icon {
+        color: #4caf50;
+        margin-right: 8px;
+      }
+
+      .ilam-feature {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+
+      .tea-garden-note {
+        background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-left: 4px solid #ff9800;
+      }
+
+      .price-guarantee {
+        background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-left: 4px solid #2196f3;
+        text-align: center;
+      }
+
+      /* Modal Styles */
+      .confirmation-modal,
+      .booking-modal,
+      .submission-modal,
+      .mobile-alert-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .confirmation-modal>div,
+      .booking-modal>div,
+      .submission-modal>div,
+      .mobile-alert-overlay>div {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        max-width: 500px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        animation: slideIn 0.3s ease;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      .booking-modal>div {
+        max-width: 600px;
+      }
+
+      .close-modal,
+      .close-submission-modal {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: none;
+        border: none;
+        font-size: 28px;
+        color: #666;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+      }
+
+      .close-modal:hover,
+      .close-submission-modal:hover {
+        background: #f5f5f5;
+        color: #333;
+      }
+
+      .choice-options {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin: 25px 0;
+      }
+
+      .choice-btn {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+        background: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: left;
+        width: 100%;
+      }
+
+      .choice-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .whatsapp-choice:hover {
+        border-color: #25D366;
+        background: rgba(37, 211, 102, 0.05);
+      }
+
+      .email-choice:hover {
+        border-color: #4caf50;
+        background: rgba(76, 175, 80, 0.05);
+      }
+
+      .choice-btn i {
+        font-size: 2.5rem;
+        min-width: 40px;
+      }
+
+      .whatsapp-choice i {
+        color: #25D366;
+      }
+
+      .email-choice i {
+        color: #4caf50;
+      }
+
+      .choice-btn-content {
+        flex: 1;
+      }
+
+      .choice-btn-content span {
+        display: block;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 5px;
+        font-size: 1.1rem;
+      }
+
+      .choice-btn-content small {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      .confirm-book-btn:hover {
+        background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+      }
+
+      .cancel-choice:hover {
+        background: #e0e0e0;
+      }
+
+      /* Mobile Alert Styles */
+      .mobile-alert {
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .mobile-alert-icon {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .mobile-alert.success .mobile-alert-icon {
+        color: #28a745;
+      }
+
+      .mobile-alert.warning .mobile-alert-icon {
+        color: #ff9800;
+      }
+
+      .mobile-alert.error .mobile-alert-icon {
+        color: #dc3545;
+      }
+
+      .mobile-alert.info .mobile-alert-icon {
+        color: #4caf50;
+      }
+
+      .mobile-alert h3 {
+        color: #2c3e50;
+        margin: 0 0 1.5rem 0;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .mobile-alert-message {
+        color: #666;
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+
+      .mobile-alert-ok-btn {
+        background: #4caf50;
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 1rem;
+      }
+
+      .mobile-alert-ok-btn:hover {
+        background: #388e3c;
+        transform: translateY(-2px);
+      }
+
+      .success-checkmark {
+        animation: checkmark 0.5s ease;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes fadeOut {
+        from { opacity: 1; }
+        to { opacity: 0; }
+      }
+
+      @keyframes slideIn {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes checkmark {
+        0% { transform: scale(0); }
+        50% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+      }
+
+      .modal-open {
+        overflow: hidden;
+      }
+
+      /* Booking form styles */
+      form>div {
+        margin-bottom: 1.5rem;
+      }
+
+      /* Currency Selector Styles */
+      .currency-selector-container {
+        margin-top: 1rem;
+      }
+
+      .currency-selector {
+        position: relative;
+        width: fit-content;
+      }
+
+      .currency-selector #selectedCurrency {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 15px;
+        background: #f8f9fa;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.9rem;
+      }
+
+      .currency-selector #selectedCurrency i {
+        font-size: 0.8rem;
+        color: #666;
+        transition: transform 0.3s ease;
+      }
+
+      .currency-selector.active #selectedCurrency i {
+        transform: rotate(180deg);
+      }
+
+      .currency-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        margin-top: 5px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        display: none;
+        z-index: 100;
+      }
+
+      .currency-selector.active .currency-dropdown {
+        display: block;
+      }
+
+      .currency-option {
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .currency-option:hover {
+        background: #f0f0f0;
+      }
+
+      .currency-option.active {
+        background: #4caf50;
+        color: white;
+      }
+
+      /* Price table styles */
+      .price-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .price-table th {
+        padding: 12px;
+        border: 1px solid #ddd;
+        background: #f8f9fa;
+      }
+
+      .price-table td {
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+
+      /* Responsive improvements */
+      @media (max-width: 768px) {
+        .booking-modal > div,
+        .confirmation-modal > div,
+        .submission-modal > div {
+          margin: 10px;
+          padding: 1.5rem;
+          max-height: calc(100vh - 20px);
+        }
+        
+        .choice-btn {
+          flex-direction: column;
+          text-align: center;
+          padding: 1rem;
+        }
+        
+        .choice-btn i {
+          margin-bottom: 0.5rem;
+        }
+        
+        .confirmation-buttons {
+          flex-direction: column;
+        }
+        
+        .mobile-alert {
+          margin: 10px;
+          padding: 1.2rem;
+        }
+        
+        .mobile-alert-message {
+          font-size: 0.95rem;
+          text-align: center;
+        }
+
+        .currency-selector-container {
+          width: 100%;
+        }
+
+        .currency-selector {
+          width: 100%;
+        }
+
+        #selectedCurrency {
+          justify-content: center;
+        }
+
+        .currency-dropdown {
+          width: 100%;
+        }
+      }
+
+      /* Better touch targets */
+      .choice-btn,
+      .booking-btn,
+      .qty-btn,
+      .tab,
+      .nav-btn {
+        min-height: 44px;
+        min-width: 44px;
+      }
+
+      /* Fix for iOS zoom on input focus */
+      @media screen and (-webkit-min-device-pixel-ratio:0) {
+        select,
+        textarea,
+        input {
+          font-size: 16px !important;
+        }
+      }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <div class="contact-info">
+                    <span>
+                        📞
+                        <a href="https://wa.me/9779851140110" target="_blank" rel="noopener noreferrer"
+                            class="wa-link">+977-9851140110</a>
+                        ,
+                        <a href="https://wa.me/9779856017867" target="_blank" rel="noopener noreferrer"
+                            class="wa-link">9856017867</a>
+                    </span>
+                    <span>✉️ infohonesttoursntravels@gmail.com</span>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-main">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="../../images/Logo Image.png" alt="Honest Travel Logo" />
+                </div>
+                <div class="logo-text">
+                    <h1>HONEST TRAVEL</h1>
+                    <p>TOURS AND EXPEDITION</p>
+                </div>
+            </div>
+
+            <!-- Burger Menu Button for Navigation -->
+            <button class="burger-menu" id="navBurger" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="../../index.html">HOME</a></li>
+                    <li><a href="../../index.html#tours">TOURS</a></li>
+                    <li><a href="../../index.html#trekking">TREKKING</a></li>
+                    <li><a href="../../index.html#contact">CONTACT US</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Tour Detail Section -->
+    <div class="tour-detail">
+        <div class="tour-header">
+            <h1 class="tour-title">
+                Kathmandu to Ilam Tour - 5 Days Tea Garden Experience
+            </h1>
+            <p class="tour-subtitle">
+                5 Days 4 Nights - Eastern Nepal's "Queen of Hills"
+            </p>
+        </div>
+
+        <div class="tour-content-wrapper">
+            <!-- LEFT COLUMN -->
+            <div>
+                <!-- Image Gallery -->
+                <div class="image-gallery">
+                    <img src="../../images/illam.jpg" class="gallery-image active" alt="Ilam Tea Gardens Panorama" />
+                    <img src="../../images/illam1.jpg" class="gallery-image" alt="Ilam Bazaar Market" />
+                    <img src="../../images/illam2.jpg" class="gallery-image" alt="Antu Danda Sunrise View" />
+                    <img src="../../images/illam3.jpg" class="gallery-image" alt="Mai Pokhari Lake" />
+
+                    <div class="gallery-nav">
+                        <button class="nav-btn" onclick="changeImage(-1)">‹</button>
+                        <button class="nav-btn" onclick="changeImage(1)">›</button>
+                    </div>
+                    <div class="gallery-indicators">
+                        <div class="indicator active" onclick="setImage(0)"></div>
+                        <div class="indicator" onclick="setImage(1)"></div>
+                        <div class="indicator" onclick="setImage(2)"></div>
+                        <div class="indicator" onclick="setImage(3)"></div>
+                    </div>
+                </div>
+
+                <!-- Tour Information Tabs -->
+                <div class="tour-info">
+                    <!-- Mobile Tab Burger Menu -->
+                    <div class="tab-burger-wrapper">
+                        <button class="tab-burger-menu" id="tabBurger" aria-label="Toggle tabs menu">
+                            <i class="fas fa-bars"></i>
+                            <span id="currentTabName">Overview</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+
+                    <div class="info-tabs" id="tabsMenu">
+                        <button class="tab active" onclick="openTab('overview')">
+                            Overview
+                        </button>
+                        <button class="tab" onclick="openTab('itinerary')">
+                            Itinerary
+                        </button>
+                        <button class="tab" onclick="openTab('costdates')">Cost</button>
+                        <button class="tab" onclick="openTab('included')">
+                            Included
+                        </button>
+                        <button class="tab" onclick="openTab('terms')">
+                            Terms & Conditions
+                        </button>
+                        <button class="tab" onclick="openTab('videosmap')">
+                            Videos & Map
+                        </button>
+                    </div>
+
+                    <!-- OVERVIEW -->
+                    <div id="overview" class="tab-content active">
+                        <div class="info-section">
+                            <h3>5-Day Kathmandu to Ilam Tour</h3>
+                            <p>
+                                Discover the breathtaking beauty of Eastern Nepal on our 5-day
+                                Kathmandu to Ilam Tour with
+                                <strong>Honest Travel Tours</strong>. Often called the "Queen
+                                of Hills," Ilam is famous for its lush tea gardens, pristine
+                                natural beauty, and pleasant climate. This tour takes you
+                                through scenic landscapes, charming hill stations, and
+                                cultural sites in Nepal's eastern region.
+                            </p>
+
+                            <div class="price-guarantee">
+                                <h4 style="color: #2196f3; margin-bottom: 1rem">
+                                    <i class="fas fa-tag"></i> No Hidden Charges - ₹26,667 All Inclusive
+                                </h4>
+                                <p style="margin-bottom: 0">
+                                    Our ₹26,667 price includes ALL major expenses - transportation, accommodation, meals, and guided tours. No surprise costs during your journey. We believe in transparent pricing for honest travel experiences.
+                                </p>
+                            </div>
+
+                            <div class="ilam-highlight">
+                                <h4 style="color: #4caf50; margin-bottom: 1rem">
+                                    <i class="fas fa-leaf tea-icon"></i>Why Choose Our Ilam Tour
+                                </h4>
+                                <ul class="info-list">
+                                    <li><strong>Complete Experience:</strong> Visit all major attractions in Ilam district</li>
+                                    <li><strong>Tea Garden Focus:</strong> Explore Nepal's famous tea production region</li>
+                                    <li><strong>Scenic Beauty:</strong> Enjoy panoramic Himalayan views from Antu Danda</li>
+                                    <li><strong>Cultural Diversity:</strong> Experience diverse ethnic cultures of eastern Nepal</li>
+                                    <li><strong>All-Inclusive Price:</strong> No hidden charges - ₹26,667 covers everything essential</li>
+                                    <li><strong>Comfortable Journey:</strong> Well-planned itinerary with quality accommodations</li>
+                                </ul>
+                            </div>
+
+                            <h3>Trip Highlights</h3>
+                            <ul class="info-list">
+                                <li><strong>Duration:</strong> 5 Days / 4 Nights</li>
+                                <li><strong>Starting Point:</strong> Kathmandu</li>
+                                <li><strong>Highest Point:</strong> Mai Pokhari (2,438m / 8,000ft)</li>
+                                <li><strong>Tour Grade:</strong> Easy to Moderate (comfortable drives with some walking)</li>
+                                <li><strong>Best Seasons:</strong> Year-round (Spring and Autumn ideal)</li>
+                                <li><strong>Accommodation:</strong> Hotels/Resorts (twin sharing)</li>
+                                <li><strong>Meals:</strong> All meals included (breakfast, lunch, dinner)</li>
+                                <li><strong>Transport:</strong> Private comfortable vehicle throughout</li>
+                            </ul>
+
+                            <div class="tea-garden-note">
+                                <h4 style="color: #ff9800; margin-bottom: 1rem">
+                                    <i class="fas fa-mug-hot"></i> Ilam Tea - Nepal's Finest
+                                </h4>
+                                <p>
+                                    Ilam produces some of Nepal's highest quality tea, often
+                                    compared to Darjeeling tea. The cool climate, fertile soil,
+                                    and optimal rainfall create perfect conditions for tea
+                                    cultivation. You'll visit working tea gardens, learn about
+                                    tea processing, and have opportunities to purchase fresh tea
+                                    directly from source.
+                                </p>
+                            </div>
+
+                            <div class="highlight-box" style="background: #f3e5f5; border-left: 4px solid #9c27b0">
+                                <h4 style="color: #9c27b0; margin-bottom: 1rem">
+                                    Perfect for Nature Lovers & Culture Enthusiasts
+                                </h4>
+                                <p>
+                                    Our Ilam Tour is ideal for travelers seeking to escape the hustle of city life and immerse in natural beauty. Perfect for couples, families, solo travelers, and photography enthusiasts. Experience cool mountain climate, enjoy organic local cuisine, and witness traditional lifestyles in Nepal's eastern hills.
+                                </p>
+                            </div>
+
+                            <h3>Tour Route & Key Attractions</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem;">
+                                <div style="flex: 1; min-width: 250px; background: #f5f5f5; padding: 1rem; border-radius: 8px;">
+                                    <h4 style="color: #4caf50; margin-bottom: 0.5rem">
+                                        <i class="fas fa-map-marked-alt"></i> Major Destinations
+                                    </h4>
+                                    <div class="ilam-feature">
+                                        <i class="fas fa-city"></i>
+                                        <span><strong>Ilam Bazaar:</strong> Main town with colonial architecture</span>
+                                    </div>
+                                    <div class="ilam-feature">
+                                        <i class="fas fa-sun"></i>
+                                        <span><strong>Antu Danda:</strong> Famous sunrise viewpoint</span>
+                                    </div>
+                                    <div class="ilam-feature">
+                                        <i class="fas fa-water"></i>
+                                        <span><strong>Mai Pokhari:</strong> Sacred lake at high altitude</span>
+                                    </div>
+                                    <div class="ilam-feature">
+                                        <i class="fas fa-leaf"></i>
+                                        <span><strong>Kanyam:</strong> Beautiful tea garden area</span>
+                                    </div>
+                                </div>
+
+                                <div style="flex: 1; min-width: 250px; background: #f5f5f5; padding: 1rem; border-radius: 8px;">
+                                    <h4 style="color: #ff9800; margin-bottom: 0.5rem">
+                                        <i class="fas fa-utensils"></i> Local Experiences
+                                    </h4>
+                                    <div class="ilam-feature">
+                                        <i class="fas fa-mug-hot"></i>
+                                        <span><strong>Tea Tasting:</strong> Fresh Ilam tea experience</span>
+                                    </div>
+                                    <div class="ilam-feature">
+                                        <i class="fas fa-egg"></i>
+                                        <span><strong>Local Food:</strong> Organic vegetables and dairy</span>
+                                    </div>
+                                    <div class="ilam-feature">
+                                        <i class="fas fa-camera"></i>
+                                        <span><strong>Photography:</strong> Stunning landscapes and tea gardens</span>
+                                    </div>
+                                    <div class="ilam-feature">
+                                        <i class="fas fa-shopping-bag"></i>
+                                        <span><strong>Shopping:</strong> Local tea, handicrafts, woolen items</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITINERARY -->
+                    <div id="itinerary" class="tab-content">
+                        <div class="info-section">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+                                <h3 style="margin: 0; color: #00b386; text-transform: uppercase; font-size: 1.2rem;">
+                                    5-Day Detailed Itinerary
+                                </h3>
+                                <button onclick="toggleAllDays(this)" style="background: none; border: 1px solid #00b386; color: #00b386; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-size: 0.9rem;">
+                                    Expand All
+                                </button>
+                            </div>
+
+                            <!-- Day 1 -->
+                            <div class="itinerary-day">
+                                <div class="day-header" onclick="toggleDay(this)">
+                                    <div class="day-header-content">
+                                        <span class="day-number">DAY 1</span>
+                                        <span class="day-title">KATHMANDU TO ILAM BAZAAR</span>
+                                        <span class="day-altitude"><i class="fas fa-road"></i> 12-13 Hours Drive</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </div>
+                                <div class="day-details">
+                                    <p style="margin-bottom: 1rem">
+                                        <strong>Journey to Eastern Hills:</strong> Early morning
+                                        departure from Kathmandu (6:00 AM) for the scenic drive to
+                                        Ilam. The approximately 12-13 hour journey takes you
+                                        through beautiful landscapes of eastern Nepal. You'll pass
+                                        through Dhulikhel, Dharan, and then climb into the hills
+                                        towards Ilam. Notice the changing vegetation from tropical
+                                        to temperate as you gain altitude. Arrive at Ilam Bazaar
+                                        by evening. Check into your hotel and enjoy your first
+                                        experience of Ilam's cool, pleasant climate. Ilam Bazaar
+                                        features colonial-style architecture and a charming
+                                        atmosphere.
+                                    </p>
+                                    <p><strong>Meals:</strong> Lunch, Dinner Included</p>
+                                    <p><strong>Accommodation:</strong> Hotel in Ilam Bazaar</p>
+                                    <p><strong>Travel Duration:</strong> 12-13 hours</p>
+                                    <p><strong>Highlights:</strong> Scenic mountain roads, changing landscapes, arrival in Ilam</p>
+                                </div>
+                            </div>
+
+                            <!-- Day 2 -->
+                            <div class="itinerary-day">
+                                <div class="day-header" onclick="toggleDay(this)">
+                                    <div class="day-header-content">
+                                        <span class="day-number">DAY 2</span>
+                                        <span class="day-title">ILAM BAZAAR TO ANTU DANDA TO MAI POKHARI</span>
+                                        <span class="day-altitude"><i class="fas fa-mountain"></i> 2,438m</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </div>
+                                <div class="day-details">
+                                    <p style="margin-bottom: 1rem">
+                                        <strong>Sunrise and Sacred Lake:</strong> Early morning
+                                        drive (1.5 hours) to Antu Danda, famous for spectacular
+                                        sunrise views over the Himalayas. On clear days, you can
+                                        see Mount Kanchenjunga (world's third highest peak) and
+                                        other Himalayan ranges. After enjoying sunrise and
+                                        photography, continue to Mai Pokhari (2,438m altitude).
+                                        Mai Pokhari is a sacred lake surrounded by rhododendron
+                                        forests, considered holy by both Hindus and Buddhists.
+                                        Explore the area, visit the temple, and enjoy the serene
+                                        natural surroundings. Return to your hotel in Mai Pokhari
+                                        area for overnight stay.
+                                    </p>
+                                    <p><strong>Meals:</strong> Breakfast, Lunch, and Dinner Included</p>
+                                    <p><strong>Accommodation:</strong> Hotel in Mai Pokhari area</p>
+                                    <p><strong>Travel Duration:</strong> 3-4 hours total driving</p>
+                                    <p><strong>Highlights:</strong> Antu Danda sunrise, Mai Pokhari lake, Himalayan views</p>
+                                </div>
+                            </div>
+
+                            <!-- Day 3 -->
+                            <div class="itinerary-day">
+                                <div class="day-header" onclick="toggleDay(this)">
+                                    <div class="day-header-content">
+                                        <span class="day-number">DAY 3</span>
+                                        <span class="day-title">MAI POKHARI TO PASHUPATINAGAR TO FIKKAL</span>
+                                        <span class="day-altitude"><i class="fas fa-landmark"></i> Border Exploration</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </div>
+                                <div class="day-details">
+                                    <p style="margin-bottom: 1rem">
+                                        <strong>Border Town and Local Culture:</strong> After
+                                        breakfast, drive to Pashupatinagar, a town on the
+                                        Nepal-India border. Observe the cross-border activities
+                                        and visit local markets where you can find goods from both
+                                        countries. Continue to Fikkal, another important town in
+                                        Ilam district. Explore Fikkal's local market and enjoy
+                                        authentic local food for lunch. Fikkal offers insights
+                                        into daily life in eastern Nepal's hill towns. You'll have
+                                        time to interact with locals and learn about their
+                                        traditions. Overnight stay at a hotel in Fikkal, enjoying
+                                        the quiet, cool evening atmosphere.
+                                    </p>
+                                    <p><strong>Meals:</strong> Breakfast, Lunch, and Dinner Included</p>
+                                    <p><strong>Accommodation:</strong> Hotel in Fikkal</p>
+                                    <p><strong>Travel Duration:</strong> 2-3 hours driving</p>
+                                    <p><strong>Highlights:</strong> Border experience, local markets, authentic Nepali cuisine</p>
+                                </div>
+                            </div>
+
+                            <!-- Day 4 -->
+                            <div class="itinerary-day">
+                                <div class="day-header" onclick="toggleDay(this)">
+                                    <div class="day-header-content">
+                                        <span class="day-number">DAY 4</span>
+                                        <span class="day-title">FIKKAL TO KANYAM TO ITAHARI</span>
+                                        <span class="day-altitude"><i class="fas fa-leaf"></i> Tea Garden Experience</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </div>
+                                <div class="day-details">
+                                    <p style="margin-bottom: 1rem">
+                                        <strong>Tea Gardens and City Life:</strong> Morning drive
+                                        to Kanyam, famous for its beautiful tea gardens. Walk
+                                        through the lush green tea plantations, learn about tea
+                                        cultivation and processing. You may visit a tea factory if
+                                        operational (subject to availability). Enjoy fresh Ilam
+                                        tea tasting experience. After exploring Kanyam, begin
+                                        drive to Itahari in the Terai region. Notice the dramatic
+                                        change in climate and landscape as you descend from hills
+                                        to plains. Arrive in Itahari by late afternoon. Explore
+                                        Itahari Bazaar, a bustling commercial center in eastern
+                                        Nepal. Overnight stay at hotel in Itahari.
+                                    </p>
+                                    <p><strong>Meals:</strong> Breakfast, Lunch, and Dinner Included</p>
+                                    <p><strong>Accommodation:</strong> Hotel in Itahari</p>
+                                    <p><strong>Travel Duration:</strong> 5-6 hours driving</p>
+                                    <p><strong>Highlights:</strong> Kanyam tea gardens, tea tasting, Itahari city experience</p>
+                                </div>
+                            </div>
+
+                            <!-- Day 5 -->
+                            <div class="itinerary-day">
+                                <div class="day-header" onclick="toggleDay(this)">
+                                    <div class="day-header-content">
+                                        <span class="day-number">DAY 5</span>
+                                        <span class="day-title">ITAHARI TO KATHMANDU DRIVE</span>
+                                        <span class="day-altitude"><i class="fas fa-home"></i> Return Journey</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </div>
+                                <div class="day-details">
+                                    <p style="margin-bottom: 1rem">
+                                        <strong>Return to Capital:</strong> After breakfast at
+                                        hotel, begin drive back to Kathmandu (approximately 6-7
+                                        hours). The route follows the East-West Highway with views
+                                        of the Terai plains and distant hills. Stop for lunch en
+                                        route at a local restaurant. Reflect on your wonderful
+                                        experiences in Ilam - the tea gardens, mountain views,
+                                        local culture, and peaceful atmosphere. Arrive in
+                                        Kathmandu by late afternoon. Tour concludes with drop-off
+                                        at your hotel or specified location in Kathmandu. Carry
+                                        memories of Nepal's beautiful eastern hills and perhaps
+                                        some Ilam tea as souvenirs.
+                                    </p>
+                                    <p><strong>Meals:</strong> Breakfast, Lunch Included</p>
+                                    <p><strong>Accommodation:</strong> Not Included (Tour Ends)</p>
+                                    <p><strong>Travel Duration:</strong> 6-7 hours</p>
+                                    <p><strong>Arrival:</strong> Kathmandu by late afternoon</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COST & DATES -->
+                    <div id="costdates" class="tab-content">
+                        <div class="info-section">
+                            <h3>Package Investment</h3>
+                            <div class="highlight-box" style="background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);">
+                                <div style="text-align: center">
+                                    <div style="margin: 1.5rem 0; padding: 1rem; background: white; border-radius: 8px;">
+                                        <table class="price-table" id="priceTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>Group Size</th>
+                                                    <th id="priceTableHeader">Cost Per Person (INR)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1-3 People</td>
+                                                    <td class="price-display" data-inr="26667" >₹26,667</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4-6 People</td>
+                                                    <td class="price-display" data-inr="23542" >₹23,542</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>7+ People</td>
+                                                    <td class="price-display" data-inr="20417" >₹20,417</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">
+                                            <i class="fas fa-info-circle"></i> Discount: Save ₹3,125 for 4-6 persons | Save ₹6,250 for 7+ persons
+                                        </p>
+                                        <p style="font-size: 0.9rem; color: #4caf50; margin-top: 0.5rem;">
+                                            <i class="fas fa-shield-alt"></i> Price Transparency Guarantee - No Hidden Charges
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3 style="margin-top: 2rem">What's Included in ₹26,667</h3>
+                            <ul class="info-list">
+                                <li>All ground transportation in comfortable private vehicle</li>
+                                <li>Accommodation for 4 nights in hotels/resorts (twin sharing)</li>
+                                <li>All meals during tour (4 breakfasts, 5 lunches, 4 dinners)</li>
+                                <li>Experienced English-speaking tour guide throughout</li>
+                                <li>Driver expenses, accommodation, and meals</li>
+                                <li>All fuel costs, road taxes, and parking fees</li>
+                                <li>Hotel taxes and service charges</li>
+                                <li>Entrance fees to all sightseeing places mentioned</li>
+                                <li>Tea tasting experience at Kanyam tea garden</li>
+                                <li>Basic first aid kit</li>
+                            </ul>
+
+                            <div class="tea-garden-note">
+                                <h4 style="color: #ff9800; margin-bottom: 0.5rem">
+                                    <i class="fas fa-mug-hot"></i> Special Inclusions
+                                </h4>
+                                <p style="margin-bottom: 0">
+                                    Unlike budget tours that cut corners, we include: Quality hotel accommodations (not basic lodges), all entrance fees, tea tasting experience, and proper meals at good restaurants. No hidden "local guide fees" or "entrance fee surprises."
+                                </p>
+                            </div>
+
+                            <h3 style="margin-top: 2rem">2024/2025 Departure Dates</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 1rem">
+                                <div style="flex: 1; min-width: 200px; background: #f8f9fa; padding: 1rem; border-radius: 8px;">
+                                    <h4 style="color: #4caf50; margin-bottom: 0.5rem">Weekly Departures</h4>
+                                    <p><strong>Every Monday:</strong> Year-round (except major holidays)</p>
+                                    <p><strong>Every Thursday:</strong> Additional departure</p>
+                                    <p><strong>Weekend Special:</strong> 1st Saturday of each month</p>
+                                </div>
+                                <div style="flex: 1; min-width: 200px; background: #f8f9fa; padding: 1rem; border-radius: 8px;">
+                                    <h4 style="color: #4caf50; margin-bottom: 0.5rem">Special Seasons</h4>
+                                    <p><strong>Tea Harvest Season:</strong> March-June (best for tea garden visits)</p>
+                                    <p><strong>Rhododendron Season:</strong> March-April (flowers in bloom)</p>
+                                    <p><strong>Clear Views:</strong> October-December (best Himalayan visibility)</p>
+                                </div>
+                            </div>
+
+                            <div class="ilam-highlight" style="margin-top: 1.5rem;">
+                                <h4 style="color: #4caf50; margin-bottom: 0.5rem">
+                                    <i class="fas fa-users"></i> Group Discounts
+                                </h4>
+                                <p style="margin-bottom: 0">
+                                    Special rates for groups: 4-6 persons: ₹23,542 per person | 7+ persons: ₹20,417 per person. Private custom dates available for groups of any size. Family packages with children discounts available.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- INCLUDED -->
+                    <div id="included" class="tab-content">
+                        <div class="info-section">
+                            <h3>What's Included in ₹26,667 Package</h3>
+                            <ul class="info-list">
+                                <li><strong>Transportation:</strong> Private comfortable vehicle for entire 5-day tour</li>
+                                <li><strong>Accommodation:</strong> 4 nights hotel stay (twin sharing rooms)</li>
+                                <li><strong>Meals:</strong> All meals as per itinerary (4B, 5L, 4D)</li>
+                                <li><strong>Guide:</strong> Experienced English-speaking tour guide</li>
+                                <li><strong>Driver:</strong> Professional driver with all expenses covered</li>
+                                <li><strong>Entrance Fees:</strong> All monument/sightseeing entrance fees</li>
+                                <li><strong>Activities:</strong> Tea garden visit and tasting at Kanyam</li>
+                                <li><strong>Taxes:</strong> All government taxes and service charges</li>
+                                <li><strong>Support:</strong> 24/7 company support during tour</li>
+                                <li><strong>Safety:</strong> Basic first aid kit</li>
+                            </ul>
+
+                            <h3 style="margin-top: 2rem">What's Not Included</h3>
+                            <ul class="info-list" style="color: #777;">
+                                <li>Travel insurance (recommended but not mandatory)</li>
+                                <li>Personal expenses (drinks, souvenirs, laundry, etc.)</li>
+                                <li>Tips for guide and driver (optional but appreciated)</li>
+                                <li>Additional activities not mentioned in itinerary</li>
+                                <li>Alcoholic beverages</li>
+                                <li>Costs arising from unforeseen circumstances beyond our control</li>
+                                <li>Anything not mentioned in "What's Included"</li>
+                            </ul>
+
+                            <div class="price-guarantee" style="margin-top: 1.5rem;">
+                                <h4 style="color: #2196f3; margin-bottom: 0.5rem">
+                                    <i class="fas fa-handshake"></i> Honest Pricing Promise
+                                </h4>
+                                <p style="margin-bottom: 0">
+                                    We won't surprise you with extra charges for "mandatory guide tips," "entrance fees we forgot to mention," or "local taxes." The ₹26,667 is the complete price for the complete experience as described.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TERMS -->
+                    <div id="terms" class="tab-content">
+                        <div class="info-section">
+                            <h3>Terms & Conditions</h3>
+                            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #4caf50;">
+                                <ul class="info-list" style="list-style-type: none; padding-left: 0">
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Booking:</strong> 25% deposit required to confirm booking
+                                    </li>
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Balance Payment:</strong> Full payment 10 days before departure
+                                    </li>
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Price Guarantee:</strong> No hidden charges - price includes all items listed in "What's Included"
+                                    </li>
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Accommodation:</strong> Twin sharing basis; single supplement available at extra cost
+                                    </li>
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Health Requirements:</strong> Moderate fitness for light walking; suitable for all age groups
+                                    </li>
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Cancellation Policy:</strong>
+                                        <ul style="margin-top: 0.5rem; padding-left: 1.5rem">
+                                            <li>15+ days before: Full refund minus ₹2,500 administration fee</li>
+                                            <li>8-14 days: 70% refund</li>
+                                            <li>4-7 days: 50% refund</li>
+                                            <li>0-3 days: No refund</li>
+                                        </ul>
+                                    </li>
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Itinerary Changes:</strong> Itinerary subject to change due to weather, road conditions, or unforeseen circumstances
+                                    </li>
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Minimum Group:</strong> Tour operates with minimum 2 passengers; may be combined with other small groups
+                                    </li>
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Child Policy:</strong> Children under 5: free (sharing bed with parents), 5-11 years: 50% discount, 12+ years: full price
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="ilam-highlight" style="margin-top: 1.5rem;">
+                                <h4 style="color: #4caf50; margin-bottom: 0.5rem">
+                                    <i class="fas fa-star"></i> Quality Assurance
+                                </h4>
+                                <p style="margin-bottom: 0">
+                                    We use quality hotels (not basic lodges), comfortable vehicles (not overcrowded buses), and provide proper meals (not just rice and lentils). Our guides are trained professionals, not just drivers who "also guide."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- VIDEOS & MAP SECTION -->
+                    <div id="videosmap" class="tab-content">
+                        <div class="info-section">
+                            <h3>Experience the Kathmandu to Ilam Tour</h3>
+                            <p>
+                                Watch our comprehensive video guide and explore the detailed route map of this 5-day journey through Nepal's beautiful eastern hills to the famous tea gardens of Ilam.
+                            </p>
+
+                            <!-- Video Section -->
+                            <div class="video-section" style="margin-bottom: 2rem">
+                                <h4 style="color: #4caf50; margin-bottom: 1rem">
+                                    <i class="fas fa-video"></i> Ilam Tea Garden Experience
+                                </h4>
+                                <div class="video-container">
+                                    <iframe width="560" height="315"
+                                        src="https://www.youtube.com/embed/kX50w83XM60?si=hj5OxLrLWoVjfYQ1"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                </div>
+                                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666">
+                                    <i class="fas fa-info-circle"></i> Watch our journey through Ilam's tea gardens, hill stations, and cultural sites in eastern Nepal.
+                                </p>
+                            </div>
+
+                            <!-- Map Section -->
+                            <div class="map-section">
+                                <h4 style="color: #4caf50; margin-bottom: 1rem">
+                                    <i class="fas fa-map-marked-alt"></i> Ilam Tour Route Map
+                                </h4>
+                                <div class="map-container">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m34!1m12!1m3!1d1414715.234567890!2d86.123456!3d27.987654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m19!3e0!4m5!1s0x39eb198a307baabf%3A0xb5137c1bf18db1ea!2sKathmandu!3m2!1d27.7172453!2d85.3239605!4m5!1s0x39e6a51a8a1a1a1a%3A0xb5f5b5b5b5b5b5b5!2sIlam!3m2!1d26.908!2d87.928!4m5!1s0x39e6b33b5b0a1a1a%3A0xb5f5b5b5b5b5b5b5!2sItahari!3m2!1d26.664!2d87.274!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp"
+                                        width="100%" height="400"
+                                        style="border: 0; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);"
+                                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                                        title="Ilam Tour Route Map"></iframe>
+                                </div>
+                                <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 1rem;">
+                                    <div style="flex: 1; min-width: 200px">
+                                        <h5 style="color: #333; margin-bottom: 0.5rem">
+                                            <i class="fas fa-route" style="color: #4caf50"></i> Route Points
+                                        </h5>
+                                        <ul style="list-style-type: none; padding-left: 0; font-size: 0.9rem;">
+                                            <li style="margin-bottom: 0.3rem"><strong>Start:</strong> Kathmandu (1,400m)</li>
+                                            <li style="margin-bottom: 0.3rem"><strong>Day 1:</strong> Ilam Bazaar (~1,200m)</li>
+                                            <li style="margin-bottom: 0.3rem"><strong>Day 2:</strong> Antu Danda → Mai Pokhari (2,438m)</li>
+                                            <li style="margin-bottom: 0.3rem"><strong>Day 3:</strong> Pashupatinagar → Fikkal</li>
+                                            <li style="margin-bottom: 0.3rem"><strong>Day 4:</strong> Kanyam → Itahari (Terai plains)</li>
+                                            <li style="margin-bottom: 0.3rem"><strong>End:</strong> Kathmandu</li>
+                                        </ul>
+                                    </div>
+                                    <div style="flex: 1; min-width: 200px">
+                                        <h5 style="color: #333; margin-bottom: 0.5rem">
+                                            <i class="fas fa-road" style="color: #ff9800"></i> Travel Information
+                                        </h5>
+                                        <ul style="list-style-type: none; padding-left: 0; font-size: 0.9rem;">
+                                            <li style="margin-bottom: 0.3rem">Total Distance: ~1,000km round trip</li>
+                                            <li style="margin-bottom: 0.3rem">Longest Drive: Day 1 (12-13 hours)</li>
+                                            <li style="margin-bottom: 0.3rem">Vehicle: Private comfortable car/van</li>
+                                            <li style="margin-bottom: 0.3rem">Road Types: Highway, hill roads, some winding sections</li>
+                                            <li style="margin-bottom: 0.3rem">Comfort Stops: Regular breaks every 2-3 hours</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tour Information -->
+                            <div style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); padding: 1.5rem; border-radius: 12px; margin-top: 2rem; border: 1px solid rgba(255, 152, 0, 0.1);">
+                                <h4 style="color: #ff9800; margin-bottom: 1rem">
+                                    <i class="fas fa-suitcase"></i> Packing Essentials
+                                </h4>
+                                <div style="display: flex; flex-wrap: wrap; gap: 1.5rem">
+                                    <div style="flex: 1; min-width: 200px">
+                                        <h5 style="color: #333; margin-bottom: 0.5rem; font-size: 0.95rem;">
+                                            <i class="fas fa-tshirt" style="color: #4caf50"></i> Clothing
+                                        </h5>
+                                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 0.5rem;">
+                                            <strong>Ilam Climate:</strong> Light to medium warm layers
+                                        </p>
+                                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 0.5rem;">
+                                            <strong>Mai Pokhari:</strong> Warmer jacket (can be cool at 2,438m)
+                                        </p>
+                                        <p style="font-size: 0.9rem; color: #555;">
+                                            <strong>Comfort:</strong> Comfortable walking shoes
+                                        </p>
+                                    </div>
+                                    <div style="flex: 1; min-width: 200px">
+                                        <h5 style="color: #333; margin-bottom: 0.5rem; font-size: 0.95rem;">
+                                            <i class="fas fa-camera" style="color: #2196f3"></i> Photography
+                                        </h5>
+                                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 0.5rem;">
+                                            <strong>Best Spots:</strong> Antu Danda sunrise, tea gardens
+                                        </p>
+                                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 0.5rem;">
+                                            <strong>Light:</strong> Morning light best for tea gardens
+                                        </p>
+                                        <p style="font-size: 0.9rem; color: #555;">
+                                            <strong>Gear:</strong> Wide-angle for landscapes, telephoto optional
+                                        </p>
+                                    </div>
+                                    <div style="flex: 1; min-width: 200px">
+                                        <h5 style="color: #333; margin-bottom: 0.5rem; font-size: 0.95rem;">
+                                            <i class="fas fa-utensils" style="color: #ff9800"></i> Food & Drink
+                                        </h5>
+                                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 0.5rem;">
+                                            <strong>Local Specialties:</strong> Fresh dairy, organic vegetables
+                                        </p>
+                                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 0.5rem;">
+                                            <strong>Tea:</strong> Multiple tasting opportunities
+                                        </p>
+                                        <p style="font-size: 0.9rem; color: #555;">
+                                            <strong>Water:</strong> Bottled water provided; also available locally
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cultural Information -->
+                            <div style="background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); padding: 1.5rem; border-radius: 12px; margin-top: 2rem; border: 1px solid rgba(156, 39, 176, 0.2);">
+                                <h4 style="color: #9c27b0; margin-bottom: 1rem">
+                                    <i class="fas fa-users" style="color: #9c27b0"></i> Cultural Insights
+                                </h4>
+                                <div style="display: flex; flex-wrap: wrap; gap: 1.5rem">
+                                    <div style="flex: 1; min-width: 200px">
+                                        <h5 style="color: #9c27b0; margin-bottom: 0.5rem; font-size: 0.95rem;">
+                                            <i class="fas fa-mountain-city" style="color: #9c27b0"></i> Local Communities
+                                        </h5>
+                                        <p style="font-size: 0.9rem; color: #555;">
+                                            Ilam is home to diverse ethnic groups including Limbu, Rai, Sherpa, and Brahmin/Chhetri communities. Each has unique traditions, festivals, and lifestyles. The Limbu community has particularly rich cultural heritage with traditional dance (Chyabrung) and music.
+                                        </p>
+                                    </div>
+                                    <div style="flex: 1; min-width: 200px">
+                                        <h5 style="color: #9c27b0; margin-bottom: 0.5rem; font-size: 0.95rem;">
+                                            <i class="fas fa-industry" style="color: #9c27b0"></i> Tea Economy
+                                        </h5>
+                                        <p style="font-size: 0.9rem; color: #555;">
+                                            Tea is the economic backbone of Ilam. The region produces orthodox tea, CTC tea, and green tea. Many families have worked in tea cultivation for generations. You'll see both large estates and smallholder tea gardens during your visit.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Booking Card -->
+            <div>
+                <div class="booking-card">
+                    <div class="price-section">
+                        <div class="price-icon"><i class="fas fa-leaf"></i></div>
+                        <div class="price-info">
+                            <div class="price-label">Starting from</div>
+                            <div><span class="price" id="mainPriceDisplay">₹26,667</span></div>
+                            <div style="font-size: 0.8rem; color: #666; margin-top: 0.3rem" id="alternatePriceRow">
+                                <span id="alternatePriceLabel">USD</span> <span id="alternatePrice">321</span> <span
+                                    id="groupSizeLabel">(for 1-3 persons)</span>
+                            </div>
+                        </div>
+                        <!-- Currency Selector -->
+                        <div class="currency-selector-container">
+                            <div class="currency-selector">
+                                <div id="selectedCurrency">
+                                    <span>INR</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="currency-dropdown">
+                                    <div class="currency-option active" data-currency="INR">INR (₹)</div>
+                                    <div class="currency-option" data-currency="USD">USD ($)</div>
+                                    <div class="currency-option" data-currency="NPR">NPR (रु)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; text-align: center;">
+                        <div style="font-size: 0.9rem; color: #4caf50; margin-bottom: 0.5rem"><i class="fas fa-mug-hot"></i> All-Inclusive Tea Garden Tour</div>
+                        <div style="font-size: 0.9rem">Transportation • Hotels • Meals • Guide • Entrance Fees</div>
+                    </div>
+
+                    <div class="quantity-section">
+                        <div class="quantity-controls">
+                            <button class="qty-btn" onclick="updatePrice(-1)">-</button>
+                            <div class="qty-display" id="qtyDisplay">1</div>
+                            <button class="qty-btn" onclick="updatePrice(1)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="price-breakdown">
+                        <div class="price-row">
+                            <span>Base Price (Per Person)</span>
+                            <span><span id="baseCurrency">INR</span> <span id="basePrice">26,667</span></span>
+                        </div>
+                        <div class="price-row total">
+                            <span>Total</span>
+                            <span><span id="totalCurrency">INR</span> <span id="totalPrice">26,667</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Updated Booking Buttons -->
+                    <button class="booking-btn btn-instant" onclick="showBookingForm()">Instant Booking</button>
+                    <button class="booking-btn btn-customize" onclick="showEnquiryModal()">Enquiry</button>
+
+                    <div class="contact-section">
+                        <div style="font-size: 2.5rem; margin-bottom: 0.5rem">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Direct Booking Assistance</h3>
+                        <div class="phone-numbers">
+                            <a href="https://wa.me/9779851140110" target="_blank" rel="noopener noreferrer"
+                                style="text-decoration: none; color: inherit; display: block; font-size: 1.2rem;">
+                                +977-9851140110
+                            </a>
+                            <a href="https://wa.me/9779856017867" target="_blank" rel="noopener noreferrer"
+                                style="text-decoration: none; color: inherit; display: block; font-size: 1.2rem;">
+                                +977-9856017867
+                            </a>
+                        </div>
+                        <div style="font-size: 0.9rem; margin-top: 0.5rem">WhatsApp Available</div>
+                    </div>
+
+                    <div class="price-guarantee" style="margin-top: 1.5rem; padding: 1rem">
+                        <h4 style="color: #2196f3; margin-bottom: 0.5rem; font-size: 0.9rem">
+                            <i class="fas fa-handshake"></i> No Surprise Charges
+                        </h4>
+                        <p style="font-size: 0.8rem; margin-bottom: 0">
+                            Unlike many operators, our price includes ALL essentials: transport, hotels, meals, guide, entrance fees. What you see is what you pay.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HOTELS SECTION -->
+        <div class="tour-facilities-section">
+            <h3 class="facilities-title"><i class="fas fa-hotel"></i> HOTELS</h3>
+            <div class="facilities-slider-container">
+                <div class="facilities-slider" id="hotelsSlider">
+                    <div class="facility-card">
+                        <div class="facility-image-wrapper"><img src="../../images/Kathmandu.jpg" alt="Hotel Shanker" class="facility-image" /></div>
+                        <div class="facility-info">
+                            <h4>Hotel Shanker</h4>
+                            <p class="facility-location">Kathmandu (4-Star Heritage)</p>
+                        </div>
+                    </div>
+                    <div class="facility-card">
+                        <div class="facility-image-wrapper"><img src="../../images/illam.jpg" alt="Ilam Tea Garden Resort" class="facility-image" /></div>
+                        <div class="facility-info">
+                            <h4>Ilam Tea Garden Resort</h4>
+                            <p class="facility-location">Ilam Bazaar (3-Star)</p>
+                        </div>
+                    </div>
+                    <div class="facility-card">
+                        <div class="facility-image-wrapper"><img src="../../images/illam2.jpg" alt="Mai Pokhari Eco Lodge" class="facility-image" /></div>
+                        <div class="facility-info">
+                            <h4>Mai Pokhari Eco Lodge</h4>
+                            <p class="facility-location">Mai Pokhari (Eco Resort)</p>
+                        </div>
+                    </div>
+                    <div class="facility-card">
+                        <div class="facility-image-wrapper"><img src="../../images/illam3.jpg" alt="Hotel Itahari" class="facility-image" /></div>
+                        <div class="facility-info">
+                            <h4>Hotel Itahari</h4>
+                            <p class="facility-location">Itahari (3-Star)</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="facilities-nav-btn prev" onclick="scrollFacilities('hotelsSlider', -1)"><i class="fas fa-chevron-left"></i></button>
+                <button class="facilities-nav-btn next" onclick="scrollFacilities('hotelsSlider', 1)"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+
+        <!-- VEHICLES SECTION -->
+        <div class="tour-facilities-section">
+            <h3 class="facilities-title"><i class="fas fa-car"></i> VEHICLES</h3>
+            <div class="facilities-slider-container">
+                <div class="facilities-slider" id="vehiclesSlider">
+                    <a href="../Vehicle/car.html" class="facility-card clickable">
+                        <div class="facility-image-wrapper"><img src="../../images/car.webp" alt="Car" class="facility-image" />
+                            <div class="facility-overlay"><i class="fas fa-arrow-right"></i></div>
+                        </div>
+                        <div class="facility-info">
+                            <h4>Car</h4>
+                            <p class="facility-location">2-3 Person • A/C</p>
+                        </div>
+                    </a>
+                    <a href="../vehicle/scorpio.html" class="facility-card clickable">
+                        <div class="facility-image-wrapper"><img src="../../images/scorpio.jpg" alt="Scorpio Jeep" class="facility-image" />
+                            <div class="facility-overlay"><i class="fas fa-arrow-right"></i></div>
+                        </div>
+                        <div class="facility-info">
+                            <h4>Scorpio Jeep</h4>
+                            <p class="facility-location">4-6 Person • A/C</p>
+                        </div>
+                    </a>
+                    <a href="../vehicle/hiace-van.html" class="facility-card clickable">
+                        <div class="facility-image-wrapper"><img src="../../images/hiace-vehicle.jpeg" alt="Hiace Van" class="facility-image" />
+                            <div class="facility-overlay"><i class="fas fa-arrow-right"></i></div>
+                        </div>
+                        <div class="facility-info">
+                            <h4>Hiace Van</h4>
+                            <p class="facility-location">7-12 Person • A/C</p>
+                        </div>
+                    </a>
+                    <a href="../vehicle/mini-bus.html" class="facility-card clickable">
+                        <div class="facility-image-wrapper"><img src="../../images/mini-bus.jpg" alt="Mini Bus" class="facility-image" />
+                            <div class="facility-overlay"><i class="fas fa-arrow-right"></i></div>
+                        </div>
+                        <div class="facility-info">
+                            <h4>Mini Bus</h4>
+                            <p class="facility-location">12-18 Person • A/C</p>
+                        </div>
+                    </a>
+                </div>
+                <button class="facilities-nav-btn prev" onclick="scrollFacilities('vehiclesSlider', -1)"><i class="fas fa-chevron-left"></i></button>
+                <button class="facilities-nav-btn next" onclick="scrollFacilities('vehiclesSlider', 1)"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Honest Travel</h3>
+                <p>
+                    Your trusted partner for authentic Himalayan experiences and
+                    adventure journeys since 2005.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Thamel, Kathmandu, Nepal</p>
+                <p>infohonesttoursntravels@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Certifications</h3>
+                <p>TAAN Registered</p>
+                <p>NTB Licensed</p>
+                <p>Sustainable Tourism Certified</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>
+                &copy; 2025 HONEST TRAVEL Tours and Expedition. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        /* ========== CONSTANTS AND CONFIGURATION ========== */
+
+        const basePrice = 26667; // $320 USD converted to INR (1 USD = 83.33 INR) with markup
+        const price1to3 = basePrice;                    // ₹26,667
+        const price4to6 = basePrice - 3125;              // ₹23,542 (26,667 - 3,125)
+        const price7plus = basePrice - 6250;              // ₹20,417 (26,667 - 6,250)
+
+        const marketUsdToInr = 92;
+        const markupPercent = 15;
+
+        const exchangeRates = {
+            INR: { rate: 1, symbol: "₹", name: "INR" },
+            USD: {
+                rate: (1 / marketUsdToInr) * (1 + markupPercent / 100),
+                symbol: "$",
+                name: "USD",
+            },
+            NPR: { rate: 1.6, symbol: "रु", name: "NPR" },
+        };
+
+        let qty = 1;
+        let currentCurrency = "INR";
+
+        const currentPackage = {
+            name: "Kathmandu to Ilam Tour - 5 Days Tea Garden Experience",
+            duration: "5 Days / 4 Nights",
+            category: "Tea Garden Tour",
+            altitude: "2,438m at Mai Pokhari",
+            location: "Ilam, Eastern Nepal",
+        };
+
+        /* ========== HELPER FUNCTIONS ========== */
+
+        function getUnitPrice(persons) {
+            if (persons >= 7) return price7plus;
+            if (persons >= 4) return price4to6;
+            return price1to3;
+        }
+
+        function getConvertedPrice(persons, targetCurrency) {
+            const inrPrice = getUnitPrice(persons);
+            const rate = exchangeRates[targetCurrency]?.rate || 1;
+            return inrPrice * rate;
+        }
+
+        function getUnitUSDPrice(persons) {
+            return getConvertedPrice(persons, "USD");
+        }
+
+        function getUnitNPRPrice(persons) {
+            return getConvertedPrice(persons, "NPR");
+        }
+
+        function getCurrencySymbol() {
+            return exchangeRates[currentCurrency]?.symbol || "₹";
+        }
+
+        function formatNumber(num) {
+            if (num >= 1000) {
+                return Math.round(num).toLocaleString("en-IN");
+            } else if (num >= 100) {
+                return Math.round(num).toString();
+            } else {
+                return num.toFixed(2);
+            }
+        }
+
+        function getGroupSizeText(persons) {
+            if (persons >= 7) return "7+ People";
+            if (persons >= 4) return "4-6 People";
+            return "1-3 People";
+        }
+
+        function getGroupSizeLabel(persons) {
+            if (persons >= 7) return "(for 7+ persons)";
+            if (persons >= 4) return "(for 4-6 persons)";
+            return "(for 1-3 persons)";
+        }
+
+        function getDiscountText(persons) {
+            if (persons >= 7) return "Save ₹6,250 per person";
+            if (persons >= 4) return "Save ₹3,125 per person";
+            return "";
+        }
+
+        function getDisplayUnitPrice(persons) {
+            if (currentCurrency === "USD") return getUnitUSDPrice(persons);
+            if (currentCurrency === "NPR") return getUnitNPRPrice(persons);
+            return getUnitPrice(persons);
+        }
+
+        /* ========== PRICE UPDATE FUNCTION ========== */
+
+        function updatePrice(change) {
+            qty += change;
+            if (qty < 1) qty = 1;
+            document.getElementById("qtyDisplay").textContent = qty;
+
+            const unitPrice = getUnitPrice(qty);
+            const unitUSDPrice = getUnitUSDPrice(qty);
+            const displayUnitPrice = getDisplayUnitPrice(qty);
+
+            let alternatePrice, alternateLabel;
+            if (currentCurrency === "USD") {
+                alternatePrice = unitPrice;
+                alternateLabel = "INR";
+            } else if (currentCurrency === "NPR") {
+                alternatePrice = unitUSDPrice;
+                alternateLabel = "USD";
+            } else {
+                alternatePrice = unitUSDPrice;
+                alternateLabel = "USD";
+            }
+
+            document.getElementById("mainPriceDisplay").textContent = getCurrencySymbol() + " " + formatNumber(displayUnitPrice);
+            document.getElementById("basePrice").textContent = formatNumber(displayUnitPrice);
+            document.getElementById("totalPrice").textContent = formatNumber(qty * displayUnitPrice);
+            document.getElementById("baseCurrency").textContent = currentCurrency;
+            document.getElementById("totalCurrency").textContent = currentCurrency;
+
+            let alternateRow = document.getElementById("alternatePriceRow");
+            if (!alternateRow) {
+                const priceInfo = document.querySelector('.price-info');
+                alternateRow = document.createElement('div');
+                alternateRow.id = 'alternatePriceRow';
+                alternateRow.style.fontSize = '0.8rem';
+                alternateRow.style.color = '#666';
+                alternateRow.style.marginTop = '0.3rem';
+                priceInfo.appendChild(alternateRow);
+            }
+
+            const discountText = getDiscountText(qty);
+            const discountHtml = discountText ? `<br><span style="color: #28a745; font-size: 0.75rem;"><i class="fas fa-tag"></i> ${discountText}</span>` : '';
+            
+            alternateRow.innerHTML = `<span id="alternatePriceLabel">${alternateLabel}</span> <span id="alternatePrice">${formatNumber(alternatePrice)}</span> <span id="groupSizeLabel">${getGroupSizeLabel(qty)}</span>${discountHtml}`;
+        }
+
+        /* ========== CURRENCY CONVERTER ========== */
+
+        function initializeCurrencyConverter() {
+            const currencySelector = document.querySelector(".currency-selector");
+            const selectedCurrency = document.getElementById("selectedCurrency");
+            const currencyOptions = document.querySelectorAll(".currency-option");
+            const priceElements = document.querySelectorAll(".price-display");
+            const priceTableHeader = document.getElementById("priceTableHeader");
+
+            if (selectedCurrency) {
+                selectedCurrency.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    currencySelector.classList.toggle("active");
+                });
+            }
+
+            currencyOptions.forEach((option) => {
+                option.addEventListener("click", function () {
+                    const newCurrency = this.getAttribute("data-currency");
+
+                    if (newCurrency === "USD") {
+                        selectedCurrency.querySelector("span").textContent = "USD";
+                    } else if (newCurrency === "INR") {
+                        selectedCurrency.querySelector("span").textContent = "INR";
+                    } else if (newCurrency === "NPR") {
+                        selectedCurrency.querySelector("span").textContent = "NPR";
+                    }
+
+                    currentCurrency = newCurrency;
+
+                    currencyOptions.forEach((opt) => opt.classList.remove("active"));
+                    this.classList.add("active");
+
+                    if (priceTableHeader) {
+                        priceTableHeader.textContent = `Cost Per Person`;
+                    }
+
+                    convertPrices(newCurrency);
+                    updatePrice(0);
+
+                    currencySelector.classList.remove("active");
+                });
+            });
+
+            document.addEventListener("click", function (e) {
+                if (currencySelector && !currencySelector.contains(e.target)) {
+                    currencySelector.classList.remove("active");
+                }
+            });
+
+            function convertPrices(targetCurrency) {
+                const targetSymbol = exchangeRates[targetCurrency]?.symbol || "₹";
+
+                priceElements.forEach((element) => {
+                    let convertedValue;
+
+                    if (targetCurrency === "NPR" && element.hasAttribute("data-npr")) {
+                        convertedValue = parseFloat(element.getAttribute("data-npr"));
+                    } else if (targetCurrency === "USD" && element.hasAttribute("data-usd")) {
+                        convertedValue = parseFloat(element.getAttribute("data-usd"));
+                    } else {
+                        const inrValue = parseFloat(element.getAttribute("data-inr"));
+                        const targetRate = exchangeRates[targetCurrency]?.rate || 1;
+                        convertedValue = inrValue * targetRate;
+                    }
+
+                    element.textContent = targetSymbol + " " + formatNumber(convertedValue);
+                });
+            }
+
+            convertPrices("INR");
+        }
+
+        /* ========== NAVIGATION BURGER MENU ========== */
+
+        function initializeNavigation() {
+            const navBurger = document.getElementById("navBurger");
+            const mainNav = document.getElementById("mainNav");
+
+            if (navBurger) {
+                navBurger.addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    mainNav.classList.toggle("active");
+                    document.body.classList.toggle("nav-open");
+                });
+
+                const navLinks = mainNav.querySelectorAll("a");
+                navLinks.forEach((link) => {
+                    link.addEventListener("click", () => {
+                        navBurger.classList.remove("active");
+                        mainNav.classList.remove("active");
+                        document.body.classList.remove("nav-open");
+                    });
+                });
+            }
+        }
+
+        /* ========== TAB SYSTEM ========== */
+
+        function initializeTabs() {
+            const tabBurger = document.getElementById("tabBurger");
+            const tabsMenu = document.getElementById("tabsMenu");
+
+            if (tabBurger) {
+                tabBurger.addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    tabsMenu.classList.toggle("active");
+                });
+            }
+        }
+
+        function openTab(tabId) {
+            document.querySelectorAll(".tab-content").forEach((c) => c.classList.remove("active"));
+            document.querySelectorAll(".tab").forEach((t) => t.classList.remove("active"));
+
+            document.getElementById(tabId).classList.add("active");
+            event.currentTarget.classList.add("active");
+
+            const currentTabName = document.getElementById("currentTabName");
+            if (currentTabName) {
+                currentTabName.textContent = event.currentTarget.textContent.trim();
+            }
+
+            const tabBurger = document.getElementById("tabBurger");
+            const tabsMenu = document.getElementById("tabsMenu");
+            if (tabBurger) {
+                tabBurger.classList.remove("active");
+                tabsMenu.classList.remove("active");
+            }
+        }
+
+        /* ========== COLLAPSIBLE ITINERARY ========== */
+
+        function toggleDay(headerElement) {
+            headerElement.closest(".itinerary-day").classList.toggle("active");
+        }
+
+        function toggleAllDays(btn) {
+            const allDays = document.querySelectorAll(".itinerary-day");
+            const isExpanding = btn.innerText.trim() === "Expand All";
+
+            allDays.forEach((day) => {
+                if (isExpanding) {
+                    day.classList.add("active");
+                } else {
+                    day.classList.remove("active");
+                }
+            });
+
+            btn.innerText = isExpanding ? "Collapse All" : "Expand All";
+        }
+
+        /* ========== IMAGE GALLERY ========== */
+
+        let currentImageIndex = 0;
+        const images = document.querySelectorAll(".gallery-image");
+        const indicators = document.querySelectorAll(".indicator");
+
+        function showImage(index) {
+            if (index >= images.length) currentImageIndex = 0;
+            else if (index < 0) currentImageIndex = images.length - 1;
+            else currentImageIndex = index;
+
+            images.forEach((img) => img.classList.remove("active"));
+            indicators.forEach((ind) => ind.classList.remove("active"));
+
+            images[currentImageIndex].classList.add("active");
+            indicators[currentImageIndex].classList.add("active");
+        }
+
+        function changeImage(step) { showImage(currentImageIndex + step); }
+        function setImage(index) { showImage(index); }
+
+        setInterval(() => changeImage(1), 5000);
+
+        /* ========== BOOKING MODAL FUNCTIONS ========== */
+
+        function generateBookingId() {
+            const prefix = "HTT";
+            const timestamp = Date.now().toString().slice(-8);
+            const random = Math.floor(Math.random() * 1000).toString().padStart(3, "0");
+            const date = new Date();
+            const year = date.getFullYear().toString().slice(-2);
+            const month = (date.getMonth() + 1).toString().padStart(2, "0");
+            return `${prefix}-${year}${month}-${timestamp}-${random}`;
+        }
+
+        function showBookingForm() {
+            showConfirmationModal();
+        }
+
+        function showConfirmationModal() {
+            const displayUnitPrice = getDisplayUnitPrice(qty);
+            const symbol = getCurrencySymbol();
+            const groupSizeText = getGroupSizeText(qty);
+
+            const modalOverlay = document.createElement("div");
+            modalOverlay.className = "confirmation-modal";
+
+            modalOverlay.innerHTML = `
+                <div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; color: #4caf50; margin-bottom: 15px;">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 style="color: #2c3e50; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                            <i class="fas fa-calendar-check" style="color: #4caf50;"></i> Confirm Ilam Tour Booking
+                        </h3>
+                        <div style="font-size: 1.1rem; color: #4caf50; font-weight: 600; margin-bottom: 20px; background: rgba(76, 175, 80, 0.1); padding: 12px; border-radius: 8px; border-left: 4px solid #4caf50;">
+                            Kathmandu to Ilam Tour (5 Days)
+                        </div>
+                        <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 20px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                <span>Duration:</span><span style="font-weight: 600;">5 Days / 4 Nights</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                <span>Region:</span><span style="font-weight: 600;">Ilam (Tea Garden)</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                <span>Group Size:</span><span style="font-weight: 600;">${groupSizeText}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                <span>Participants:</span><span style="font-weight: 600;">${qty} person(s)</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                <span>Price Per Person:</span><span style="font-weight: 600;">${symbol} ${formatNumber(displayUnitPrice)}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; font-size: 1.2rem; color: #28a745;">
+                                <span>Total Amount:</span><span style="font-weight: 700;">${symbol} ${formatNumber(qty * displayUnitPrice)}</span>
+                            </div>
+                        </div>
+                        <div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; margin: 20px 0;">
+                            <h4 style="color: #388e3c; margin-bottom: 0.5rem; font-size: 0.9rem;"><i class="fas fa-info-circle"></i> Important Information</h4>
+                            <p style="margin: 0; color: #388e3c; font-size: 0.9rem;">Includes transportation • accommodation • meals • guide • entrance fees</p>
+                        </div>
+                        <p style="color: #666; margin-bottom: 25px; font-size: 16px;">Are you ready to book this tea garden tour experience to Ilam?</p>
+                        <div class="confirmation-buttons" style="display: flex; gap: 15px; margin-top: 25px;">
+                            <button id="confirmCancel" class="cancel-choice" style="padding: 10px 20px; background: #f5f5f5; border: none; border-radius: 6px; color: #666; cursor: pointer; transition: all 0.3s ease; flex: 1;">Cancel</button>
+                            <button id="confirmBook" class="confirm-book-btn" style="background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%); color: white; border: none; padding: 14px 24px; border-radius: 8px; font-size: 16px; font-weight: 500; cursor: pointer; flex: 1; transition: all 0.3s ease;">Yes, Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(modalOverlay);
+            document.body.classList.add("modal-open");
+
+            modalOverlay.querySelector("#confirmCancel").addEventListener("click", () => closeModal(modalOverlay));
+            modalOverlay.querySelector("#confirmBook").addEventListener("click", () => {
+                closeModal(modalOverlay);
+                showBookingModal();
+            });
+            modalOverlay.addEventListener("click", (e) => { if (e.target === modalOverlay) closeModal(modalOverlay); });
+        }
+
+        function showBookingModal() {
+            const displayUnitPrice = getDisplayUnitPrice(qty);
+            const symbol = getCurrencySymbol();
+            const groupSizeText = getGroupSizeText(qty);
+
+            const modalOverlay = document.createElement("div");
+            modalOverlay.className = "booking-modal";
+
+            modalOverlay.innerHTML = `
+                <div>
+                    <button class="close-modal">×</button>
+                    <h2 style="color: #2c3e50; margin-bottom: 1.5rem; text-align: center; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                        <i class="fas fa-leaf" style="color: #4caf50;"></i> Book Ilam Tea Garden Tour
+                    </h2>
+                    <form id="bookingForm">
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">Full Name *</label>
+                            <input type="text" id="bookingName" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box;" placeholder="Enter your full name">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">Email Address *</label>
+                            <input type="email" id="bookingEmail" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box;" placeholder="your@email.com">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">Phone Number *</label>
+                            <input type="tel" id="bookingPhone" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box;" placeholder="+977 98xxxxxxxx">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">Country *</label>
+                            <input type="text" id="bookingCountry" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box;" placeholder="Your country">
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div>
+                                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">Persons *</label>
+                                <input type="number" min="1" value="${qty}" id="formPersons" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box;">
+                            </div>
+                            <div>
+                                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">Preferred Date *</label>
+                                <input type="date" id="bookingDate" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box;">
+                            </div>
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">Fitness Level</label>
+                            <select id="fitnessLevel" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box;">
+                                <option value="beginner">Beginner (Light walking)</option>
+                                <option value="moderate">Moderate (Some walking experience)</option>
+                                <option value="active">Active (Regular exercise)</option>
+                                <option value="experienced">Experienced (Previous tours)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">Special Requirements</label>
+                            <textarea id="bookingRequirements" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; min-height: 100px; resize: vertical; box-sizing: border-box;" placeholder="Any dietary restrictions, health concerns, or special requests..."></textarea>
+                        </div>
+                        <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; margin: 1rem 0;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Tour Package:</span><span style="font-weight: bold;">Ilam Tea Garden Tour</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Duration:</span><span>5 Days / 4 Nights</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Group Size:</span><span id="formGroupSize">${groupSizeText}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Price Per Person:</span><span id="formPricePerPerson">${symbol} ${formatNumber(displayUnitPrice)}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Persons:</span><span id="formTotalPersons">${qty}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; font-size: 1.2rem; color: #28a745;">
+                                <span>Total Amount:</span>
+                                <span><span id="formCurrency">${currentCurrency}</span> <span id="formTotalAmount">${formatNumber(qty * displayUnitPrice)}</span></span>
+                            </div>
+                        </div>
+                        <button type="submit" style="background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%); color: white; border: none; padding: 1rem; border-radius: 6px; font-size: 1.1rem; font-weight: 600; cursor: pointer; margin-top: 1rem; width: 100%;">
+                            <i class="fas fa-paper-plane"></i> Submit Tour Booking Request
+                        </button>
+                        <p style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 1rem;"><i class="fas fa-info-circle"></i> Includes transportation • hotels • meals • guide • entrance fees</p>
+                        <p style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 0.5rem;">We'll contact you within 24 hours to confirm your tour dates</p>
+                    </form>
+                </div>
+            `;
+
+            document.body.appendChild(modalOverlay);
+            document.body.classList.add("modal-open");
+
+            const modalContent = modalOverlay.querySelector("div");
+            modalContent.style.webkitOverflowScrolling = "touch";
+
+            modalOverlay.querySelector(".close-modal").addEventListener("click", () => closeModal(modalOverlay));
+            modalOverlay.addEventListener("click", (e) => { if (e.target === modalOverlay) closeModal(modalOverlay); });
+
+            const personsInput = modalOverlay.querySelector("#formPersons");
+            const groupSizeSpan = modalOverlay.querySelector("#formGroupSize");
+            const totalPersonsSpan = modalOverlay.querySelector("#formTotalPersons");
+            const totalAmountSpan = modalOverlay.querySelector("#formTotalAmount");
+            const pricePerPersonSpan = modalOverlay.querySelector("#formPricePerPerson");
+            const formCurrencySpan = modalOverlay.querySelector("#formCurrency");
+
+            function updateFormTotal() {
+                const persons = Math.max(1, parseInt(personsInput.value) || 1);
+                personsInput.value = persons;
+                const dispPrice = getDisplayUnitPrice(persons);
+                const sym = getCurrencySymbol();
+
+                groupSizeSpan.textContent = getGroupSizeText(persons);
+                totalPersonsSpan.textContent = persons;
+                pricePerPersonSpan.textContent = sym + " " + formatNumber(dispPrice);
+                totalAmountSpan.textContent = formatNumber(persons * dispPrice);
+                formCurrencySpan.textContent = currentCurrency;
+
+                qty = persons;
+                updatePrice(0);
+            }
+
+            personsInput.addEventListener("input", updateFormTotal);
+
+            // Handle form submission
+            modalOverlay.querySelector("#bookingForm").addEventListener("submit", (e) => {
+                e.preventDefault();
+
+                const persons = Math.max(1, parseInt(personsInput.value) || 1);
+                const dispPrice = getDisplayUnitPrice(persons);
+
+                const formData = {
+                    name: modalOverlay.querySelector("#bookingName").value.trim(),
+                    email: modalOverlay.querySelector("#bookingEmail").value.trim(),
+                    phone: modalOverlay.querySelector("#bookingPhone").value.trim(),
+                    country: modalOverlay.querySelector("#bookingCountry").value.trim(),
+                    fitness: modalOverlay.querySelector("#fitnessLevel").value,
+                    persons: persons,
+                    date: modalOverlay.querySelector("#bookingDate").value || "Not specified",
+                    requirements: modalOverlay.querySelector("#bookingRequirements").value.trim() || "None",
+                    package: currentPackage.name,
+                    totalAmount: persons * dispPrice,
+                    pricePerPerson: dispPrice,
+                    currency: currentCurrency,
+                    duration: currentPackage.duration,
+                    groupSize: getGroupSizeText(persons),
+                };
+
+                // Validation
+                if (!formData.name) {
+                    showMobileAlert("error", "Name Required", "Please enter your full name");
+                    modalOverlay.querySelector("#bookingName").focus();
+                    return;
+                }
+                if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
+                    showMobileAlert("error", "Valid Email Required", "Please enter a valid email address");
+                    modalOverlay.querySelector("#bookingEmail").focus();
+                    return;
+                }
+                if (!formData.phone || !/^\+?[\d\s\-\(\)]{10,}$/.test(formData.phone)) {
+                    showMobileAlert("error", "Valid Phone Required", "Please enter a valid phone number");
+                    modalOverlay.querySelector("#bookingPhone").focus();
+                    return;
+                }
+                if (!formData.country) {
+                    showMobileAlert("error", "Country Required", "Please enter your country");
+                    modalOverlay.querySelector("#bookingCountry").focus();
+                    return;
+                }
+
+                submitBookingDirectly(formData, modalOverlay);
+            });
+        }
+
+        function submitBookingDirectly(formData, bookingModal) {
+            const submitBtn = bookingModal.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+
+            const bookingId = generateBookingId();
+            const symbol = exchangeRates[formData.currency]?.symbol || "₹";
+
+            const whatsappMessage =
+                `*ILAM TEA GARDEN TOUR BOOKING REQUEST*\n` +
+                `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
+                ` *Booking Details*\n` +
+                `Booking ID: ${bookingId}\n` +
+                `Package: ${formData.package}\n` +
+                `Duration: ${formData.duration}\n` +
+                `Preferred Date: ${formData.date}\n\n` +
+                ` *Customer Information*\n` +
+                `Name: ${formData.name}\n` +
+                `Email: ${formData.email}\n` +
+                `Phone: ${formData.phone}\n` +
+                `Country: ${formData.country}\n` +
+                `Fitness Level: ${formData.fitness}\n` +
+                `Number of Persons: ${formData.persons}\n\n` +
+                ` *Payment Details*\n` +
+                `Price per Person (${formData.currency}): ${symbol}${formatNumber(formData.pricePerPerson)}\n` +
+                `Total Amount (${formData.currency}): ${symbol}${formatNumber(formData.totalAmount)}\n\n` +
+                ` *Special Requirements*\n` +
+                `${formData.requirements || "None"}\n\n` +
+                `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+                `Submitted via HONEST TRAVEL TOURS AND EXPEDITION Website`;
+
+            const templateParams = {
+                booking_id: bookingId,
+                from_name: formData.name,
+                from_email: formData.email,
+                phone: formData.phone,
+                country: formData.country,
+                package_duration: formData.duration,
+                package_name: formData.package,
+                fitness_level: formData.fitness,
+                preferred_date: formData.date,
+                special_requirements: formData.requirements,
+                number_of_person: formData.persons,
+                company_name: "Honest Travel Tours and Expedition",
+                price_per_person: `${formData.currency} ${formatNumber(formData.pricePerPerson)}`,
+                total_amount: `${formData.currency} ${formatNumber(formData.totalAmount)}`,
+            };
+
+            const phoneNumber = "9779851140110";
+            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`, "_blank");
+
+            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+                .then(
+                    function (response) {
+                        console.log("Email sent successfully:", response);
+                        closeModal(bookingModal);
+                        showMobileAlert(
+                            "success",
+                            "Booking Request Sent!",
+                            `Your Ilam Tea Garden Tour booking request has been submitted successfully!\n\nBooking ID: ${bookingId}\n\nWe have opened WhatsApp and sent an email confirmation. Our team will contact you within 24 hours.`
+                        );
+                    },
+                    function (error) {
+                        console.error("Email send failed:", error);
+                        closeModal(bookingModal);
+                        showMobileAlert(
+                            "info",
+                            "WhatsApp Opened",
+                            `Your booking request has been sent via WhatsApp but there was an issue sending the email.\n\nBooking ID: ${bookingId}\n\nPlease check your WhatsApp messages. Our team will contact you soon.`
+                        );
+                    }
+                )
+                .finally(() => {
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                });
+        }
+
+        function showEnquiryModal() {
+            const packageName = "Kathmandu to Ilam Tour - 5 Days";
+            const packagePrice = "INR 20,417 - 26,667 / USD 246 - 321 / NPR 32,667 - 42,667";
+            const packageDuration = "5 Days / 4 Nights";
+            const packageCategory = "Tea Garden Tour";
+            const packageAltitude = "2,438m at Mai Pokhari";
+            const packageLocation = "Ilam, Eastern Nepal";
+
+            const params = new URLSearchParams({
+                package: packageName,
+                price: packagePrice,
+                duration: packageDuration,
+                category: packageCategory,
+                altitude: packageAltitude,
+                location: packageLocation,
+                source: "ilam-tour-5days",
+            }).toString();
+
+            window.location.href = `../enquiry-form.html?${params}`;
+        }
+
+        /* ========== MOBILE ALERT ========== */
+
+        function showMobileAlert(type, title, message) {
+            const alertOverlay = document.createElement("div");
+            alertOverlay.className = "mobile-alert-overlay";
+
+            alertOverlay.innerHTML = `
+                <div>
+                    <div class="mobile-alert ${type}" style="text-align: center;">
+                        <div class="mobile-alert-icon">
+                            ${type === "success" ? '<i class="fas fa-check-circle"></i>' : '<i class="fas fa-exclamation-triangle"></i>'}
+                        </div>
+                        <h3 style="color: #2c3e50; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                            ${type === "success" ? '<i class="fas fa-check-circle" style="color: #28a745;"></i>' : '<i class="fas fa-exclamation-triangle" style="color: #dc3545;"></i>'}
+                            ${title}
+                        </h3>
+                        <div class="mobile-alert-message">${message.replace(/\n/g, "<br>")}</div>
+                        <button class="mobile-alert-ok-btn" onclick="closeModal(this.closest('.mobile-alert-overlay'))">OK</button>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(alertOverlay);
+            document.body.classList.add("modal-open");
+
+            if (type === "success") {
+                setTimeout(() => {
+                    if (alertOverlay.parentNode) closeModal(alertOverlay);
+                }, 5000);
+            }
+
+            alertOverlay.addEventListener("click", (e) => {
+                if (e.target === alertOverlay) closeModal(alertOverlay);
+            });
+        }
+
+        /* ========== CLOSE MODAL ========== */
+
+        function closeModal(modalOverlay) {
+            modalOverlay.style.animation = "fadeOut 0.3s ease";
+            setTimeout(() => {
+                if (modalOverlay.parentNode) document.body.removeChild(modalOverlay);
+                if (!document.querySelector(".confirmation-modal, .booking-modal, .submission-modal, .mobile-alert-overlay")) {
+                    document.body.classList.remove("modal-open");
+                }
+            }, 300);
+        }
+
+        /* ========== FACILITIES SLIDER ========== */
+
+        function scrollFacilities(sliderId, direction) {
+            const slider = document.getElementById(sliderId);
+            slider.scrollBy({ left: direction * 300, behavior: "smooth" });
+        }
+
+        /* ========== CLOSE MENUS WHEN CLICKING OUTSIDE ========== */
+
+        function initializeClickOutside() {
+            const navBurger = document.getElementById("navBurger");
+            const mainNav = document.getElementById("mainNav");
+            const tabBurger = document.getElementById("tabBurger");
+            const tabsMenu = document.getElementById("tabsMenu");
+
+            document.addEventListener("click", function (event) {
+                if (navBurger && !navBurger.contains(event.target) && !mainNav.contains(event.target)) {
+                    navBurger.classList.remove("active");
+                    mainNav.classList.remove("active");
+                    document.body.classList.remove("nav-open");
+                }
+                if (tabBurger && !tabBurger.contains(event.target) && !tabsMenu.contains(event.target)) {
+                    tabBurger.classList.remove("active");
+                    tabsMenu.classList.remove("active");
+                }
+            });
+        }
+
+        /* ========== INITIALIZE EVERYTHING ========== */
+
+        document.addEventListener("DOMContentLoaded", function () {
+            initializeNavigation();
+            initializeTabs();
+            initializeCurrencyConverter();
+            initializeClickOutside();
+            updatePrice(0);
+        });
+
+        window.updatePrice = updatePrice;
+        window.changeImage = changeImage;
+        window.setImage = setImage;
+        window.openTab = openTab;
+        window.toggleDay = toggleDay;
+        window.toggleAllDays = toggleAllDays;
+        window.showBookingForm = showBookingForm;
+        window.showEnquiryModal = showEnquiryModal;
+        window.scrollFacilities = scrollFacilities;
+        window.closeModal = closeModal;
+    </script>
+</body>
+</html>

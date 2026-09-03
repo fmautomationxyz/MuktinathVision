@@ -1,0 +1,2834 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Annapurna Base Camp with Poon Hill Trek - 10 Days - Honest Travel Tours</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="../../css/individual-packages.css" />
+
+    <!-- Add EmailJS script -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function () {
+            // Initialize EmailJS with your public key
+            emailjs.init("cjcB4sLQKii3OPWJ1");
+        })();
+    </script>
+
+    <style>
+        /* Currency Selector Styles */
+        .currency-selector-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 20px;
+        }
+
+        .currency-selector {
+            position: relative;
+            display: inline-block;
+        }
+
+        #selectedCurrency {
+            background: rgba(33, 150, 243, 0.1);
+            border: 1px solid #2196f3;
+            border-radius: 6px;
+            padding: 8px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            color: #2196f3;
+            transition: all 0.3s ease;
+        }
+
+        #selectedCurrency:hover {
+            background: rgba(33, 150, 243, 0.2);
+        }
+
+        #selectedCurrency i {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .currency-selector.active #selectedCurrency i {
+            transform: rotate(180deg);
+        }
+
+        .currency-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            min-width: 120px;
+            margin-top: 5px;
+            display: none;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .currency-selector.active .currency-dropdown {
+            display: block;
+        }
+
+        .currency-option {
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #333;
+        }
+
+        .currency-option:hover {
+            background: #f5f5f5;
+            color: #2196f3;
+        }
+
+        .currency-option.active {
+            background: #2196f3;
+            color: white;
+        }
+
+        .currency-option i {
+            width: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Price grid styles for group pricing */
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .price-card .group-size {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-card .price-main {
+            font-size: 1.8rem;
+            color: #28a745;
+            font-weight: 700;
+        }
+
+        .price-card .price-alt {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+
+        /* Modal Styles */
+        .confirmation-modal,
+        .booking-modal,
+        .submission-modal,
+        .mobile-alert-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .confirmation-modal>div,
+        .booking-modal>div,
+        .submission-modal>div,
+        .mobile-alert-overlay>div {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .booking-modal>div {
+            max-width: 600px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes checkmark {
+            0% {
+                transform: scale(0);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .close-modal,
+        .close-submission-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: #666;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover,
+        .close-submission-modal:hover {
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .modal-open {
+            overflow: hidden;
+        }
+
+        .choice-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .choice-btn {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            width: 100%;
+        }
+
+        .choice-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .whatsapp-choice:hover {
+            border-color: #25D366;
+            background: rgba(37, 211, 102, 0.05);
+        }
+
+        .email-choice:hover {
+            border-color: #2196f3;
+            background: rgba(33, 150, 243, 0.05);
+        }
+
+        .choice-btn i {
+            font-size: 2.5rem;
+            min-width: 40px;
+        }
+
+        .whatsapp-choice i {
+            color: #25D366;
+        }
+
+        .email-choice i {
+            color: #2196f3;
+        }
+
+        .choice-btn-content {
+            flex: 1;
+        }
+
+        .choice-btn-content span {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .choice-btn-content small {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .confirm-book-btn {
+            background: linear-gradient(135deg, #2196F3 0%, #0D47A1 100%);
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .confirm-book-btn:hover {
+            background: linear-gradient(135deg, #0D47A1 0%, #1565C0 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+        }
+
+        .cancel-choice {
+            padding: 10px 20px;
+            background: #f5f5f5;
+            border: none;
+            border-radius: 6px;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .cancel-choice:hover {
+            background: #e0e0e0;
+        }
+
+        .confirmation-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        /* Mobile Alert */
+        .mobile-alert {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .mobile-alert-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-alert.success .mobile-alert-icon {
+            color: #28a745;
+        }
+
+        .mobile-alert.warning .mobile-alert-icon {
+            color: #ff9800;
+        }
+
+        .mobile-alert.error .mobile-alert-icon {
+            color: #dc3545;
+        }
+
+        .mobile-alert.info .mobile-alert-icon {
+            color: #2196f3;
+        }
+
+        .mobile-alert h3 {
+            color: #2c3e50;
+            margin: 0 0 1.5rem 0;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .mobile-alert-message {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .mobile-alert-ok-btn {
+            background: #2196f3;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .mobile-alert-ok-btn:hover {
+            background: #1976d2;
+            transform: translateY(-2px);
+        }
+
+        .success-checkmark {
+            animation: checkmark 0.5s ease;
+        }
+
+        /* Altitude warning */
+        .altitude-warning {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 2px solid #ff9800;
+            margin: 1rem 0;
+        }
+
+        /* Responsive improvements */
+        @media (max-width: 768px) {
+
+            .booking-modal>div,
+            .confirmation-modal>div,
+            .submission-modal>div {
+                margin: 10px;
+                padding: 1.5rem;
+                max-height: calc(100vh - 20px);
+            }
+
+            .choice-btn {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            .choice-btn i {
+                margin-bottom: 0.5rem;
+            }
+
+            .confirmation-buttons {
+                flex-direction: column;
+            }
+
+            .mobile-alert {
+                margin: 10px;
+                padding: 1.2rem;
+            }
+
+            .mobile-alert-message {
+                font-size: 0.95rem;
+                text-align: center;
+            }
+
+            .currency-selector-container {
+                margin-left: 0;
+                margin-top: 10px;
+                width: 100%;
+            }
+
+            .currency-selector {
+                width: 100%;
+            }
+
+            #selectedCurrency {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .currency-dropdown {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .confirmation-buttons {
+                flex-direction: column;
+            }
+
+            .choice-btn {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .choice-btn-content small {
+                display: none;
+            }
+        }
+
+        /* Better touch targets */
+        .choice-btn,
+        .booking-btn,
+        .qty-btn,
+        .tab,
+        .nav-btn {
+            min-height: 44px;
+            min-width: 44px;
+        }
+
+        /* Fix for iOS zoom on input focus */
+        @media screen and (-webkit-min-device-pixel-ratio:0) {
+
+            select,
+            textarea,
+            input {
+                font-size: 16px !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <div class="contact-info">
+                    <span>
+                        📞
+                        <a href="https://wa.me/9779851140110" target="_blank" rel="noopener noreferrer"
+                            class="wa-link">+977-9851140110</a>
+                        ,
+                        <a href="https://wa.me/9779856017867" target="_blank" rel="noopener noreferrer"
+                            class="wa-link">9856017867</a>
+                    </span>
+                    <span>✉️ infohonesttoursntravels@gmail.com</span>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-main">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="../../images/Logo Image.png" alt="Honest Travel Logo" />
+                </div>
+                <div class="logo-text">
+                    <h1>HONEST TRAVEL</h1>
+                    <p>TOURS AND EXPEDITION</p>
+                </div>
+            </div>
+
+            <!-- Burger Menu Button for Navigation -->
+            <button class="burger-menu" id="navBurger" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="../../index.html">HOME</a></li>
+                    <li><a href="../../index.html#tours">TOURS</a></li>
+                    <li><a href="../../index.html#trekking">TREKKING</a></li>
+                    <li><a href="../../index.html#contact">CONTACT US</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Tour Detail Section -->
+    <div class="tour-detail">
+        <div class="tour-header">
+            <h1 class="tour-title">
+                Annapurna Base Camp with Poon Hill Trek - 10 Days
+            </h1>
+            <p class="tour-subtitle">
+                10 Days 9 Nights - Classic Annapurna Sanctuary & Sunrise Views
+            </p>
+        </div>
+
+        <div class="tour-content-wrapper">
+            <!-- LEFT COLUMN -->
+            <div>
+                <!-- Image Gallery -->
+                <div class="image-gallery">
+                    <img src="../../images/Annapurna.jpg" class="gallery-image active" alt="Annapurna Mountain Range" />
+                    <img src="../../images/Annapurna1.jpeg" class="gallery-image" alt="Poon Hill Sunrise" />
+                    <img src="../../images/Annapurna2.jpg" class="gallery-image" alt="Annapurna Base Camp" />
+                    <img src="../../images/Annapurna3.jpeg" class="gallery-image" alt="Machhapuchhre Base Camp" />
+
+                    <div class="gallery-nav">
+                        <button class="nav-btn" onclick="changeImage(-1)">‹</button>
+                        <button class="nav-btn" onclick="changeImage(1)">›</button>
+                    </div>
+                    <div class="gallery-indicators">
+                        <div class="indicator active" onclick="setImage(0)"></div>
+                        <div class="indicator" onclick="setImage(1)"></div>
+                        <div class="indicator" onclick="setImage(2)"></div>
+                        <div class="indicator" onclick="setImage(3)"></div>
+                    </div>
+                </div>
+
+                <!-- Tour Information Tabs -->
+                <div class="tour-info">
+                    <!-- Mobile Tab Burger Menu -->
+                    <div class="tab-burger-wrapper">
+                        <button class="tab-burger-menu" id="tabBurger" aria-label="Toggle tabs menu">
+                            <i class="fas fa-bars"></i>
+                            <span id="currentTabName">Overview</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+
+                    <div class="info-tabs" id="tabsMenu">
+                        <button class="tab active" onclick="openTab('overview')">
+                            Overview
+                        </button>
+                        <button class="tab" onclick="openTab('itinerary')">
+                            Itinerary
+                        </button>
+                        <button class="tab" onclick="openTab('costdates')">Cost</button>
+                        <button class="tab" onclick="openTab('included')">
+                            Included
+                        </button>
+                        <button class="tab" onclick="openTab('terms')">
+                            Terms & Conditions
+                        </button>
+                        <button class="tab" onclick="openTab('videosmap')">
+                            Videos & Map
+                        </button>
+                    </div>
+
+                    <!-- OVERVIEW -->
+                    <div id="overview" class="tab-content active">
+                        <div class="info-section">
+                            <h3>10-Day Annapurna Base Camp with Poon Hill Trek</h3>
+                            <p>
+                                Experience two of Nepal's most iconic trekking experiences in one incredible 10-day
+                                journey! This combined itinerary by
+                                <strong>Honest Travel Tours</strong> takes you to the spectacular sunrise viewpoint of
+                                Poon Hill (3,210m) and into the heart of the Annapurna Sanctuary to stand at the base of
+                                the mighty Annapurna I (8,091m). Witness breathtaking Himalayan panoramas, explore
+                                traditional Gurung villages, and immerse yourself in Nepal's rich mountain culture.
+                            </p>
+
+                            <div class="highlight-box">
+                                <h4 style="color: #5865f2; margin-bottom: 1rem">
+                                    Why Choose Our ABC with Poon Hill Trek
+                                </h4>
+                                <ul class="info-list">
+                                    <li>
+                                        <strong>Two Highlights in One:</strong> Combine Poon Hill's famous sunrise with
+                                        Annapurna Base Camp
+                                    </li>
+                                    <li>
+                                        <strong>Cultural Immersion:</strong> Experience traditional Gurung villages and
+                                        Buddhist culture
+                                    </li>
+                                    <li>
+                                        <strong>Scenic Diversity:</strong> From rhododendron forests to glacial moraines
+                                        and high alpine terrain
+                                    </li>
+                                    <li>
+                                        <strong>Well-Paced Itinerary:</strong> Gradual ascent with proper
+                                        acclimatization for safety
+                                    </li>
+                                    <li>
+                                        <strong>Natural Hot Springs:</strong> Opportunity to relax in natural hot
+                                        springs at Jihnu
+                                    </li>
+                                    <li>
+                                        <strong>Expert Local Guide:</strong> Experienced guide from Pokhara with
+                                        extensive regional knowledge
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <h3>Trip Highlights</h3>
+                            <ul class="info-list">
+                                <li><strong>Duration:</strong> 10 Days / 9 Nights</li>
+                                <li><strong>Starting Point:</strong> Pokhara, Nepal</li>
+                                <li>
+                                    <strong>Highest Point:</strong> Annapurna Base Camp (4,130m)
+                                </li>
+                                <li>
+                                    <strong>Trekking Grade:</strong> Moderate
+                                </li>
+                                <li>
+                                    <strong>Best Seasons:</strong> March-May & September-November
+                                </li>
+                                <li><strong>Accommodation:</strong> Tea houses/Lodges</li>
+                                <li><strong>Meals:</strong> Full board during trek</li>
+                                <li>
+                                    <strong>Transport:</strong> Sharing jeep and local transport
+                                </li>
+                            </ul>
+
+                            <div class="highlight-box" style="background: #f0f9ff; border-left: 4px solid #2196f3">
+                                <h4 style="color: #2196f3; margin-bottom: 1rem">
+                                    Perfect Combination Trek
+                                </h4>
+                                <p>
+                                    Our 10-day Annapurna Base Camp with Poon Hill trek offers the perfect balance of
+                                    scenic beauty, cultural experience, and Himalayan adventure. Start with the famous
+                                    Poon Hill sunrise, enjoy the rich Gurung culture in traditional villages, then
+                                    venture into the spectacular Annapurna Sanctuary. This trek is ideal for those who
+                                    want to experience the best of the Annapurna region without the extreme altitude of
+                                    the Thorong La Pass. The well-paced itinerary includes natural hot springs, lush
+                                    rhododendron forests, and close-up views of some of the world's highest peaks.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITINERARY -->
+                    <div id="itinerary" class="tab-content">
+                        <div class="info-section">
+                            <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 1.5rem;
+                    flex-wrap: wrap;
+                    gap: 1rem;
+                ">
+                                <h3 style="
+                    margin: 0;
+                    color: #00b386;
+                    text-transform: uppercase;
+                    font-size: 1.2rem;
+                    ">
+                                    10-Day Detailed Itinerary
+                                </h3>
+                                <button onclick="toggleAllDays(this)" style="
+                    background: none;
+                    border: 1px solid #00b386;
+                    color: #00b386;
+                    padding: 0.5rem 1rem;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    font-size: 0.9rem;
+                    ">
+                                    Expand All
+                                </button>
+                            </div>
+
+                            <!-- Day 1 -->
+                            <div class="itinerary-day">
+                                <div class="day-header" onclick="toggleDay(this)">
+                                    <div class="day-header-content">
+                                        <span class="day-number">DAY 1</span>
+                                        <span class="day-title">DRIVE POKHARA TO BHIRETHATI & TREK TO
+                                            TIRKHEDHUNGA</span>
+                                        <span class="day-altitude"><i class="fas fa-mountain"></i> 1,460m</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </div>
+                                <div class="day-details">
+                                    <p style="margin-bottom: 1rem">
+                                        <strong>Journey Begins:</strong> Start your Annapurna Base Camp and Poon Hill
+                                        10-day trek from beautiful Pokhara, a renowned tourist destination in the
+                                        Himalaya region. Drive takes you beyond Pokhara valley to rural farm villages to
+                                        reach the foothills. On reaching the starting point at Bhirethati, the adventure
+                                        begins with a climb of few hours to reach Tirkhedhunga, a farm village with
+                                        beautiful waterfalls located on the bottom of Ulleri hill.
+                                    </p>
+                                    <p>
+                                        <strong>Meals:</strong> Lunch and Dinner Included
+                                    </p>
+                                    <p><strong>Accommodation:</strong> Tea House in Tirkhedhunga</p>
+                                    <p><strong>Trek Duration:</strong> 5 hours</p>
+                                </div>
+                            </div>
+
+                            <!-- Day 2 -->
+                            <div class="itinerary-day">
+                                <div class="day-header" onclick="toggleDay(this)">
+                                    <div class="day-header-content">
+                                        <span class="day-number">DAY 2</span>
+                                        <span class="day-title">TREK TO GHOREPANI</span>
+                                        <span class="day-altitude"><i class="fas fa-mountain"></i> 2,880m</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </div>
+                                <div class="day-details">
+                                    <p style="margin-bottom: 1rem">
+                                        <strong>Stone Steps to Ghorepani:</strong> Morning starts with a steep long
+                                        climb on stone steps to reach large Ulleri village, and then on a nice gradual
+                                        winding path with dense rhododendron and pine forest to reach Ghorepani. A
+                                        lovely village amid coniferous forest located on the base of Poon Hill. Enjoy
+                                        the evening in this picturesque village preparing for tomorrow's sunrise hike.
+                                    </p>
+                                    <p>
+                                        <strong>Meals:</strong> Breakfast, Lunch, and Dinner Included
+                                    </p>
+                                    <p><strong>Accommodation:</strong> Tea House in Ghorepani</p>
+                                    <p><strong>Trek Duration:</strong> 6 hours</p>
+                                </div>
+                            </div>
+
+                            <!-- Day 3 -->
+                            <div class="itinerary-day">
+                                <div class="day-header" onclick="toggleDay(this)">
+                                    <div class="day-header-content">
+                                        <span class="day-number">DAY 3</span>
+                                        <span class="day-title">POON HILL SUNRISE & TREK TO TADAPANI</span>
+                                        <span class="day-altitude"><i class="fas fa-mountain"></i> 3,210m (Poon Hill) →
+                                            2,630m</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </div>
+                                <div class="day-details">
+                                    <p style="margin-bottom: 1rem">
+                                        <strong>Spectacular Sunrise:</strong> Early morning before dawn hike for an hour
+                                        to Poon Hill (3,210m) to catch stunning sunrise views over the Himalayan range
+                                        of peaks from Dhaulagiri, Annapurna as far towards Manaslu with majestic
+                                        Machhapuchare (Fish-Tail peak). Enjoying a glorious morning with fantastic
+                                        views, the trek continues from Ghorepani with ups and downhill within dense
+                                        rhododendron forest to reach Tadapani for overnight halt.
+                                    </p>
+                                    <p>
+                                        <strong>Meals:</strong> Breakfast, Lunch, and Dinner Included
+                                    </p>
+                                    <p><strong>Accommodation:</strong> Tea House in Tadapani</p>
+                                    <p><strong>Trek Duration:</strong> 5 hours</p>
+                                </div>
+                            </div>
+
+                            <!-- Day 4 -->
+                            <div class="itinerary-day">
+                                <div class="day-header" onclick="toggleDay(this)">
+                                    <div class="day-header-content">
+                                        <span class="day-number">DAY 4</span>
+                                        <span class="day-title">TREK TO CHHORNONG VILLAGE</span>
+                                        <span class="day-altitude"><i class="fas fa-mountain"></i> 2,170m</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </div>
+                                <div class="day-details">
+                                    <p style="margin-bottom: 1rem">
+                                        <strong>Gateway to Annapurna Sanctuary:</strong> Morning easy downhill walk
+                                        through forest of rhododendron, pines, and oak tree lines to reach by the river
+                                        flowing from Annapurna South glacier. Cross a bridge with an hour climb above
+                                        Kimrong River valley, then on gradual trail to reach Chhornong, a large Gurung
+                                        village festooned with Buddhist prayer flags. Chhornong is the gateway to
+                                        Annapurna Sanctuary and base camp, as well as the last permanent village on the
+                                        route.
+                                    </p>
+                                    <p>
+                                        <strong>Meals:</strong> Breakfast, Lunch, and Dinner Included
+                                    </p>
+                                    <p><strong>Accommodation:</strong> Tea House in Chhornong</p>
+                                    <p><strong>Trek Duration:</strong> 6 hours</p>
+                                </div>
+                            </div>
+
+                            <!-- Day 5 -->
+                            <div class="itinerary-day">
+                                <div class="day-header" onclick="toggleDay(this)">
+                                    <div class="day-header-content">
+                                        <span class="day-number">DAY 5</span>
+                                        <span class="day-title">TREK TO DOVAN VIA BAMBOO</span>
+                                        <span class="day-altitude"><i class="fas fa-mountain"></i> 2,630m</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </div>
+                                <div class="day-details">
+                                    <p style="margin-bottom: 1rem">
+                                        <strong>Entering the Sanctuary:</strong> Continue deeper into the Annapurna
+                                        region, passing through bamboo forests and following the Modi River upstream.
+                                        The trail becomes more rugged and remote as you approach the heart of the
+                                        sanctuary. Reach Dovan for overnight stay, enjoying the increasingly dramatic
+                                        mountain scenery.
+                                    </p>
+                                    <p>
+                                        <strong>Meals:</strong> Breakfast, Lunch, and Dinner Included
+                                    </p>
+                                    <p><strong>Accommodation:</strong> Tea House in Dovan</p>
+                                    <p><strong>Trek Duration:</strong> 6 hours</p>
+                                </div>
+                            </div>
+
+                            <!-- Day 6 -->
+                            <div class="itinerary-day">
+                                <div class="day-header" onclick="toggleDay(this)">
+                                    <div class="day-header-content">
+                                        <span class="day-number">DAY 6</span>
+                                        <span class="day-title">TREK TO MACHHAPUCHHRE BASE CAMP</span>
+                                        <span class="day-altitude"><i class="fas fa-mountain"></i> 3,800m</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </div>
+                                <div class="day-details">
+                                    <p style="margin-bottom: 1rem">
+                                        <strong>Approaching the Fish-Tail:</strong> From Dovan, walk with short down and
+                                        ups into thick tree lines to Himalaya Hotel, near Hinko Cave, then to Deurali
+                                        where tree lines drop for smaller bush and shrubs. After lunch, continue with
+                                        steep up to Machhapuchhre Base Camp (MBC), located beneath the towering North
+                                        West Face of Machhapuchhre Himal (Fish-Tail). This lovely spot marks the start
+                                        of scenic Annapurna Sanctuary with 4-5 simple lodges for overnight.
+                                    </p>
+                                    <p>
+                                        <strong>Meals:</strong> Breakfast, Lunch, and Dinner Included
+                                    </p>
+                                    <p><strong>Accommodation:</strong> Tea House at MBC</p>
+                                    <p><strong>Trek Duration:</strong> 6 hours</p>
+                                </div>
+                            </div>
+
+                            <!-- Day 7 -->
+                            <div class="itinerary-day">
+                                <div class="day-header" onclick="toggleDay(this)">
+                                    <div class="day-header-content">
+                                        <span class="day-number">DAY 7</span>
+                                        <span class="day-title">TREK TO ANNAPURNA BASE CAMP</span>
+                                        <span class="day-altitude"><i class="fas fa-mountain"></i> 4,130m</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </div>
+                                <div class="day-details">
+                                    <p style="margin-bottom: 1rem">
+                                        <strong>Reaching the Sanctuary Heart:</strong> Morning short walk of few hours
+                                        to reach Annapurna Base Camp, the final goal and highlight. Climb less than an
+                                        hour to enter Annapurna Sanctuary proper. Located on a plateau surrounded by
+                                        snow peaks on both sides. The highest point of the trek and a picturesque place
+                                        within remorseless fields of ice and glaciers enclosed within towering mountains
+                                        with Annapurna-I rising above. Afternoon at leisure for short hike or relaxing
+                                        with breathtaking panorama.
+                                    </p>
+                                    <p>
+                                        <strong>Meals:</strong> Breakfast, Lunch, and Dinner Included
+                                    </p>
+                                    <p><strong>Accommodation:</strong> Tea House at ABC</p>
+                                    <p><strong>Trek Duration:</strong> 3 hours</p>
+                                </div>
+                            </div>
+
+                            <!-- Day 8 -->
+                            <div class="itinerary-day">
+                                <div class="day-header" onclick="toggleDay(this)">
+                                    <div class="day-header-content">
+                                        <span class="day-number">DAY 8</span>
+                                        <span class="day-title">TREK TO BAMBOO</span>
+                                        <span class="day-altitude"><i class="fas fa-mountain"></i> 2,345m</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </div>
+                                <div class="day-details">
+                                    <p style="margin-bottom: 1rem">
+                                        <strong>Return Journey Begins:</strong> Enjoy breakfast with backdrop of massive
+                                        Annapurna peaks, then begin return journey on same interesting route to Deurali.
+                                        Leaving the sanctuary, the walk enters back into dense green vegetation and tall
+                                        tree lines, following Modi River downstream to Bamboo for overnight stop.
+                                    </p>
+                                    <p>
+                                        <strong>Meals:</strong> Breakfast, Lunch, and Dinner Included
+                                    </p>
+                                    <p><strong>Accommodation:</strong> Tea House in Bamboo</p>
+                                    <p><strong>Trek Duration:</strong> 6 hours</p>
+                                </div>
+                            </div>
+
+                            <!-- Day 9 -->
+                            <div class="itinerary-day">
+                                <div class="day-header" onclick="toggleDay(this)">
+                                    <div class="day-header-content">
+                                        <span class="day-number">DAY 9</span>
+                                        <span class="day-title">TREK TO JIHNU VILLAGE</span>
+                                        <span class="day-altitude"><i class="fas fa-mountain"></i> 1,780m</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </div>
+                                <div class="day-details">
+                                    <p style="margin-bottom: 1rem">
+                                        <strong>Hot Springs Relaxation:</strong> From Bamboo with short climb to Sinuwa
+                                        Danda, then down to Chomrong river and up stone steps to Chomrong for lunch.
+                                        Continue walking down to Jihnu village for overnight stop. Jihnu features
+                                        natural hot spring pools by Modi River where you can refresh yourself after days
+                                        of trekking. Perfect way to soothe tired muscles!
+                                    </p>
+                                    <p>
+                                        <strong>Meals:</strong> Breakfast, Lunch, and Dinner Included
+                                    </p>
+                                    <p><strong>Accommodation:</strong> Tea House in Jihnu</p>
+                                    <p><strong>Trek Duration:</strong> 6 hours</p>
+                                </div>
+                            </div>
+
+                            <!-- Day 10 -->
+                            <div class="itinerary-day">
+                                <div class="day-header" onclick="toggleDay(this)">
+                                    <div class="day-header-content">
+                                        <span class="day-number">DAY 10</span>
+                                        <span class="day-title">TREK TO ROAD HEAD & DRIVE TO POKHARA</span>
+                                        <span class="day-altitude"><i class="fas fa-mountain"></i> 860m</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </div>
+                                <div class="day-details">
+                                    <p style="margin-bottom: 1rem">
+                                        <strong>Return to Pokhara:</strong> Last day of adventure with short walk down
+                                        to road head at Samrung Khola for exciting drive back to scenic Pokhara by Phewa
+                                        Lakeside. On reaching Pokhara, check into hotel facing grand views of Annapurna
+                                        and Manaslu Himalaya range with majestic Machhapuchhre. Enjoy afternoon in
+                                        Pokhara after completing this incredible trekking journey.
+                                    </p>
+                                    <p><strong>Meals:</strong> Breakfast and Lunch Included</p>
+                                    <p><strong>Accommodation:</strong> Not Included (Tour Ends in Pokhara)</p>
+                                    <p><strong>Travel Duration:</strong> 3 hours trek + drive</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COST & DATES - WITH GROUP PRICING AND CURRENCY CONVERTER -->
+                    <div id="costdates" class="tab-content">
+                        <div class="info-section">
+                            <h3>Annapurna Base Camp with Poon Hill 10-Day Trek Package Price</h3>
+                            <div class="highlight-box" style="
+                    background: linear-gradient(
+                    135deg,
+                    #667eea15 0%,
+                    #764ba215 100%
+                    );
+                ">
+                                <div style="text-align: center; padding: 1.5rem;">
+                                    <h4 style="color: #5865f2; margin-bottom: 1.5rem;">
+                                        Group Pricing with Discounts
+                                    </h4>
+
+                                    <div class="price-grid">
+                                        <div class="price-card">
+                                            <div class="group-size">1-3 People</div>
+                                            <div class="price-main" id="price13main">₹86,200</div>
+                                        </div>
+
+                                        <div class="price-card">
+                                            <div class="group-size">4-6 People</div>
+                                            <div class="price-main" id="price46main">₹83,075</div>
+                                        </div>
+
+                                        <div class="price-card">
+                                            <div class="group-size">7+ People</div>
+                                            <div class="price-main" id="price7plusmain">₹79,950</div>
+                                        </div>
+                                    </div>
+
+                                    <div style="
+                        margin: 1.5rem 0;
+                        padding: 1rem;
+                        background: white;
+                        border-radius: 8px;
+                        display: inline-block;
+                    ">
+                                        <div style="
+                          font-size: 1.2rem;
+                          color: #5865f2;
+                          font-weight: 600;
+                        " id="priceRange">
+                                            USD 756 - 816 (Approx)
+                                        </div>
+                                        <div style="font-size: 0.9rem; color: #666;">
+                                            For International Travelers
+                                        </div>
+                                    </div>
+
+                                    <div style="font-size: 0.9rem; color: #28a745; margin-top: 0.5rem;">
+                                        <i class="fas fa-tag"></i> Discount applied: ₹3,125 off for 4-6 people, ₹6,250 off for 7+ people
+                                    </div>
+
+                                    
+                                </div>
+                            </div>
+
+                            <h3 style="margin-top: 2rem">What Makes Our Package Special</h3>
+                            <ul class="info-list">
+                                <li>Experienced, expert, helpful and friendly Guide from Pokhara (salary, meal,
+                                    accommodation and insurance included)</li>
+                                <li>All meals during trek (breakfast, lunch, dinner)</li>
+                                <li>Three cups of hot tea daily throughout the trip</li>
+                                <li>All necessary trekking permits (TIMS & ACAP)</li>
+                                <li>Transport: Pokhara to Nayapul and Samrung Khola to Pokhara by sharing jeep</li>
+                                <li>9 nights good accommodation during trek</li>
+                                <li>Fresh fruit during the trek</li>
+                                <li>Medical kit bag included</li>
+                                <li>Emergency helicopter service arrangement (to be paid by your insurance)</li>
+                            </ul>
+
+                            <div class="highlight-box" style="background: #f0fff0; border-left: 4px solid #4caf50">
+                                <h4 style="color: #4caf50; margin-bottom: 0.5rem">
+                                    <i class="fas fa-users"></i> Group Discounts
+                                </h4>
+                                <p style="margin-bottom: 0">
+                                    Special rates for groups of 4+ people. Private group
+                                    departures available year-round. Contact us for customized
+                                    group pricing and dates.
+                                </p>
+                            </div>
+
+                            <h3 style="margin-top: 2rem">2024/2025 Departure Dates</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 1rem">
+                                <div style="
+                    flex: 1;
+                    min-width: 200px;
+                    background: #f8f9fa;
+                    padding: 1rem;
+                    border-radius: 8px;
+                    ">
+                                    <h4 style="color: #5865f2; margin-bottom: 0.5rem">
+                                        Spring Season
+                                    </h4>
+                                    <p>March: 5, 12, 19, 26</p>
+                                    <p>April: 2, 9, 16, 23, 30</p>
+                                    <p>May: 7, 14, 21</p>
+                                </div>
+                                <div style="
+                    flex: 1;
+                    min-width: 200px;
+                    background: #f8f9fa;
+                    padding: 1rem;
+                    border-radius: 8px;
+                    ">
+                                    <h4 style="color: #5865f2; margin-bottom: 0.5rem">
+                                        Autumn Season
+                                    </h4>
+                                    <p>September: 4, 11, 18, 25</p>
+                                    <p>October: 2, 9, 16, 23, 30</p>
+                                    <p>November: 6, 13, 20</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- INCLUDED -->
+                    <div id="included" class="tab-content">
+                        <div class="info-section">
+                            <h3>What's Included</h3>
+                            <ul class="info-list">
+                                <li>Meals During Trek: (Breakfast, Lunch, and Dinner)</li>
+                                <li>Three cups of hot tea daily throughout the trip</li>
+                                <li>Trekking permit: TIMS and ACAP Permit</li>
+                                <li>Pokhara to Nayapul and Samrung Khola to Pokhara by sharing jeep</li>
+                                <li>9 nights good accommodation during the trek</li>
+                                <li>Fresh fruit during the trek</li>
+                                <li>An experienced, expert, helpful and friendly Guide from Pokhara (Included salary,
+                                    meal, accommodation and insurance)</li>
+                                <li>The arrangement of Emergency Helicopter service (to be paid by your Travel insurance
+                                    company)</li>
+                                <li>Medical kit bag</li>
+                            </ul>
+
+                            <h3 style="margin-top: 2rem">What's Not Included</h3>
+                            <ul class="info-list" style="color: #999">
+                                <li>Your Travel and rescue insurance</li>
+                                <li>Porter fees</li>
+                                <li>All expenses in the mountain beyond scheduled itinerary (due to strike, delay or
+                                    canceled flight)</li>
+                                <li>All Bar bills and personal expenses (phone call, laundry service, battery recharge,
+                                    bottled water, hot water, shower)</li>
+                                <li>Tips for the guide and porter</li>
+                                <li>Accommodation in Pokhara (before/after trek)</li>
+                                <li>Meals in Pokhara</li>
+                                <li>International flights and airport taxes</li>
+                                <li>Nepal entry visa fee</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- TERMS -->
+                    <div id="terms" class="tab-content">
+                        <div class="info-section">
+                            <h3>Terms & Conditions</h3>
+                            <div style="
+                    background: #f8f9fa;
+                    padding: 1.5rem;
+                    border-radius: 8px;
+                    border-left: 4px solid #5865f2;
+                ">
+                                <ul class="info-list" style="list-style-type: none; padding-left: 0">
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Booking:</strong> 25% deposit required to confirm
+                                        booking
+                                    </li>
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Balance Payment:</strong> Full payment 30 days
+                                        before departure
+                                    </li>
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Health Requirements:</strong> Medical declaration
+                                        form required. Participants must be in good physical
+                                        condition
+                                    </li>
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Insurance:</strong> Comprehensive travel insurance
+                                        with emergency evacuation coverage is mandatory (helicopter rescue arranged but
+                                        paid by insurance)
+                                    </li>
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Passport & Visa:</strong> Valid passport with 6
+                                        months validity required. Nepali visa available on arrival
+                                    </li>
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Cancellation Policy:</strong>
+                                        <ul style="margin-top: 0.5rem; padding-left: 1.5rem">
+                                            <li>
+                                                45+ days before: Full refund minus $75 administration
+                                                fee
+                                            </li>
+                                            <li>30-44 days: 70% refund</li>
+                                            <li>15-29 days: 40% refund</li>
+                                            <li>0-14 days: No refund</li>
+                                        </ul>
+                                    </li>
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Itinerary Changes:</strong> Itinerary subject to
+                                        change due to weather, trail conditions, or other factors
+                                        beyond our control
+                                    </li>
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Altitude Sickness:</strong> Guide's decision
+                                        regarding participant's fitness to continue is final
+                                    </li>
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Responsibility:</strong> Honest Travel Tours acts
+                                        only as agent for transportation and accommodation
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- VIDEOS & MAP SECTION -->
+                    <div id="videosmap" class="tab-content">
+                        <div class="info-section">
+                            <h3>Experience the Annapurna Base Camp with Poon Hill Trek</h3>
+                            <p>
+                                Watch our comprehensive video guide and explore the detailed
+                                route map of this classic 10-day Himalayan trekking adventure
+                                combining Poon Hill sunrise with Annapurna Base Camp.
+                            </p>
+
+                            <!-- Video Section -->
+                            <div class="video-section" style="margin-bottom: 2rem">
+                                <h4 style="color: #5865f2; margin-bottom: 1rem">
+                                    <i class="fas fa-video"></i> Annapurna Base Camp Trek Experience
+                                </h4>
+                                <div class="video-container">
+                                    <iframe width="560" height="315"
+                                        src="https://www.youtube.com/embed/vG_Ck5bTOnY?si=zJ2l4z2JQPItICXH"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                </div>
+                                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666">
+                                    <i class="fas fa-info-circle"></i> Watch our journey through
+                                    the Annapurna region, showcasing Poon Hill sunrise and the
+                                    spectacular Annapurna Sanctuary.
+                                </p>
+                            </div>
+
+                            <!-- Map Section -->
+                            <div class="map-section">
+                                <h4 style="color: #5865f2; margin-bottom: 1rem">
+                                    <i class="fas fa-map-marked-alt"></i> Annapurna Base Camp Route Map
+                                </h4>
+                                <div class="map-container">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112345.6789!2d83.95!3d28.65!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39be244199999999%3A0x123456789!2sAnnapurna%20Base%20Camp!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp"
+                                        width="100%" height="400" style="
+                        border: 0;
+                        border-radius: 12px;
+                        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                    " allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                                        title="Annapurna Base Camp Trek Route Map"></iframe>
+                                </div>
+                                <div style="
+                    margin-top: 1rem;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 1rem;
+                    ">
+                                    <div style="flex: 1; min-width: 200px">
+                                        <h5 style="color: #333; margin-bottom: 0.5rem">
+                                            <i class="fas fa-route" style="color: #28a745"></i> Key
+                                            Route Points
+                                        </h5>
+                                        <ul style="
+                        list-style-type: none;
+                        padding-left: 0;
+                        font-size: 0.9rem;
+                        ">
+                                            <li style="margin-bottom: 0.3rem">
+                                                <strong>Pokhara:</strong> Starting Point (860m)
+                                            </li>
+                                            <li style="margin-bottom: 0.3rem">
+                                                <strong>Poon Hill:</strong> Sunrise View (3,210m)
+                                            </li>
+                                            <li style="margin-bottom: 0.3rem">
+                                                <strong>Chhornong:</strong> Gateway Village (2,170m)
+                                            </li>
+                                            <li style="margin-bottom: 0.3rem">
+                                                <strong>MBC:</strong> Fish-Tail Base (3,800m)
+                                            </li>
+                                            <li style="margin-bottom: 0.3rem">
+                                                <strong>ABC:</strong> Highest Point (4,130m)
+                                            </li>
+                                            <li style="margin-bottom: 0.3rem">
+                                                <strong>Jihnu:</strong> Hot Springs (1,780m)
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div style="flex: 1; min-width: 200px">
+                                        <h5 style="color: #333; margin-bottom: 0.5rem">
+                                            <i class="fas fa-mountain" style="color: #dc3545"></i>
+                                            Altitude Profile
+                                        </h5>
+                                        <ul style="
+                        list-style-type: none;
+                        padding-left: 0;
+                        font-size: 0.9rem;
+                        ">
+                                            <li style="margin-bottom: 0.3rem">
+                                                Start: 860m (Pokhara)
+                                            </li>
+                                            <li style="margin-bottom: 0.3rem">
+                                                Poon Hill: 3,210m
+                                            </li>
+                                            <li style="margin-bottom: 0.3rem">ABC: 4,130m</li>
+                                            <li style="margin-bottom: 0.3rem">
+                                                Hot Springs: 1,780m
+                                            </li>
+                                            <li style="margin-bottom: 0.3rem">
+                                                Finish: 860m (Pokhara)
+                                            </li>
+                                            <li style="margin-bottom: 0.3rem">
+                                                Total Trek Days: 10
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Trek Information -->
+                            <div style="
+                    background: linear-gradient(
+                    135deg,
+                    #f8f9ff 0%,
+                    #f0f2ff 100%
+                    );
+                    padding: 1.5rem;
+                    border-radius: 12px;
+                    margin-top: 2rem;
+                    border: 1px solid rgba(88, 101, 242, 0.1);
+                ">
+                                <h4 style="color: #5865f2; margin-bottom: 1rem">
+                                    <i class="fas fa-hiking"></i> Trekking Essentials
+                                </h4>
+                                <div style="display: flex; flex-wrap: wrap; gap: 1.5rem">
+                                    <div style="flex: 1; min-width: 200px">
+                                        <h5 style="
+                        color: #333;
+                        margin-bottom: 0.5rem;
+                        font-size: 0.95rem;
+                        ">
+                                            <i class="fas fa-shoe-prints" style="color: #5865f2"></i>
+                                            Physical Preparation
+                                        </h5>
+                                        <p style="
+                        font-size: 0.9rem;
+                        color: #555;
+                        margin-bottom: 0.5rem;
+                        ">
+                                            <strong>Fitness Level:</strong> Good physical condition
+                                            required
+                                        </p>
+                                        <p style="
+                        font-size: 0.9rem;
+                        color: #555;
+                        margin-bottom: 0.5rem;
+                        ">
+                                            <strong>Training:</strong> Regular hiking with backpack
+                                            recommended
+                                        </p>
+                                        <p style="font-size: 0.9rem; color: #555">
+                                            <strong>Altitude:</strong> Moderate altitude, good for
+                                            most fit trekkers
+                                        </p>
+                                    </div>
+                                    <div style="flex: 1; min-width: 200px">
+                                        <h5 style="
+                        color: #333;
+                        margin-bottom: 0.5rem;
+                        font-size: 0.95rem;
+                        ">
+                                            <i class="fas fa-tshirt" style="color: #28a745"></i>
+                                            Equipment Checklist
+                                        </h5>
+                                        <p style="
+                        font-size: 0.9rem;
+                        color: #555;
+                        margin-bottom: 0.5rem;
+                        ">
+                                            <strong>Footwear:</strong> Well-broken-in hiking boots
+                                        </p>
+                                        <p style="
+                        font-size: 0.9rem;
+                        color: #555;
+                        margin-bottom: 0.5rem;
+                        ">
+                                            <strong>Clothing:</strong> Layering system for varying
+                                            temperatures
+                                        </p>
+                                        <p style="font-size: 0.9rem; color: #555">
+                                            <strong>Hot Springs:</strong> Swimsuit for natural hot
+                                            springs
+                                        </p>
+                                    </div>
+                                    <div style="flex: 1; min-width: 200px">
+                                        <h5 style="
+                        color: #333;
+                        margin-bottom: 0.5rem;
+                        font-size: 0.95rem;
+                        ">
+                                            <i class="fas fa-utensils" style="color: #dc3545"></i>
+                                            On the Trail
+                                        </h5>
+                                        <p style="
+                        font-size: 0.9rem;
+                        color: #555;
+                        margin-bottom: 0.5rem;
+                        ">
+                                            <strong>Meals:</strong> 3 nutritious meals daily included
+                                        </p>
+                                        <p style="
+                        font-size: 0.9rem;
+                        color: #555;
+                        margin-bottom: 0.5rem;
+                        ">
+                                            <strong>Tea:</strong> Three cups of hot tea daily
+                                        </p>
+                                        <p style="font-size: 0.9rem; color: #555">
+                                            <strong>Fruit:</strong> Fresh fruit provided during trek
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Safety Information -->
+                            <div style="
+                    background: linear-gradient(
+                    135deg,
+                    #fff3e0 0%,
+                    #ffccbc 100%
+                    );
+                    padding: 1.5rem;
+                    border-radius: 12px;
+                    margin-top: 2rem;
+                    border: 1px solid rgba(255, 152, 0, 0.2);
+                ">
+                                <h4 style="color: #e65100; margin-bottom: 1rem">
+                                    <i class="fas fa-shield-alt" style="color: #e65100"></i>
+                                    Safety & Health
+                                </h4>
+                                <div style="display: flex; flex-wrap: wrap; gap: 1.5rem">
+                                    <div style="flex: 1; min-width: 200px">
+                                        <h5 style="
+                        color: #e65100;
+                        margin-bottom: 0.5rem;
+                        font-size: 0.95rem;
+                        ">
+                                            <i class="fas fa-user-md" style="color: #e65100"></i>
+                                            Health Measures
+                                        </h5>
+                                        <p style="font-size: 0.9rem; color: #555">
+                                            Medical kit bag included. Guide trained in first aid and
+                                            altitude sickness recognition. Gradual ascent for
+                                            acclimatization. Emergency procedures established.
+                                        </p>
+                                    </div>
+                                    <div style="flex: 1; min-width: 200px">
+                                        <h5 style="
+                        color: #e65100;
+                        margin-bottom: 0.5rem;
+                        font-size: 0.95rem;
+                        ">
+                                            <i class="fas fa-helicopter" style="color: #e65100"></i>
+                                            Emergency Services
+                                        </h5>
+                                        <p style="font-size: 0.9rem; color: #555">
+                                            Emergency helicopter service arrangement in place (cost
+                                            covered by your travel insurance). 24/7 communication
+                                            support. Partnership with medical facilities in Pokhara
+                                            and Kathmandu.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Booking Card with Dynamic Pricing -->
+            <div>
+                <div class="booking-card">
+                    <div class="price-section">
+                        <div class="price-icon"><i class="fas fa-mountain"></i></div>
+                        <div class="price-info">
+                            <div class="price-label">Starting from</div>
+                            <div><span class="price" id="mainPriceDisplay">₹79,950</span></div>
+                            
+                        </div>
+                        <!-- Currency Selector -->
+                        <div class="currency-selector-container">
+                            <div class="currency-selector">
+                                <div id="selectedCurrency">
+                                    <span>INR</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="currency-dropdown">
+                                    <div class="currency-option active" data-currency="INR"> INR (₹)</div>
+                                    <div class="currency-option" data-currency="USD"> USD ($)</div>
+                                    <div class="currency-option" data-currency="NPR"> NPR (रु)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quantity-section">
+                        <div class="quantity-controls">
+                            <button class="qty-btn" onclick="updatePrice(-1)">-</button>
+                            <div class="qty-display" id="qtyDisplay">1</div>
+                            <button class="qty-btn" onclick="updatePrice(1)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="price-breakdown">
+                        <div class="price-row">
+                            <span>Base Price (Per Person)</span>
+                            <span><span id="baseCurrency">INR</span> <span id="basePrice">79,950</span></span>
+                        </div>
+                        
+                        <div class="price-row total">
+                            <span>Total</span>
+                            <span><span id="totalCurrency">INR</span> <span id="totalPrice">79,950</span></span>
+                        </div>
+                    </div>
+
+                    <button class="booking-btn btn-instant" onclick="showBookingForm()">Instant Booking</button>
+                    <button class="booking-btn btn-customize" onclick="showEnquiryModal()">Enquiry</button>
+
+                    <div class="contact-section">
+                        <div style="font-size: 3rem; margin-bottom: 0.5rem">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Book By Phone</h3>
+                        <div class="phone-numbers">
+                            <a href="https://wa.me/9779851140110" target="_blank" rel="noopener noreferrer" style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    font-size: 1.2rem;
+                ">
+                                +977-9851140110
+                            </a>
+                            <a href="https://wa.me/9779856017867" target="_blank" rel="noopener noreferrer" style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    font-size: 1.2rem;
+                ">
+                                +977-9856017867
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Honest Travel</h3>
+                <p>
+                    Your trusted partner for authentic Himalayan experiences and
+                    adventure journeys since 2005.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Thamel, Kathmandu, Nepal</p>
+                <p> infohonesttoursntravels@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Certifications</h3>
+                <p>TAAN Registered</p>
+                <p>NTB Licensed</p>
+                <p>Sustainable Tourism Certified</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>
+                &copy; 2024 HONEST TRAVEL Tours and Expedition. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        /* ========== CONSTANTS AND CONFIGURATION ========== */
+
+        // Base price for 1-3 people in INR (converted from USD 816 ≈ ₹86,200)
+        const price13inr = 86200;
+
+        // Pricing tables by group size (INR) - with exact discounts
+        // Group sizes: 1-3 People, 4-6 People, 7+ People
+        const pricingTables = {
+            "1-3": 86200,
+            "4-6": 83075,
+            "7+": 79950,
+        };
+
+        const marketUsdToInr = 92;
+        const markupPercent = 15;
+
+        // Exchange rates based on market rate with markup
+        const exchangeRates = {
+            INR: { rate: 1, symbol: "₹", name: "INR" },
+            USD: { rate: (1 / marketUsdToInr) * (1 + markupPercent / 100), symbol: "$", name: "USD" },
+            NPR: { rate: 1.6, symbol: "रु", name: "NPR" },
+        };
+
+        // Single supplement in USD (will be converted dynamically)
+        const singleSupplementUSD = 120;
+
+        let qty = 1; // Minimum 1 person for trek
+        let currentCurrency = "INR";
+
+        /* ========== HELPER FUNCTIONS ========== */
+
+        function getGroupSize(persons) {
+            if (persons >= 7) return "7+";
+            if (persons >= 4) return "4-6";
+            return "1-3";
+        }
+
+        function getUnitINRPrice(persons) {
+            const groupSize = getGroupSize(persons);
+            return pricingTables[groupSize];
+        }
+
+        function getConvertedPrice(persons, targetCurrency) {
+            const inrPrice = getUnitINRPrice(persons);
+            
+            if (targetCurrency === 'INR') {
+                return inrPrice;
+            }
+            
+            const rate = exchangeRates[targetCurrency]?.rate;
+            if (!rate) return inrPrice;
+            
+            // Convert and round appropriately
+            let converted = inrPrice * rate;
+            
+            // Round based on currency
+            if (targetCurrency === 'USD') {
+                return Math.round(converted); // Round to nearest dollar
+            } else if (targetCurrency === 'NPR') {
+                return Math.round(converted / 100) * 100; // Round to nearest 100 NPR
+            }
+            
+            return Math.round(converted);
+        }
+
+        function getConvertedPriceForGroup(groupSize, targetCurrency) {
+            const inrPrice = pricingTables[groupSize];
+            
+            if (targetCurrency === 'INR') {
+                return inrPrice;
+            }
+            
+            const rate = exchangeRates[targetCurrency]?.rate;
+            if (!rate) return inrPrice;
+            
+            let converted = inrPrice * rate;
+            
+            // Round based on currency
+            if (targetCurrency === 'USD') {
+                return Math.round(converted);
+            } else if (targetCurrency === 'NPR') {
+                return Math.round(converted / 100) * 100;
+            }
+            
+            return Math.round(converted);
+        }
+
+        function getCurrencySymbol() {
+            return exchangeRates[currentCurrency]?.symbol || "₹";
+        }
+
+        function formatNumber(num) {
+            if (num >= 1000) {
+                return Math.round(num).toLocaleString("en-IN");
+            } else {
+                return num.toString();
+            }
+        }
+
+        function formatNumberForCurrency(num, currency) {
+            if (currency === 'USD') {
+                return Math.round(num).toLocaleString('en-US');
+            } else if (currency === 'NPR') {
+                return Math.round(num).toLocaleString('en-IN');
+            } else {
+                return Math.round(num).toLocaleString('en-IN');
+            }
+        }
+
+        function getGroupSizeText(persons) {
+            const groupSize = getGroupSize(persons);
+            if (groupSize === "7+") return "7+ People";
+            if (groupSize === "4-6") return "4-6 People";
+            return "1-3 People";
+        }
+
+        function getGroupSizeLabel(persons) {
+            const groupSize = getGroupSize(persons);
+            if (groupSize === "7+") return "(7+ people)";
+            if (groupSize === "4-6") return "(4-6 people)";
+            return "(1-3 people)";
+        }
+
+        function getDisplayUnitPrice(persons) {
+            return getConvertedPrice(persons, currentCurrency);
+        }
+
+        function calculateSingleSupplement() {
+            // Single supplement is $120 USD
+            if (currentCurrency === "USD") return 120;
+            if (currentCurrency === "NPR") return Math.round(120 * exchangeRates.NPR.rate / 100) * 100; // Convert to NPR and round to nearest 100
+            return Math.round(120 * exchangeRates.USD.rate * 100) / 100; // Convert to INR
+        }
+
+        /* ========== PRICE UPDATE FUNCTIONS ========== */
+
+        function updatePrice(change) {
+            qty += change;
+            if (qty < 1) qty = 1;
+            document.getElementById("qtyDisplay").textContent = qty;
+
+            const displayUnitPrice = getConvertedPrice(qty, currentCurrency);
+            const unitUSDPrice = getConvertedPrice(qty, 'USD');
+            const symbol = getCurrencySymbol();
+            const groupSize = getGroupSize(qty);
+            const singleSupplement = calculateSingleSupplement();
+
+            // Get alternate price (USD for INR/NPR, INR for USD)
+            let alternatePrice, alternateLabel, alternateSymbol;
+            if (currentCurrency === "USD") {
+                alternatePrice = getConvertedPrice(qty, 'INR');
+                alternateLabel = "INR";
+                alternateSymbol = "₹";
+            } else if (currentCurrency === "NPR") {
+                alternatePrice = getConvertedPrice(qty, 'USD');
+                alternateLabel = "USD";
+                alternateSymbol = "$";
+            } else {
+                alternatePrice = getConvertedPrice(qty, 'USD');
+                alternateLabel = "USD";
+                alternateSymbol = "$";
+            }
+
+            // Format alternate price with symbol
+            let alternatePriceFormatted = alternateSymbol + ' ' + formatNumberForCurrency(alternatePrice, alternateLabel);
+
+            // Calculate total with single supplement if odd number of people
+            let total = qty * displayUnitPrice;
+            if (qty % 2 !== 0) {
+                total += singleSupplement;
+            }
+
+            // Update displays
+            document.getElementById("basePrice").textContent = formatNumberForCurrency(displayUnitPrice, currentCurrency);
+            document.getElementById("totalPrice").textContent = formatNumberForCurrency(total, currentCurrency);
+            document.getElementById("mainPriceDisplay").textContent = symbol + ' ' + formatNumberForCurrency(displayUnitPrice, currentCurrency);
+            document.getElementById("alternatePriceLabel").textContent = alternateLabel;
+            document.getElementById("alternatePrice").textContent = alternatePriceFormatted;
+            document.getElementById("singlePrice").textContent = formatNumberForCurrency(singleSupplement, currentCurrency);
+
+            // Update currency labels
+            document.getElementById("baseCurrency").textContent = currentCurrency;
+            document.getElementById("totalCurrency").textContent = currentCurrency;
+            document.getElementById("singleCurrency").textContent = currentCurrency;
+
+            // Update group size label
+            document.getElementById("groupSizeLabel").textContent = getGroupSizeLabel(qty);
+
+            // Update price cards in cost tab
+            updatePriceCards(currentCurrency);
+        }
+
+        function updatePriceCards(currency) {
+            const symbol = exchangeRates[currency]?.symbol || "₹";
+
+            // Get prices for each group size using conversion logic
+            const price13 = getConvertedPriceForGroup('1-3', currency);
+            const price46 = getConvertedPriceForGroup('4-6', currency);
+            const price7plus = getConvertedPriceForGroup('7+', currency);
+
+            // Get USD and NPR prices for reference
+            const usdPrice13 = getConvertedPriceForGroup('1-3', 'USD');
+            const usdPrice46 = getConvertedPriceForGroup('4-6', 'USD');
+            const usdPrice7plus = getConvertedPriceForGroup('7+', 'USD');
+            
+            const nprPrice13 = getConvertedPriceForGroup('1-3', 'NPR');
+            const nprPrice46 = getConvertedPriceForGroup('4-6', 'NPR');
+            const nprPrice7plus = getConvertedPriceForGroup('7+', 'NPR');
+
+            // Update price cards
+            if (document.getElementById('price13main')) {
+                document.getElementById('price13main').textContent = symbol + ' ' + formatNumberForCurrency(price13, currency);
+                document.getElementById('price46main').textContent = symbol + ' ' + formatNumberForCurrency(price46, currency);
+                document.getElementById('price7plusmain').textContent = symbol + ' ' + formatNumberForCurrency(price7plus, currency);
+            }
+
+            // Update USD references
+            if (document.getElementById('price13usd')) {
+                document.getElementById('price13usd').textContent = 'USD ' + usdPrice13;
+                document.getElementById('price46usd').textContent = 'USD ' + usdPrice46;
+                document.getElementById('price7plususd').textContent = 'USD ' + usdPrice7plus;
+            }
+
+            // Update NPR references
+            if (document.getElementById('price13npr')) {
+                document.getElementById('price13npr').textContent = 'NPR ' + nprPrice13.toLocaleString('en-IN');
+                document.getElementById('price46npr').textContent = 'NPR ' + nprPrice46.toLocaleString('en-IN');
+                document.getElementById('price7plusnpr').textContent = 'NPR ' + nprPrice7plus.toLocaleString('en-IN');
+            }
+
+            // Update price range display
+            if (document.getElementById('priceRange')) {
+                document.getElementById('priceRange').textContent = `USD ${usdPrice13} - ${usdPrice7plus} (Approx)`;
+            }
+        }
+
+        /* ========== CURRENCY CONVERTER ========== */
+
+        function initializeCurrencyConverter() {
+            const currencySelector = document.querySelector(".currency-selector");
+            const selectedCurrency = document.getElementById("selectedCurrency");
+            const currencyOptions = document.querySelectorAll(".currency-option");
+            const priceElements = document.querySelectorAll(".price-display");
+
+            // Toggle currency dropdown
+            if (selectedCurrency) {
+                selectedCurrency.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    currencySelector.classList.toggle("active");
+                });
+            }
+
+            // Select currency option
+            currencyOptions.forEach((option) => {
+                option.addEventListener("click", function () {
+                    const newCurrency = this.getAttribute("data-currency");
+
+                    // Update selected currency display
+                    selectedCurrency.querySelector("span").textContent = newCurrency;
+
+                    currentCurrency = newCurrency;
+
+                    // Update active state
+                    currencyOptions.forEach((opt) => opt.classList.remove("active"));
+                    this.classList.add("active");
+
+                    // Update price table header if exists
+                    const priceTableHeaders = document.querySelectorAll('[id^="priceTableHeader"]');
+                    priceTableHeaders.forEach(header => {
+                        if (header) header.textContent = `Cost Per Person`;
+                    });
+
+                    // Convert all prices
+                    convertPrices(newCurrency);
+
+                    // Update main price display
+                    updatePrice(0);
+
+                    // Update price cards
+                    updatePriceCards(newCurrency);
+
+                    // Close dropdown
+                    currencySelector.classList.remove("active");
+                });
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener("click", function (e) {
+                if (currencySelector && !currencySelector.contains(e.target)) {
+                    currencySelector.classList.remove("active");
+                }
+            });
+
+            // Function to convert prices
+            function convertPrices(targetCurrency) {
+                const targetSymbol = exchangeRates[targetCurrency]?.symbol || "₹";
+
+                priceElements.forEach(element => {
+                    let convertedValue;
+                    const inrValue = parseFloat(element.getAttribute("data-inr"));
+                    
+                    if (!isNaN(inrValue)) {
+                        if (targetCurrency === 'USD') {
+                            convertedValue = Math.round(inrValue * exchangeRates.USD.rate);
+                        } else if (targetCurrency === 'NPR') {
+                            convertedValue = Math.round(inrValue * exchangeRates.NPR.rate / 100) * 100;
+                        } else {
+                            convertedValue = inrValue;
+                        }
+                        
+                        element.textContent = targetSymbol + ' ' + formatNumberForCurrency(convertedValue, targetCurrency);
+                    }
+                });
+            }
+
+            // Initialize with INR
+            convertPrices('INR');
+        }
+
+        /* ========== NAVIGATION BURGER MENU ========== */
+
+        function initializeNavigation() {
+            const navBurger = document.getElementById("navBurger");
+            const mainNav = document.getElementById("mainNav");
+
+            if (navBurger) {
+                navBurger.addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    mainNav.classList.toggle("active");
+                    document.body.classList.toggle("nav-open");
+                });
+
+                const navLinks = mainNav.querySelectorAll("a");
+                navLinks.forEach((link) => {
+                    link.addEventListener("click", () => {
+                        navBurger.classList.remove("active");
+                        mainNav.classList.remove("active");
+                        document.body.classList.remove("nav-open");
+                    });
+                });
+            }
+        }
+
+        /* ========== TAB SYSTEM ========== */
+
+        function initializeTabs() {
+            const tabBurger = document.getElementById("tabBurger");
+            const tabsMenu = document.getElementById("tabsMenu");
+
+            if (tabBurger) {
+                tabBurger.addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    tabsMenu.classList.toggle("active");
+                });
+            }
+        }
+
+        function openTab(tabId) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll(".tab-content");
+            contents.forEach((content) => content.classList.remove("active"));
+
+            // Remove active class from all tab buttons
+            const tabs = document.querySelectorAll(".tab");
+            tabs.forEach((tab) => tab.classList.remove("active"));
+
+            // Show current tab and add active class to button
+            document.getElementById(tabId).classList.add("active");
+            event.currentTarget.classList.add("active");
+
+            // Update mobile tab name if available
+            const currentTabName = document.getElementById("currentTabName");
+            if (currentTabName) {
+                currentTabName.textContent = event.currentTarget.textContent.trim();
+            }
+
+            // Close tab menu on mobile
+            const tabBurger = document.getElementById("tabBurger");
+            const tabsMenu = document.getElementById("tabsMenu");
+            if (tabBurger) {
+                tabBurger.classList.remove("active");
+                tabsMenu.classList.remove("active");
+            }
+        }
+
+        /* ========== COLLAPSIBLE ITINERARY ========== */
+
+        function toggleDay(headerElement) {
+            const dayContainer = headerElement.closest(".itinerary-day");
+            dayContainer.classList.toggle("active");
+        }
+
+        function toggleAllDays(btn) {
+            const allDays = document.querySelectorAll(".itinerary-day");
+            const isExpanding = btn.innerText.trim() === "Expand All";
+
+            allDays.forEach((day) => {
+                if (isExpanding) {
+                    day.classList.add("active");
+                } else {
+                    day.classList.remove("active");
+                }
+            });
+
+            btn.innerText = isExpanding ? "Collapse All" : "Expand All";
+        }
+
+        /* ========== IMAGE GALLERY ========== */
+
+        let currentImageIndex = 0;
+        const images = document.querySelectorAll(".gallery-image");
+        const indicators = document.querySelectorAll(".indicator");
+
+        function showImage(index) {
+            if (index >= images.length) currentImageIndex = 0;
+            else if (index < 0) currentImageIndex = images.length - 1;
+            else currentImageIndex = index;
+
+            images.forEach((img) => img.classList.remove("active"));
+            indicators.forEach((ind) => ind.classList.remove("active"));
+
+            images[currentImageIndex].classList.add("active");
+            indicators[currentImageIndex].classList.add("active");
+        }
+
+        function changeImage(step) {
+            showImage(currentImageIndex + step);
+        }
+
+        function setImage(index) {
+            showImage(index);
+        }
+
+        setInterval(() => changeImage(1), 5000);
+
+        /* ========== CLOSE MENUS WHEN CLICKING OUTSIDE ========== */
+
+        function initializeClickOutside() {
+            const navBurger = document.getElementById("navBurger");
+            const mainNav = document.getElementById("mainNav");
+            const tabBurger = document.getElementById("tabBurger");
+            const tabsMenu = document.getElementById("tabsMenu");
+
+            document.addEventListener("click", function (event) {
+                // Close nav menu
+                if (
+                    navBurger &&
+                    !navBurger.contains(event.target) &&
+                    !mainNav.contains(event.target)
+                ) {
+                    navBurger.classList.remove("active");
+                    mainNav.classList.remove("active");
+                    document.body.classList.remove("nav-open");
+                }
+
+                // Close tab menu
+                if (
+                    tabBurger &&
+                    !tabBurger.contains(event.target) &&
+                    !tabsMenu.contains(event.target)
+                ) {
+                    tabBurger.classList.remove("active");
+                    tabsMenu.classList.remove("active");
+                }
+            });
+        }
+
+        /* ========== BOOKING MODAL FUNCTIONS ========== */
+
+        const currentPackage = {
+            name: 'Annapurna Base Camp with Poon Hill Trek - 10 Days',
+            price: 816,
+            duration: '10 Days / 9 Nights',
+            highestPoint: 'Annapurna Base Camp (4,130m)',
+            category: 'Trekking',
+            includes: 'Meals + Accommodation + Guide + Permits + Transport',
+            requirements: 'Good physical fitness, previous hiking experience beneficial',
+            currency: 'USD'
+        };
+
+        function generateBookingId() {
+            const prefix = 'HTT';
+            const timestamp = Date.now().toString().slice(-8);
+            const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+            const date = new Date();
+            const year = date.getFullYear().toString().slice(-2);
+            const month = (date.getMonth() + 1).toString().padStart(2, '2');
+
+            return `${prefix}-${year}${month}-${timestamp}-${random}`;
+        }
+
+        function showBookingForm() {
+            showConfirmationModal();
+        }
+
+        // Create confirmation modal
+        function showConfirmationModal() {
+            const displayUnitPrice = getConvertedPrice(qty, currentCurrency);
+            const symbol = getCurrencySymbol();
+            const groupSizeText = getGroupSizeText(qty);
+            const unitUSDPrice = getConvertedPrice(qty, 'USD');
+            const singleSupplement = calculateSingleSupplement();
+
+            let total = qty * displayUnitPrice;
+            if (qty % 2 !== 0) {
+                total += singleSupplement;
+            }
+
+            const modalOverlay = document.createElement('div');
+            modalOverlay.className = 'confirmation-modal';
+
+            modalOverlay.innerHTML = `
+                <div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; color: #2196f3; margin-bottom: 15px;">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        
+                        <h3 style="color: #2c3e50; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                            <i class="fas fa-calendar-check" style="color: #2196F3;"></i> Confirm Trek Booking
+                        </h3>
+                        
+                        <div class="package-info" style="font-size: 1.1rem; color: #2196F3; font-weight: 600; margin-bottom: 20px; background: rgba(33, 150, 243, 0.1); padding: 12px; border-radius: 8px; border-left: 4px solid #2196F3;">
+                            ${currentPackage.name}
+                        </div>
+                        
+                        <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 20px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                <span>Duration:</span>
+                                <span style="font-weight: 600;">${currentPackage.duration}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                <span>Highest Point:</span>
+                                <span style="font-weight: 600;">${currentPackage.highestPoint}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                <span>Group Size:</span>
+                                <span style="font-weight: 600;">${groupSizeText}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                <span>Participants:</span>
+                                <span style="font-weight: 600;">${qty} person(s)</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                <span>Price Per Person:</span>
+                                <span style="font-weight: 600;">${symbol} ${formatNumberForCurrency(displayUnitPrice, currentCurrency)} / USD $${formatNumberForCurrency(unitUSDPrice, 'USD')}</span>
+                            </div>
+                            ${qty % 2 !== 0 ? `
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px; color: #f57c00;">
+                                <span>Single Supplement:</span>
+                                <span style="font-weight: 600;">${symbol} ${formatNumberForCurrency(singleSupplement, currentCurrency)}</span>
+                            </div>
+                            ` : ''}
+                            <div style="display: flex; justify-content: space-between; font-size: 1.2rem; color: #28a745;">
+                                <span>Total Amount:</span>
+                                <span style="font-weight: 700;">${symbol} ${formatNumberForCurrency(total, currentCurrency)}</span>
+                            </div>
+                        </div>
+                        
+                        <div class="altitude-warning" style="margin: 20px 0; background: #fff3e0; border: 1px solid #ff9800; border-radius: 6px; padding: 1rem;">
+                            <h4 style="color: #ff9800; margin-bottom: 0.5rem; font-size: 0.9rem;">
+                                <i class="fas fa-exclamation-triangle"></i> Important Information
+                            </h4>
+                            <p style="margin: 0; color: #ff9800; font-size: 0.9rem;">
+                                This trek includes Poon Hill sunrise and natural hot springs. Good physical fitness required. Moderate difficulty level.
+                            </p>
+                        </div>
+                        
+                        <p style="color: #666; margin-bottom: 25px; font-size: 16px;">
+                            Are you ready to experience the spectacular combination of Poon Hill sunrise and Annapurna Base Camp?
+                        </p>
+                        
+                        <div class="confirmation-buttons">
+                            <button id="confirmCancel" class="cancel-choice">
+                                Cancel
+                            </button>
+                            
+                            <button id="confirmBook" class="confirm-book-btn">
+                                Yes, Book Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(modalOverlay);
+            document.body.classList.add('modal-open');
+
+            // Handle button clicks
+            modalOverlay.querySelector('#confirmCancel').addEventListener('click', () => {
+                closeModal(modalOverlay);
+            });
+
+            modalOverlay.querySelector('#confirmBook').addEventListener('click', () => {
+                closeModal(modalOverlay);
+                showBookingModal();
+            });
+
+            // Close on backdrop click
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) {
+                    closeModal(modalOverlay);
+                }
+            });
+        }
+
+        // Show booking modal
+        function showBookingModal() {
+            const displayUnitPrice = getConvertedPrice(qty, currentCurrency);
+            const unitUSDPrice = getConvertedPrice(qty, 'USD');
+            const unitNPRPrice = getConvertedPrice(qty, 'NPR');
+            const symbol = getCurrencySymbol();
+            const groupSizeText = getGroupSizeText(qty);
+            const singleSupplement = calculateSingleSupplement();
+
+            let total = qty * displayUnitPrice;
+            if (qty % 2 !== 0) {
+                total += singleSupplement;
+            }
+
+            const modalOverlay = document.createElement('div');
+            modalOverlay.className = 'booking-modal';
+
+            modalOverlay.innerHTML = `
+                <div>
+                    <button class="close-modal">×</button>
+                    
+                    <h2 style="color: #2c3e50; margin-bottom: 1.5rem; text-align: center; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                        <i class="fas fa-mountain" style="color: #2196F3;"></i>
+                        Book Annapurna Base Camp with Poon Hill Trek
+                    </h2>
+                    
+                    <form id="bookingForm">
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                                Full Name *
+                            </label>
+                            <input type="text" id="bookingName" required style="
+                                width: 100%;
+                                padding: 0.8rem;
+                                border: 1px solid #ddd;
+                                border-radius: 6px;
+                                font-size: 1rem;
+                                box-sizing: border-box;
+                            " placeholder="Enter your full name">
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                                Email Address *
+                            </label>
+                            <input type="email" id="bookingEmail" required style="
+                                width: 100%;
+                                padding: 0.8rem;
+                                border: 1px solid #ddd;
+                                border-radius: 6px;
+                                font-size: 1rem;
+                                box-sizing: border-box;
+                            " placeholder="your@email.com">
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                                Phone Number *
+                            </label>
+                            <input type="tel" id="bookingPhone" required style="
+                                width: 100%;
+                                padding: 0.8rem;
+                                border: 1px solid #ddd;
+                                border-radius: 6px;
+                                font-size: 1rem;
+                                box-sizing: border-box;
+                            " placeholder="+977 98xxxxxxxx">
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                                Country *
+                            </label>
+                            <input type="text" id="bookingCountry" required style="
+                                width: 100%;
+                                padding: 0.8rem;
+                                border: 1px solid #ddd;
+                                border-radius: 6px;
+                                font-size: 1rem;
+                                box-sizing: border-box;
+                            " placeholder="Your country">
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                                Previous Trekking Experience *
+                            </label>
+                            <select id="bookingExperience" required style="
+                                width: 100%;
+                                padding: 0.8rem;
+                                border: 1px solid #ddd;
+                                border-radius: 6px;
+                                font-size: 1rem;
+                                box-sizing: border-box;
+                            ">
+                                <option value="">Select your experience level</option>
+                                <option value="beginner">Beginner (Some hiking experience)</option>
+                                <option value="intermediate">Intermediate (Some multi-day treks)</option>
+                                <option value="experienced">Experienced (High-altitude trekking experience)</option>
+                                <option value="expert">Expert (Multiple high-altitude treks, 4000m+)</option>
+                            </select>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div>
+                                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                                    Persons *
+                                </label>
+                                <input type="number" min="1" value="${qty}" id="formPersons" required style="
+                                    width: 100%;
+                                    padding: 0.8rem;
+                                    border: 1px solid #ddd;
+                                    border-radius: 6px;
+                                    font-size: 1rem;
+                                    box-sizing: border-box;
+                                " oninput="updateBookingFormPrice()">
+                            </div>
+                            
+                            <div>
+                                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                                    Preferred Date *
+                                </label>
+                                <input type="date" id="bookingDate" required style="
+                                    width: 100%;
+                                    padding: 0.8rem;
+                                    border: 1px solid #ddd;
+                                    border-radius: 6px;
+                                    font-size: 1rem;
+                                    box-sizing: border-box;
+                                ">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                                Special Requirements or Medical Conditions
+                            </label>
+                            <textarea id="bookingRequirements" rows="3" style="
+                                width: 100%;
+                                padding: 0.8rem;
+                                border: 1px solid #ddd;
+                                border-radius: 6px;
+                                font-size: 1rem;
+                                box-sizing: border-box;
+                                resize: vertical;
+                            " placeholder="Any health considerations, dietary restrictions, or special requests..."></textarea>
+                        </div>
+                        
+                        <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; margin: 1rem 0;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Trek Package:</span>
+                                <span style="font-weight: bold;">${currentPackage.name}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Duration:</span>
+                                <span>${currentPackage.duration}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Group Size:</span>
+                                <span id="formGroupSize">${groupSizeText}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Price Per Person:</span>
+                                <span><span id="formCurrency">${currentCurrency}</span> <span id="formPricePerPerson">${formatNumberForCurrency(displayUnitPrice, currentCurrency)}</span> / $${formatNumberForCurrency(unitUSDPrice, 'USD')}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Total Persons:</span>
+                                <span id="formTotalPersons">${qty}</span>
+                            </div>
+                            ${qty % 2 !== 0 ? `
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; color: #f57c00;">
+                                <span>Single Supplement:</span>
+                                <span>${symbol} ${formatNumberForCurrency(singleSupplement, currentCurrency)}</span>
+                            </div>
+                            ` : ''}
+                            <div style="display: flex; justify-content: space-between; font-size: 1.2rem; color: #28a745;">
+                                <span>Total Amount:</span>
+                                <span><span id="formTotalCurrency">${currentCurrency}</span> <span id="formTotalAmount">${formatNumberForCurrency(total, currentCurrency)}</span></span>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" style="
+                            background: linear-gradient(135deg, #2196F3 0%, #0D47A1 100%);
+                            color: white;
+                            border: none;
+                            padding: 1rem;
+                            border-radius: 6px;
+                            font-size: 1.1rem;
+                            font-weight: 600;
+                            cursor: pointer;
+                            margin-top: 1rem;
+                            width: 100%;
+                        ">
+                            <i class="fas fa-paper-plane"></i> Submit Trek Booking Request
+                        </button>
+                        
+                        <p style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 1rem;">
+                            <i class="fas fa-info-circle"></i> Note: $816 includes ALL major expenses - accommodation, meals, transport, permits, guide
+                        </p>
+                        
+                        <p style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 1rem;">
+                            We'll contact you within 12 hours to confirm your booking and provide detailed trek information
+                        </p>
+                    </form>
+                </div>
+            `;
+
+            document.body.appendChild(modalOverlay);
+            document.body.classList.add('modal-open');
+
+            // Make modal content scrollable on mobile
+            const modalContent = modalOverlay.querySelector('div');
+            modalContent.style.webkitOverflowScrolling = 'touch';
+
+            // Close modal when X is clicked
+            modalOverlay.querySelector('.close-modal').addEventListener('click', () => {
+                closeModal(modalOverlay);
+            });
+
+            // Close modal when clicking outside
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) {
+                    closeModal(modalOverlay);
+                }
+            });
+
+            // Update form totals when persons change
+            const personsInput = modalOverlay.querySelector('#formPersons');
+            const groupSizeSpan = modalOverlay.querySelector('#formGroupSize');
+            const totalPersonsSpan = modalOverlay.querySelector('#formTotalPersons');
+            const totalAmountSpan = modalOverlay.querySelector('#formTotalAmount');
+            const pricePerPersonSpan = modalOverlay.querySelector('#formPricePerPerson');
+            const formTotalCurrencySpan = modalOverlay.querySelector('#formTotalCurrency');
+
+            function updateFormTotal() {
+                const persons = Math.max(1, parseInt(personsInput.value) || 1);
+                personsInput.value = persons;
+                const dispPrice = getConvertedPrice(persons, currentCurrency);
+                const sym = getCurrencySymbol();
+                const singleSupplement = calculateSingleSupplement();
+
+                let total = persons * dispPrice;
+                if (persons % 2 !== 0) {
+                    total += singleSupplement;
+                }
+
+                groupSizeSpan.textContent = getGroupSizeText(persons);
+                totalPersonsSpan.textContent = persons;
+                pricePerPersonSpan.textContent = sym + " " + formatNumberForCurrency(dispPrice, currentCurrency);
+                totalAmountSpan.textContent = formatNumberForCurrency(total, currentCurrency);
+                formTotalCurrencySpan.textContent = currentCurrency;
+
+                qty = persons;
+                updatePrice(0);
+            }
+
+            personsInput.addEventListener('input', updateFormTotal);
+
+            // Handle form submission - DIRECT SUBMISSION (NO CHOICE MODAL)
+            modalOverlay.querySelector('#bookingForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const persons = Math.max(1, parseInt(personsInput.value) || 1);
+                const displayPrice = getConvertedPrice(persons, currentCurrency);
+                const unitUSDPrice = getConvertedPrice(persons, 'USD');
+                const unitNPRPrice = getConvertedPrice(persons, 'NPR');
+                const groupSizeText = getGroupSizeText(persons);
+                const singleSupplement = calculateSingleSupplement();
+
+                let total = persons * displayPrice;
+                if (persons % 2 !== 0) {
+                    total += singleSupplement;
+                }
+
+                const formData = {
+                    name: modalOverlay.querySelector('#bookingName').value.trim(),
+                    email: modalOverlay.querySelector('#bookingEmail').value.trim(),
+                    phone: modalOverlay.querySelector('#bookingPhone').value.trim(),
+                    country: modalOverlay.querySelector('#bookingCountry').value.trim(),
+                    experience: modalOverlay.querySelector('#bookingExperience').value,
+                    persons: persons,
+                    groupSize: groupSizeText,
+                    date: modalOverlay.querySelector('#bookingDate').value || 'Not specified',
+                    requirements: modalOverlay.querySelector('#bookingRequirements').value.trim() || 'None',
+                    package: currentPackage.name,
+                    pricePerPerson: displayPrice,
+                    usdPricePerPerson: unitUSDPrice,
+                    nprPricePerPerson: unitNPRPrice,
+                    totalAmount: total,
+                    currency: currentCurrency,
+                    duration: currentPackage.duration,
+                    highestPoint: currentPackage.highestPoint,
+                    includes: currentPackage.includes,
+                };
+
+                // Validation
+                if (!formData.name) {
+                    showMobileAlert('error', 'Name Required', 'Please enter your full name');
+                    modalOverlay.querySelector('#bookingName').focus();
+                    return;
+                }
+
+                if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
+                    showMobileAlert('error', 'Valid Email Required', 'Please enter a valid email address');
+                    modalOverlay.querySelector('#bookingEmail').focus();
+                    return;
+                }
+
+                if (!formData.phone || !/^\+?[\d\s\-\(\)]{10,}$/.test(formData.phone)) {
+                    showMobileAlert('error', 'Valid Phone Required', 'Please enter a valid phone number');
+                    modalOverlay.querySelector('#bookingPhone').focus();
+                    return;
+                }
+
+                if (!formData.country) {
+                    showMobileAlert('error', 'Country Required', 'Please enter your country');
+                    modalOverlay.querySelector('#bookingCountry').focus();
+                    return;
+                }
+
+                if (!formData.experience) {
+                    showMobileAlert('error', 'Experience Required', 'Please select your trekking experience level');
+                    modalOverlay.querySelector('#bookingExperience').focus();
+                    return;
+                }
+
+                if (!modalOverlay.querySelector('#bookingDate').value) {
+                    showMobileAlert('error', 'Date Required', 'Please select a preferred start date');
+                    modalOverlay.querySelector('#bookingDate').focus();
+                    return;
+                }
+
+                // Direct submission - send via both WhatsApp and email immediately
+                submitDirectBooking(formData, modalOverlay);
+            });
+        }
+
+        // Update price in booking form
+        function updateBookingFormPrice() {
+            const modal = document.querySelector(".booking-modal");
+            if (!modal) return;
+
+            const personsInput = modal.querySelector("#formPersons");
+            const groupSizeSpan = modal.querySelector("#formGroupSize");
+            const pricePerPersonSpan = modal.querySelector("#formPricePerPerson");
+            const totalPersonsSpan = modal.querySelector("#formTotalPersons");
+            const totalAmountSpan = modal.querySelector("#formTotalAmount");
+            const formCurrencySpan = modal.querySelector("#formCurrency");
+            const formTotalCurrencySpan = modal.querySelector("#formTotalCurrency");
+
+            const persons = Math.max(1, parseInt(personsInput.value) || 1);
+            personsInput.value = persons;
+            const dispPrice = getConvertedPrice(persons, currentCurrency);
+            const sym = getCurrencySymbol();
+            const singleSupplement = calculateSingleSupplement();
+
+            let total = persons * dispPrice;
+            if (persons % 2 !== 0) {
+                total += singleSupplement;
+            }
+
+            groupSizeSpan.textContent = getGroupSizeText(persons);
+            formCurrencySpan.textContent = currentCurrency;
+            formTotalCurrencySpan.textContent = currentCurrency;
+            pricePerPersonSpan.textContent = sym + " " + formatNumberForCurrency(dispPrice, currentCurrency);
+            totalPersonsSpan.textContent = persons;
+            totalAmountSpan.textContent = formatNumberForCurrency(total, currentCurrency);
+
+            qty = persons;
+            updatePrice(0);
+        }
+
+        // Direct submission function that sends both WhatsApp and email without asking
+        function submitDirectBooking(formData, bookingModal) {
+            // Disable submit button and show loading
+            const submitBtn = bookingModal.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            submitBtn.disabled = true;
+
+            const bookingId = generateBookingId();
+            const symbol = exchangeRates[formData.currency]?.symbol || "₹";
+
+            // Prepare WhatsApp message
+            const whatsappMessage =
+                `*ANNAPURNA BASE CAMP WITH POON HILL TREK BOOKING*\n` +
+                `━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
+                ` *Booking Details*\n` +
+                `Booking ID: ${bookingId}\n` +
+                `Package: ${formData.package}\n` +
+                `Duration: ${formData.duration}\n` +
+                `Highest Point: ${formData.highestPoint}\n` +
+                `Group Size: ${formData.groupSize}\n` +
+                `Experience Level: ${formData.experience}\n` +
+                `Preferred Date: ${formData.date}\n\n` +
+                ` *Customer Information*\n` +
+                `Name: ${formData.name}\n` +
+                `Email: ${formData.email}\n` +
+                `Phone: ${formData.phone}\n` +
+                `Country: ${formData.country}\n` +
+                `Number of Persons: ${formData.persons}\n\n` +
+                ` *Payment Details*\n` +
+                `Price per Person (${formData.currency}): ${symbol}${formatNumberForCurrency(formData.pricePerPerson, formData.currency)}\n` +
+                `Total Amount (${formData.currency}): ${symbol}${formatNumberForCurrency(formData.totalAmount, formData.currency)}\n\n` +
+                ` *Special Requirements / Health Information*\n` +
+                `${formData.requirements}\n\n` +
+                `━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+                `Submitted via HONEST TRAVEL TOURS AND EXPEDITION Website`;
+
+            // Prepare email template parameters
+            const templateParams = {
+                booking_id: bookingId,
+                from_name: formData.name,
+                from_email: formData.email,
+                phone: formData.phone,
+                country: formData.country,
+                experience_level: formData.experience,
+                package_name: formData.package,
+                package_duration: formData.duration,
+                number_of_person: formData.persons,
+                preferred_date: formData.date,
+                special_requirements: formData.requirements || "None",
+                company_name: "Honest Travel Tours and Expedition",
+                price_per_person: `${formData.currency} ${formatNumberForCurrency(formData.pricePerPerson, formData.currency)}`,
+                total_amount: `${formData.currency} ${formatNumberForCurrency(formData.totalAmount, formData.currency)}`,
+            };
+
+            // Open WhatsApp in a new tab
+            const phoneNumber = "9779851140110";
+            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`, "_blank");
+
+            // Send email via EmailJS
+            emailjs.send("service_9fq6tb6", "template_kmaga4l", templateParams)
+                .then(
+                    function () {
+                        console.log("Email sent successfully");
+                        // Close the booking modal
+                        closeModal(bookingModal);
+                        // Show success message
+                        showMobileAlert(
+                            "success",
+                            "Booking Request Submitted!",
+                            `Your Annapurna Base Camp with Poon Hill Trek booking request has been sent successfully.\n\nBooking ID: ${bookingId}\n\nWe have opened WhatsApp and sent an email confirmation. Our trekking specialists will contact you within 24 hours to confirm your booking.`
+                        );
+                    },
+                    function (error) {
+                        console.error("Email failed:", error);
+                        // Close the booking modal
+                        closeModal(bookingModal);
+                        // Show warning message
+                        showMobileAlert(
+                            "warning",
+                            "WhatsApp Opened - Email Pending",
+                            `Your booking details have been opened in WhatsApp.\n\nBooking ID: ${bookingId}\n\nThere was an issue sending the email. Please send an email to info@honesttraveltours.com with your booking details to complete the process.`
+                        );
+                    }
+                )
+                .finally(() => {
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                });
+        }
+
+        /* ========== ENQUIRY MODAL FUNCTION ========== */
+        function showEnquiryModal() {
+            const packageName = 'Annapurna Base Camp with Poon Hill Trek - 10 Days';
+            const packagePrice = '₹79,950 - 86,200 (based on group size)';
+            const packageDuration = '10 Days / 9 Nights';
+            const packageCategory = 'Trekking';
+
+            const params = new URLSearchParams({
+                package: encodeURIComponent(packageName),
+                price: encodeURIComponent(packagePrice),
+                duration: encodeURIComponent(packageDuration),
+                category: encodeURIComponent(packageCategory),
+                source: 'annapurna-base-camp-poon-hill'
+            }).toString();
+
+            // Redirect to enquiry form with package details
+            window.location.href = `../enquiry-form.html?${params}`;
+        }
+
+        /* ========== MOBILE ALERT FUNCTION ========== */
+        function showMobileAlert(type, title, message) {
+            // Remove any existing alerts
+            const existingAlerts = document.querySelectorAll('.mobile-alert-overlay');
+            existingAlerts.forEach(alert => closeModal(alert));
+
+            const alertOverlay = document.createElement('div');
+            alertOverlay.className = 'mobile-alert-overlay';
+
+            const icons = {
+                success: 'fa-check-circle',
+                warning: 'fa-exclamation-triangle',
+                error: 'fa-times-circle',
+                info: 'fa-info-circle'
+            };
+
+            const colors = {
+                success: '#28a745',
+                warning: '#ff9800',
+                error: '#dc3545',
+                info: '#2196f3'
+            };
+
+            alertOverlay.innerHTML = `
+                <div>
+                    <div class="mobile-alert ${type}" style="text-align: center;">
+                        <div class="mobile-alert-icon">
+                            <i class="fas ${icons[type]}" style="color: ${colors[type]}"></i>
+                        </div>
+                        <h3 style="color: #2c3e50; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                            <i class="fas ${icons[type]}" style="color: ${colors[type]}"></i>
+                            ${title}
+                        </h3>
+                        <div class="mobile-alert-message">${message.replace(/\n/g, '<br>')}</div>
+                        <button class="mobile-alert-ok-btn" onclick="closeModal(this.closest('.mobile-alert-overlay'))">OK</button>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(alertOverlay);
+            document.body.classList.add('modal-open');
+
+            if (type === 'success') {
+                setTimeout(() => {
+                    if (alertOverlay.parentNode) closeModal(alertOverlay);
+                }, 5000);
+            }
+
+            alertOverlay.addEventListener('click', (e) => {
+                if (e.target === alertOverlay) {
+                    closeModal(alertOverlay);
+                }
+            });
+        }
+
+        // Universal close modal function
+        function closeModal(modalOverlay) {
+            if (!modalOverlay || !modalOverlay.parentNode) return;
+
+            modalOverlay.style.animation = 'fadeOut 0.3s ease';
+
+            setTimeout(() => {
+                if (modalOverlay.parentNode) {
+                    document.body.removeChild(modalOverlay);
+                }
+                // Remove modal-open class if no other modals are open
+                if (!document.querySelector('.confirmation-modal, .mobile-alert-overlay, .booking-modal, .submission-modal')) {
+                    document.body.classList.remove('modal-open');
+                }
+            }, 300);
+        }
+
+        function closeAllModals() {
+            const modals = document.querySelectorAll('.confirmation-modal, .booking-modal, .submission-modal, .mobile-alert-overlay');
+            modals.forEach(modal => {
+                if (modal && modal.parentNode) {
+                    closeModal(modal);
+                }
+            });
+        }
+
+        // Close modals on escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                closeAllModals();
+            }
+        });
+
+        /* ========== FACILITIES SLIDER NAVIGATION ========== */
+        function scrollFacilities(sliderId, direction) {
+            const slider = document.getElementById(sliderId);
+            const scrollAmount = 300;
+            slider.scrollBy({
+                left: direction * scrollAmount,
+                behavior: "smooth",
+            });
+        }
+
+        /* ========== INITIALIZE EVERYTHING ========== */
+        document.addEventListener("DOMContentLoaded", function () {
+            initializeNavigation();
+            initializeTabs();
+            initializeCurrencyConverter();
+            initializeClickOutside();
+            updatePrice(0);
+            updatePriceCards('INR');
+        });
+
+        // Attach functions to window for global access
+        window.openTab = openTab;
+        window.toggleDay = toggleDay;
+        window.toggleAllDays = toggleAllDays;
+        window.changeImage = changeImage;
+        window.setImage = setImage;
+        window.updatePrice = updatePrice;
+        window.showBookingForm = showBookingForm;
+        window.showEnquiryModal = showEnquiryModal;
+        window.scrollFacilities = scrollFacilities;
+        window.updateBookingFormPrice = updateBookingFormPrice;
+        window.closeModal = closeModal;
+        window.closeAllModals = closeAllModals;
+    </script>
+</body>
+
+</html>

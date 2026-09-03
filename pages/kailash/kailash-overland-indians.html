@@ -1,0 +1,2988 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kailash Yatra Overland for Indians - Honest Travel Tours</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../../css/individual-packages.css" />
+    
+    <!-- Add EmailJS script -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script>
+      (function() {
+        // Initialize EmailJS with your public key
+        emailjs.init("cjcB4sLQKii3OPWJ1"); // Replace with your EmailJS public key
+      })();
+    </script>
+    
+    <style>
+        /* Currency Selector Styles */
+        .currency-selector-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 20px;
+        }
+
+        .currency-selector {
+            position: relative;
+            display: inline-block;
+        }
+
+        #selectedCurrency {
+            background: rgba(88, 101, 242, 0.1);
+            border: 1px solid #5865f2;
+            border-radius: 6px;
+            padding: 8px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            color: #5865f2;
+            transition: all 0.3s ease;
+        }
+
+        #selectedCurrency:hover {
+            background: rgba(88, 101, 242, 0.2);
+        }
+
+        #selectedCurrency i {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .currency-selector.active #selectedCurrency i {
+            transform: rotate(180deg);
+        }
+
+        .currency-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            min-width: 120px;
+            margin-top: 5px;
+            display: none;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .currency-selector.active .currency-dropdown {
+            display: block;
+        }
+
+        .currency-option {
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #333;
+        }
+
+        .currency-option:hover {
+            background: #f5f5f5;
+            color: #5865f2;
+        }
+
+        .currency-option.active {
+            background: #5865f2;
+            color: white;
+        }
+
+        .currency-option i {
+            width: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Price grid styles for group pricing */
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .price-card .group-size {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-card .price-main {
+            font-size: 1.8rem;
+            color: #28a745;
+            font-weight: 700;
+        }
+
+        .price-card .price-alt {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+
+        /* Modal Styles */
+        .confirmation-modal,
+        .booking-modal,
+        .submission-modal,
+        .mobile-alert-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .confirmation-modal>div,
+        .booking-modal>div,
+        .submission-modal>div,
+        .mobile-alert-overlay>div {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .booking-modal>div {
+            max-width: 600px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: #666;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .close-submission-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: #666;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .close-submission-modal:hover {
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .modal-open {
+            overflow: hidden;
+        }
+
+        .choice-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .choice-btn {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            width: 100%;
+        }
+
+        .choice-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .whatsapp-choice:hover {
+            border-color: #25D366;
+            background: rgba(37, 211, 102, 0.05);
+        }
+
+        .email-choice:hover {
+            border-color: #5865F2;
+            background: rgba(88, 101, 242, 0.05);
+        }
+
+        .choice-btn i {
+            font-size: 2.5rem;
+            min-width: 40px;
+        }
+
+        .whatsapp-choice i {
+            color: #25D366;
+        }
+
+        .email-choice i {
+            color: #5865F2;
+        }
+
+        .choice-btn-content {
+            flex: 1;
+        }
+
+        .choice-btn-content span {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .choice-btn-content small {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .confirm-book-btn {
+            background: linear-gradient(135deg, #5865f2 0%, #3641d1 100%);
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .confirm-book-btn:hover {
+            background: linear-gradient(135deg, #4752c4 0%, #2a32b8 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.3);
+        }
+
+        .cancel-choice {
+            padding: 10px 20px;
+            background: #f5f5f5;
+            border: none;
+            border-radius: 6px;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .cancel-choice:hover {
+            background: #e0e0e0;
+        }
+
+        .confirmation-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        /* Mobile Alert */
+        .mobile-alert {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .mobile-alert-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-alert.success .mobile-alert-icon {
+            color: #28a745;
+        }
+
+        .mobile-alert.warning .mobile-alert-icon {
+            color: #ff9800;
+        }
+
+        .mobile-alert.error .mobile-alert-icon {
+            color: #dc3545;
+        }
+
+        .mobile-alert.info .mobile-alert-icon {
+            color: #5865f2;
+        }
+
+        .mobile-alert h3 {
+            color: #2c3e50;
+            margin: 0 0 1.5rem 0;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .mobile-alert-message {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .mobile-alert-ok-btn {
+            background: #5865f2;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .mobile-alert-ok-btn:hover {
+            background: #4752c4;
+            transform: translateY(-2px);
+        }
+
+        .success-checkmark {
+            animation: checkmark 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes checkmark {
+            0% {
+                transform: scale(0);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .modal-open {
+            overflow: hidden;
+        }
+
+        /* Booking form styles */
+        form>div {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Altitude warning */
+        .altitude-warning {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 2px solid #ff9800;
+            margin: 1rem 0;
+        }
+
+        /* Responsive improvements */
+        @media (max-width: 768px) {
+
+            .booking-modal>div,
+            .confirmation-modal>div,
+            .submission-modal>div {
+                margin: 10px;
+                padding: 1.5rem;
+                max-height: calc(100vh - 20px);
+            }
+
+            .choice-btn {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            .choice-btn i {
+                margin-bottom: 0.5rem;
+            }
+
+            .confirmation-buttons {
+                flex-direction: column;
+            }
+
+            .mobile-alert {
+                margin: 10px;
+                padding: 1.2rem;
+            }
+
+            .mobile-alert-message {
+                font-size: 0.95rem;
+                text-align: center;
+            }
+
+            .currency-selector-container {
+                margin-left: 0;
+                margin-top: 10px;
+                width: 100%;
+            }
+
+            .currency-selector {
+                width: 100%;
+            }
+
+            #selectedCurrency {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .currency-dropdown {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .confirmation-buttons {
+                flex-direction: column;
+            }
+
+            .choice-btn {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .choice-btn-content small {
+                display: none;
+            }
+        }
+
+        /* Better touch targets */
+        .choice-btn,
+        .booking-btn,
+        .qty-btn,
+        .tab,
+        .nav-btn {
+            min-height: 44px;
+            min-width: 44px;
+        }
+
+        /* Fix for iOS zoom on input focus */
+        @media screen and (-webkit-min-device-pixel-ratio:0) {
+
+            select,
+            textarea,
+            input {
+                font-size: 16px !important;
+            }
+        }
+    </style>
+    
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="top-bar">
+        <div class="container">
+          <div class="contact-info">
+            <span>
+              📞
+              <a
+                href="https://wa.me/9779851140110"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="wa-link"
+                >+977-9851140110</a
+              >
+              ,
+              <a
+                href="https://wa.me/9779856017867"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="wa-link"
+                >9856017867</a
+              >
+            </span>
+            <span>✉️ infohonesttoursntravels@gmail.com</span>
+          </div>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-main">
+        <div class="logo">
+          <div class="logo-icon">
+            <img src="../../images/Logo Image.png" alt="Honest Travel Logo" />
+          </div>
+          <div class="logo-text">
+            <h1>HONEST TRAVEL</h1>
+            <p>TOURS AND EXPEDITION</p>
+          </div>
+        </div>
+
+        <!-- Burger Menu Button for Navigation -->
+        <button
+          class="burger-menu"
+          id="navBurger"
+          aria-label="Toggle navigation menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav id="mainNav">
+          <ul>
+            <li><a href="../../index.html">HOME</a></li>
+            <li><a href="../../index.html#tours">TOURS</a></li>
+            <li><a href="../../index.html#trekking">TREKKING</a></li>
+            <li><a href="../../index.html#contact">CONTACT US</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Tour Detail Section -->
+    <div class="tour-detail">
+      <div class="tour-header">
+        <h1 class="tour-title">Kailash Mansarovar Yatra 2026 Overland</h1>
+        <p class="tour-subtitle">
+          13 Days - Traditional Overland Route - For Indian Citizens
+        </p>
+      </div>
+
+      <div class="tour-content-wrapper">
+        <!-- LEFT COLUMN -->
+        <div>
+          <!-- Image Gallery -->
+          <div class="image-gallery">
+            <img
+              src="../../images/Kailash Mansarovar.jpg"
+              class="gallery-image active"
+              alt="Kailash View"
+            />
+            <img
+              src="../../images/Kailash Mansarovar1.jpg"
+              class="gallery-image"
+              alt="Mansarovar Lake"
+            />
+            <img
+              src="../../images/Kailash Mansarovar2.jpg"
+              class="gallery-image"
+              alt="Kailash Trek"
+            />
+            <img
+              src="../../images/Kailash Mansarovar3.jpg"
+              class="gallery-image"
+              alt="Group Photo"
+            />
+
+            <div class="gallery-nav">
+              <button class="nav-btn" onclick="changeImage(-1)">‹</button>
+              <button class="nav-btn" onclick="changeImage(1)">›</button>
+            </div>
+            <div class="gallery-indicators">
+              <div class="indicator active" onclick="setImage(0)"></div>
+              <div class="indicator" onclick="setImage(1)"></div>
+              <div class="indicator" onclick="setImage(2)"></div>
+              <div class="indicator" onclick="setImage(3)"></div>
+            </div>
+          </div>
+
+          <!-- Tour Information Tabs -->
+          <div class="tour-info">
+            <!-- Mobile Tab Burger Menu -->
+            <div class="tab-burger-wrapper">
+              <button
+                class="tab-burger-menu"
+                id="tabBurger"
+                aria-label="Toggle tabs menu"
+              >
+                <i class="fas fa-bars"></i>
+                <span id="currentTabName">Overview</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+            </div>
+
+            <div class="info-tabs" id="tabsMenu">
+              <button class="tab active" onclick="openTab('overview')">
+                Overview
+              </button>
+              <button class="tab" onclick="openTab('itinerary')">
+                Itinerary
+              </button>
+              <button class="tab" onclick="openTab('costdates')">Cost</button>
+              <button class="tab" onclick="openTab('included')">
+                Included
+              </button>
+              <button class="tab" onclick="openTab('terms')">
+                Terms & Conditions
+              </button>
+              <button class="tab" onclick="openTab('videosmap')">
+                Videos & Map
+              </button>
+            </div>
+
+            <!-- OVERVIEW -->
+            <div id="overview" class="tab-content active">
+              <div class="info-section">
+                <h3>Journey Overview</h3>
+                <p>
+                  Embark on a spiritually transformative 13-day overland pilgrimage to Mount Kailash and Lake Mansarovar, specially designed for Indian citizens. This traditional route offers an authentic pilgrimage experience through breathtaking landscapes of Nepal and Tibet.
+                </p>
+
+                <div class="highlight-box">
+                  <h4 style="color: #5865f2; margin-bottom: 1rem">
+                    Key Highlights
+                  </h4>
+                  <ul class="info-list">
+                    <li>
+                      <strong>Traditional Overland Route:</strong> Authentic pilgrimage experience via Nepalgunj-Simikot-Hilsa
+                    </li>
+                    <li>
+                      <strong>Pure Vegetarian Meals:</strong> All meals prepared with devotion and care throughout the journey
+                    </li>
+                    <li>
+                      <strong>Extended Lake Stay:</strong> Overnight stay at sacred Lake Mansarovar for deep spiritual immersion
+                    </li>
+                    <li>
+                      <strong>Complete Parikrama:</strong> Full 52km circumambulation of Mount Kailash with proper support
+                    </li>
+                    <li>
+                      <strong>Cultural Immersion:</strong> Visit UNESCO World Heritage sites in Kathmandu before the journey
+                    </li>
+                    <li>
+                      <strong>Hindi/English Guides:</strong> Experienced bilingual guides for seamless communication
+                    </li>
+                    <li>
+                      <strong>Gradual Acclimatization:</strong> Carefully planned itinerary for altitude adjustment
+                    </li>
+                  </ul>
+                </div>
+
+                <h3>Trip Facts</h3>
+                <ul class="info-list">
+                  <li><strong>Duration:</strong> 12 Nights 13 Days</li>
+                  <li>
+                    <strong>Route:</strong> Kathmandu → Nepalgunj → Simikot → Hilsa → Tibet → Mansarovar → Kailash → Return
+                  </li>
+                  <li>
+                    <strong>Maximum Altitude:</strong> 5,630m (Dolma La Pass)
+                  </li>
+                  <li>
+                    <strong>Difficulty Level:</strong> Moderate to Strenuous
+                  </li>
+                  <li>
+                    <strong>Trek Distance:</strong> 52km Kailash Parikrama over 3 days
+                  </li>
+                  <li><strong>Best Season:</strong> May to September 2026</li>
+                  <li>
+                    <strong>Group Size:</strong> 15-25 pilgrims per group
+                  </li>
+                  <li>
+                    <strong>Special Feature:</strong> Designed specifically for Indian pilgrims
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- ITINERARY - MODIFIED WITH COLLAPSIBLE SECTIONS -->
+            <div id="itinerary" class="tab-content">
+              <div class="info-section">
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 1.5rem;
+                    flex-wrap: wrap;
+                    gap: 1rem;
+                  "
+                >
+                  <h3
+                    style="
+                      margin: 0;
+                      color: #00b386;
+                      text-transform: uppercase;
+                      font-size: 1.2rem;
+                    "
+                  >
+                    Detailed Itinerary
+                  </h3>
+                  <button
+                    onclick="toggleAllDays()"
+                    style="
+                      background: none;
+                      border: 1px solid #00b386;
+                      color: #00b386;
+                      padding: 0.5rem 1rem;
+                      border-radius: 4px;
+                      cursor: pointer;
+                      font-size: 0.9rem;
+                    "
+                  >
+                    Expand All
+                  </button>
+                </div>
+
+                <!-- Day 1 -->
+                <div class="itinerary-day">
+                  <div class="day-header" onclick="toggleDay(this)">
+                    <div class="day-header-content">
+                      <span class="day-number">DAY 1</span>
+                      <span class="day-title">ARRIVAL IN KATHMANDU</span>
+                      <span class="day-altitude"
+                        ><i class="fas fa-mountain"></i> 1,400m</span
+                      >
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                  </div>
+                  <div class="day-details">
+                    <p style="margin-bottom: 1rem">
+                      <strong>Welcome to Nepal:</strong> Arrive at Tribhuvan International Airport. Our representative will greet you with traditional welcome. Transfer to hotel for check-in. Evening orientation session about the journey, altitude sickness prevention, and Q&A. Welcome dinner featuring authentic Nepali cuisine.
+                    </p>
+                    <p><strong>Meals:</strong> Welcome Dinner Included</p>
+                    <p>
+                      <strong>Accommodation:</strong> 5 Star Hotel in Kathmandu
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Day 2 -->
+                <div class="itinerary-day">
+                  <div class="day-header" onclick="toggleDay(this)">
+                    <div class="day-header-content">
+                      <span class="day-number">DAY 2</span>
+                      <span class="day-title">KATHMANDU SIGHTSEEING & PREPARATION</span>
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                  </div>
+                  <div class="day-details">
+                    <p style="margin-bottom: 1rem">
+                      <strong>Spiritual Preparation:</strong> Morning visit to Pashupatinath Temple for blessings. Continue to Boudhanath Stupa (UNESCO site). After lunch, visit Swayambhunath (Monkey Temple). Afternoon dedicated to finalizing permits, medical check-ups, and shopping. Evening free for personal preparations.
+                    </p>
+                    <p><strong>Meals:</strong> Breakfast and Lunch Included</p>
+                    <p>
+                      <strong>Accommodation:</strong> 5 Star Hotel in Kathmandu
+                    </p>
+                    <p><strong>Sightseeing:</strong> 5-6 hours</p>
+                  </div>
+                </div>
+
+                <!-- Day 3 -->
+                <div class="itinerary-day">
+                  <div class="day-header" onclick="toggleDay(this)">
+                    <div class="day-header-content">
+                      <span class="day-number">DAY 3</span>
+                      <span class="day-title">FLY TO NEPALGUNJ</span>
+                      <span class="day-altitude"
+                        ><i class="fas fa-mountain"></i> 150m</span
+                      >
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                  </div>
+                  <div class="day-details">
+                    <p style="margin-bottom: 1rem">
+                      <strong>Gateway to West Nepal:</strong> Early morning flight to Nepalgunj (1 hour). Check into hotel. Afternoon briefing about border crossing. Evening free to explore local markets or rest.
+                    </p>
+                    <p>
+                      <strong>Meals:</strong> Breakfast, Lunch, and Dinner Included
+                    </p>
+                    <p>
+                      <strong>Accommodation:</strong> 3 Star Hotel in Nepalgunj
+                    </p>
+                    <p><strong>Flight Duration:</strong> 1 hour</p>
+                  </div>
+                </div>
+
+                <!-- Day 4 -->
+                <div class="itinerary-day">
+                  <div class="day-header" onclick="toggleDay(this)">
+                    <div class="day-header-content">
+                      <span class="day-number">DAY 4</span>
+                      <span class="day-title">FLY TO SIMIKOT & TREK TO HILSA</span>
+                      <span class="day-altitude"
+                        ><i class="fas fa-mountain"></i> 3,700m</span
+                      >
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                  </div>
+                  <div class="day-details">
+                    <p style="margin-bottom: 1rem">
+                      <strong>Entering the Himalayas:</strong> Helicopter flight to Simikot (45 minutes). Scenic 4-5 hour trek to Hilsa at Nepal-Tibet border. Complete immigration formalities. Overnight at border guest house.
+                    </p>
+                    <p>
+                      <strong>Meals:</strong> Breakfast, Lunch, and Dinner Included
+                    </p>
+                    <p>
+                      <strong>Accommodation:</strong> Basic Guest House at Hilsa
+                    </p>
+                    <p><strong>Flight Duration:</strong> 45 minutes</p>
+                    <p><strong>Trek Duration:</strong> 4-5 hours</p>
+                  </div>
+                </div>
+
+                <!-- Day 5 -->
+                <div class="itinerary-day">
+                  <div class="day-header" onclick="toggleDay(this)">
+                    <div class="day-header-content">
+                      <span class="day-number">DAY 5</span>
+                      <span class="day-title">DRIVE TO LAKE MANSAROVAR</span>
+                      <span class="day-altitude"
+                        ><i class="fas fa-mountain"></i> 4,590m</span
+                      >
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                  </div>
+                  <div class="day-details">
+                    <p style="margin-bottom: 1rem">
+                      <strong>Sacred Arrival:</strong> Cross into Tibet and meet Tibetan guide. Scenic drive to Lake Mansarovar. Perform holy dip (weather permitting) and Puja ceremonies. Witness sunset over the lake with Kailash backdrop.
+                    </p>
+                    <p>
+                      <strong>Meals:</strong> Breakfast, Lunch, and Dinner Included
+                    </p>
+                    <p>
+                      <strong>Accommodation:</strong> Guest House near Mansarovar
+                    </p>
+                    <p><strong>Drive Duration:</strong> 4-5 hours</p>
+                  </div>
+                </div>
+
+                <!-- Day 6 -->
+                <div class="itinerary-day">
+                  <div class="day-header" onclick="toggleDay(this)">
+                    <div class="day-header-content">
+                      <span class="day-number">DAY 6</span>
+                      <span class="day-title">MANSAROVAR TO DARCHEN</span>
+                      <span class="day-altitude"
+                        ><i class="fas fa-mountain"></i> 4,600m</span
+                      >
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                  </div>
+                  <div class="day-details">
+                    <p style="margin-bottom: 1rem">
+                      <strong>Base Camp Preparation:</strong> Sunrise meditation at Mansarovar. Drive to Darchen with spectacular Kailash views. Check into guest house. Detailed briefing about 3-day Parikrama trek. Prepare backpack for trek.
+                    </p>
+                    <p>
+                      <strong>Meals:</strong> Breakfast, Lunch, and Dinner Included
+                    </p>
+                    <p>
+                      <strong>Accommodation:</strong> Guest House in Darchen
+                    </p>
+                    <p><strong>Drive Duration:</strong> 2 hours</p>
+                  </div>
+                </div>
+
+                <!-- Day 7 -->
+                <div class="itinerary-day">
+                  <div class="day-header" onclick="toggleDay(this)">
+                    <div class="day-header-content">
+                      <span class="day-number">DAY 7</span>
+                      <span class="day-title">KAILASH PARIKRAMA DAY 1: DARCHEN TO DERAPHUK</span>
+                      <span class="day-altitude"
+                        ><i class="fas fa-mountain"></i> 5,000m</span
+                      >
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                  </div>
+                  <div class="day-details">
+                    <p style="margin-bottom: 1rem">
+                      <strong>Begin Sacred Walk:</strong> Trek follows Lha-chu valley with Kailash's western face visible. Visit Chuku Monastery. Moderate 5-6 hour trek to Deraphuk. Spectacular North Face view of Kailash. Evening prayers and meditation.
+                    </p>
+                    <p>
+                      <strong>Meals:</strong> Breakfast, Lunch, and Dinner Included
+                    </p>
+                    <p>
+                      <strong>Accommodation:</strong> Guest House at Deraphuk
+                    </p>
+                    <p><strong>Trek Duration:</strong> 5-6 hours</p>
+                    <p><strong>Trek Distance:</strong> 12 km</p>
+                  </div>
+                </div>
+
+                <!-- Day 8 -->
+                <div class="itinerary-day">
+                  <div class="day-header" onclick="toggleDay(this)">
+                    <div class="day-header-content">
+                      <span class="day-number">DAY 8</span>
+                      <span class="day-title">KAILASH PARIKRAMA DAY 2: VIA DOLMA LA PASS</span>
+                      <span class="day-altitude"
+                        ><i class="fas fa-mountain"></i> 5,630m (Dolma La)</span
+                      >
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                  </div>
+                  <div class="day-details">
+                    <p style="margin-bottom: 1rem">
+                      <strong style="color: #dc3545">Most Challenging Day:</strong>
+                      Start early (3-4 AM) to reach Dolma La Pass (5,630m). Steep ascent tests endurance. At pass, offer prayers and tie prayer flags. Descent to Zhuthulphuk ("miracle cave"). Tests physical and spiritual determination.
+                    </p>
+                    <p>
+                      <strong>Meals:</strong> Breakfast, Lunch, and Dinner Included
+                    </p>
+                    <p>
+                      <strong>Accommodation:</strong> Guest House at Zhuthulphuk
+                    </p>
+                    <p><strong>Trek Duration:</strong> 8-10 hours</p>
+                    <p><strong>Trek Distance:</strong> 18 km</p>
+                    <p style="color: #dc3545; font-weight: 600">
+                      <i class="fas fa-exclamation-triangle"></i> Note: Personal riding horses available for rent (not included)
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Day 9 -->
+                <div class="itinerary-day">
+                  <div class="day-header" onclick="toggleDay(this)">
+                    <div class="day-header-content">
+                      <span class="day-number">DAY 9</span>
+                      <span class="day-title">KAILASH PARIKRAMA DAY 3: COMPLETE CIRCLE & RETURN</span>
+                      <span class="day-altitude"
+                        ><i class="fas fa-mountain"></i> 4,600m</span
+                      >
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                  </div>
+                  <div class="day-details">
+                    <p style="margin-bottom: 1rem">
+                      <strong>Complete Sacred Circle:</strong> Final leg of Parikrama with gentle descent. Complete 52km sacred circle at Darchen. Drive back to Lake Mansarovar for overnight. Evening prayer and reflection by sacred lake.
+                    </p>
+                    <p>
+                      <strong>Meals:</strong> Breakfast, Lunch, and Dinner Included
+                    </p>
+                    <p>
+                      <strong>Accommodation:</strong> Guest House near Mansarovar
+                    </p>
+                    <p><strong>Trek Duration:</strong> 3-4 hours</p>
+                    <p><strong>Drive Duration:</strong> 4-5 hours</p>
+                  </div>
+                </div>
+
+                <!-- Day 10 -->
+                <div class="itinerary-day">
+                  <div class="day-header" onclick="toggleDay(this)">
+                    <div class="day-header-content">
+                      <span class="day-number">DAY 10</span>
+                      <span class="day-title">DRIVE TO HILSA & TREK TO SIMIKOT</span>
+                      <span class="day-altitude"
+                        ><i class="fas fa-mountain"></i> 3,700m</span
+                      >
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                  </div>
+                  <div class="day-details">
+                    <p style="margin-bottom: 1rem">
+                      <strong>Return Journey Begins:</strong> Drive from Mansarovar to Hilsa border. Cross back into Nepal. Trek from Hilsa to Simikot (mostly downhill). Overnight in Simikot, celebrating successful pilgrimage.
+                    </p>
+                    <p>
+                      <strong>Meals:</strong> Breakfast, Lunch, and Dinner Included
+                    </p>
+                    <p>
+                      <strong>Accommodation:</strong> Guest House in Simikot
+                    </p>
+                    <p><strong>Drive Duration:</strong> 4-5 hours</p>
+                    <p><strong>Trek Duration:</strong> 4-5 hours</p>
+                  </div>
+                </div>
+
+                <!-- Day 11 -->
+                <div class="itinerary-day">
+                  <div class="day-header" onclick="toggleDay(this)">
+                    <div class="day-header-content">
+                      <span class="day-number">DAY 11</span>
+                      <span class="day-title">FLY TO NEPALGUNJ & DRIVE TO KATHMANDU</span>
+                      <span class="day-altitude"
+                        ><i class="fas fa-mountain"></i> 1,400m</span
+                      >
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                  </div>
+                  <div class="day-details">
+                    <p style="margin-bottom: 1rem">
+                      <strong>Return to Civilization:</strong> Helicopter flight from Simikot to Nepalgunj. Flight or drive to Kathmandu. Check into 5-star hotel. Evening free for rest, shopping, or exploration. Celebration dinner.
+                    </p>
+                    <p><strong>Meals:</strong> Breakfast and Dinner Included</p>
+                    <p>
+                      <strong>Accommodation:</strong> 5 Star Hotel in Kathmandu
+                    </p>
+                    <p><strong>Flight Duration:</strong> 45 minutes</p>
+                  </div>
+                </div>
+
+                <!-- Day 12 -->
+                <div class="itinerary-day">
+                  <div class="day-header" onclick="toggleDay(this)">
+                    <div class="day-header-content">
+                      <span class="day-number">DAY 12</span>
+                      <span class="day-title">KATHMANDU - FREE DAY</span>
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                  </div>
+                  <div class="day-details">
+                    <p style="margin-bottom: 1rem">
+                      <strong>Rest & Reflection:</strong> Complete free day in Kathmandu. Optional activities include visiting Patan Durbar Square, Bhaktapur, or shopping. Evening farewell dinner to share experiences with fellow pilgrims.
+                    </p>
+                    <p>
+                      <strong>Meals:</strong> Breakfast and Farewell Dinner Included
+                    </p>
+                    <p>
+                      <strong>Accommodation:</strong> 5 Star Hotel in Kathmandu
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Day 13 -->
+                <div class="itinerary-day">
+                  <div class="day-header" onclick="toggleDay(this)">
+                    <div class="day-header-content">
+                      <span class="day-number">DAY 13</span>
+                      <span class="day-title">DEPARTURE FROM KATHMANDU</span>
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                  </div>
+                  <div class="day-details">
+                    <p style="margin-bottom: 1rem">
+                      <strong>Journey Ends:</strong> After breakfast, transfer to airport for onward journey. Our representative assists with check-in. Depart with blessed memories and spiritual fulfillment from this sacred pilgrimage.
+                    </p>
+                    <p><strong>Meals:</strong> Breakfast Included</p>
+                    <p style="font-style: italic; color: #5865f2">
+                      May Lord Shiva's blessings be with you always! Om Namah Shivaya!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- COST & DATES - WITH GROUP PRICING AND CURRENCY CONVERTER -->
+            <div id="costdates" class="tab-content">
+              <div class="info-section">
+                <h3>Package Pricing (Per Person)</h3>
+                <div
+                  class="highlight-box"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #667eea15 0%,
+                      #764ba215 100%
+                    );
+                  "
+                >
+                  <div style="text-align: center; padding: 1.5rem;">
+                    <h4 style="color: #5865f2; margin-bottom: 1.5rem;">
+                      Group Pricing with Discounts
+                    </h4>
+
+                    <div class="price-grid">
+                      <div class="price-card">
+                        <div class="group-size">1-3 People</div>
+                        <div class="price-main" id="price13main">₹2,10,000</div>
+                      </div>
+
+                      <div class="price-card">
+                        <div class="group-size">4-6 People</div>
+                        <div class="price-main" id="price46main">₹2,06,875</div>
+                      </div>
+
+                      <div class="price-card">
+                        <div class="group-size">7+ People</div>
+                        <div class="price-main" id="price7plusmain">₹2,03,750</div>
+                      </div>
+                    </div>
+
+                    <div style="
+                        margin: 1.5rem 0;
+                        padding: 1rem;
+                        background: white;
+                        border-radius: 8px;
+                        display: inline-block;
+                    ">
+                      <div style="
+                          font-size: 1.2rem;
+                          color: #5865f2;
+                          font-weight: 600;
+                        " id="priceRange">
+                        USD 1,928 - 1,988 (Approx)
+                      </div>
+                      <div style="font-size: 0.9rem; color: #666;">
+                        For International Travelers
+                      </div>
+                    </div>
+
+                    <div style="font-size: 0.9rem; color: #28a745; margin-top: 0.5rem;">
+                      <i class="fas fa-tag"></i> Discount applied: ₹3,125 off for 4-6 people, ₹6,250 off for 7+ people
+                    </div>
+
+                    <div
+                      style="
+                        background: white;
+                        padding: 1rem;
+                        border-radius: 8px;
+                        display: inline-block;
+                        margin-top: 1.5rem;
+                      "
+                    >
+                      <i class="fas fa-info-circle" style="color: #5865f2"></i>
+                      <strong>Special Inclusions for Indian Pilgrims</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <h3 style="margin-top: 2rem">Why Choose This Package</h3>
+                <ul class="info-list">
+                  <li>
+                    Designed specifically for Indian citizens' needs and preferences
+                  </li>
+                  <li>
+                    Traditional overland route for authentic pilgrimage experience
+                  </li>
+                  <li>
+                    Pure vegetarian meals throughout the journey
+                  </li>
+                  <li>
+                    Ample time for spiritual practices and rituals
+                  </li>
+                  <li>Comprehensive support from experienced team</li>
+                  <li>Small group sizes ensure personalized attention</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- INCLUDED -->
+            <div id="included" class="tab-content">
+              <div class="info-section">
+                <h3>What's Included</h3>
+                <ul class="info-list">
+                  <li>All airport/hotel transfers in Kathmandu</li>
+                  <li>5 Star hotel accommodation in Kathmandu (4 nights)</li>
+                  <li>3 Star hotel accommodation in Nepalgunj (1 night)</li>
+                  <li>Best available guest houses in Tibet (7 nights)</li>
+                  <li>All domestic flights: Kathmandu-Nepalgunj-Simikot</li>
+                  <li>All road transportation as per itinerary</li>
+                  <li>Pure vegetarian meals throughout the journey</li>
+                  <li>Tibet travel permit and all necessary documentation</li>
+                  <li>Experienced English/Hindi speaking guide</li>
+                  <li>Support staff including Sherpas and cooks</li>
+                  <li>First aid kit, oxygen cylinders, and medical support</li>
+                  <li>Complimentary duffle bag, down jacket, and day pack</li>
+                </ul>
+
+                <h3 style="margin-top: 2rem">What's Not Included</h3>
+                <ul class="info-list" style="color: #999">
+                  <li>International airfare to/from Kathmandu</li>
+                  <li>Travel insurance (mandatory for high altitude)</li>
+                  <li>Nepal visa fee (USD 30 for 15 days)</li>
+                  <li>Personal expenses and beverages</li>
+                  <li>Tips for guides and staff (recommended)</li>
+                  <li>Personal riding horse during Parikrama</li>
+                  <li>Emergency evacuation and medical costs</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- TERMS -->
+            <div id="terms" class="tab-content">
+              <div class="info-section">
+                <h3>Terms & Conditions</h3>
+                <div
+                  style="
+                    background: #f8f9fa;
+                    padding: 1.5rem;
+                    border-radius: 8px;
+                    border-left: 4px solid #5865f2;
+                  "
+                >
+                  <ul
+                    class="info-list"
+                    style="list-style-type: none; padding-left: 0"
+                  >
+                    <li style="margin-bottom: 1rem">
+                      <strong>Booking Deposit:</strong> 50% advance with passport copy required for confirmation
+                    </li>
+                    <li style="margin-bottom: 1rem">
+                      <strong>Balance Payment:</strong> Full payment 30 days before departure
+                    </li>
+                    <li style="margin-bottom: 1rem">
+                      <strong>Health Requirement:</strong> Medical fitness certificate mandatory
+                    </li>
+                    <li style="margin-bottom: 1rem">
+                      <strong>Insurance:</strong> Comprehensive travel insurance covering 6,000m altitude
+                    </li>
+                    <li style="margin-bottom: 1rem">
+                      <strong>Weather Conditions:</strong> Flight schedules subject to weather in Himalayas
+                    </li>
+                    <li style="margin-bottom: 1rem">
+                      <strong>Cancellation:</strong> 30% fee if cancelled 60 days prior; 50% fee if 30 days prior; No refund if cancelled within 15 days
+                    </li>
+                    <li style="margin-bottom: 1rem">
+                      <strong>Documents:</strong> Valid passport with 6 months validity and 4 passport photos required
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- VIDEOS & MAP SECTION (REPLACED ENQUIRY) -->
+            <div id="videosmap" class="tab-content">
+              <div class="info-section">
+                <h3>Experience the Overland Journey</h3>
+                <p>
+                  Watch our exclusive video and explore the traditional overland route to understand this authentic pilgrimage experience.
+                </p>
+
+                <!-- Video Section -->
+                <div class="video-section" style="margin-bottom: 2rem">
+                  <h4 style="color: #5865f2; margin-bottom: 1rem">
+                    <i class="fas fa-video"></i> Overland Kailash Yatra Experience
+                  </h4>
+                  <div class="video-container">
+                    <iframe
+                      width="560"
+                      height="315"
+                      src="https://www.youtube.com/embed/PGU4irrSf2Y?si=lr7JLeCIH87XG7Dt"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                  <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666">
+                    <i class="fas fa-info-circle"></i> Watch our traditional overland journey showcasing the authentic pilgrimage experience to Kailash Mansarovar.
+                  </p>
+                </div>
+
+                <!-- Map Section -->
+                <div class="map-section">
+                  <h4 style="color: #5865f2; margin-bottom: 1rem">
+                    <i class="fas fa-map-marked-alt"></i> Traditional Overland Route Map
+                  </h4>
+                  <div class="map-container">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5652590.28885835!2d79.83272972876013!3d29.651489537390098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39be6c8b6590e8cd%3A0xdf2d1a75b9f4220d!2sMount%20Kailash!5e0!3m2!1sen!2snp!4v1710000000000!5m2!1sen!2snp"
+                      width="100%"
+                      height="400"
+                      style="
+                        border: 0;
+                        border-radius: 12px;
+                        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                      "
+                      allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                      title="Kailash Yatra Route Map"
+                    ></iframe>
+                  </div>
+                  <div
+                    style="
+                      margin-top: 1rem;
+                      display: flex;
+                      flex-wrap: wrap;
+                      gap: 1rem;
+                    "
+                  >
+                    <div style="flex: 1; min-width: 200px">
+                      <h5 style="color: #333; margin-bottom: 0.5rem">
+                        <i class="fas fa-route" style="color: #28a745"></i>
+                        Traditional Route
+                      </h5>
+                      <ul
+                        style="
+                          list-style-type: none;
+                          padding-left: 0;
+                          font-size: 0.9rem;
+                        "
+                      >
+                        <li style="margin-bottom: 0.3rem">
+                          <strong>Kathmandu:</strong> Start & Spiritual Prep
+                        </li>
+                        <li style="margin-bottom: 0.3rem">
+                          <strong>Nepalgunj:</strong> Gateway to West Nepal
+                        </li>
+                        <li style="margin-bottom: 0.3rem">
+                          <strong>Simikot:</strong> Humla District HQ
+                        </li>
+                        <li style="margin-bottom: 0.3rem">
+                          <strong>Hilsa:</strong> Nepal-Tibet Border
+                        </li>
+                        <li style="margin-bottom: 0.3rem">
+                          <strong>Lake Mansarovar:</strong> Sacred Stay
+                        </li>
+                        <li style="margin-bottom: 0.3rem">
+                          <strong>Mount Kailash:</strong> Parikrama
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="flex: 1; min-width: 200px">
+                      <h5 style="color: #333; margin-bottom: 0.5rem">
+                        <i class="fas fa-mountain" style="color: #dc3545"></i>
+                        Journey Highlights
+                      </h5>
+                      <ul
+                        style="
+                          list-style-type: none;
+                          padding-left: 0;
+                          font-size: 0.9rem;
+                        "
+                      >
+                        <li style="margin-bottom: 0.3rem">
+                          Trek from Simikot to Hilsa
+                        </li>
+                        <li style="margin-bottom: 0.3rem">
+                          Scenic drives in Tibetan plateau
+                        </li>
+                        <li style="margin-bottom: 0.3rem">
+                          3-Day Kailash Parikrama
+                        </li>
+                        <li style="margin-bottom: 0.3rem">
+                          Two nights at Mansarovar
+                        </li>
+                        <li style="margin-bottom: 0.3rem">
+                          Cultural immersion in Humla
+                        </li>
+                        <li style="margin-bottom: 0.3rem">
+                          Kathmandu sightseeing
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Additional Videos Section -->
+                <div class="additional-videos" style="margin-top: 2rem">
+                  <h4 style="color: #5865f2; margin-bottom: 1rem">
+                    <i class="fas fa-film"></i> More Overland Experiences
+                  </h4>
+                  <div
+                    style="
+                      display: grid;
+                      grid-template-columns: repeat(
+                        auto-fit,
+                        minmax(250px, 1fr)
+                      );
+                      gap: 1rem;
+                    "
+                  >
+                    <div class="video-thumbnail">
+                      <h5 style="margin-bottom: 0.5rem; color: #333">
+                        Traditional Trekking
+                      </h5>
+                      <div
+                        style="
+                          position: relative;
+                          padding-bottom: 56.25%;
+                          height: 0;
+                          overflow: hidden;
+                          border-radius: 8px;
+                        "
+                      >
+                        <iframe
+                          width="560"
+                          height="315"
+                          src="https://www.youtube.com/embed/chmmndJAttA?si=fZPwX9uyJe5bd24G"
+                          title="YouTube video player"
+                          frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          referrerpolicy="strict-origin-when-cross-origin"
+                          allowfullscreen
+                        ></iframe>
+                      </div>
+                    </div>
+                    <div class="video-thumbnail">
+                      <h5 style="margin-bottom: 0.5rem; color: #333">
+                        Border Crossing Experience
+                      </h5>
+                      <div
+                        style="
+                          position: relative;
+                          padding-bottom: 56.25%;
+                          height: 0;
+                          overflow: hidden;
+                          border-radius: 8px;
+                        "
+                      >
+                        <iframe
+                          width="560"
+                          height="315"
+                          src="https://www.youtube.com/embed/SLmvTfiG2lo?si=PdTICVYyOBQ-KFfX"
+                          title="YouTube video player"
+                          frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          referrerpolicy="strict-origin-when-cross-origin"
+                          allowfullscreen
+                        ></iframe>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Journey Information -->
+                <div
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #f8f9ff 0%,
+                      #f0f2ff 100%
+                    );
+                    padding: 1.5rem;
+                    border-radius: 12px;
+                    margin-top: 2rem;
+                    border: 1px solid rgba(88, 101, 242, 0.1);
+                  "
+                >
+                  <h4 style="color: #5865f2; margin-bottom: 1rem">
+                    <i class="fas fa-hiking"></i> Overland Journey Details
+                  </h4>
+                  <div style="display: flex; flex-wrap: wrap; gap: 1.5rem">
+                    <div style="flex: 1; min-width: 200px">
+                      <h5
+                        style="
+                          color: #333;
+                          margin-bottom: 0.5rem;
+                          font-size: 0.95rem;
+                        "
+                      >
+                        <i class="fas fa-walking" style="color: #5865f2"></i>
+                        Trekking Segments
+                      </h5>
+                      <p
+                        style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        "
+                      >
+                        <strong>Simikot to Hilsa:</strong> 4-5 hours (Day 4)
+                      </p>
+                      <p
+                        style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        "
+                      >
+                        <strong>Kailash Parikrama:</strong> 3 days (Days 7-9)
+                      </p>
+                      <p style="font-size: 0.9rem; color: #555">
+                        <strong>Total Trekking:</strong> ~35km
+                      </p>
+                    </div>
+                    <div style="flex: 1; min-width: 200px">
+                      <h5
+                        style="
+                          color: #333;
+                          margin-bottom: 0.5rem;
+                          font-size: 0.95rem;
+                        "
+                      >
+                        <i class="fas fa-road" style="color: #28a745"></i> Road
+                        Travel
+                      </h5>
+                      <p
+                        style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        "
+                      >
+                        <strong>Mansarovar to Darchen:</strong> 2 hours
+                      </p>
+                      <p
+                        style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        "
+                      >
+                        <strong>Border Crossings:</strong> Multiple scenic
+                        drives
+                      </p>
+                      <p style="font-size: 0.9rem; color: #555">
+                        <strong>Tibetan Plateau:</strong> Breathtaking
+                        landscapes
+                      </p>
+                    </div>
+                    <div style="flex: 1; min-width: 200px">
+                      <h5
+                        style="
+                          color: #333;
+                          margin-bottom: 0.5rem;
+                          font-size: 0.95rem;
+                        "
+                      >
+                        <i class="fas fa-plane" style="color: #dc3545"></i>
+                        Flights Included
+                      </h5>
+                      <p
+                        style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        "
+                      >
+                        <strong>Kathmandu → Nepalgunj:</strong> 1 hour
+                      </p>
+                      <p
+                        style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        "
+                      >
+                        <strong>Nepalgunj → Simikot:</strong> 45 minutes
+                      </p>
+                      <p style="font-size: 0.9rem; color: #555">
+                        <strong>Return Flights:</strong> Included in package
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Route Comparison -->
+                <div
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #fff8e6 0%,
+                      #fff5d9 100%
+                    );
+                    padding: 1.5rem;
+                    border-radius: 12px;
+                    margin-top: 2rem;
+                    border: 1px solid rgba(255, 193, 7, 0.2);
+                  "
+                >
+                  <h4 style="color: #856404; margin-bottom: 1rem">
+                    <i class="fas fa-balance-scale" style="color: #856404"></i>
+                    Overland vs Helicopter
+                  </h4>
+                  <div style="display: flex; flex-wrap: wrap; gap: 1.5rem">
+                    <div style="flex: 1; min-width: 250px">
+                      <h5
+                        style="
+                          color: #856404;
+                          margin-bottom: 0.5rem;
+                          font-size: 0.95rem;
+                        "
+                      >
+                        <i
+                          class="fas fa-check-circle"
+                          style="color: #28a745"
+                        ></i>
+                        Overland Advantages
+                      </h5>
+                      <ul
+                        style="
+                          list-style-type: none;
+                          padding-left: 0;
+                          font-size: 0.9rem;
+                        "
+                      >
+                        <li style="margin-bottom: 0.5rem; color: #555">
+                          ✓ More time for acclimatization
+                        </li>
+                        <li style="margin-bottom: 0.5rem; color: #555">
+                          ✓ Deeper cultural immersion
+                        </li>
+                        <li style="margin-bottom: 0.5rem; color: #555">
+                          ✓ More affordable option
+                        </li>
+                        <li style="margin-bottom: 0.5rem; color: #555">
+                          ✓ Traditional pilgrimage experience
+                        </li>
+                        <li style="color: #555">✓ Extra night at Mansarovar</li>
+                      </ul>
+                    </div>
+                    <div style="flex: 1; min-width: 250px">
+                      <h5
+                        style="
+                          color: #856404;
+                          margin-bottom: 0.5rem;
+                          font-size: 0.95rem;
+                        "
+                      >
+                        <i
+                          class="fas fa-info-circle"
+                          style="color: #5865f2"
+                        ></i>
+                        Ideal For
+                      </h5>
+                      <ul
+                        style="
+                          list-style-type: none;
+                          padding-left: 0;
+                          font-size: 0.9rem;
+                        "
+                      >
+                        <li style="margin-bottom: 0.5rem; color: #555">
+                          • Spiritual seekers wanting authentic experience
+                        </li>
+                        <li style="margin-bottom: 0.5rem; color: #555">
+                          • Those with more time available
+                        </li>
+                        <li style="margin-bottom: 0.5rem; color: #555">
+                          • Pilgrims on a budget
+                        </li>
+                        <li style="margin-bottom: 0.5rem; color: #555">
+                          • Adventure enthusiasts
+                        </li>
+                        <li style="color: #555">
+                          • Cultural exploration lovers
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Booking Card with Dynamic Pricing -->
+        <div>
+          <div class="booking-card">
+            <div class="price-section">
+              <div class="price-icon"><i class="fas fa-globe-asia"></i></div>
+              <div class="price-info">
+                <div class="price-label">Starting from</div>
+                <div><span class="price" id="mainPriceDisplay">₹2,03,750</span></div>
+                <div style="font-size: 0.8rem; color: #666; margin-top: 0.3rem" id="groupSizeLabel">
+                  (7+ people)
+                </div>
+                <div style="font-size: 0.8rem; color: #666; margin-top: 0.3rem" id="alternatePriceRow">
+                  <span id="alternatePriceLabel">USD</span> <span id="alternatePrice">1,928</span>
+                </div>
+              </div>
+              <!-- Currency Selector -->
+              <div class="currency-selector-container">
+                <div class="currency-selector">
+                  <div id="selectedCurrency">
+                    <span>INR</span>
+                    <i class="fas fa-chevron-down"></i>
+                  </div>
+                  <div class="currency-dropdown">
+                    <div class="currency-option active" data-currency="INR"> INR (₹)</div>
+                    <div class="currency-option" data-currency="USD"> USD ($)</div>
+                    <div class="currency-option" data-currency="NPR"> NPR (रु)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              style="
+                background: #fff9e6;
+                padding: 1rem;
+                border-radius: 8px;
+                margin-bottom: 1rem;
+                text-align: center;
+              "
+            >
+              <div
+                style="font-size: 0.9rem; color: #856404; margin-bottom: 0.5rem"
+              >
+                Installment Option Available
+              </div>
+              <div style="font-size: 1.2rem; color: #5865f2; font-weight: bold">
+                Contact us for EMI plans
+              </div>
+            </div>
+
+            <div class="quantity-section">
+              <div class="quantity-controls">
+                <button class="qty-btn" onclick="updatePrice(-1)">-</button>
+                <div class="qty-display" id="qtyDisplay">1</div>
+                <button class="qty-btn" onclick="updatePrice(1)">+</button>
+              </div>
+            </div>
+
+            <div class="price-breakdown">
+              <div class="price-row">
+                <span>Base Price (Per Person)</span>
+                <span><span id="baseCurrency">INR</span> <span id="basePrice">2,03,750</span></span>
+              </div>
+              <div class="price-row total">
+                <span>Total</span>
+                <span><span id="totalCurrency">INR</span> <span id="totalPrice">2,03,750</span></span>
+              </div>
+            </div>
+
+            <!-- UPDATED BOOKING BUTTONS -->
+            <button class="booking-btn btn-instant" onclick="showBookingForm()">Instant Booking</button>
+            <button class="booking-btn btn-customize" onclick="showEnquiryModal()">
+              Enquiry
+            </button>
+
+            <div class="contact-section">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <h3>Book By Phone</h3>
+              <div class="phone-numbers">
+                <a
+                  href="https://wa.me/9779851140110"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style="text-decoration: none; color: inherit; display: block"
+                >
+                  +977-9851140110
+                </a>
+                <a
+                  href="https://wa.me/9779856017867"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style="text-decoration: none; color: inherit; display: block"
+                >
+                  +977-9856017867
+                </a>
+              </div>
+              <div style="font-size: 0.9rem; margin-top: 0.5rem">
+                WhatsApp Available
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Honest Travel</h3>
+          <p>
+            Your trusted partner for authentic Himalayan experiences and
+            spiritual journeys.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Kathmandu, Nepal</p>
+          <p>infohonesttoursntravels@gmail.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 HONEST TRAVEL Tours and Expedition. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      /* ========== CONSTANTS AND CONFIGURATION ========== */
+
+      // Base price for 1-3 people in INR
+      const price13inr = 210000;
+
+      // Pricing tables by group size (INR) - with exact discounts
+      // 1-3 People: ₹2,10,000 (base)
+      // 4-6 People: ₹2,10,000 - ₹3,125 = ₹2,06,875
+      // 7+ People: ₹2,10,000 - ₹6,250 = ₹2,03,750
+      const pricingTables = {
+        "1-3": 210000,
+        "4-6": 206875,
+        "7+": 203750,
+      };
+
+      const marketUsdToInr = 92;
+      const markupPercent = 15;
+
+      // Exchange rates based on market rate with markup
+      const exchangeRates = {
+        INR: { rate: 1, symbol: "₹", name: "INR" },
+        USD: { rate: (1 / marketUsdToInr) * (1 + markupPercent / 100), symbol: "$", name: "USD" },
+        NPR: { rate: 1.6, symbol: "रु", name: "NPR" },
+      };
+
+      let qty = 1; // Minimum 1 person for yatra
+      let currentCurrency = "INR";
+
+      /* ========== HELPER FUNCTIONS ========== */
+
+      function getGroupSize(persons) {
+        if (persons >= 7) return "7+";
+        if (persons >= 4) return "4-6";
+        return "1-3";
+      }
+
+      function getUnitINRPrice(persons) {
+        const groupSize = getGroupSize(persons);
+        return pricingTables[groupSize];
+      }
+
+      function getConvertedPrice(persons, targetCurrency) {
+        const inrPrice = getUnitINRPrice(persons);
+        
+        if (targetCurrency === 'INR') {
+          return inrPrice;
+        }
+        
+        const rate = exchangeRates[targetCurrency]?.rate;
+        if (!rate) return inrPrice;
+        
+        // Convert and round appropriately
+        let converted = inrPrice * rate;
+        
+        // Round based on currency
+        if (targetCurrency === 'USD') {
+          return Math.round(converted); // Round to nearest dollar
+        } else if (targetCurrency === 'NPR') {
+          return Math.round(converted / 100) * 100; // Round to nearest 100 NPR
+        }
+        
+        return Math.round(converted);
+      }
+
+      function getConvertedPriceForGroup(groupSize, targetCurrency) {
+        const inrPrice = pricingTables[groupSize];
+        
+        if (targetCurrency === 'INR') {
+          return inrPrice;
+        }
+        
+        const rate = exchangeRates[targetCurrency]?.rate;
+        if (!rate) return inrPrice;
+        
+        let converted = inrPrice * rate;
+        
+        // Round based on currency
+        if (targetCurrency === 'USD') {
+          return Math.round(converted);
+        } else if (targetCurrency === 'NPR') {
+          return Math.round(converted / 100) * 100;
+        }
+        
+        return Math.round(converted);
+      }
+
+      function getCurrencySymbol() {
+        return exchangeRates[currentCurrency]?.symbol || "₹";
+      }
+
+      function formatNumber(num) {
+        if (num >= 1000) {
+          return Math.round(num).toLocaleString("en-IN");
+        } else {
+          return num.toString();
+        }
+      }
+
+      function formatNumberForCurrency(num, currency) {
+        if (currency === 'USD') {
+          return Math.round(num).toLocaleString('en-US');
+        } else if (currency === 'NPR') {
+          return Math.round(num).toLocaleString('en-IN');
+        } else {
+          return Math.round(num).toLocaleString('en-IN');
+        }
+      }
+
+      function getGroupSizeText(persons) {
+        const groupSize = getGroupSize(persons);
+        if (groupSize === "7+") return "7+ People";
+        if (groupSize === "4-6") return "4-6 People";
+        return "1-3 People";
+      }
+
+      function getGroupSizeLabel(persons) {
+        const groupSize = getGroupSize(persons);
+        if (groupSize === "7+") return "(7+ people)";
+        if (groupSize === "4-6") return "(4-6 people)";
+        return "(1-3 people)";
+      }
+
+      function getDisplayUnitPrice(persons) {
+        return getConvertedPrice(persons, currentCurrency);
+      }
+
+      /* ========== PRICE UPDATE FUNCTIONS ========== */
+
+      function updatePrice(change) {
+        qty += change;
+        if (qty < 1) qty = 1;
+        document.getElementById("qtyDisplay").textContent = qty;
+
+        const displayUnitPrice = getConvertedPrice(qty, currentCurrency);
+        const symbol = getCurrencySymbol();
+        const groupSize = getGroupSize(qty);
+
+        // Get alternate price (USD for INR/NPR, INR for USD)
+        let alternatePrice, alternateLabel, alternateSymbol;
+        if (currentCurrency === "USD") {
+          alternatePrice = getConvertedPrice(qty, 'INR');
+          alternateLabel = "INR";
+          alternateSymbol = "₹";
+        } else if (currentCurrency === "NPR") {
+          alternatePrice = getConvertedPrice(qty, 'USD');
+          alternateLabel = "USD";
+          alternateSymbol = "$";
+        } else {
+          alternatePrice = getConvertedPrice(qty, 'USD');
+          alternateLabel = "USD";
+          alternateSymbol = "$";
+        }
+
+        // Format alternate price with symbol
+        let alternatePriceFormatted = alternateSymbol + ' ' + formatNumberForCurrency(alternatePrice, alternateLabel);
+
+        let total = qty * displayUnitPrice;
+
+        // Update displays
+        document.getElementById("basePrice").textContent = formatNumberForCurrency(displayUnitPrice, currentCurrency);
+        document.getElementById("totalPrice").textContent = formatNumberForCurrency(total, currentCurrency);
+        document.getElementById("mainPriceDisplay").textContent = symbol + ' ' + formatNumberForCurrency(displayUnitPrice, currentCurrency);
+        document.getElementById("alternatePriceLabel").textContent = alternateLabel;
+        document.getElementById("alternatePrice").textContent = alternatePriceFormatted;
+
+        // Update currency labels
+        document.getElementById("baseCurrency").textContent = currentCurrency;
+        document.getElementById("totalCurrency").textContent = currentCurrency;
+
+        // Update group size label
+        document.getElementById("groupSizeLabel").textContent = getGroupSizeLabel(qty);
+
+        // Update price cards in cost tab
+        updatePriceCards(currentCurrency);
+      }
+
+      function updatePriceCards(currency) {
+        const symbol = exchangeRates[currency]?.symbol || "₹";
+
+        // Get prices for each group size using conversion logic
+        const price13 = getConvertedPriceForGroup('1-3', currency);
+        const price46 = getConvertedPriceForGroup('4-6', currency);
+        const price7plus = getConvertedPriceForGroup('7+', currency);
+
+        // Get USD and NPR prices for reference
+        const usdPrice13 = getConvertedPriceForGroup('1-3', 'USD');
+        const usdPrice46 = getConvertedPriceForGroup('4-6', 'USD');
+        const usdPrice7plus = getConvertedPriceForGroup('7+', 'USD');
+        
+        const nprPrice13 = getConvertedPriceForGroup('1-3', 'NPR');
+        const nprPrice46 = getConvertedPriceForGroup('4-6', 'NPR');
+        const nprPrice7plus = getConvertedPriceForGroup('7+', 'NPR');
+
+        // Update price cards
+        if (document.getElementById('price13main')) {
+          document.getElementById('price13main').textContent = symbol + ' ' + formatNumberForCurrency(price13, currency);
+          document.getElementById('price46main').textContent = symbol + ' ' + formatNumberForCurrency(price46, currency);
+          document.getElementById('price7plusmain').textContent = symbol + ' ' + formatNumberForCurrency(price7plus, currency);
+        }
+
+        // Update USD references
+        if (document.getElementById('price13usd')) {
+          document.getElementById('price13usd').textContent = 'USD ' + usdPrice13;
+          document.getElementById('price46usd').textContent = 'USD ' + usdPrice46;
+          document.getElementById('price7plususd').textContent = 'USD ' + usdPrice7plus;
+        }
+
+        // Update NPR references
+        if (document.getElementById('price13npr')) {
+          document.getElementById('price13npr').textContent = 'NPR ' + nprPrice13.toLocaleString('en-IN');
+          document.getElementById('price46npr').textContent = 'NPR ' + nprPrice46.toLocaleString('en-IN');
+          document.getElementById('price7plusnpr').textContent = 'NPR ' + nprPrice7plus.toLocaleString('en-IN');
+        }
+
+        // Update price range display
+        if (document.getElementById('priceRange')) {
+          document.getElementById('priceRange').textContent = `USD ${usdPrice13} - ${usdPrice7plus} (Approx)`;
+        }
+      }
+
+      /* ========== CURRENCY CONVERTER ========== */
+
+      function initializeCurrencyConverter() {
+        const currencySelector = document.querySelector(".currency-selector");
+        const selectedCurrency = document.getElementById("selectedCurrency");
+        const currencyOptions = document.querySelectorAll(".currency-option");
+        const priceElements = document.querySelectorAll(".price-display");
+
+        // Toggle currency dropdown
+        if (selectedCurrency) {
+          selectedCurrency.addEventListener("click", function (e) {
+            e.stopPropagation();
+            currencySelector.classList.toggle("active");
+          });
+        }
+
+        // Select currency option
+        currencyOptions.forEach((option) => {
+          option.addEventListener("click", function () {
+            const newCurrency = this.getAttribute("data-currency");
+
+            // Update selected currency display
+            selectedCurrency.querySelector("span").textContent = newCurrency;
+
+            currentCurrency = newCurrency;
+
+            // Update active state
+            currencyOptions.forEach((opt) => opt.classList.remove("active"));
+            this.classList.add("active");
+
+            // Update price table header if exists
+            const priceTableHeaders = document.querySelectorAll('[id^="priceTableHeader"]');
+            priceTableHeaders.forEach(header => {
+              if (header) header.textContent = `Cost Per Person`;
+            });
+
+            // Convert all prices
+            convertPrices(newCurrency);
+
+            // Update main price display
+            updatePrice(0);
+
+            // Update price cards
+            updatePriceCards(newCurrency);
+
+            // Close dropdown
+            currencySelector.classList.remove("active");
+          });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function (e) {
+          if (currencySelector && !currencySelector.contains(e.target)) {
+            currencySelector.classList.remove("active");
+          }
+        });
+
+        // Function to convert prices
+        function convertPrices(targetCurrency) {
+          const targetSymbol = exchangeRates[targetCurrency]?.symbol || "₹";
+
+          priceElements.forEach(element => {
+            let convertedValue;
+            const inrValue = parseFloat(element.getAttribute("data-inr"));
+            
+            if (!isNaN(inrValue)) {
+              if (targetCurrency === 'USD') {
+                convertedValue = Math.round(inrValue * exchangeRates.USD.rate);
+              } else if (targetCurrency === 'NPR') {
+                convertedValue = Math.round(inrValue * exchangeRates.NPR.rate / 100) * 100;
+              } else {
+                convertedValue = inrValue;
+              }
+              
+              element.textContent = targetSymbol + ' ' + formatNumberForCurrency(convertedValue, targetCurrency);
+            }
+          });
+        }
+
+        // Initialize with INR
+        convertPrices('INR');
+      }
+
+      /* 1. NAVIGATION BURGER MENU */
+      const navBurger = document.getElementById("navBurger");
+      const mainNav = document.getElementById("mainNav");
+
+      navBurger.addEventListener("click", function () {
+        this.classList.toggle("active");
+        mainNav.classList.toggle("active");
+        document.body.classList.toggle("nav-open");
+      });
+
+      // Close nav when clicking on a link
+      const navLinks = mainNav.querySelectorAll("a");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          navBurger.classList.remove("active");
+          mainNav.classList.remove("active");
+          document.body.classList.remove("nav-open");
+        });
+      });
+
+      /* 2. TAB BURGER MENU */
+      const tabBurger = document.getElementById("tabBurger");
+      const tabsMenu = document.getElementById("tabsMenu");
+      const currentTabName = document.getElementById("currentTabName");
+
+      tabBurger.addEventListener("click", function () {
+        this.classList.toggle("active");
+        tabsMenu.classList.toggle("active");
+      });
+
+      /* 3. TAB SYSTEM LOGIC */
+      function openTab(tabId) {
+        // Hide all tab contents
+        const contents = document.querySelectorAll(".tab-content");
+        contents.forEach((content) => content.classList.remove("active"));
+
+        // Remove active class from all tab buttons
+        const tabs = document.querySelectorAll(".tab");
+        tabs.forEach((tab) => tab.classList.remove("active"));
+
+        // Show current tab and add active class to button
+        document.getElementById(tabId).classList.add("active");
+        event.currentTarget.classList.add("active");
+
+        // Update mobile tab name
+        currentTabName.textContent = event.currentTarget.textContent;
+
+        // Close tab menu on mobile
+        tabBurger.classList.remove("active");
+        tabsMenu.classList.remove("active");
+      }
+
+      /* 4. COLLAPSIBLE ITINERARY LOGIC */
+      function toggleDay(headerElement) {
+        const dayContainer = headerElement.closest(".itinerary-day");
+        dayContainer.classList.toggle("active");
+      }
+
+      /* 5. EXPAND/COLLAPSE ALL BUTTON */
+      function toggleAllDays() {
+        const allDays = document.querySelectorAll(".itinerary-day");
+        const btn = event.target;
+        const isExpanding = btn.innerText.includes("Expand");
+
+        allDays.forEach((day) => {
+          if (isExpanding) {
+            day.classList.add("active");
+          } else {
+            day.classList.remove("active");
+          }
+        });
+
+        btn.innerText = isExpanding ? "Collapse All" : "Expand All";
+      }
+
+      /* 6. IMAGE GALLERY LOGIC */
+      let currentImageIndex = 0;
+      const images = document.querySelectorAll(".gallery-image");
+      const indicators = document.querySelectorAll(".indicator");
+
+      function showImage(index) {
+        if (index >= images.length) currentImageIndex = 0;
+        else if (index < 0) currentImageIndex = images.length - 1;
+        else currentImageIndex = index;
+
+        images.forEach((img) => img.classList.remove("active"));
+        indicators.forEach((ind) => ind.classList.remove("active"));
+
+        images[currentImageIndex].classList.add("active");
+        indicators[currentImageIndex].classList.add("active");
+      }
+
+      function changeImage(step) {
+        showImage(currentImageIndex + step);
+      }
+
+      function setImage(index) {
+        showImage(index);
+      }
+
+      setInterval(() => changeImage(1), 5000);
+
+      /* 7. BOOK NOW MODAL FUNCTIONS */
+      // Global variables to store package details
+      const currentPackage = {
+        name: 'Kailash Mansarovar Yatra 2026 Overland',
+        price: 210000,
+        duration: '13 Days',
+        nights: '12 Nights 13 Days',
+        category: 'Traditional Overland Route - For Indian Citizens',
+        currency: 'INR',
+        nationality: 'Indian'
+      };
+
+      function showBookingForm() {
+        showConfirmationModal();
+      }
+
+      // Create confirmation modal
+      function showConfirmationModal() {
+        const displayUnitPrice = getConvertedPrice(qty, currentCurrency);
+        const symbol = getCurrencySymbol();
+        const groupSizeText = getGroupSizeText(qty);
+        const unitUSDPrice = getConvertedPrice(qty, 'USD');
+
+        let total = qty * displayUnitPrice;
+
+        const modalOverlay = document.createElement('div');
+        modalOverlay.className = 'confirmation-modal';
+        
+        modalOverlay.innerHTML = `
+          <div>
+            <div style="text-align: center;">
+              <div style="font-size: 3rem; color: #5865f2; margin-bottom: 15px;">
+                <i class="fas fa-globe-asia"></i>
+              </div>
+              
+              <h3 style="color: #2c3e50; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <i class="fas fa-calendar-check" style="color: #5865F2;"></i> Confirm Indian Kailash Yatra Booking
+              </h3>
+              
+              <div class="package-info" style="font-size: 1.1rem; color: #5865F2; font-weight: 600; margin-bottom: 20px; background: rgba(88, 101, 242, 0.1); padding: 12px; border-radius: 8px; border-left: 4px solid #5865F2;">
+                Kailash Mansarovar Overland Yatra 2026 (Indian Citizens)
+              </div>
+              
+              <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 20px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Duration:</span>
+                  <span style="font-weight: 600;">13 Days</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Journey Type:</span>
+                  <span style="font-weight: 600;">Traditional Overland Route</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Group Size:</span>
+                  <span style="font-weight: 600;">${groupSizeText}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Participants:</span>
+                  <span style="font-weight: 600;">${qty} person(s)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Price Per Person:</span>
+                  <span style="font-weight: 600;">${symbol} ${formatNumberForCurrency(displayUnitPrice, currentCurrency)} / USD $${formatNumberForCurrency(unitUSDPrice, 'USD')}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 1.2rem; color: #28a745;">
+                  <span>Total Amount:</span>
+                  <span style="font-weight: 700;">${symbol} ${formatNumberForCurrency(total, currentCurrency)}</span>
+                </div>
+              </div>
+              
+              <p style="color: #666; margin-bottom: 25px; font-size: 16px;">
+                Are you ready to book this traditional overland pilgrimage journey to Kailash Mansarovar designed for Indian citizens?
+              </p>
+              
+              <div class="confirmation-buttons" style="display: flex; gap: 15px; margin-top: 25px;">
+                <button id="confirmCancel" class="cancel-choice" style="
+                  padding: 10px 20px;
+                  background: #f5f5f5;
+                  border: none;
+                  border-radius: 6px;
+                  color: #666;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
+                  flex: 1;
+                ">
+                  Cancel
+                </button>
+                
+                <button id="confirmBook" class="confirm-book-btn" style="
+                  background: linear-gradient(135deg, #5865f2 0%, #3641d1 100%);
+                  color: white;
+                  border: none;
+                  padding: 14px 24px;
+                  border-radius: 8px;
+                  font-size: 16px;
+                  font-weight: 500;
+                  cursor: pointer;
+                  flex: 1;
+                  transition: all 0.3s ease;
+                ">
+                  Yes, Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+        
+        document.body.appendChild(modalOverlay);
+        document.body.classList.add('modal-open');
+        
+        // Handle button clicks
+        modalOverlay.querySelector('#confirmCancel').addEventListener('click', () => {
+          closeModal(modalOverlay);
+        });
+        
+        modalOverlay.querySelector('#confirmBook').addEventListener('click', () => {
+          closeModal(modalOverlay);
+          showBookingModal();
+        });
+        
+        // Close on backdrop click
+        modalOverlay.addEventListener('click', (e) => {
+          if (e.target === modalOverlay) {
+            closeModal(modalOverlay);
+          }
+        });
+      }
+
+      // Show booking modal
+      function showBookingModal() {
+        const displayUnitPrice = getConvertedPrice(qty, currentCurrency);
+        const unitUSDPrice = getConvertedPrice(qty, 'USD');
+        const unitNPRPrice = getConvertedPrice(qty, 'NPR');
+        const symbol = getCurrencySymbol();
+        const groupSizeText = getGroupSizeText(qty);
+
+        let total = qty * displayUnitPrice;
+
+        const modalOverlay = document.createElement('div');
+        modalOverlay.className = 'booking-modal';
+        
+        modalOverlay.innerHTML = `
+          <div>
+            <button class="close-modal">×</button>
+            
+            <h2 style="color: #2c3e50; margin-bottom: 1.5rem; text-align: center; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+              <i class="fas fa-globe-asia" style="color: #5865F2;"></i>
+              Book Kailash Yatra (Indian Citizens)
+            </h2>
+            
+            <form id="bookingForm">
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Full Name *
+                </label>
+                <input type="text" id="bookingName" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="Enter your full name">
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Email Address *
+                </label>
+                <input type="email" id="bookingEmail" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="your@email.com">
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Phone Number *
+                </label>
+                <input type="tel" id="bookingPhone" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="+91 9876543210">
+              </div>
+              
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div>
+                  <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                    Persons *
+                  </label>
+                  <input type="number" min="1" value="${qty}" id="formPersons" required style="
+                    width: 100%;
+                    padding: 0.8rem;
+                    border: 1px solid #ddd;
+                    border-radius: 6px;
+                    font-size: 1rem;
+                    box-sizing: border-box;
+                  " oninput="updateBookingFormPrice()">
+                </div>
+                
+                <div>
+                  <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                    Preferred Date
+                  </label>
+                  <input type="date" id="bookingDate" style="
+                    width: 100%;
+                    padding: 0.8rem;
+                    border: 1px solid #ddd;
+                    border-radius: 6px;
+                    font-size: 1rem;
+                    box-sizing: border-box;
+                  ">
+                </div>
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Passport Number *
+                </label>
+                <input type="text" id="bookingPassport" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="Enter your Indian passport number">
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  State in India *
+                </label>
+                <input type="text" id="bookingState" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="Your state in India">
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Special Requirements
+                </label>
+                <textarea id="bookingRequirements" style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  min-height: 100px;
+                  resize: vertical;
+                  box-sizing: border-box;
+                " placeholder="Any dietary preferences, health concerns, altitude experience, or special requests..."></textarea>
+              </div>
+              
+              <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; margin: 1rem 0;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Pilgrimage Package:</span>
+                  <span style="font-weight: bold;">Kailash Overland Yatra 2026</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Duration:</span>
+                  <span>13 Days (12 Nights)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Group Size:</span>
+                  <span id="formGroupSize">${groupSizeText}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Price Per Person:</span>
+                  <span><span id="formCurrency">${currentCurrency}</span> <span id="formPricePerPerson">${formatNumberForCurrency(displayUnitPrice, currentCurrency)}</span> / $${formatNumberForCurrency(unitUSDPrice, 'USD')}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Total Persons:</span>
+                  <span id="formTotalPersons">${qty}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 1.2rem; color: #28a745;">
+                  <span>Total Amount:</span>
+                  <span><span id="formTotalCurrency">${currentCurrency}</span> <span id="formTotalAmount">${formatNumberForCurrency(total, currentCurrency)}</span></span>
+                </div>
+              </div>
+              
+              <button type="submit" style="
+                background: linear-gradient(135deg, #5865f2 0%, #3641d1 100%);
+                color: white;
+                border: none;
+                padding: 1rem;
+                border-radius: 6px;
+                font-size: 1.1rem;
+                font-weight: 600;
+                cursor: pointer;
+                margin-top: 1rem;
+                width: 100%;
+              ">
+                <i class="fas fa-paper-plane"></i> Submit Booking Request
+              </button>
+              
+              <p style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 1rem;">
+                <i class="fas fa-info-circle"></i> Note: Indian passport with minimum 6 months validity required
+              </p>
+              
+              <p style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 1rem;">
+                We'll contact you within 24 hours to confirm your booking
+              </p>
+            </form>
+          </div>
+        `;
+        
+        document.body.appendChild(modalOverlay);
+        document.body.classList.add('modal-open');
+        
+        // Make modal content scrollable on mobile
+        const modalContent = modalOverlay.querySelector('div');
+        modalContent.style.webkitOverflowScrolling = 'touch';
+        
+        // Close modal when X is clicked
+        modalOverlay.querySelector('.close-modal').addEventListener('click', () => {
+          closeModal(modalOverlay);
+        });
+        
+        // Close modal when clicking outside
+        modalOverlay.addEventListener('click', (e) => {
+          if (e.target === modalOverlay) {
+            closeModal(modalOverlay);
+          }
+        });
+        
+        // Update form totals when persons change
+        const personsInput = modalOverlay.querySelector('#formPersons');
+        const groupSizeSpan = modalOverlay.querySelector('#formGroupSize');
+        const totalPersonsSpan = modalOverlay.querySelector('#formTotalPersons');
+        const totalAmountSpan = modalOverlay.querySelector('#formTotalAmount');
+        const pricePerPersonSpan = modalOverlay.querySelector('#formPricePerPerson');
+        const formTotalCurrencySpan = modalOverlay.querySelector('#formTotalCurrency');
+
+        function updateFormTotal() {
+          const persons = Math.max(1, parseInt(personsInput.value) || 1);
+          personsInput.value = persons;
+          const dispPrice = getConvertedPrice(persons, currentCurrency);
+          const sym = getCurrencySymbol();
+
+          let total = persons * dispPrice;
+
+          groupSizeSpan.textContent = getGroupSizeText(persons);
+          totalPersonsSpan.textContent = persons;
+          pricePerPersonSpan.textContent = sym + " " + formatNumberForCurrency(dispPrice, currentCurrency);
+          totalAmountSpan.textContent = formatNumberForCurrency(total, currentCurrency);
+          formTotalCurrencySpan.textContent = currentCurrency;
+
+          qty = persons;
+          updatePrice(0);
+        }
+
+        personsInput.addEventListener('input', updateFormTotal);
+        
+        // Initialize form total
+        updateFormTotal();
+        
+        // Handle form submission - DIRECT SUBMISSION (NO CHOICE MODAL)
+        modalOverlay.querySelector('#bookingForm').addEventListener('submit', (e) => {
+          e.preventDefault();
+          
+          const persons = Math.max(1, parseInt(personsInput.value) || 1);
+          const displayPrice = getConvertedPrice(persons, currentCurrency);
+          const unitUSDPrice = getConvertedPrice(persons, 'USD');
+          const unitNPRPrice = getConvertedPrice(persons, 'NPR');
+          const groupSizeText = getGroupSizeText(persons);
+
+          let total = persons * displayPrice;
+
+          const formData = {
+            name: modalOverlay.querySelector('#bookingName').value.trim(),
+            email: modalOverlay.querySelector('#bookingEmail').value.trim(),
+            phone: modalOverlay.querySelector('#bookingPhone').value.trim(),
+            state: modalOverlay.querySelector('#bookingState').value.trim(),
+            passport: modalOverlay.querySelector('#bookingPassport').value.trim(),
+            persons: persons,
+            groupSize: groupSizeText,
+            date: modalOverlay.querySelector('#bookingDate').value || 'Not specified',
+            requirements: modalOverlay.querySelector('#bookingRequirements').value.trim() || 'None',
+            package: currentPackage.name,
+            pricePerPerson: displayPrice,
+            usdPricePerPerson: unitUSDPrice,
+            nprPricePerPerson: unitNPRPrice,
+            totalAmount: total,
+            currency: currentCurrency,
+            duration: currentPackage.duration,
+            nights: currentPackage.nights,
+            nationality: 'Indian'
+          };
+          
+          // Validation
+          if (!formData.name) {
+            showMobileAlert('error', 'Name Required', 'Please enter your full name');
+            modalOverlay.querySelector('#bookingName').focus();
+            return;
+          }
+          
+          if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
+            showMobileAlert('error', 'Valid Email Required', 'Please enter a valid email address');
+            modalOverlay.querySelector('#bookingEmail').focus();
+            return;
+          }
+          
+          if (!formData.phone || !/^\+?[\d\s\-\(\)]{10,}$/.test(formData.phone)) {
+            showMobileAlert('error', 'Valid Phone Required', 'Please enter a valid phone number');
+            modalOverlay.querySelector('#bookingPhone').focus();
+            return;
+          }
+          
+          if (!formData.passport) {
+            showMobileAlert('error', 'Passport Required', 'Please enter your passport number');
+            modalOverlay.querySelector('#bookingPassport').focus();
+            return;
+          }
+          
+          if (!formData.state) {
+            showMobileAlert('error', 'State Required', 'Please enter your state in India');
+            modalOverlay.querySelector('#bookingState').focus();
+            return;
+          }
+          
+          // Direct submission - send via both WhatsApp and email immediately
+          submitDirectBooking(formData, modalOverlay);
+        });
+      }
+
+      // Update price in booking form
+      function updateBookingFormPrice() {
+        const modal = document.querySelector(".booking-modal");
+        if (!modal) return;
+
+        const personsInput = modal.querySelector("#formPersons");
+        const groupSizeSpan = modal.querySelector("#formGroupSize");
+        const pricePerPersonSpan = modal.querySelector("#formPricePerPerson");
+        const totalPersonsSpan = modal.querySelector("#formTotalPersons");
+        const totalAmountSpan = modal.querySelector("#formTotalAmount");
+        const formCurrencySpan = modal.querySelector("#formCurrency");
+        const formTotalCurrencySpan = modal.querySelector("#formTotalCurrency");
+
+        const persons = Math.max(1, parseInt(personsInput.value) || 1);
+        personsInput.value = persons;
+        const dispPrice = getConvertedPrice(persons, currentCurrency);
+        const sym = getCurrencySymbol();
+
+        let total = persons * dispPrice;
+
+        groupSizeSpan.textContent = getGroupSizeText(persons);
+        formCurrencySpan.textContent = currentCurrency;
+        formTotalCurrencySpan.textContent = currentCurrency;
+        pricePerPersonSpan.textContent = sym + " " + formatNumberForCurrency(dispPrice, currentCurrency);
+        totalPersonsSpan.textContent = persons;
+        totalAmountSpan.textContent = formatNumberForCurrency(total, currentCurrency);
+
+        qty = persons;
+        updatePrice(0);
+      }
+
+      // Direct submission function that sends both WhatsApp and email without asking
+      function submitDirectBooking(formData, bookingModal) {
+        // Disable submit button and show loading
+        const submitBtn = bookingModal.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+        submitBtn.disabled = true;
+
+        const bookingId = generateBookingId();
+        const symbol = exchangeRates[formData.currency]?.symbol || "₹";
+
+        // Prepare WhatsApp message
+        const whatsappMessage =
+          `*INDIAN KAILASH YATRA BOOKING*\n` +
+          `━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
+          ` *Booking Details*\n` +
+          `Booking ID: ${bookingId}\n` +
+          `Package: ${formData.package}\n` +
+          `Duration: ${formData.duration} (${formData.nights})\n` +
+          `Group Size: ${formData.groupSize}\n` +
+          `Preferred Date: ${formData.date}\n\n` +
+          ` *Customer Information*\n` +
+          `Name: ${formData.name}\n` +
+          `Email: ${formData.email}\n` +
+          `Phone: ${formData.phone}\n` +
+          `State: ${formData.state}\n` +
+          `Passport: ${formData.passport}\n` +
+          `Number of Persons: ${formData.persons}\n` +
+          `Nationality: Indian\n\n` +
+          ` *Payment Details*\n` +
+          `Price per Person (${formData.currency}): ${symbol}${formatNumberForCurrency(formData.pricePerPerson, formData.currency)}\n` +
+          `Total Amount (${formData.currency}): ${symbol}${formatNumberForCurrency(formData.totalAmount, formData.currency)}\n\n` +
+          ` *Special Requirements / Health Information*\n` +
+          `${formData.requirements}\n\n` +
+          `━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+          `Submitted via HONEST TRAVEL TOURS AND EXPEDITION Website`;
+
+        // Prepare email template parameters
+        const templateParams = {
+          booking_id: bookingId,
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          state: formData.state,
+          passport: formData.passport,
+          package_name: formData.package,
+          package_duration: formData.duration,
+          number_of_person: formData.persons,
+          preferred_date: formData.date,
+          special_requirements: formData.requirements || "None",
+          company_name: "Honest Travel Tours and Expedition",
+          price_per_person: `${formData.currency} ${formatNumberForCurrency(formData.pricePerPerson, formData.currency)}`,
+          total_amount: `${formData.currency} ${formatNumberForCurrency(formData.totalAmount, formData.currency)}`,
+        };
+
+        // Open WhatsApp in a new tab
+        const phoneNumber = "9779851140110";
+        window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`, "_blank");
+
+        // Send email via EmailJS
+        emailjs.send("service_9fq6tb6", "template_kmaga4l", templateParams)
+          .then(
+            function () {
+              console.log("Email sent successfully");
+              // Close the booking modal
+              closeModal(bookingModal);
+              // Show success message
+              showMobileAlert(
+                "success",
+                "Booking Request Submitted!",
+                `Your Kailash Yatra booking request has been sent successfully.\n\nBooking ID: ${bookingId}\n\nWe have opened WhatsApp and sent an email confirmation. Our pilgrimage specialists will contact you within 24 hours to confirm your booking.`
+              );
+            },
+            function (error) {
+              console.error("Email failed:", error);
+              // Close the booking modal
+              closeModal(bookingModal);
+              // Show warning message
+              showMobileAlert(
+                "warning",
+                "WhatsApp Opened - Email Pending",
+                `Your booking details have been opened in WhatsApp.\n\nBooking ID: ${bookingId}\n\nThere was an issue sending the email. Please send an email to infohonesttoursntravels@gmail.com with your booking details to complete the process.`
+              );
+            }
+          )
+          .finally(() => {
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+          });
+      }
+
+      function generateBookingId() {
+        const prefix = 'HTT';
+        const timestamp = Date.now().toString().slice(-8);
+        const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+        const date = new Date();
+        const year = date.getFullYear().toString().slice(-2);
+        const month = (date.getMonth() + 1).toString().padStart(2, '2');
+
+        return `${prefix}-${year}${month}-${timestamp}-${random}`;
+      }
+
+      /* 8. ENQUIRY MODAL FUNCTION */
+      function showEnquiryModal() {
+        const packageName = 'Kailash Mansarovar Yatra 2026 Overland';
+        const packagePrice = '₹2,03,750 - 2,10,000 (based on group size)';
+        const packageDuration = '13 Days';
+        const packageCategory = 'Traditional Overland Route - For Indian Citizens';
+        
+        const params = new URLSearchParams({
+          package: encodeURIComponent(packageName),
+          price: encodeURIComponent(packagePrice),
+          duration: encodeURIComponent(packageDuration),
+          category: encodeURIComponent(packageCategory),
+          source: 'overland-kailash-yatra-indian'
+        }).toString();
+        
+        // Redirect to enquiry form with package details
+        window.location.href = `../enquiry-form.html?${params}`;
+      }
+
+      /* 9. MOBILE ALERT FUNCTION */
+      function showMobileAlert(type, title, message) {
+        // Remove any existing alerts
+        const existingAlerts = document.querySelectorAll('.mobile-alert-overlay');
+        existingAlerts.forEach(alert => closeModal(alert));
+
+        const alertOverlay = document.createElement('div');
+        alertOverlay.className = 'mobile-alert-overlay';
+
+        const icons = {
+          success: 'fa-check-circle',
+          warning: 'fa-exclamation-triangle',
+          error: 'fa-times-circle',
+          info: 'fa-info-circle'
+        };
+
+        const colors = {
+          success: '#28a745',
+          warning: '#ff9800',
+          error: '#dc3545',
+          info: '#5865f2'
+        };
+
+        alertOverlay.innerHTML = `
+          <div>
+            <div class="mobile-alert ${type}" style="text-align: center;">
+              <div class="mobile-alert-icon">
+                <i class="fas ${icons[type]}" style="color: ${colors[type]}"></i>
+              </div>
+              <h3 style="color: #2c3e50; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <i class="fas ${icons[type]}" style="color: ${colors[type]}"></i>
+                ${title}
+              </h3>
+              <div class="mobile-alert-message">${message.replace(/\n/g, '<br>')}</div>
+              <button class="mobile-alert-ok-btn" onclick="closeModal(this.closest('.mobile-alert-overlay'))">OK</button>
+            </div>
+          </div>
+        `;
+
+        document.body.appendChild(alertOverlay);
+        document.body.classList.add('modal-open');
+
+        if (type === 'success') {
+          setTimeout(() => {
+            if (alertOverlay.parentNode) closeModal(alertOverlay);
+          }, 5000);
+        }
+
+        alertOverlay.addEventListener('click', (e) => {
+          if (e.target === alertOverlay) {
+            closeModal(alertOverlay);
+          }
+        });
+      }
+
+      // Universal close modal function
+      function closeModal(modalOverlay) {
+        if (!modalOverlay || !modalOverlay.parentNode) return;
+
+        modalOverlay.style.animation = 'fadeOut 0.3s ease';
+
+        setTimeout(() => {
+          if (modalOverlay.parentNode) {
+            document.body.removeChild(modalOverlay);
+          }
+          // Remove modal-open class if no other modals are open
+          if (!document.querySelector('.confirmation-modal, .mobile-alert-overlay, .booking-modal, .submission-modal')) {
+            document.body.classList.remove('modal-open');
+          }
+        }, 300);
+      }
+
+      function closeAllModals() {
+        const modals = document.querySelectorAll('.confirmation-modal, .booking-modal, .submission-modal, .mobile-alert-overlay');
+        modals.forEach(modal => {
+          if (modal && modal.parentNode) {
+            closeModal(modal);
+          }
+        });
+      }
+
+      // Close modals on escape key
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          closeAllModals();
+        }
+      });
+
+      /* 10. CLOSE MENUS WHEN CLICKING OUTSIDE */
+      document.addEventListener('click', function (event) {
+        // Close nav menu
+        if (
+          navBurger &&
+          !navBurger.contains(event.target) &&
+          mainNav &&
+          !mainNav.contains(event.target)
+        ) {
+          navBurger.classList.remove("active");
+          mainNav.classList.remove("active");
+          document.body.classList.remove("nav-open");
+        }
+
+        // Close tab menu
+        if (
+          tabBurger &&
+          !tabBurger.contains(event.target) &&
+          tabsMenu &&
+          !tabsMenu.contains(event.target)
+        ) {
+          tabBurger.classList.remove("active");
+          tabsMenu.classList.remove("active");
+        }
+      });
+
+      /* 11. INITIALIZE EVERYTHING */
+      document.addEventListener("DOMContentLoaded", function () {
+        initializeCurrencyConverter();
+        updatePrice(0);
+        updatePriceCards('INR');
+      });
+
+      // Attach functions to window for global access
+      window.openTab = openTab;
+      window.toggleDay = toggleDay;
+      window.toggleAllDays = toggleAllDays;
+      window.changeImage = changeImage;
+      window.setImage = setImage;
+      window.updatePrice = updatePrice;
+      window.showBookingForm = showBookingForm;
+      window.showEnquiryModal = showEnquiryModal;
+      window.closeModal = closeModal;
+      window.closeAllModals = closeAllModals;
+      window.updateBookingFormPrice = updateBookingFormPrice;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Everest Base Camp Trek - Honest Travel Tours</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../../css/kailash.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="top-bar">
+        <div class="container">
+          <div class="contact-info">
+            <span>
+              📞
+              <a
+                href="https://wa.me/9779851140110"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="wa-link"
+                >+977-9851140110</a
+              >
+              ,
+              <a
+                href="https://wa.me/9779856017867"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="wa-link"
+                >9856017867</a
+              >
+            </span>
+            <span> ✉️ infohonesttoursntravels@gmail.com </span>
+          </div>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-main">
+        <div class="logo">
+          <div class="logo-icon">
+            <img src="../../images/Logo Image.png" alt="Honest Travel Logo" />
+          </div>
+          <div class="logo-text">
+            <h1>HONEST TRAVEL</h1>
+            <p>TOURS AND EXPEDITION</p>
+          </div>
+        </div>
+
+        <!-- Hamburger Menu Button -->
+        <button class="hamburger-menu" aria-label="Menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+
+        <nav class="main-nav">
+          <ul>
+            <li><a href="../../index.html">HOME</a></li>
+            <li><a href="../../index.html#tours">TOURS</a></li>
+            <li><a href="../../index.html#trekking">TREKKING</a></li>
+            <li><a href="../../index.html#contact">CONTACT US</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Photo Gallery Section -->
+    <div class="photo-gallery-section">
+      <div class="gallery-header">
+        <h1>Everest Base Camp Trek</h1>
+        <p>
+          Journey to the foot of the world's highest mountain. Experience the
+          legendary trails through the heart of the Khumbu region, home to the
+          legendary Sherpa people and breathtaking Himalayan vistas.
+        </p>
+      </div>
+
+      <!-- Main Featured Image with Carousel -->
+      <div class="main-image-container">
+        <img
+          src="../../images/Everest Base Camp.jpg"
+          class="main-image active-slide"
+          alt="Everest Base Camp"
+        />
+        <img
+          src="../../images/Everest Base Camp1.jpg"
+          class="main-image"
+          alt="Everest View from Kala Patthar"
+        />
+        <img
+          src="../../images/Everest Base Camp2.jpg"
+          class="main-image"
+          alt="Namche Bazaar"
+        />
+        <img
+          src="../../images/Everest Base Camp3.jpg"
+          class="main-image"
+          alt="Sagarmatha National Park"
+        />
+
+        <div class="gallery-nav">
+          <button class="nav-btn" onclick="changeSlide(-1)">‹</button>
+          <button class="nav-btn" onclick="changeSlide(1)">›</button>
+        </div>
+
+        <div class="gallery-indicators">
+          <div class="indicator active" onclick="goToSlide(0)"></div>
+          <div class="indicator" onclick="goToSlide(1)"></div>
+          <div class="indicator" onclick="goToSlide(2)"></div>
+          <div class="indicator" onclick="goToSlide(3)"></div>
+          <div class="indicator" onclick="goToSlide(4)"></div>
+        </div>
+      </div>
+
+      <!-- Image Grid -->
+      <div class="image-grid">
+        <div class="grid-item" onclick="goToSlide(0)">
+          <img
+            src="../../images/Everest Base Camp.jpg"
+            alt="Base Camp View"
+          />
+        </div>
+        <div class="grid-item" onclick="goToSlide(1)">
+          <img
+            src="../../images/Everest Base Camp1.jpg"
+            alt="Kala Patthar Sunrise"
+          />
+        </div>
+        <div class="grid-item" onclick="goToSlide(2)">
+          <img
+            src="../../images/Everest Base Camp2.jpg"
+            alt="Khumbu Icefall"
+          />
+        </div>
+        <div class="grid-item" onclick="goToSlide(3)">
+          <img
+            src="../../images/Everest Base Camp3.jpg"
+            alt="Sherpa Village"
+          />
+        </div>
+      </div>
+
+      <!-- Call to Action Section -->
+      <div class="cta-section">
+        <h2>Ready to Trek to the Roof of the World?</h2>
+        <p>
+          Choose from our carefully curated trekking packages designed to make
+          your Everest Base Camp journey safe, memorable, and truly extraordinary.
+        </p>
+        <a href="everest-packages.html" class="cta-button">
+          <i class="fas fa-mountain"></i> View Trek Packages
+        </a>
+      </div>
+    </div>
+
+    <!-- New Detailed Content Section -->
+    <div class="content-section">
+      <h2 class="section-title">The Ultimate Himalayan Adventure</h2>
+      <p class="intro-text">
+        The Everest Base Camp Trek is one of the world's most famous and
+        rewarding treks, taking you through the heart of the Khumbu region to
+        stand at the base of Mount Everest (8,848m/29,029ft). This legendary
+        journey offers not just stunning mountain scenery but also a deep
+        cultural immersion into Sherpa communities, ancient monasteries, and the
+        unique high-altitude ecosystem of Sagarmatha National Park.
+      </p>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-mountain"></i>
+          </div>
+          <h3>The Himalayan Panorama</h3>
+          <p>
+            Witness six of the world's ten highest peaks: Everest, Lhotse,
+            Makalu, Cho Oyu, Nuptse, and Ama Dablam. Each day brings new,
+            breathtaking views as you ascend through the world's most dramatic
+            mountain landscape.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Sherpa Culture</h3>
+          <p>
+            Experience the legendary hospitality of the Sherpa people, whose
+            mountaineering expertise is world-renowned. Visit ancient
+            monasteries, spin prayer wheels, and gain insight into Himalayan
+            Buddhism in its purest form.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-route"></i>
+          </div>
+          <h3>The Classic Route</h3>
+          <p>
+            The standard 12-day trek follows the historic route used by early
+            Everest expeditions. Starting with a thrilling flight to Lukla, you'll
+            follow the Dudh Koshi River valley, crossing high suspension bridges
+            adorned with prayer flags.
+          </p>
+        </div>
+      </div>
+
+      <div class="highlight-banner">
+        <h3><i class="fas fa-crown"></i> Why Everest Base Camp is Unique</h3>
+        <p>
+          Unlike any other trek, the Everest Base Camp journey takes you into
+          the heart of mountaineering history. You'll walk the same paths as
+          Hillary and Tenzing, stay in teahouses that have hosted legendary
+          climbers, and experience the unique energy of a place where human
+          ambition meets nature's ultimate challenge. The trek offers a perfect
+          balance of physical challenge, cultural immersion, and natural wonder.
+        </p>
+      </div>
+
+      <div class="facts-container">
+        <h2 class="section-title">Essential Trek Information</h2>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Best Seasons for Trekking</h4>
+            <p>
+              Pre-monsoon (March-May) offers clear skies and blooming
+              rhododendrons. Post-monsoon (October-November) provides stable
+              weather and excellent visibility. Winter (December-February) is
+              cold but less crowded, with possible flight delays. Monsoon season
+              (June-September) is generally avoided due to rain, leeches, and
+              cloud cover obscuring mountain views.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-hiking"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Physical Requirements</h4>
+            <p>
+              This is a moderate to challenging trek requiring good fitness
+              levels. Daily walking distances range from 5-8 hours over varied
+              terrain. Altitude is the main challenge, with Base Camp at 5,364m
+              (17,598ft). Pre-trek training should include cardiovascular
+              exercise, hiking with weight, and stair climbing. Mental
+              preparation is equally important for dealing with altitude and
+              basic mountain conditions.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-suitcase"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Permits and Logistics</h4>
+            <p>
+              Required permits include the Sagarmatha National Park Entry Permit
+              and the Khumbu Pasang Lhamu Rural Municipality Entry Permit. All
+              arrangements must be made through registered trekking companies in
+              Nepal. The trek includes flights from Kathmandu to Lukla, which
+              are weather-dependent. Porter services are highly recommended to
+              support local economy and ensure safe trekking.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-bed"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Accommodation and Meals</h4>
+            <p>
+              Stay in traditional teahouses - simple mountain lodges offering
+              basic rooms with twin beds. Hot showers and electricity (for
+              charging) are available at extra cost in lower villages. Meals are
+              hearty and energy-focused: dal bhat (rice and lentils), noodles,
+              soups, and Tibetan bread. Dietary requirements can be accommodated
+              with advance notice.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-first-aid"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Altitude and Health</h4>
+            <p>
+              Proper acclimatization is critical. The itinerary includes
+              rest/acclimatization days at Namche Bazaar and Dingboche. Guides
+              are trained in altitude sickness recognition and basic first aid.
+              Travel insurance covering emergency helicopter evacuation is
+              mandatory. Common medications for altitude, diarrhea, and
+              respiratory issues should be carried.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-dollar-sign"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Cost Considerations</h4>
+            <p>
+              Costs vary based on group size, season, and services included.
+              Budget should cover permits, flights, guide/porter services,
+              accommodation, meals, and insurance. Additional expenses include
+              equipment rental, tips for staff, souvenirs, and contingency funds
+              for extra days in case of flight delays. Booking with a reputable
+              company ensures proper support and safety measures.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-banner">
+        <h3><i class="fas fa-history"></i> Historical Significance</h3>
+        <p>
+          The Everest region has been at the center of mountaineering history
+          since the 1920s. You'll pass through villages that supplied early
+          expeditions, see memorials to fallen climbers, and learn about the
+          evolution of high-altitude climbing. The trek follows the approximate
+          route of the 1953 British expedition that first summited Everest.
+          Today, the region balances its mountaineering heritage with sustainable
+          tourism and conservation efforts.
+        </p>
+      </div>
+
+      <div class="info-grid" style="margin-top: 4rem">
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-camera"></i>
+          </div>
+          <h3>Photography Tips</h3>
+          <p>
+            Golden hours (sunrise/sunset) offer best lighting. Kala Patthar
+            provides iconic sunrise views of Everest. Carry extra batteries
+            (charging costs increase with altitude). Respect local privacy when
+            photographing people - always ask permission first.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3>Sustainable Trekking</h3>
+          <p>
+            Follow Leave No Trace principles. Use refillable water bottles with
+            purification tablets. Support local businesses by buying directly
+            from village shops. Respect cultural sites - walk clockwise around
+            stupas and chortens, remove shoes in monasteries.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-cloud-sun"></i>
+          </div>
+          <h3>Weather Realities</h3>
+          <p>
+            Mountain weather is unpredictable. Layers are essential - temperatures
+            range from 20°C in daytime to -10°C at night at higher elevations.
+            Afternoon clouds often obscure peaks. Be prepared for all conditions
+            including wind, cold, and potential snow at higher altitudes.
+          </p>
+        </div>
+      </div>
+
+      <div class="highlight-banner" style="margin-top: 4rem">
+        <h3><i class="fas fa-quote-left"></i> What Trekkers Say</h3>
+        <p>
+          "Standing at Everest Base Camp was one of the most humbling and
+          exhilarating experiences of my life. The combination of physical
+          challenge, stunning scenery, and warm Sherpa hospitality creates a
+          journey that stays with you forever. Each day brought new wonders -
+          from sunrise over Ama Dablam to the silent power of the Khumbu Icefall.
+          It's more than a trek; it's a pilgrimage for anyone who loves mountains."
+          - A sentiment echoed by thousands who complete this legendary journey.
+        </p>
+      </div>
+
+      <div class="facts-container" style="margin-top: 4rem">
+        <h2 class="section-title">Key Highlights Along the Route</h2>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-plane"></i>
+          </div>
+          <div class="fact-content">
+            <h4>The Lukla Flight</h4>
+            <p>
+              Your adventure begins with one of the world's most thrilling
+              flights. The 35-minute journey from Kathmandu to Lukla (2,860m)
+              offers breathtaking Himalayan views before landing on the
+              dramatically short, uphill runway of Tenzing-Hillary Airport.
+              This flight is an adventure in itself and sets the tone for the
+              expedition ahead.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-store"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Namche Bazaar</h4>
+            <p>
+              The bustling Sherpa capital at 3,440m, Namche is a vibrant hub
+              with shops, bakeries, and the Everest Photo Gallery. The
+              Saturday market draws traders from across the region. The
+              acclimatization hike to the Everest View Hotel offers your first
+              proper view of Everest. The Sherpa Museum provides excellent
+              cultural context for the journey ahead.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-pray"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Tengboche Monastery</h4>
+            <p>
+              At 3,867m, this is the spiritual heart of the Khumbu region.
+              The largest monastery in the area offers spectacular views of
+              Everest, Lhotse, and Ama Dablam. Visitors can observe morning
+              prayers with chanting monks and rhythmic instruments. The
+              monastery was rebuilt after a 1989 fire, with contributions from
+              Sir Edmund Hillary's foundation.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-snowflake"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Dingboche Acclimatization</h4>
+            <p>
+              At 4,410m, Dingboche is where most trekkers spend two nights
+              for proper acclimatization. The hike to Nangkartshang Peak
+              (5,100m) offers panoramic views of Makalu, Lhotse, and
+              Cho Oyu. This critical acclimatization day significantly
+              increases your chances of reaching Base Camp safely and
+              comfortably.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-mountain"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Kala Patthar</h4>
+            <p>
+              The 5,545m viewpoint above Gorak Shep offers the trek's most
+              spectacular panorama of Everest. Most trekkers make the pre-dawn
+              climb to witness sunrise illuminating the world's highest peak.
+              The view encompasses the entire Southwest Face of Everest, the
+              Khumbu Glacier, and surrounding 8,000m peaks. This is often
+              cited as the visual highlight of the entire trek.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-campground"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Everest Base Camp</h4>
+            <p>
+              Standing at 5,364m amidst the chaos of the Khumbu Icefall is a
+              moment of profound achievement. During climbing season
+              (April-May), the camp buzzes with expedition activity. You'll
+              see colorful tents of various teams, prayer flags, and the
+              infamous Khumbu Icefall - the most dangerous section of the
+              Everest climbing route. The sense of accomplishment here is
+              unparalleled.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-banner" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)">
+        <h3><i class="fas fa-award"></i> A Life-Changing Achievement</h3>
+        <p>
+          Completing the Everest Base Camp Trek is more than checking an item
+          off a bucket list. It's a transformative journey that tests your
+          limits, deepens your appreciation for mountain cultures, and leaves
+          you with a profound sense of accomplishment. You return not just
+          with photographs, but with stories, friendships, and a new
+          perspective on what's possible. The mountains change you in ways
+          you never expected, teaching resilience, humility, and the
+          interconnectedness of our world.
+        </p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Honest Travel</h3>
+          <p>
+            Your trusted partner for authentic Himalayan experiences. We
+            specialize in trekking, cultural tours, and pilgrimage journeys.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Kathmandu, Nepal</p>
+          <p>infohonesttoursntravels@gmail.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 HONEST TRAVEL Tours and Expedition. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile Navigation Toggle
+      const hamburgerMenu = document.querySelector(".hamburger-menu");
+      const mainNav = document.querySelector(".main-nav");
+      const body = document.body;
+
+      hamburgerMenu.addEventListener("click", (e) => {
+        e.stopPropagation();
+        mainNav.classList.toggle("active");
+        hamburgerMenu.classList.toggle("active");
+        body.classList.toggle("menu-open");
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (event) => {
+        if (
+          mainNav.classList.contains("active") &&
+          !hamburgerMenu.contains(event.target) &&
+          !mainNav.contains(event.target)
+        ) {
+          mainNav.classList.remove("active");
+          hamburgerMenu.classList.remove("active");
+          body.classList.remove("menu-open");
+        }
+      });
+
+      // Close menu when clicking on a link
+      const navLinks = document.querySelectorAll(".main-nav a");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mainNav.classList.remove("active");
+          hamburgerMenu.classList.remove("active");
+          body.classList.remove("menu-open");
+        });
+      });
+
+      // Carousel functionality
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".main-image");
+      const indicators = document.querySelectorAll(".indicator");
+
+      function showSlide(n) {
+        slides.forEach((slide) => slide.classList.remove("active-slide"));
+        indicators.forEach((dot) => dot.classList.remove("active"));
+
+        if (n >= slides.length) currentSlide = 0;
+        if (n < 0) currentSlide = slides.length - 1;
+
+        slides[currentSlide].classList.add("active-slide");
+        indicators[currentSlide].classList.add("active");
+      }
+
+      function changeSlide(direction) {
+        currentSlide += direction;
+        showSlide(currentSlide);
+      }
+
+      function goToSlide(n) {
+        currentSlide = n;
+        showSlide(currentSlide);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      // Auto-advance slides every 5 seconds
+      setInterval(() => {
+        currentSlide++;
+        showSlide(currentSlide);
+      }, 5000);
+
+      // Show first slide on load
+      showSlide(currentSlide);
+
+      // Close menu on escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && mainNav.classList.contains("active")) {
+          mainNav.classList.remove("active");
+          hamburgerMenu.classList.remove("active");
+          body.classList.remove("menu-open");
+        }
+      });
+    </script>
+  </body>
+</html>

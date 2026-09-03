@@ -1,0 +1,2623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nepal Short Honey Hunting Tour - Honest Travel Tours</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../../css/individual-packages.css" />
+
+  <!-- Add EmailJS script -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    (function () {
+      // Initialize EmailJS with your public key
+      emailjs.init("cjcB4sLQKii3OPWJ1");
+    })();
+  </script>
+
+  <style>
+    /* Currency Selector Styles */
+    .currency-selector-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 20px;
+    }
+
+    .currency-selector {
+      position: relative;
+      display: inline-block;
+    }
+
+    #selectedCurrency {
+      background: rgba(212, 160, 23, 0.1);
+      border: 1px solid #d4a017;
+      border-radius: 6px;
+      padding: 8px 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      color: #d4a017;
+      transition: all 0.3s ease;
+    }
+
+    #selectedCurrency:hover {
+      background: rgba(212, 160, 23, 0.2);
+    }
+
+    #selectedCurrency i {
+      font-size: 0.8rem;
+      transition: transform 0.3s ease;
+    }
+
+    .currency-selector.active #selectedCurrency i {
+      transform: rotate(180deg);
+    }
+
+    .currency-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      min-width: 120px;
+      margin-top: 5px;
+      display: none;
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    .currency-selector.active .currency-dropdown {
+      display: block;
+    }
+
+    .currency-option {
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #333;
+    }
+
+    .currency-option:hover {
+      background: #f5f5f5;
+      color: #d4a017;
+    }
+
+    .currency-option.active {
+      background: #d4a017;
+      color: white;
+    }
+
+    .currency-option i {
+      width: 20px;
+      font-size: 0.9rem;
+    }
+
+    /* Price grid styles for group pricing */
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .price-card {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .price-card .group-size {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-card .price-main {
+      font-size: 1.8rem;
+      color: #28a745;
+      font-weight: 700;
+    }
+
+    .price-card .price-alt {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 0.3rem;
+    }
+
+    /* Additional styles for honey hunting tour */
+    .highlight-box.honey {
+      border-left: 4px solid #d4a017;
+    }
+
+    .honey-color {
+      color: #d4a017;
+    }
+
+    .day-altitude.honey-badge {
+      background: linear-gradient(135deg, #ffd700, #d4a017);
+      color: white;
+    }
+
+    /* Modal Styles */
+    .confirmation-modal,
+    .booking-modal,
+    .submission-modal,
+    .mobile-alert-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .confirmation-modal>div,
+    .booking-modal>div,
+    .submission-modal>div,
+    .mobile-alert-overlay>div {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      animation: slideIn 0.3s ease;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .booking-modal>div {
+      max-width: 600px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+
+      to {
+        opacity: 0;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes checkmark {
+      0% {
+        transform: scale(0);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .close-modal,
+    .close-submission-modal {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: #666;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .close-modal:hover,
+    .close-submission-modal:hover {
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    .modal-open {
+      overflow: hidden;
+    }
+
+    .choice-options {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .choice-btn {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      background: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: left;
+      width: 100%;
+    }
+
+    .choice-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .whatsapp-choice:hover {
+      border-color: #25D366;
+      background: rgba(37, 211, 102, 0.05);
+    }
+
+    .email-choice:hover {
+      border-color: #5865F2;
+      background: rgba(88, 101, 242, 0.05);
+    }
+
+    .choice-btn i {
+      font-size: 2.5rem;
+      min-width: 40px;
+    }
+
+    .whatsapp-choice i {
+      color: #25D366;
+    }
+
+    .email-choice i {
+      color: #5865F2;
+    }
+
+    .choice-btn-content {
+      flex: 1;
+    }
+
+    .choice-btn-content span {
+      display: block;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 5px;
+      font-size: 1.1rem;
+    }
+
+    .choice-btn-content small {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .confirm-book-btn:hover {
+      background: linear-gradient(135deg, #c49a1c 0%, #a67c0f 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(212, 160, 23, 0.3);
+    }
+
+    .cancel-choice:hover {
+      background: #e0e0e0;
+    }
+
+    /* Mobile Alert Styles */
+    .mobile-alert {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .mobile-alert-icon {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .mobile-alert.success .mobile-alert-icon {
+      color: #28a745;
+    }
+
+    .mobile-alert.warning .mobile-alert-icon {
+      color: #ff9800;
+    }
+
+    .mobile-alert.error .mobile-alert-icon {
+      color: #dc3545;
+    }
+
+    .mobile-alert.info .mobile-alert-icon {
+      color: #d4a017;
+    }
+
+    .mobile-alert h3 {
+      color: #2c3e50;
+      margin: 0 0 1.5rem 0;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .mobile-alert-message {
+      color: #666;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .mobile-alert-ok-btn {
+      background: #d4a017;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .mobile-alert-ok-btn:hover {
+      background: #b8860b;
+      transform: translateY(-2px);
+    }
+
+    .success-checkmark {
+      animation: checkmark 0.5s ease;
+    }
+
+    /* Confirmation modal styles */
+    .confirmation-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .confirm-book-btn {
+      background: linear-gradient(135deg, #d4a017 0%, #b8860b 100%);
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      flex: 1;
+      transition: all 0.3s ease;
+    }
+
+    .confirm-book-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(212, 160, 23, 0.3);
+    }
+
+    .cancel-choice {
+      padding: 10px 20px;
+      background: #f5f5f5;
+      border: none;
+      border-radius: 6px;
+      color: #666;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      flex: 1;
+    }
+
+    .cancel-choice:hover {
+      background: #e0e0e0;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+
+      .confirmation-modal>div,
+      .booking-modal>div,
+      .submission-modal>div {
+        padding: 1.5rem;
+        margin: 10px;
+      }
+
+      .choice-btn {
+        padding: 15px;
+      }
+
+      .choice-btn i {
+        font-size: 2rem;
+      }
+
+      .booking-modal>div {
+        max-height: 85vh;
+      }
+
+      .currency-selector-container {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+      }
+
+      .currency-selector {
+        width: 100%;
+      }
+
+      #selectedCurrency {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .currency-dropdown {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .confirmation-buttons {
+        flex-direction: column;
+      }
+
+      .choice-btn {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+
+      .choice-btn-content small {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="top-bar">
+      <div class="container">
+        <div class="contact-info">
+          <span>
+            📞
+            <a href="https://wa.me/9779851140110" target="_blank" rel="noopener noreferrer"
+              class="wa-link">+977-9851140110</a>
+            ,
+            <a href="https://wa.me/9779856017867" target="_blank" rel="noopener noreferrer"
+              class="wa-link">9856017867</a>
+          </span>
+          <span>✉️ infohonesttoursntravels@gmail.com</span>
+        </div>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="logo">
+        <div class="logo-icon">
+          <img src="../../images/Logo Image.png" alt="Honest Travel Logo" />
+        </div>
+        <div class="logo-text">
+          <h1>HONEST TRAVEL</h1>
+          <p>TOURS AND EXPEDITION</p>
+        </div>
+      </div>
+
+      <!-- Burger Menu Button for Navigation -->
+      <button class="burger-menu" id="navBurger" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="mainNav">
+        <ul>
+          <li><a href="../../index.html">HOME</a></li>
+          <li><a href="../../index.html#tours">TOURS</a></li>
+          <li><a href="../../index.html#trekking">TREKKING</a></li>
+          <li><a href="../../index.html#contact">CONTACT US</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Tour Detail Section -->
+  <div class="tour-detail">
+    <div class="tour-header">
+      <h1 class="tour-title">Nepal Short Honey Hunting Adventure</h1>
+      <p class="tour-subtitle">3 Nights 4 Days</p>
+    </div>
+
+    <div class="tour-content-wrapper">
+      <!-- LEFT COLUMN -->
+      <div>
+        <!-- Image Gallery -->
+        <div class="image-gallery">
+          <img src="../../images/honey-hunting.webp" class="gallery-image active" alt="Traditional Honey Hunting" />
+          <img src="../../images/honey-hunting1.jpeg" class="gallery-image" alt="Honey Hunter on Cliff" />
+          <img src="../../images/honey-hunting2.png" class="gallery-image" alt="Collecting Honeycombs" />
+          <img src="../../images/honey-hunting3.png" class="gallery-image" alt="Honey Harvest Celebration" />
+
+          <div class="gallery-nav">
+            <button class="nav-btn" onclick="changeImage(-1)">‹</button>
+            <button class="nav-btn" onclick="changeImage(1)">›</button>
+          </div>
+          <div class="gallery-indicators">
+            <div class="indicator active" onclick="setImage(0)"></div>
+            <div class="indicator" onclick="setImage(1)"></div>
+            <div class="indicator" onclick="setImage(2)"></div>
+            <div class="indicator" onclick="setImage(3)"></div>
+          </div>
+        </div>
+
+        <!-- Tour Information Tabs -->
+        <div class="tour-info">
+          <!-- Mobile Tab Burger Menu -->
+          <div class="tab-burger-wrapper">
+            <button class="tab-burger-menu" id="tabBurger" aria-label="Toggle tabs menu">
+              <i class="fas fa-bars"></i>
+              <span id="currentTabName">Overview</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+
+          <div class="info-tabs" id="tabsMenu">
+            <button class="tab active" onclick="openTab('overview')">
+              Overview
+            </button>
+            <button class="tab" onclick="openTab('itinerary')">
+              Itinerary
+            </button>
+            <button class="tab" onclick="openTab('costdates')">Cost</button>
+            <button class="tab" onclick="openTab('included')">
+              Included
+            </button>
+            <button class="tab" onclick="openTab('terms')">
+              Terms & Conditions
+            </button>
+            <button class="tab" onclick="openTab('experience')">
+              Videos & Map
+            </button>
+          </div>
+
+          <!-- OVERVIEW -->
+          <div id="overview" class="tab-content active">
+            <div class="info-section">
+              <h3>Tour Overview</h3>
+              <p>
+                Embark on a thrilling 4-day adventure to witness the ancient
+                tradition of honey hunting in the rugged cliffs of Lamjung,
+                Nepal. This unique tour offers an authentic cultural
+                experience where you'll observe and learn about the
+                centuries-old practice of harvesting wild honey from Himalayan
+                giant bees.
+              </p>
+
+              <div class="highlight-box honey">
+                <h4 class="honey-color" style="margin-bottom: 1rem">
+                  Key Highlights
+                </h4>
+                <ul class="info-list">
+                  <li>
+                    <strong>Authentic Honey Hunting:</strong> Witness
+                    traditional cliff honey hunting by local Gurung
+                    communities
+                  </li>
+                  <li>
+                    <strong>Cultural Immersion:</strong> Stay in local
+                    homestays and experience authentic Nepali village life
+                  </li>
+                  <li>
+                    <strong>Scenic Journey:</strong> Beautiful drive through
+                    the Annapurna foothills with stunning mountain views
+                  </li>
+                  <li>
+                    <strong>Local Community:</strong> Support sustainable
+                    tourism that benefits local honey hunting communities
+                  </li>
+                  <li>
+                    <strong>Wild Honey Tasting:</strong> Sample fresh, organic
+                    honey directly from the cliffs
+                  </li>
+                  <li>
+                    <strong>Short & Focused:</strong> Perfect 4-day adventure
+                    for those with limited time
+                  </li>
+                </ul>
+              </div>
+
+              <h3>Trip Facts</h3>
+              <ul class="info-list">
+                <li><strong>Duration:</strong> 3 Nights 4 Days</li>
+                <li><strong>Starting Point:</strong> Kathmandu, Nepal</li>
+                <li>
+                  <strong>Transportation:</strong> Private Vehicle + 4WD Jeep
+                </li>
+                <li>
+                  <strong>Maximum Altitude:</strong> 1,800m (Ghanpokhara)
+                </li>
+                <li><strong>Difficulty:</strong> Easy to Moderate</li>
+                <li>
+                  <strong>Best Season:</strong> April-June &
+                  September-November
+                </li>
+                <li><strong>Group Size:</strong> 2-12 people per group</li>
+                <li>
+                  <strong>Accommodation:</strong> Local lodges & homestays
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- ITINERARY -->
+          <div id="itinerary" class="tab-content">
+            <div class="info-section">
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 1.5rem;
+                    flex-wrap: wrap;
+                    gap: 1rem;
+                  ">
+                <h3 style="
+                      margin: 0;
+                      color: #00b386;
+                      text-transform: uppercase;
+                      font-size: 1.2rem;
+                    ">
+                  Detailed Itinerary
+                </h3>
+                <button onclick="toggleAllDays(this)" style="
+                      background: none;
+                      border: 1px solid #00b386;
+                      color: #00b386;
+                      padding: 0.5rem 1rem;
+                      border-radius: 4px;
+                      cursor: pointer;
+                      font-size: 0.9rem;
+                    ">
+                  Expand All
+                </button>
+              </div>
+
+              <!-- Day 1 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 1</span>
+                    <span class="day-title">KATHMANDU TO LAMJUNG • GHANPOKHARA</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 1,800m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Scenic Drive to Lamjung:</strong> Depart from
+                    Kathmandu early morning for a picturesque 5-6 hour drive
+                    through the beautiful Nepalese countryside. The journey
+                    offers stunning views of terraced fields, traditional
+                    villages, and distant Himalayan peaks. Upon reaching Besi
+                    Sahar, transfer to a 4WD vehicle for the final leg to
+                    Ghanpokhara village.
+                  </p>
+                  <p>
+                    Arrive at Ghanpokhara and check into your local
+                    homestay/lodge. Meet your local honey hunting guide and
+                    participate in a brief orientation about the traditional
+                    honey hunting practices. Enjoy an authentic Nepali dinner
+                    with your host family and learn about local culture and
+                    traditions.
+                  </p>
+                  <p><strong>Meals:</strong> Lunch and Dinner Included</p>
+                  <p>
+                    <strong>Accommodation:</strong> Local homestay/lodge in
+                    Ghanpokhara
+                  </p>
+                  <p><strong>Drive Duration:</strong> 5-6 hours</p>
+                </div>
+              </div>
+
+              <!-- Day 2 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 2</span>
+                    <span class="day-title">HONEY HUNTING PREPARATION DAY</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Preparation & Rituals:</strong> After breakfast,
+                    join the local honey hunters for preparation rituals and
+                    ceremonies. Learn about the spiritual aspects of honey
+                    hunting, which includes prayers and offerings to the cliff
+                    gods for a safe and successful harvest.
+                  </p>
+                  <p>
+                    Observe the preparation of traditional tools: bamboo
+                    ladders, handmade ropes, bamboo baskets (doko), and
+                    smoking torches. Participate in a hands-on session where
+                    you'll learn how to make the smoking torches from specific
+                    local plants that calm the bees without harming them.
+                  </p>
+                  <p>
+                    Afternoon visit to the hunting site to assess conditions
+                    and finalize the plan for tomorrow's harvest. Evening
+                    cultural program with local community members sharing
+                    stories and songs about honey hunting traditions.
+                  </p>
+                  <p>
+                    <strong>Meals:</strong> Breakfast, Lunch, and Dinner
+                    Included
+                  </p>
+                  <p>
+                    <strong>Activities:</strong> 4-5 hours of preparation and
+                    learning
+                  </p>
+                </div>
+              </div>
+
+              <!-- Day 3 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 3</span>
+                    <span class="day-title">HONEY HUNTING DAY • MAIN HARVEST</span>
+                    <span class="day-altitude honey-badge"><i class="fas fa-bee"></i> Cliff Site</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>The Main Event:</strong> Start early after
+                    breakfast and hike to the honey hunting cliffs
+                    (approximately 1-2 hours). Witness the breathtaking
+                    spectacle of traditional honey hunting as experienced
+                    hunters descend steep cliffs using handmade bamboo ladders
+                    and ropes.
+                  </p>
+                  <p>
+                    Observe the entire process: smoke preparation, ladder
+                    setup, cliff descent, honeycomb cutting, and basket
+                    collection. You'll have a safe viewing platform to watch
+                    the action up close while professional photographers
+                    capture the moments. After the harvest, participate in the
+                    initial processing and enjoy the first tasting of fresh
+                    wild honey.
+                  </p>
+                  <p>
+                    Return to the village for a celebration feast featuring
+                    local delicacies prepared with the freshly harvested
+                    honey. Evening cultural exchange with honey hunters and
+                    opportunity to purchase pure wild honey directly from the
+                    producers.
+                  </p>
+                  <p>
+                    <strong>Meals:</strong> Breakfast, Lunch, and Dinner
+                    Included
+                  </p>
+                  <p>
+                    <strong>Hiking Duration:</strong> 2-3 hours round trip
+                  </p>
+                  <p><strong>Honey Hunting:</strong> 4-5 hours observation</p>
+                </div>
+              </div>
+
+              <!-- Day 4 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 4</span>
+                    <span class="day-title">RETURN TO KATHMANDU</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Morning in the Village:</strong> Enjoy a leisurely
+                    breakfast with your host family. Take a final walk through
+                    Ghanpokhara village, visit local homes, and learn about
+                    other traditional practices. Participate in a short
+                    farewell ceremony with the community.
+                  </p>
+                  <p>
+                    After lunch, begin your journey back to Kathmandu via 4WD
+                    to Besi Sahar and then private vehicle to the capital.
+                    Arrive in Kathmandu by late afternoon/ evening. Transfer to
+                    your hotel or airport for onward journey, carrying with
+                    you unforgettable memories of this unique cultural
+                    adventure.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast and Lunch Included</p>
+                  <p><strong>Drive Duration:</strong> 5-6 hours</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COST & DATES - WITH GROUP PRICING AND CURRENCY CONVERTER -->
+          <div id="costdates" class="tab-content">
+            <div class="info-section">
+              <h3>Package Pricing (Per Person)</h3>
+              <div class="highlight-box" style="
+                    background: linear-gradient(
+                      135deg,
+                      #fff8e1 0%,
+                      #ffefb3 100%
+                    );
+                  ">
+                <div style="text-align: center; padding: 1.5rem;">
+                  <h4 style="color: #d4a017; margin-bottom: 1.5rem;">
+                    Group Pricing with Discounts
+                  </h4>
+
+                  <div class="price-grid">
+                    <div class="price-card">
+                      <div class="group-size">1-3 People</div>
+                      <div class="price-main" id="price13main">₹95,000</div>
+                    </div>
+
+                    <div class="price-card">
+                      <div class="group-size">4-6 People</div>
+                      <div class="price-main" id="price46main">₹91,875</div>
+                    </div>
+
+                    <div class="price-card">
+                      <div class="group-size">7+ People</div>
+                      <div class="price-main" id="price7plusmain">₹88,750</div>
+                    </div>
+                  </div>
+
+                  <div style="
+                        margin: 1.5rem 0;
+                        padding: 1rem;
+                        background: white;
+                        border-radius: 8px;
+                        display: inline-block;
+                      ">
+                    <div style="
+                          font-size: 1.2rem;
+                          color: #d4a017;
+                          font-weight: 600;
+                        " id="priceRange">
+                      USD 840 - 900 (Approx)
+                    </div>
+                    <div style="font-size: 0.9rem; color: #666;">
+                      For International Travelers
+                    </div>
+                  </div>
+
+                  <div style="font-size: 0.9rem; color: #28a745; margin-top: 0.5rem;">
+                    <i class="fas fa-tag"></i> Discount applied: ₹3,125 off for 4-6 people, ₹6,250 off for 7+ people
+                  </div>
+                </div>
+              </div>
+
+              <h3 style="margin-top: 2rem">What Makes This Tour Special</h3>
+              <ul class="info-list">
+                <li>
+                  Authentic cultural immersion with local Gurung community
+                </li>
+                <li>
+                  Direct observation of ancient honey hunting traditions
+                </li>
+                <li>
+                  All necessary permits and honey hunting royalty fees
+                  included
+                </li>
+                <li>Experienced English-speaking local guides</li>
+                <li>Small group size for personalized experience</li>
+                <li>
+                  Direct contribution to local community sustainable tourism
+                </li>
+                <li>Fresh wild honey tasting directly from source</li>
+              </ul>
+
+              <div style="
+                    margin-top: 2rem;
+                    padding: 1.5rem;
+                    background: #f8f9fa;
+                    border-radius: 8px;
+                  ">
+                <h4 class="honey-color">Seasonal Note</h4>
+                <p>
+                  Honey hunting seasons vary based on bee cycles and weather
+                  conditions. The main harvesting seasons are:
+                </p>
+                <ul>
+                  <li>
+                    <strong>Spring Season:</strong> April-May (Smaller
+                    harvest)
+                  </li>
+                  <li>
+                    <strong>Main Season:</strong> September-November (Major
+                    harvest)
+                  </li>
+                </ul>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem">
+                  <i class="fas fa-info-circle"></i> Exact dates depend on
+                  local community decisions and natural conditions.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- INCLUDED -->
+          <div id="included" class="tab-content">
+            <div class="info-section">
+              <h3>What's Included</h3>
+              <ul class="info-list">
+                <li>
+                  Private transportation from Kathmandu to Lamjung and return
+                </li>
+                <li>
+                  4WD Jeep transfers from Besi Sahar to honey hunting site
+                </li>
+                <li>
+                  3 nights accommodation in local lodges/homestays (twin
+                  sharing)
+                </li>
+                <li>Daily breakfast throughout the trip</li>
+                <li>All meals as mentioned in itinerary (lunch & dinner)</li>
+                <li>Annapurna Conservation Area Permit (ACAP)</li>
+                <li>Honey hunting site royalty fee</li>
+                <li>Experienced English-speaking local guide</li>
+                <li>All government and local taxes</li>
+                <li>Guide's salary, food, and accommodation</li>
+                <li>Well-equipped medical kit carried by guide</li>
+                <li>
+                  Emergency helicopter service arrangement (insurance covered)
+                </li>
+              </ul>
+
+              <h3 style="margin-top: 2rem">What's Not Included</h3>
+              <ul class="info-list" style="color: #999">
+                <li>Personal expenses and beverages</li>
+                <li>Travel health insurance (highly recommended)</li>
+                <li>Tips for guide and driver (optional but appreciated)</li>
+                <li>Any expenses not mentioned in included section</li>
+                <li>Additional activities not specified in itinerary</li>
+                <li>Personal shopping and souvenirs</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- TERMS -->
+          <div id="terms" class="tab-content">
+            <div class="info-section">
+              <h3>Terms & Conditions</h3>
+              <div style="
+                    background: #f8f9fa;
+                    padding: 1.5rem;
+                    border-radius: 8px;
+                    border-left: 4px solid #d4a017;
+                  ">
+                <ul class="info-list" style="list-style-type: none; padding-left: 0">
+                  <li style="margin-bottom: 1rem">
+                    <strong>Booking:</strong> 30% deposit required to confirm
+                    booking
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Balance Payment:</strong> Full payment 15 days
+                    before tour start
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Health Requirement:</strong> Moderate fitness
+                    level required for hiking
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Insurance:</strong> Travel insurance with
+                    emergency evacuation recommended
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Weather Conditions:</strong> Itinerary may adjust
+                    based on weather and honey availability
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Cancellation:</strong> 20% fee if cancelled 30
+                    days prior; 50% fee if 15 days prior; No refund within 7
+                    days
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Safety:</strong> Honey hunting observation from
+                    designated safe viewing areas only
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Responsible Tourism:</strong> Participants must
+                    follow guide instructions and respect local customs
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- THE HONEY HUNTING EXPERIENCE -->
+          <div id="experience" class="tab-content">
+            <div class="info-section">
+              <h3>The Honey Hunting Experience</h3>
+              <p>
+                Discover the ancient tradition of harvesting honey from the
+                world's largest honeybees in the cliffs of the Himalayas.
+              </p>
+
+              <!-- Video Section -->
+              <div class="video-section" style="margin-bottom: 2rem">
+                <h4 class="honey-color" style="margin-bottom: 1rem">
+                  <i class="fas fa-video"></i> Traditional Honey Hunting in
+                  Nepal
+                </h4>
+                <div class="video-container">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/Jy5HMecedLQ?si=WmIZLxyYqBDTIRcf"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666">
+                  <i class="fas fa-info-circle"></i> Watch the breathtaking
+                  tradition of Nepali honey hunters harvesting honey from
+                  dangerous cliffs.
+                </p>
+              </div>
+
+              <!-- Map Section -->
+              <div class="map-section">
+                <h4 class="honey-color" style="margin-bottom: 1rem">
+                  <i class="fas fa-map-marked-alt"></i> Honey Hunting Region
+                  Map
+                </h4>
+                <div class="map-container">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5652059.436856057!2d82.27938986578811!3d28.293506297493486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3995e8c77d2e68cf%3A0x34a29abcd0cc86de!2sGhanpokhara!5e0!3m2!1sen!2snp!4v1710000000000!5m2!1sen!2snp"
+                    width="100%" height="400" style="
+                        border: 0;
+                        border-radius: 12px;
+                        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                      " allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    title="Honey Hunting Region Map"></iframe>
+                </div>
+                <div style="
+                      margin-top: 1rem;
+                      display: flex;
+                      flex-wrap: wrap;
+                      gap: 1rem;
+                    ">
+                  <div style="flex: 1; min-width: 200px">
+                    <h5 style="color: #333; margin-bottom: 0.5rem">
+                      <i class="fas fa-route" style="color: #28a745"></i>
+                      Journey Route
+                    </h5>
+                    <ul style="
+                          list-style-type: none;
+                          padding-left: 0;
+                          font-size: 0.9rem;
+                        ">
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Kathmandu:</strong> Starting point
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Besi Sahar:</strong> Lamjung district HQ
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Ghanpokhara:</strong> Base village
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Honey Cliffs:</strong> Hunting sites
+                      </li>
+                    </ul>
+                  </div>
+                  <div style="flex: 1; min-width: 200px">
+                    <h5 style="color: #333; margin-bottom: 0.5rem">
+                      <i class="fas fa-mountain" style="color: #dc3545"></i>
+                      Region Highlights
+                    </h5>
+                    <ul style="
+                          list-style-type: none;
+                          padding-left: 0;
+                          font-size: 0.9rem;
+                        ">
+                      <li style="margin-bottom: 0.3rem">
+                        Annapurna foothills
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        Traditional Gurung villages
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        River valleys and forests
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        Scenic mountain views
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Cultural Information -->
+              <div style="
+                    background: linear-gradient(
+                      135deg,
+                      #fff8e6 0%,
+                      #fff5d9 100%
+                    );
+                    padding: 1.5rem;
+                    border-radius: 12px;
+                    margin-top: 2rem;
+                    border: 1px solid rgba(212, 160, 23, 0.2);
+                  ">
+                <h4 class="honey-color" style="margin-bottom: 1rem">
+                  <i class="fas fa-users"></i> Cultural Significance
+                </h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 1.5rem">
+                  <div style="flex: 1; min-width: 250px">
+                    <h5 style="
+                          color: #333;
+                          margin-bottom: 0.5rem;
+                          font-size: 0.95rem;
+                        ">
+                      <i class="fas fa-history" style="color: #d4a017"></i>
+                      Ancient Tradition
+                    </h5>
+                    <p style="font-size: 0.9rem; color: #555">
+                      Honey hunting in Nepal dates back thousands of years,
+                      with skills passed down through generations of Gurung
+                      communities. The practice is deeply spiritual, involving
+                      rituals and prayers to mountain gods for protection.
+                    </p>
+                  </div>
+                  <div style="flex: 1; min-width: 250px">
+                    <h5 style="
+                          color: #333;
+                          margin-bottom: 0.5rem;
+                          font-size: 0.95rem;
+                        ">
+                      <i class="fas fa-leaf" style="color: #28a745"></i>
+                      Sustainable Practice
+                    </h5>
+                    <p style="font-size: 0.9rem; color: #555">
+                      Modern honey hunting focuses on sustainability. Hunters
+                      leave enough honey for bee colonies to survive, use
+                      smoke instead of chemicals, and follow traditional
+                      methods that minimize environmental impact.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Honey Benefits -->
+              <div style="
+                    background: linear-gradient(
+                      135deg,
+                      #f8f9ff 0%,
+                      #f0f2ff 100%
+                    );
+                    padding: 1.5rem;
+                    border-radius: 12px;
+                    margin-top: 2rem;
+                    border: 1px solid rgba(88, 101, 242, 0.1);
+                  ">
+                <h4 style="color: #5865f2; margin-bottom: 1rem">
+                  <i class="fas fa-heart"></i> Wild Honey Benefits
+                </h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 1.5rem">
+                  <div style="flex: 1; min-width: 200px">
+                    <h5 style="
+                          color: #333;
+                          margin-bottom: 0.5rem;
+                          font-size: 0.95rem;
+                        ">
+                      <i class="fas fa-prescription-bottle" style="color: #dc3545"></i>
+                      Medicinal Properties
+                    </h5>
+                    <ul style="
+                          list-style-type: none;
+                          padding-left: 0;
+                          font-size: 0.9rem;
+                        ">
+                      <li style="margin-bottom: 0.5rem; color: #555">
+                        • Natural antibacterial and antifungal
+                      </li>
+                      <li style="margin-bottom: 0.5rem; color: #555">
+                        • Rich in antioxidants
+                      </li>
+                      <li style="margin-bottom: 0.5rem; color: #555">
+                        • Soothes sore throats
+                      </li>
+                      <li style="color: #555">• Energy booster</li>
+                    </ul>
+                  </div>
+                  <div style="flex: 1; min-width: 200px">
+                    <h5 style="
+                          color: #333;
+                          margin-bottom: 0.5rem;
+                          font-size: 0.95rem;
+                        ">
+                      <i class="fas fa-seedling" style="color: #28a745"></i>
+                      Natural & Pure
+                    </h5>
+                    <ul style="
+                          list-style-type: none;
+                          padding-left: 0;
+                          font-size: 0.9rem;
+                        ">
+                      <li style="margin-bottom: 0.5rem; color: #555">
+                        • From wild Himalayan forests
+                      </li>
+                      <li style="margin-bottom: 0.5rem; color: #555">
+                        • No artificial processing
+                      </li>
+                      <li style="margin-bottom: 0.5rem; color: #555">
+                        • Unique floral sources
+                      </li>
+                      <li style="color: #555">• Chemical-free harvest</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Preparation Tips -->
+              <div style="
+                    background: linear-gradient(
+                      135deg,
+                      #e8f5e9 0%,
+                      #c8e6c9 100%
+                    );
+                    padding: 1.5rem;
+                    border-radius: 12px;
+                    margin-top: 2rem;
+                    border: 1px solid rgba(76, 175, 80, 0.2);
+                  ">
+                <h4 style="color: #2e7d32; margin-bottom: 1rem">
+                  <i class="fas fa-hiking"></i> Preparation Tips
+                </h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 1.5rem">
+                  <div style="flex: 1; min-width: 200px">
+                    <h5 style="
+                          color: #2e7d32;
+                          margin-bottom: 0.5rem;
+                          font-size: 0.95rem;
+                        ">
+                      <i class="fas fa-suitcase" style="color: #2e7d32"></i>
+                      What to Pack
+                    </h5>
+                    <ul style="
+                          list-style-type: none;
+                          padding-left: 0;
+                          font-size: 0.9rem;
+                        ">
+                      <li style="margin-bottom: 0.5rem; color: #555">
+                        • Comfortable hiking shoes
+                      </li>
+                      <li style="margin-bottom: 0.5rem; color: #555">
+                        • Lightweight clothing (layers)
+                      </li>
+                      <li style="margin-bottom: 0.5rem; color: #555">
+                        • Rain jacket (seasonal)
+                      </li>
+                      <li style="margin-bottom: 0.5rem; color: #555">
+                        • Daypack for essentials
+                      </li>
+                      <li style="color: #555">
+                        • Camera with extra batteries
+                      </li>
+                    </ul>
+                  </div>
+                  <div style="flex: 1; min-width: 200px">
+                    <h5 style="
+                          color: #2e7d32;
+                          margin-bottom: 0.5rem;
+                          font-size: 0.95rem;
+                        ">
+                      <i class="fas fa-user-md" style="color: #d32f2f"></i>
+                      Health & Safety
+                    </h5>
+                    <ul style="
+                          list-style-type: none;
+                          padding-left: 0;
+                          font-size: 0.9rem;
+                        ">
+                      <li style="margin-bottom: 0.5rem; color: #555">
+                        • Moderate fitness required
+                      </li>
+                      <li style="margin-bottom: 0.5rem; color: #555">
+                        • Bee sting allergy medication if needed
+                      </li>
+                      <li style="margin-bottom: 0.5rem; color: #555">
+                        • Stay in designated safe areas
+                      </li>
+                      <li style="color: #555">• Follow guide instructions</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: Booking Card with Dynamic Pricing -->
+      <div>
+        <div class="booking-card">
+          <div class="price-section">
+            <div class="price-icon"><i class="fas fa-bee"></i></div>
+            <div class="price-info">
+              <div class="price-label">Starting from</div>
+              <div><span class="price" id="mainPriceDisplay">₹88,750</span></div>
+              <div style="font-size: 0.8rem; color: #666; margin-top: 0.3rem" id="groupSizeLabel">
+                (7+ people)
+              </div>
+              <div style="font-size: 0.8rem; color: #666; margin-top: 0.3rem" id="alternatePriceRow">
+                <span id="alternatePriceLabel">USD</span> <span id="alternatePrice">840</span>
+              </div>
+            </div>
+            <!-- Currency Selector -->
+            <div class="currency-selector-container">
+              <div class="currency-selector">
+                <div id="selectedCurrency">
+                  <span>INR</span>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="currency-dropdown">
+                  <div class="currency-option active" data-currency="INR"> INR (₹)</div>
+                  <div class="currency-option" data-currency="USD"> USD ($)</div>
+                  <div class="currency-option" data-currency="NPR"> NPR (रु)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="quantity-section">
+            <div class="quantity-controls">
+              <button class="qty-btn" onclick="updatePrice(-1)">-</button>
+              <div class="qty-display" id="qtyDisplay">1</div>
+              <button class="qty-btn" onclick="updatePrice(1)">+</button>
+            </div>
+          </div>
+
+          <div class="price-breakdown">
+            <div class="price-row">
+              <span>Base Price (Per Person)</span>
+              <span><span id="baseCurrency">INR</span> <span id="basePrice">88,750</span></span>
+            </div>
+            <div class="price-row total">
+              <span>Total</span>
+              <span><span id="totalCurrency">INR</span> <span id="totalPrice">88,750</span></span>
+            </div>
+          </div>
+
+          <button class="booking-btn btn-instant" onclick="showBookingForm()">Book Now</button>
+          <button class="booking-btn btn-customize" onclick="showEnquiryModal()">
+            Send Enquiry
+          </button>
+
+          <div class="contact-section">
+            <div style="font-size: 2.5rem; margin-bottom: 0.5rem">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <h3>Need Help?</h3>
+            <div class="phone-numbers">
+              <a href="https://wa.me/9779851140110" target="_blank" rel="noopener noreferrer" style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    font-size: 1.2rem;
+                  ">
+                +977-9851140110
+              </a>
+              <a href="https://wa.me/9779856017867" target="_blank" rel="noopener noreferrer" style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    font-size: 1.2rem;
+                  ">
+                +977-9856017867
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About Honest Travel</h3>
+        <p>
+          Your trusted partner for authentic Himalayan experiences and
+          cultural adventures.
+        </p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>Kathmandu, Nepal</p>
+        <p> infohonesttoursntravels@gmail.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>
+        &copy; 2025 HONEST TRAVEL Tours and Expedition. All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    /* ========== CONSTANTS AND CONFIGURATION ========== */
+
+    // Base price for 1-3 people in INR (converted from USD 900 ≈ ₹95,000)
+    const price13inr = 95000;
+
+    // Pricing tables by group size (INR) - with exact discounts
+    // Group sizes: 1-3 People, 4-6 People, 7+ People
+    const pricingTables = {
+      "1-3": 95000,
+      "4-6": 91875,
+      "7+": 88750,
+    };
+
+    const marketUsdToInr = 92;
+    const markupPercent = 15;
+
+    // Exchange rates based on market rate with markup
+    const exchangeRates = {
+      INR: { rate: 1, symbol: "₹", name: "INR" },
+      USD: { rate: (1 / marketUsdToInr) * (1 + markupPercent / 100), symbol: "$", name: "USD" },
+      NPR: { rate: 1.6, symbol: "रु", name: "NPR" },
+    };
+
+    let qty = 1; // Minimum 1 persons for honey hunting (based on form)
+    let currentCurrency = "INR";
+
+    /* ========== HELPER FUNCTIONS ========== */
+
+    function getGroupSize(persons) {
+      if (persons >= 7) return "7+";
+      if (persons >= 4) return "4-6";
+      return "1-3";
+    }
+
+    function getUnitINRPrice(persons) {
+      const groupSize = getGroupSize(persons);
+      return pricingTables[groupSize];
+    }
+
+    function getConvertedPrice(persons, targetCurrency) {
+      const inrPrice = getUnitINRPrice(persons);
+
+      if (targetCurrency === 'INR') {
+        return inrPrice;
+      }
+
+      const rate = exchangeRates[targetCurrency]?.rate;
+      if (!rate) return inrPrice;
+
+      // Convert and round appropriately
+      let converted = inrPrice * rate;
+
+      // Round based on currency
+      if (targetCurrency === 'USD') {
+        return Math.round(converted); // Round to nearest dollar
+      } else if (targetCurrency === 'NPR') {
+        return Math.round(converted / 100) * 100; // Round to nearest 100 NPR
+      }
+
+      return Math.round(converted);
+    }
+
+    function getConvertedPriceForGroup(groupSize, targetCurrency) {
+      const inrPrice = pricingTables[groupSize];
+
+      if (targetCurrency === 'INR') {
+        return inrPrice;
+      }
+
+      const rate = exchangeRates[targetCurrency]?.rate;
+      if (!rate) return inrPrice;
+
+      let converted = inrPrice * rate;
+
+      // Round based on currency
+      if (targetCurrency === 'USD') {
+        return Math.round(converted);
+      } else if (targetCurrency === 'NPR') {
+        return Math.round(converted / 100) * 100;
+      }
+
+      return Math.round(converted);
+    }
+
+    function getCurrencySymbol() {
+      return exchangeRates[currentCurrency]?.symbol || "₹";
+    }
+
+    function formatNumber(num) {
+      if (num >= 1000) {
+        return Math.round(num).toLocaleString("en-IN");
+      } else {
+        return num.toString();
+      }
+    }
+
+    function formatNumberForCurrency(num, currency) {
+      if (currency === 'USD') {
+        return Math.round(num).toLocaleString('en-US');
+      } else if (currency === 'NPR') {
+        return Math.round(num).toLocaleString('en-IN');
+      } else {
+        return Math.round(num).toLocaleString('en-IN');
+      }
+    }
+
+    function getGroupSizeText(persons) {
+      const groupSize = getGroupSize(persons);
+      if (groupSize === "7+") return "7+ People";
+      if (groupSize === "4-6") return "4-6 People";
+      return "1-3 People";
+    }
+
+    function getGroupSizeLabel(persons) {
+      const groupSize = getGroupSize(persons);
+      if (groupSize === "7+") return "(7+ people)";
+      if (groupSize === "4-6") return "(4-6 people)";
+      return "(1-3 people)";
+    }
+
+    function getDisplayUnitPrice(persons) {
+      return getConvertedPrice(persons, currentCurrency);
+    }
+
+    /* ========== PRICE UPDATE FUNCTIONS ========== */
+
+    function updatePrice(change) {
+      qty += change;
+      if (qty < 1) qty = 1; // Minimum 1 persons for honey hunting
+      document.getElementById("qtyDisplay").textContent = qty;
+
+      const displayUnitPrice = getConvertedPrice(qty, currentCurrency);
+      const symbol = getCurrencySymbol();
+      const groupSize = getGroupSize(qty);
+
+      // Get alternate price (USD for INR/NPR, INR for USD)
+      let alternatePrice, alternateLabel, alternateSymbol;
+      if (currentCurrency === "USD") {
+        alternatePrice = getConvertedPrice(qty, 'INR');
+        alternateLabel = "INR";
+        alternateSymbol = "₹";
+      } else if (currentCurrency === "NPR") {
+        alternatePrice = getConvertedPrice(qty, 'USD');
+        alternateLabel = "USD";
+        alternateSymbol = "$";
+      } else {
+        alternatePrice = getConvertedPrice(qty, 'USD');
+        alternateLabel = "USD";
+        alternateSymbol = "$";
+      }
+
+      // Format alternate price with symbol
+      let alternatePriceFormatted = alternateSymbol + ' ' + formatNumberForCurrency(alternatePrice, alternateLabel);
+
+      // Update displays
+      document.getElementById("basePrice").textContent = formatNumberForCurrency(displayUnitPrice, currentCurrency);
+      document.getElementById("totalPrice").textContent = formatNumberForCurrency(qty * displayUnitPrice, currentCurrency);
+      document.getElementById("mainPriceDisplay").textContent = symbol + ' ' + formatNumberForCurrency(displayUnitPrice, currentCurrency);
+      document.getElementById("alternatePriceLabel").textContent = alternateLabel;
+      document.getElementById("alternatePrice").textContent = alternatePriceFormatted;
+
+      // Update currency labels
+      document.getElementById("baseCurrency").textContent = currentCurrency;
+      document.getElementById("totalCurrency").textContent = currentCurrency;
+
+      // Update group size label
+      document.getElementById("groupSizeLabel").textContent = getGroupSizeLabel(qty);
+
+      // Update price cards in cost tab
+      updatePriceCards(currentCurrency);
+    }
+
+    function updatePriceCards(currency) {
+      const symbol = exchangeRates[currency]?.symbol || "₹";
+
+      // Get prices for each group size using conversion logic
+      const price13 = getConvertedPriceForGroup('1-3', currency);
+      const price46 = getConvertedPriceForGroup('4-6', currency);
+      const price7plus = getConvertedPriceForGroup('7+', currency);
+
+      // Get USD and NPR prices for reference
+      const usdPrice13 = getConvertedPriceForGroup('1-3', 'USD');
+      const usdPrice46 = getConvertedPriceForGroup('4-6', 'USD');
+      const usdPrice7plus = getConvertedPriceForGroup('7+', 'USD');
+
+      const nprPrice13 = getConvertedPriceForGroup('1-3', 'NPR');
+      const nprPrice46 = getConvertedPriceForGroup('4-6', 'NPR');
+      const nprPrice7plus = getConvertedPriceForGroup('7+', 'NPR');
+
+      // Update price cards
+      if (document.getElementById('price13main')) {
+        document.getElementById('price13main').textContent = symbol + ' ' + formatNumberForCurrency(price13, currency);
+        document.getElementById('price46main').textContent = symbol + ' ' + formatNumberForCurrency(price46, currency);
+        document.getElementById('price7plusmain').textContent = symbol + ' ' + formatNumberForCurrency(price7plus, currency);
+      }
+
+      // Update USD references
+      if (document.getElementById('price13usd')) {
+        document.getElementById('price13usd').textContent = 'USD ' + usdPrice13;
+        document.getElementById('price46usd').textContent = 'USD ' + usdPrice46;
+        document.getElementById('price7plususd').textContent = 'USD ' + usdPrice7plus;
+      }
+
+      // Update NPR references
+      if (document.getElementById('price13npr')) {
+        document.getElementById('price13npr').textContent = 'NPR ' + nprPrice13.toLocaleString('en-IN');
+        document.getElementById('price46npr').textContent = 'NPR ' + nprPrice46.toLocaleString('en-IN');
+        document.getElementById('price7plusnpr').textContent = 'NPR ' + nprPrice7plus.toLocaleString('en-IN');
+      }
+
+      // Update price range display
+      if (document.getElementById('priceRange')) {
+        document.getElementById('priceRange').textContent = `USD ${usdPrice13} - ${usdPrice7plus} (Approx)`;
+      }
+    }
+
+    /* ========== CURRENCY CONVERTER ========== */
+
+    function initializeCurrencyConverter() {
+      const currencySelector = document.querySelector(".currency-selector");
+      const selectedCurrency = document.getElementById("selectedCurrency");
+      const currencyOptions = document.querySelectorAll(".currency-option");
+      const priceElements = document.querySelectorAll(".price-display");
+
+      // Toggle currency dropdown
+      if (selectedCurrency) {
+        selectedCurrency.addEventListener("click", function (e) {
+          e.stopPropagation();
+          currencySelector.classList.toggle("active");
+        });
+      }
+
+      // Select currency option
+      currencyOptions.forEach((option) => {
+        option.addEventListener("click", function () {
+          const newCurrency = this.getAttribute("data-currency");
+
+          // Update selected currency display
+          selectedCurrency.querySelector("span").textContent = newCurrency;
+
+          currentCurrency = newCurrency;
+
+          // Update active state
+          currencyOptions.forEach((opt) => opt.classList.remove("active"));
+          this.classList.add("active");
+
+          // Update price table header if exists
+          const priceTableHeaders = document.querySelectorAll('[id^="priceTableHeader"]');
+          priceTableHeaders.forEach(header => {
+            if (header) header.textContent = `Cost Per Person`;
+          });
+
+          // Convert all prices
+          convertPrices(newCurrency);
+
+          // Update main price display
+          updatePrice(0);
+
+          // Update price cards
+          updatePriceCards(newCurrency);
+
+          // Close dropdown
+          currencySelector.classList.remove("active");
+        });
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener("click", function (e) {
+        if (currencySelector && !currencySelector.contains(e.target)) {
+          currencySelector.classList.remove("active");
+        }
+      });
+
+      // Function to convert prices
+      function convertPrices(targetCurrency) {
+        const targetSymbol = exchangeRates[targetCurrency]?.symbol || "₹";
+
+        priceElements.forEach(element => {
+          let convertedValue;
+          const inrValue = parseFloat(element.getAttribute("data-inr"));
+
+          if (!isNaN(inrValue)) {
+            if (targetCurrency === 'USD') {
+              convertedValue = Math.round(inrValue * exchangeRates.USD.rate);
+            } else if (targetCurrency === 'NPR') {
+              convertedValue = Math.round(inrValue * exchangeRates.NPR.rate / 100) * 100;
+            } else {
+              convertedValue = inrValue;
+            }
+
+            element.textContent = targetSymbol + ' ' + formatNumberForCurrency(convertedValue, targetCurrency);
+          }
+        });
+      }
+
+      // Initialize with INR
+      convertPrices('INR');
+    }
+
+    /* ========== NAVIGATION BURGER MENU ========== */
+
+    function initializeNavigation() {
+      const navBurger = document.getElementById("navBurger");
+      const mainNav = document.getElementById("mainNav");
+
+      if (navBurger) {
+        navBurger.addEventListener("click", function () {
+          this.classList.toggle("active");
+          mainNav.classList.toggle("active");
+          document.body.classList.toggle("nav-open");
+        });
+
+        const navLinks = mainNav.querySelectorAll("a");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            navBurger.classList.remove("active");
+            mainNav.classList.remove("active");
+            document.body.classList.remove("nav-open");
+          });
+        });
+      }
+    }
+
+    /* ========== TAB SYSTEM ========== */
+
+    function initializeTabs() {
+      const tabBurger = document.getElementById("tabBurger");
+      const tabsMenu = document.getElementById("tabsMenu");
+
+      if (tabBurger) {
+        tabBurger.addEventListener("click", function () {
+          this.classList.toggle("active");
+          tabsMenu.classList.toggle("active");
+        });
+      }
+    }
+
+    function openTab(tabId) {
+      // Hide all tab contents
+      const contents = document.querySelectorAll(".tab-content");
+      contents.forEach((content) => content.classList.remove("active"));
+
+      // Remove active class from all tab buttons
+      const tabs = document.querySelectorAll(".tab");
+      tabs.forEach((tab) => tab.classList.remove("active"));
+
+      // Show current tab and add active class to button
+      document.getElementById(tabId).classList.add("active");
+      event.currentTarget.classList.add("active");
+
+      // Update mobile tab name if available
+      const currentTabName = document.getElementById("currentTabName");
+      if (currentTabName) {
+        currentTabName.textContent = event.currentTarget.textContent.trim();
+      }
+
+      // Close tab menu on mobile
+      const tabBurger = document.getElementById("tabBurger");
+      const tabsMenu = document.getElementById("tabsMenu");
+      if (tabBurger) {
+        tabBurger.classList.remove("active");
+        tabsMenu.classList.remove("active");
+      }
+    }
+
+    /* ========== COLLAPSIBLE ITINERARY ========== */
+
+    function toggleDay(headerElement) {
+      const dayContainer = headerElement.closest(".itinerary-day");
+      dayContainer.classList.toggle("active");
+    }
+
+    function toggleAllDays(btn) {
+      const allDays = document.querySelectorAll(".itinerary-day");
+      const isExpanding = btn.innerText.trim() === "Expand All";
+
+      allDays.forEach((day) => {
+        if (isExpanding) {
+          day.classList.add("active");
+        } else {
+          day.classList.remove("active");
+        }
+      });
+
+      btn.innerText = isExpanding ? "Collapse All" : "Expand All";
+    }
+
+    /* ========== IMAGE GALLERY ========== */
+
+    let currentImageIndex = 0;
+    const images = document.querySelectorAll(".gallery-image");
+    const indicators = document.querySelectorAll(".indicator");
+
+    function showImage(index) {
+      if (index >= images.length) currentImageIndex = 0;
+      else if (index < 0) currentImageIndex = images.length - 1;
+      else currentImageIndex = index;
+
+      images.forEach((img) => img.classList.remove("active"));
+      indicators.forEach((ind) => ind.classList.remove("active"));
+
+      images[currentImageIndex].classList.add("active");
+      indicators[currentImageIndex].classList.add("active");
+    }
+
+    function changeImage(step) {
+      showImage(currentImageIndex + step);
+    }
+
+    function setImage(index) {
+      showImage(index);
+    }
+
+    setInterval(() => changeImage(1), 5000);
+
+    /* ========== CLOSE MENUS WHEN CLICKING OUTSIDE ========== */
+
+    function initializeClickOutside() {
+      const navBurger = document.getElementById("navBurger");
+      const mainNav = document.getElementById("mainNav");
+      const tabBurger = document.getElementById("tabBurger");
+      const tabsMenu = document.getElementById("tabsMenu");
+
+      document.addEventListener("click", function (event) {
+        // Close nav menu
+        if (
+          navBurger &&
+          !navBurger.contains(event.target) &&
+          !mainNav.contains(event.target)
+        ) {
+          navBurger.classList.remove("active");
+          mainNav.classList.remove("active");
+          document.body.classList.remove("nav-open");
+        }
+
+        // Close tab menu
+        if (
+          tabBurger &&
+          !tabBurger.contains(event.target) &&
+          !tabsMenu.contains(event.target)
+        ) {
+          tabBurger.classList.remove("active");
+          tabsMenu.classList.remove("active");
+        }
+      });
+    }
+
+    /* ========== BOOKING MODAL FUNCTIONS ========== */
+
+    const currentPackage = {
+      name: 'Nepal Short Honey Hunting Adventure',
+      duration: '4 Days',
+      nights: '3 Nights 4 Days',
+      category: 'Cultural & Adventure Tours',
+      includes: 'Private transportation, 4WD jeep, accommodation, most meals, permits, guide'
+    };
+
+    function generateBookingId() {
+      const prefix = 'HTT';
+      const timestamp = Date.now().toString().slice(-8);
+      const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+      const date = new Date();
+      const year = date.getFullYear().toString().slice(-2);
+      const month = (date.getMonth() + 1).toString().padStart(2, '2');
+
+      return `${prefix}-${year}${month}-${timestamp}-${random}`;
+    }
+
+    function showBookingForm() {
+      showConfirmationModal();
+    }
+
+    // Create confirmation modal
+    function showConfirmationModal() {
+      const displayUnitPrice = getConvertedPrice(qty, currentCurrency);
+      const unitUSDPrice = getConvertedPrice(qty, 'USD');
+      const symbol = getCurrencySymbol();
+      const groupSizeText = getGroupSizeText(qty);
+
+      const modalOverlay = document.createElement('div');
+      modalOverlay.className = 'confirmation-modal';
+
+      modalOverlay.innerHTML = `
+          <div>
+            <div style="text-align: center;">
+              <div style="font-size: 3rem; color: #d4a017; margin-bottom: 15px;">
+                <i class="fas fa-bee"></i>
+              </div>
+              
+              <h3 style="color: #2c3e50; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <i class="fas fa-calendar-check" style="color: #d4a017;"></i> Confirm Honey Hunting Booking
+              </h3>
+              
+              <div class="package-info" style="font-size: 1.1rem; color: #d4a017; font-weight: 600; margin-bottom: 20px; background: rgba(212, 160, 23, 0.1); padding: 12px; border-radius: 8px; border-left: 4px solid #d4a017;">
+                Nepal Short Honey Hunting Adventure (3 Nights 4 Days)
+              </div>
+              
+              <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 20px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Duration:</span>
+                  <span style="font-weight: 600;">4 Days (3 Nights)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Group Size:</span>
+                  <span style="font-weight: 600;">${groupSizeText}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Participants:</span>
+                  <span style="font-weight: 600;">${qty} person(s)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Price Per Person:</span>
+                  <span style="font-weight: 600;">${symbol} ${formatNumberForCurrency(displayUnitPrice, currentCurrency)} / USD $${formatNumberForCurrency(unitUSDPrice, 'USD')}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 1.2rem; color: #28a745;">
+                  <span>Total Amount:</span>
+                  <span style="font-weight: 700;">${symbol} ${formatNumberForCurrency(qty * displayUnitPrice, currentCurrency)}</span>
+                </div>
+              </div>
+              
+              <p style="color: #666; margin-bottom: 25px; font-size: 16px;">
+                Are you ready to book this unique cultural adventure witnessing traditional honey hunting?
+              </p>
+              
+              <div class="confirmation-buttons" style="display: flex; gap: 15px; margin-top: 25px;">
+                <button id="confirmCancel" class="cancel-choice" style="
+                  padding: 10px 20px;
+                  background: #f5f5f5;
+                  border: none;
+                  border-radius: 6px;
+                  color: #666;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
+                  flex: 1;
+                ">
+                  Cancel
+                </button>
+                
+                <button id="confirmBook" class="confirm-book-btn" style="
+                  background: linear-gradient(135deg, #d4a017 0%, #b8860b 100%);
+                  color: white;
+                  border: none;
+                  padding: 14px 24px;
+                  border-radius: 8px;
+                  font-size: 16px;
+                  font-weight: 500;
+                  cursor: pointer;
+                  flex: 1;
+                  transition: all 0.3s ease;
+                ">
+                  Yes, Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+
+      document.body.appendChild(modalOverlay);
+      document.body.classList.add('modal-open');
+
+      // Handle button clicks
+      modalOverlay.querySelector('#confirmCancel').addEventListener('click', () => {
+        closeModal(modalOverlay);
+      });
+
+      modalOverlay.querySelector('#confirmBook').addEventListener('click', () => {
+        closeModal(modalOverlay);
+        showBookingModal();
+      });
+
+      // Close on backdrop click
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+          closeModal(modalOverlay);
+        }
+      });
+    }
+
+    // Show booking modal
+    function showBookingModal() {
+      const displayUnitPrice = getConvertedPrice(qty, currentCurrency);
+      const unitUSDPrice = getConvertedPrice(qty, 'USD');
+      const unitNPRPrice = getConvertedPrice(qty, 'NPR');
+      const symbol = getCurrencySymbol();
+      const groupSizeText = getGroupSizeText(qty);
+
+      const modalOverlay = document.createElement('div');
+      modalOverlay.className = 'booking-modal';
+
+      modalOverlay.innerHTML = `
+          <div>
+            <button class="close-modal">×</button>
+            
+            <h2 style="color: #2c3e50; margin-bottom: 1.5rem; text-align: center; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+              <i class="fas fa-bee" style="color: #d4a017;"></i>
+              Book Honey Hunting Adventure
+            </h2>
+            
+            <form id="bookingForm">
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Full Name *
+                </label>
+                <input type="text" id="bookingName" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="Enter your full name">
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Email Address *
+                </label>
+                <input type="email" id="bookingEmail" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="your@email.com">
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Phone Number *
+                </label>
+                <input type="tel" id="bookingPhone" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="+977 98XXXXXXXX">
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Country *
+                </label>
+                <input type="text" id="bookingCountry" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="Your country">
+              </div>
+              
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div>
+                  <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                    Persons *
+                  </label>
+                  <input type="number" min="2" value="${qty}" id="formPersons" required style="
+                    width: 100%;
+                    padding: 0.8rem;
+                    border: 1px solid #ddd;
+                    border-radius: 6px;
+                    font-size: 1rem;
+                    box-sizing: border-box;
+                  " oninput="updateBookingFormPrice()">
+                </div>
+                
+                <div>
+                  <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                    Preferred Date *
+                  </label>
+                  <input type="date" id="bookingDate" required style="
+                    width: 100%;
+                    padding: 0.8rem;
+                    border: 1px solid #ddd;
+                    border-radius: 6px;
+                    font-size: 1rem;
+                    box-sizing: border-box;
+                  ">
+                </div>
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Bee Sting Allergy Information *
+                </label>
+                <select id="bookingAllergy" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                ">
+                  <option value="">Select allergy status</option>
+                  <option value="none">No known bee sting allergy</option>
+                  <option value="mild">Mild reaction (swelling, redness)</option>
+                  <option value="severe">Severe allergy (anaphylaxis) - carries epinephrine</option>
+                </select>
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Special Requirements / Health Concerns
+                </label>
+                <textarea id="bookingRequirements" style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  min-height: 100px;
+                  resize: vertical;
+                  box-sizing: border-box;
+                " placeholder="Any medical conditions, dietary restrictions, or special requests..."></textarea>
+              </div>
+              
+              <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; margin: 1rem 0;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Tour Package:</span>
+                  <span style="font-weight: bold;">Honey Hunting Adventure</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Duration:</span>
+                  <span>4 Days (3 Nights)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Group Size:</span>
+                  <span id="formGroupSize">${groupSizeText}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Price Per Person:</span>
+                  <span><span id="formCurrency">${currentCurrency}</span> <span id="formPricePerPerson">${formatNumberForCurrency(displayUnitPrice, currentCurrency)}</span> / $${formatNumberForCurrency(unitUSDPrice, 'USD')}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Total Persons:</span>
+                  <span id="formTotalPersons">${qty}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 1.2rem; color: #28a745;">
+                  <span>Total Amount:</span>
+                  <span><span id="formTotalCurrency">${currentCurrency}</span> <span id="formTotalAmount">${formatNumberForCurrency(qty * displayUnitPrice, currentCurrency)}</span></span>
+                </div>
+              </div>
+              
+              <button type="submit" style="
+                background: linear-gradient(135deg, #d4a017 0%, #b8860b 100%);
+                color: white;
+                border: none;
+                padding: 1rem;
+                border-radius: 6px;
+                font-size: 1.1rem;
+                font-weight: 600;
+                cursor: pointer;
+                margin-top: 1rem;
+                width: 100%;
+              ">
+                <i class="fas fa-paper-plane"></i> Submit Booking Request
+              </button>
+              
+              <p style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 1rem;">
+                <i class="fas fa-info-circle"></i> Note: Minimum 2 persons required for this tour
+              </p>
+              
+              <p style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 1rem;">
+                We'll contact you within 24 hours to confirm your booking
+              </p>
+            </form>
+          </div>
+        `;
+
+      document.body.appendChild(modalOverlay);
+      document.body.classList.add('modal-open');
+
+      // Make modal content scrollable on mobile
+      const modalContent = modalOverlay.querySelector('div');
+      modalContent.style.webkitOverflowScrolling = 'touch';
+
+      // Close modal when X is clicked
+      modalOverlay.querySelector('.close-modal').addEventListener('click', () => {
+        closeModal(modalOverlay);
+      });
+
+      // Close modal when clicking outside
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+          closeModal(modalOverlay);
+        }
+      });
+
+      // Update form totals when persons change
+      const personsInput = modalOverlay.querySelector('#formPersons');
+      const groupSizeSpan = modalOverlay.querySelector('#formGroupSize');
+      const totalPersonsSpan = modalOverlay.querySelector('#formTotalPersons');
+      const totalAmountSpan = modalOverlay.querySelector('#formTotalAmount');
+      const pricePerPersonSpan = modalOverlay.querySelector('#formPricePerPerson');
+      const formTotalCurrencySpan = modalOverlay.querySelector('#formTotalCurrency');
+
+      function updateFormTotal() {
+        const persons = Math.max(2, parseInt(personsInput.value) || 2);
+        personsInput.value = persons;
+        const dispPrice = getConvertedPrice(persons, currentCurrency);
+        const sym = getCurrencySymbol();
+
+        groupSizeSpan.textContent = getGroupSizeText(persons);
+        totalPersonsSpan.textContent = persons;
+        pricePerPersonSpan.textContent = sym + " " + formatNumberForCurrency(dispPrice, currentCurrency);
+        totalAmountSpan.textContent = formatNumberForCurrency(persons * dispPrice, currentCurrency);
+        formTotalCurrencySpan.textContent = currentCurrency;
+
+        qty = persons;
+        updatePrice(0);
+      }
+
+      personsInput.addEventListener('input', updateFormTotal);
+
+      // Handle form submission - DIRECT SUBMISSION (NO CHOICE MODAL)
+      modalOverlay.querySelector('#bookingForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const persons = Math.max(2, parseInt(personsInput.value) || 2);
+        const displayPrice = getConvertedPrice(persons, currentCurrency);
+        const unitUSDPrice = getConvertedPrice(persons, 'USD');
+        const unitNPRPrice = getConvertedPrice(persons, 'NPR');
+        const groupSizeText = getGroupSizeText(persons);
+
+        const formData = {
+          name: modalOverlay.querySelector('#bookingName').value.trim(),
+          email: modalOverlay.querySelector('#bookingEmail').value.trim(),
+          phone: modalOverlay.querySelector('#bookingPhone').value.trim(),
+          country: modalOverlay.querySelector('#bookingCountry').value.trim(),
+          allergy: modalOverlay.querySelector('#bookingAllergy').value,
+          persons: persons,
+          groupSize: groupSizeText,
+          date: modalOverlay.querySelector('#bookingDate').value || 'Not specified',
+          requirements: modalOverlay.querySelector('#bookingRequirements').value.trim() || 'None',
+          package: currentPackage.name,
+          pricePerPerson: displayPrice,
+          usdPricePerPerson: unitUSDPrice,
+          nprPricePerPerson: unitNPRPrice,
+          totalAmount: persons * displayPrice,
+          currency: currentCurrency,
+          duration: currentPackage.duration,
+          nights: currentPackage.nights,
+          includes: currentPackage.includes,
+        };
+
+        // Validation
+        if (!formData.name) {
+          showMobileAlert('error', 'Name Required', 'Please enter your full name');
+          modalOverlay.querySelector('#bookingName').focus();
+          return;
+        }
+
+        if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
+          showMobileAlert('error', 'Valid Email Required', 'Please enter a valid email address');
+          modalOverlay.querySelector('#bookingEmail').focus();
+          return;
+        }
+
+        if (!formData.phone || !/^\+?[\d\s\-\(\)]{10,}$/.test(formData.phone)) {
+          showMobileAlert('error', 'Valid Phone Required', 'Please enter a valid phone number');
+          modalOverlay.querySelector('#bookingPhone').focus();
+          return;
+        }
+
+        if (!formData.country) {
+          showMobileAlert('error', 'Country Required', 'Please enter your country');
+          modalOverlay.querySelector('#bookingCountry').focus();
+          return;
+        }
+
+        if (!formData.allergy) {
+          showMobileAlert('error', 'Allergy Information Required', 'Please select your bee sting allergy status for safety purposes');
+          modalOverlay.querySelector('#bookingAllergy').focus();
+          return;
+        }
+
+        if (!modalOverlay.querySelector('#bookingDate').value) {
+          showMobileAlert('error', 'Date Required', 'Please select a preferred start date');
+          modalOverlay.querySelector('#bookingDate').focus();
+          return;
+        }
+
+        if (formData.persons < 2) {
+          showMobileAlert('error', 'Minimum 2 Persons', 'Minimum 2 persons required for this tour');
+          modalOverlay.querySelector('#formPersons').focus();
+          return;
+        }
+
+        // Direct submission - send via both WhatsApp and email immediately
+        submitDirectBooking(formData, modalOverlay);
+      });
+    }
+
+    // Update price in booking form
+    function updateBookingFormPrice() {
+      const modal = document.querySelector(".booking-modal");
+      if (!modal) return;
+
+      const personsInput = modal.querySelector("#formPersons");
+      const groupSizeSpan = modal.querySelector("#formGroupSize");
+      const pricePerPersonSpan = modal.querySelector("#formPricePerPerson");
+      const totalPersonsSpan = modal.querySelector("#formTotalPersons");
+      const totalAmountSpan = modal.querySelector("#formTotalAmount");
+      const formCurrencySpan = modal.querySelector("#formCurrency");
+      const formTotalCurrencySpan = modal.querySelector("#formTotalCurrency");
+
+      const persons = Math.max(2, parseInt(personsInput.value) || 2);
+      personsInput.value = persons;
+      const dispPrice = getConvertedPrice(persons, currentCurrency);
+      const sym = getCurrencySymbol();
+
+      groupSizeSpan.textContent = getGroupSizeText(persons);
+      formCurrencySpan.textContent = currentCurrency;
+      formTotalCurrencySpan.textContent = currentCurrency;
+      pricePerPersonSpan.textContent = sym + " " + formatNumberForCurrency(dispPrice, currentCurrency);
+      totalPersonsSpan.textContent = persons;
+      totalAmountSpan.textContent = formatNumberForCurrency(persons * dispPrice, currentCurrency);
+
+      qty = persons;
+      updatePrice(0);
+    }
+
+    // Direct submission function that sends both WhatsApp and email without asking
+    function submitDirectBooking(formData, bookingModal) {
+      // Disable submit button and show loading
+      const submitBtn = bookingModal.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+      submitBtn.disabled = true;
+
+      const bookingId = generateBookingId();
+      const symbol = exchangeRates[formData.currency]?.symbol || "₹";
+
+      // Prepare WhatsApp message
+      const whatsappMessage =
+        `*HONEY HUNTING ADVENTURE BOOKING*\n` +
+        `━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
+        ` *Booking Details*\n` +
+        `Booking ID: ${bookingId}\n` +
+        `Package: ${formData.package}\n` +
+        `Duration: ${formData.duration} (${formData.nights})\n` +
+        `Group Size: ${formData.groupSize}\n` +
+        `Bee Sting Allergy: ${formData.allergy}\n` +
+        `Preferred Date: ${formData.date}\n\n` +
+        ` *Customer Information*\n` +
+        `Name: ${formData.name}\n` +
+        `Email: ${formData.email}\n` +
+        `Phone: ${formData.phone}\n` +
+        `Country: ${formData.country}\n` +
+        `Number of Persons: ${formData.persons}\n\n` +
+        ` *Payment Details*\n` +
+        `Price per Person (${formData.currency}): ${symbol}${formatNumberForCurrency(formData.pricePerPerson, formData.currency)}\n` +
+        `Total Amount (${formData.currency}): ${symbol}${formatNumberForCurrency(formData.totalAmount, formData.currency)}\n\n` +
+        ` *Special Requirements / Health Information*\n` +
+        `${formData.requirements}\n\n` +
+        `━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+        `Submitted via HONEST TRAVEL TOURS AND EXPEDITION Website`;
+
+      // Prepare email template parameters
+      const templateParams = {
+        booking_id: bookingId,
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        country: formData.country,
+        allergy: formData.allergy,
+        package_name: formData.package,
+        package_duration: formData.duration,
+        number_of_person: formData.persons,
+        preferred_date: formData.date,
+        special_requirements: formData.requirements || "None",
+        company_name: "Honest Travel Tours and Expedition",
+        price_per_person: `${formData.currency} ${formatNumberForCurrency(formData.pricePerPerson, formData.currency)}`,
+        total_amount: `${formData.currency} ${formatNumberForCurrency(formData.totalAmount, formData.currency)}`,
+      };
+
+      // Open WhatsApp in a new tab
+      const phoneNumber = "9779851140110";
+      window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`, "_blank");
+
+      // Send email via EmailJS
+      emailjs.send("service_9fq6tb6", "template_kmaga4l", templateParams)
+        .then(
+          function () {
+            console.log("Email sent successfully");
+            // Close the booking modal
+            closeModal(bookingModal);
+            // Show success message
+            showMobileAlert(
+              "success",
+              "Booking Request Submitted!",
+              `Your Honey Hunting Adventure booking request has been sent successfully.\n\nBooking ID: ${bookingId}\n\nWe have opened WhatsApp and sent an email confirmation. Our cultural tour specialists will contact you within 24 hours to confirm your booking.`
+            );
+          },
+          function (error) {
+            console.error("Email failed:", error);
+            // Close the booking modal
+            closeModal(bookingModal);
+            // Show warning message
+            showMobileAlert(
+              "warning",
+              "WhatsApp Opened - Email Pending",
+              `Your booking details have been opened in WhatsApp.\n\nBooking ID: ${bookingId}\n\nThere was an issue sending the email. Please send an email to info@honesttraveltours.com with your booking details to complete the process.`
+            );
+          }
+        )
+        .finally(() => {
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.disabled = false;
+        });
+    }
+
+    /* ========== ENQUIRY MODAL FUNCTION ========== */
+    function showEnquiryModal() {
+      const packageName = 'Nepal Short Honey Hunting Adventure';
+      const packagePrice = '₹88,750 - 95,000 (based on group size)';
+      const packageDuration = '3 Nights 4 Days';
+      const packageCategory = 'Cultural & Adventure Tours';
+
+      const params = new URLSearchParams({
+        package: encodeURIComponent(packageName),
+        price: encodeURIComponent(packagePrice),
+        duration: encodeURIComponent(packageDuration),
+        category: encodeURIComponent(packageCategory),
+        source: 'honey-hunting'
+      }).toString();
+
+      // Redirect immediately without showing alert
+      window.location.href = `../enquiry-form.html?${params}`;
+    }
+
+    /* ========== MOBILE ALERT FUNCTION ========== */
+    function showMobileAlert(type, title, message) {
+      // Remove any existing alerts
+      const existingAlerts = document.querySelectorAll('.mobile-alert-overlay');
+      existingAlerts.forEach(alert => closeModal(alert));
+
+      const alertOverlay = document.createElement('div');
+      alertOverlay.className = 'mobile-alert-overlay';
+
+      const icons = {
+        success: 'fa-check-circle',
+        warning: 'fa-exclamation-triangle',
+        error: 'fa-times-circle',
+        info: 'fa-info-circle'
+      };
+
+      const colors = {
+        success: '#28a745',
+        warning: '#ff9800',
+        error: '#dc3545',
+        info: '#d4a017'
+      };
+
+      alertOverlay.innerHTML = `
+          <div>
+            <div class="mobile-alert ${type}" style="text-align: center;">
+              <div class="mobile-alert-icon">
+                <i class="fas ${icons[type]}" style="color: ${colors[type]}"></i>
+              </div>
+              <h3 style="color: #2c3e50; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <i class="fas ${icons[type]}" style="color: ${colors[type]}"></i>
+                ${title}
+              </h3>
+              <div class="mobile-alert-message">${message.replace(/\n/g, '<br>')}</div>
+              <button class="mobile-alert-ok-btn" onclick="closeModal(this.closest('.mobile-alert-overlay'))">OK</button>
+            </div>
+          </div>
+        `;
+
+      document.body.appendChild(alertOverlay);
+      document.body.classList.add('modal-open');
+
+      if (type === 'success') {
+        setTimeout(() => {
+          if (alertOverlay.parentNode) closeModal(alertOverlay);
+        }, 5000);
+      }
+
+      alertOverlay.addEventListener('click', (e) => {
+        if (e.target === alertOverlay) {
+          closeModal(alertOverlay);
+        }
+      });
+    }
+
+    // Universal close modal function
+    function closeModal(modalOverlay) {
+      modalOverlay.style.animation = 'fadeOut 0.3s ease';
+
+      setTimeout(() => {
+        if (modalOverlay.parentNode) {
+          document.body.removeChild(modalOverlay);
+        }
+        // Remove modal-open class if no other modals are open
+        if (!document.querySelector('.confirmation-modal, .mobile-alert-overlay, .booking-modal, .submission-modal')) {
+          document.body.classList.remove('modal-open');
+        }
+      }, 300);
+    }
+
+    /* ========== FACILITIES SLIDER NAVIGATION ========== */
+    function scrollFacilities(sliderId, direction) {
+      const slider = document.getElementById(sliderId);
+      const scrollAmount = 300;
+      slider.scrollBy({
+        left: direction * scrollAmount,
+        behavior: "smooth",
+      });
+    }
+
+    /* ========== INITIALIZE EVERYTHING ========== */
+    document.addEventListener("DOMContentLoaded", function () {
+      initializeNavigation();
+      initializeTabs();
+      initializeCurrencyConverter();
+      initializeClickOutside();
+      updatePrice(0);
+      updatePriceCards('INR');
+    });
+
+    // Attach functions to window for global access
+    window.openTab = openTab;
+    window.toggleDay = toggleDay;
+    window.toggleAllDays = toggleAllDays;
+    window.changeImage = changeImage;
+    window.setImage = setImage;
+    window.updatePrice = updatePrice;
+    window.showBookingForm = showBookingForm;
+    window.showEnquiryModal = showEnquiryModal;
+    window.scrollFacilities = scrollFacilities;
+    window.updateBookingFormPrice = updateBookingFormPrice;
+    window.closeModal = closeModal;
+  </script>
+</body>
+
+</html>

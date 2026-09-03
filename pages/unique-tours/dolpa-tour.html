@@ -1,0 +1,2236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dolpo Phoksundo Lake Trek - 10 Days - Honest Travel Tours</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="../../css/individual-packages.css" />
+    
+    <!-- Add EmailJS script -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            // Initialize EmailJS with your public key
+            emailjs.init("cjcB4sLQKii3OPWJ1");
+        })();
+    </script>
+    
+    <style>
+        /* Custom styles for Dolpo Trek page */
+        .dolpo-highlight {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196f3;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .lake-icon {
+            color: #2196f3;
+            margin-right: 8px;
+        }
+
+        .dolpo-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .remote-note {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #ff9800;
+        }
+
+        .premium-badge {
+            background: linear-gradient(135deg, #2196f3 0%, #0d47a1 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        /* Modal Styles */
+        .confirmation-modal,
+        .booking-modal,
+        .submission-modal,
+        .mobile-alert-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .confirmation-modal>div,
+        .booking-modal>div,
+        .submission-modal>div,
+        .mobile-alert-overlay>div {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .booking-modal>div {
+            max-width: 600px;
+        }
+
+        .close-modal,
+        .close-submission-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: #666;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover,
+        .close-submission-modal:hover {
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .choice-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .choice-btn {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            width: 100%;
+        }
+
+        .choice-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .whatsapp-choice:hover {
+            border-color: #25D366;
+            background: rgba(37, 211, 102, 0.05);
+        }
+
+        .email-choice:hover {
+            border-color: #5865F2;
+            background: rgba(88, 101, 242, 0.05);
+        }
+
+        .choice-btn i {
+            font-size: 2.5rem;
+            min-width: 40px;
+        }
+
+        .whatsapp-choice i {
+            color: #25D366;
+        }
+
+        .email-choice i {
+            color: #5865F2;
+        }
+
+        .choice-btn-content {
+            flex: 1;
+        }
+
+        .choice-btn-content span {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .choice-btn-content small {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .confirm-book-btn:hover {
+            background: linear-gradient(135deg, #2196f3 0%, #0d47a1 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(33, 150, 243, 0.3);
+        }
+
+        .cancel-choice:hover {
+            background: #e0e0e0;
+        }
+
+        /* Mobile Alert Styles */
+        .mobile-alert {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .mobile-alert-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-alert.success .mobile-alert-icon {
+            color: #28a745;
+        }
+
+        .mobile-alert.warning .mobile-alert-icon {
+            color: #ff9800;
+        }
+
+        .mobile-alert.error .mobile-alert-icon {
+            color: #dc3545;
+        }
+
+        .mobile-alert.info .mobile-alert-icon {
+            color: #2196f3;
+        }
+
+        .mobile-alert h3 {
+            color: #2c3e50;
+            margin: 0 0 1.5rem 0;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .mobile-alert-message {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .mobile-alert-ok-btn {
+            background: #2196f3;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .mobile-alert-ok-btn:hover {
+            background: #0d47a1;
+            transform: translateY(-2px);
+        }
+
+        .success-checkmark {
+            animation: checkmark 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes checkmark {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .modal-open {
+            overflow: hidden;
+        }
+
+        /* Booking form styles */
+        form>div {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Currency Selector Styles */
+        .currency-selector-container {
+            margin-top: 1rem;
+        }
+
+        .currency-selector {
+            position: relative;
+            width: fit-content;
+        }
+
+        .currency-selector #selectedCurrency {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 15px;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .currency-selector #selectedCurrency i {
+            font-size: 0.8rem;
+            color: #666;
+            transition: transform 0.3s ease;
+        }
+
+        .currency-selector.active #selectedCurrency i {
+            transform: rotate(180deg);
+        }
+
+        .currency-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-top: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 100;
+        }
+
+        .currency-selector.active .currency-dropdown {
+            display: block;
+        }
+
+        .currency-option {
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .currency-option:hover {
+            background: #f0f0f0;
+        }
+
+        .currency-option.active {
+            background: #2196f3;
+            color: white;
+        }
+
+        /* Price table styles */
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .price-table th {
+            padding: 12px;
+            border: 1px solid #ddd;
+            background: #f8f9fa;
+        }
+
+        .price-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+
+            .confirmation-modal>div,
+            .booking-modal>div,
+            .submission-modal>div,
+            .mobile-alert {
+                padding: 1.5rem;
+                margin: 10px;
+            }
+
+            .choice-btn {
+                padding: 15px;
+            }
+
+            .choice-btn i {
+                font-size: 2rem;
+            }
+
+            .booking-modal>div {
+                max-height: 85vh;
+            }
+
+            .currency-selector-container {
+                width: 100%;
+            }
+
+            .currency-selector {
+                width: 100%;
+            }
+
+            #selectedCurrency {
+                justify-content: center;
+            }
+
+            .currency-dropdown {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .confirmation-buttons {
+                flex-direction: column;
+            }
+
+            .choice-btn {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .choice-btn-content small {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <div class="contact-info">
+                    <span>
+                        📞
+                        <a href="https://wa.me/9779851140110" target="_blank" rel="noopener noreferrer"
+                            class="wa-link">+977-9851140110</a>
+                        ,
+                        <a href="https://wa.me/9779856017867" target="_blank" rel="noopener noreferrer"
+                            class="wa-link">9856017867</a>
+                    </span>
+                    <span>✉️ infohonesttoursntravels@gmail.com</span>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-main">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="../../images/Logo Image.png" alt="Honest Travel Logo" />
+                </div>
+                <div class="logo-text">
+                    <h1>HONEST TRAVEL</h1>
+                    <p>TOURS AND EXPEDITION</p>
+                </div>
+            </div>
+
+            <!-- Burger Menu Button for Navigation -->
+            <button class="burger-menu" id="navBurger" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="../../index.html">HOME</a></li>
+                    <li><a href="../../index.html#tours">TOURS</a></li>
+                    <li><a href="../../index.html#trekking">TREKKING</a></li>
+                    <li><a href="../../index.html#contact">CONTACT US</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Tour Detail Section -->
+    <div class="tour-detail">
+        <div class="tour-header">
+            <h1 class="tour-title">
+                Dolpo Phoksundo Lake Trek - 10 Days Remote Himalayan Adventure
+            </h1>
+            <p class="tour-subtitle">
+                10 Days 9 Nights - Journey to Nepal's Deepest Lake in Remote Dolpo
+            </p>
+        </div>
+
+        <div class="tour-content-wrapper">
+            <!-- LEFT COLUMN -->
+            <div>
+                <!-- Image Gallery -->
+                <div class="image-gallery">
+                    <img src="../../images/dolpa.jpg" class="gallery-image active" alt="Phoksundo Lake Turquoise Waters" />
+                    <img src="../../images/dolpa1.webp" class="gallery-image" alt="Dolpo Mountain Landscape" />
+                    <img src="../../images/dolpa2.jpg" class="gallery-image" alt="Traditional Dolpo Village" />
+                    <img src="../../images/dolpa3.jpg" class="gallery-image" alt="Dolpo Buddhist Culture" />
+
+                    <div class="gallery-nav">
+                        <button class="nav-btn" onclick="changeImage(-1)">‹</button>
+                        <button class="nav-btn" onclick="changeImage(1)">›</button>
+                    </div>
+                    <div class="gallery-indicators">
+                        <div class="indicator active" onclick="setImage(0)"></div>
+                        <div class="indicator" onclick="setImage(1)"></div>
+                        <div class="indicator" onclick="setImage(2)"></div>
+                        <div class="indicator" onclick="setImage(3)"></div>
+                    </div>
+                </div>
+
+                <!-- Tour Information Tabs -->
+                <div class="tour-info">
+                    <!-- Mobile Tab Burger Menu -->
+                    <div class="tab-burger-wrapper">
+                        <button class="tab-burger-menu" id="tabBurger" aria-label="Toggle tabs menu">
+                            <i class="fas fa-bars"></i>
+                            <span id="currentTabName">Overview</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+
+                    <div class="info-tabs" id="tabsMenu">
+                        <button class="tab active" onclick="openTab('overview')">
+                            Overview
+                        </button>
+                        <button class="tab" onclick="openTab('itinerary')">
+                            Itinerary
+                        </button>
+                        <button class="tab" onclick="openTab('costdates')">Cost</button>
+                        <button class="tab" onclick="openTab('included')">
+                            Included
+                        </button>
+                        <button class="tab" onclick="openTab('terms')">
+                            Terms & Conditions
+                        </button>
+                        <button class="tab" onclick="openTab('videosmap')">
+                            Videos & Map
+                        </button>
+                    </div>
+
+                    <!-- OVERVIEW -->
+                    <div id="overview" class="tab-content active">
+                        <div class="info-section">
+                            <div class="premium-badge">PREMIUM TREKKING EXPERIENCE</div>
+                            <h3>10-Day Dolpo Phoksundo Lake Trek</h3>
+                            <p>
+                                Embark on an extraordinary journey to one of Nepal's most
+                                remote and pristine regions with our 10-day Dolpo Phoksundo
+                                Lake Trek with <strong>Honest Travel Tours</strong>. This premium trek takes
+                                you to the breathtaking Phoksundo Lake (3,733m) - Nepal's
+                                deepest lake known for its stunning turquoise waters and
+                                dramatic waterfall. Experience the unique Tibetan Buddhist
+                                culture of Dolpo, one of Nepal's most isolated and preserved
+                                regions.
+                            </p>
+
+                            <div class="dolpo-highlight">
+                                <h4 style="color: #2196f3; margin-bottom: 1rem">
+                                    <i class="fas fa-water lake-icon"></i>Why Choose Our Dolpo Phoksundo Trek
+                                </h4>
+                                <ul class="info-list">
+                                    <li>
+                                        <strong>Remote Adventure:</strong> Trek in one of Nepal's most isolated regions
+                                    </li>
+                                    <li>
+                                        <strong>Natural Wonder:</strong> Visit stunning Phoksundo Lake with turquoise waters
+                                    </li>
+                                    <li>
+                                        <strong>Cultural Immersion:</strong> Experience authentic Tibetan Buddhist culture
+                                    </li>
+                                    <li>
+                                        <strong>All-Inclusive:</strong> Flights, permits, accommodation, and meals included
+                                    </li>
+                                    <li>
+                                        <strong>Expert Support:</strong> Experienced guide and porter support throughout
+                                    </li>
+                                    <li>
+                                        <strong>Quality Equipment:</strong> Sleeping bag, first aid kit, and oximeter provided
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="remote-note">
+                                <h4 style="color: #ff9800; margin-bottom: 1rem">
+                                    <i class="fas fa-mountain"></i> About Dolpo Region
+                                </h4>
+                                <p>
+                                    Dolpo is one of Nepal's most remote districts, bordering Tibet. It was opened to trekkers only in 1989 and remains
+                                    one of the least developed regions. The area is known for its pristine natural beauty, ancient Tibetan Buddhist
+                                    culture, and the famous Phoksundo Lake. The region was featured in the film "The Himalaya" (Caravan) and several
+                                    documentaries.
+                                </p>
+                            </div>
+
+                            <h3>Trip Highlights</h3>
+                            <ul class="info-list">
+                                <li><strong>Duration:</strong> 10 Days / 9 Nights</li>
+                                <li><strong>Starting Point:</strong> Kathmandu</li>
+                                <li><strong>Highest Point:</strong> Phoksundo Lake (3,733m / 12,247ft)</li>
+                                <li><strong>Trek Grade:</strong> Moderate to Challenging</li>
+                                <li><strong>Best Seasons:</strong> May-October</li>
+                                <li><strong>Accommodation:</strong> Hotels in cities, lodges/teahouses during trek</li>
+                                <li><strong>Meals:</strong> All meals during trek included</li>
+                                <li><strong>Transport:</strong> Flights and all ground transfers included</li>
+                            </ul>
+
+                            <div class="highlight-box" style="background: #e8f5e9; border-left: 4px solid #4caf50">
+                                <h4 style="color: #4caf50; margin-bottom: 1rem">
+                                    For Adventure Seekers & Cultural Explorers
+                                </h4>
+                                <p>
+                                    This trek is perfect for experienced trekkers seeking remote adventure and cultural immersion. You'll experience
+                                    landscapes unchanged for centuries, interact with Dolpo-pa people who follow ancient Bon and Buddhist traditions, and
+                                    witness one of Nepal's most spectacular natural wonders - the turquoise Phoksundo Lake with its dramatic 167m
+                                    waterfall.
+                                </p>
+                            </div>
+
+                            <h3>Trek Overview & Key Information</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem;">
+                                <div style="flex: 1; min-width: 250px; background: #f5f5f5; padding: 1rem; border-radius: 8px;">
+                                    <h4 style="color: #2196f3; margin-bottom: 0.5rem">
+                                        <i class="fas fa-hiking"></i> Trekking Details
+                                    </h4>
+                                    <div class="dolpo-feature">
+                                        <i class="fas fa-shoe-prints"></i>
+                                        <span><strong>Trek Days:</strong> 6 days actual trekking</span>
+                                    </div>
+                                    <div class="dolpo-feature">
+                                        <i class="fas fa-mountain"></i>
+                                        <span><strong>Max Altitude:</strong> 3,733m (Phoksundo Lake)</span>
+                                    </div>
+                                    <div class="dolpo-feature">
+                                        <i class="fas fa-walking"></i>
+                                        <span><strong>Daily Hours:</strong> 5-7 hours walking</span>
+                                    </div>
+                                    <div class="dolpo-feature">
+                                        <i class="fas fa-campground"></i>
+                                        <span><strong>Accommodation:</strong> Basic lodges/teahouses</span>
+                                    </div>
+                                </div>
+
+                                <div style="flex: 1; min-width: 250px; background: #f5f5f5; padding: 1rem; border-radius: 8px;">
+                                    <h4 style="color: #ff9800; margin-bottom: 0.5rem">
+                                        <i class="fas fa-plane"></i> Flight Information
+                                    </h4>
+                                    <div class="dolpo-feature">
+                                        <i class="fas fa-plane-departure"></i>
+                                        <span><strong>Kathmandu → Nepalgunj:</strong> 1 hour flight</span>
+                                    </div>
+                                    <div class="dolpo-feature">
+                                        <i class="fas fa-plane"></i>
+                                        <span><strong>Nepalgunj → Juphal:</strong> 45 minute flight</span>
+                                    </div>
+                                    <div class="dolpo-feature">
+                                        <i class="fas fa-suitcase"></i>
+                                        <span><strong>Baggage:</strong> 15kg check-in + 5kg hand luggage</span>
+                                    </div>
+                                    <div class="dolpo-feature">
+                                        <i class="fas fa-cloud-sun"></i>
+                                        <span><strong>Note:</strong> Flights weather-dependent</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITINERARY -->
+                    <div id="itinerary" class="tab-content">
+                        <div class="info-section">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+                                <h3 style="margin: 0; color: #00b386; text-transform: uppercase; font-size: 1.2rem;">
+                                    10-Day Detailed Itinerary
+                                </h3>
+                                <button onclick="toggleAllDays(this)" style="background: none; border: 1px solid #00b386; color: #00b386; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-size: 0.9rem;">
+                                    Expand All
+                                </button>
+                            </div>
+
+                            <!-- Day 1 -->
+                            <div class="itinerary-day">
+                                <div class="day-header" onclick="toggleDay(this)">
+                                    <div class="day-header-content">
+                                        <span class="day-number">DAY 1</span>
+                                        <span class="day-title">ARRIVAL IN KATHMANDU (1,400M)</span>
+                                        <span class="day-altitude"><i class="fas fa-plane-arrival"></i> Welcome to Nepal</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </div>
+                                <div class="day-details">
+                                    <p style="margin-bottom: 1rem">
+                                        <strong>Arrival and Transfer:</strong> Arrive at Tribhuvan
+                                        International Airport in Kathmandu. Our representative will greet you at the airport and transfer you to your
+                                        hotel. After check-in and refreshment, you'll have a brief meeting with your trekking guide who will explain the
+                                        upcoming trek details. Rest of the day is free to relax, recover from your journey, or explore Thamel area near
+                                        your hotel. Overnight at 3-star hotel in Kathmandu.
+                                    </p>
+                                    <p><strong>Meals:</strong> Not Included (Welcome drink only)</p>
+                                    <p><strong>Accommodation:</strong> 3-star hotel in Kathmandu</p>
+                                    <p><strong>Activities:</strong> Airport transfer, trek briefing</p>
+                                </div>
+                            </div>
+
+                            <!-- Day 2 -->
+                            <div class="itinerary-day">
+                                <div class="day-header" onclick="toggleDay(this)">
+                                    <div class="day-header-content">
+                                        <span class="day-number">DAY 2</span>
+                                        <span class="day-title">SIGHTSEEING AND PREPARATION DAY IN KATHMANDU</span>
+                                        <span class="day-altitude"><i class="fas fa-landmark"></i> Cultural Exploration</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </div>
+                                <div class="day-details">
+                                    <p style="margin-bottom: 1rem">
+                                        <strong>Kathmandu Valley Tour:</strong> After breakfast, embark on a guided sightseeing tour of Kathmandu's UNESCO
+                                        World Heritage Sites. Visit Swayambhunath (Monkey Temple) offering panoramic views of Kathmandu Valley, and Patan
+                                        Durbar Square known for its exquisite Newari architecture. Afternoon is dedicated to trek preparation: finalize
+                                        packing, rent/buy any necessary equipment, and meet with your guide for detailed briefing about the Dolpo trek.
+                                        Last opportunity to purchase snacks, batteries, or other personal items for the trek.
+                                    </p>
+                                    <p><strong>Meals:</strong> Breakfast Included</p>
+                                    <p><strong>Accommodation:</strong> 3-star hotel in Kathmandu</p>
+                                    <p><strong>Activities:</strong> Sightseeing, trek preparation</p>
+                                </div>
+                            </div>
+
+                            <!-- Day 3 -->
+                            <div class="itinerary-day">
+                                <div class="day-header" onclick="toggleDay(this)">
+                                    <div class="day-header-content">
+                                        <span class="day-number">DAY 3</span>
+                                        <span class="day-title">FLIGHT KATHMANDU TO NEPALGUNJ (150M)</span>
+                                        <span class="day-altitude"><i class="fas fa-plane"></i> To Western Nepal</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </div>
+                                <div class="day-details">
+                                    <p style="margin-bottom: 1rem">
+                                        <strong>Journey to Western Nepal:</strong> Early morning transfer to Kathmandu airport for flight to Nepalgunj
+                                        (approximately 1 hour). Nepalgunj is a bustling border town in western Terai near the Indian border. Notice the
+                                        dramatic change in climate and landscape from Kathmandu's hills to Terai's tropical plains. Upon arrival, transfer
+                                        to your hotel. Rest of the day free to explore Nepalgunj, visit the local market, or rest at hotel. Important:
+                                        Prepare your daypack for tomorrow's early flight to Juphal as checked baggage will be limited.
+                                    </p>
+                                    <p><strong>Meals:</strong> Breakfast Included</p>
+                                    <p><strong>Accommodation:</strong> 3-star hotel in Nepalgunj</p>
+                                    <p><strong>Travel:</strong> 1-hour flight, hotel transfer</p>
+                                </div>
+                            </div>
+
+                            <!-- Day 4 -->
+                            <div class="itinerary-day">
+                                <div class="day-header" onclick="toggleDay(this)">
+                                    <div class="day-header-content">
+                                        <span class="day-number">DAY 4</span>
+                                        <span class="day-title">FLIGHT NEPALGUNJ - JUPHAL (2,475M), TREK TO CHHEPKA (2,838M)</span>
+                                        <span class="day-altitude"><i class="fas fa-mountain"></i> 6 Hours Trek</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </div>
+                                <div class="day-details">
+                                    <p style="margin-bottom: 1rem">
+                                        <strong>Into Dolpo Region:</strong> Early morning flight from Nepalgunj to Juphal (45 minutes), a thrilling
+                                        mountain flight with spectacular Himalayan views. Juphal is the gateway to Dolpo region. Meet your porter team and
+                                        begin trekking. The trail descends to Thuli Bheri River, then follows the river upstream through terraced fields
+                                        and pine forests. Pass through Dunai, the administrative headquarters of Dolpo district. Continue along the river
+                                        valley to Chhepka village. First experience of Dolpo's unique architecture and culture. Overnight at local lodge.
+                                    </p>
+                                    <p><strong>Meals:</strong> Breakfast, Lunch, Dinner Included</p>
+                                    <p><strong>Accommodation:</strong> Lodge in Chhepka</p>
+                                    <p><strong>Trek Duration:</strong> 6 hours</p>
+                                    <p><strong>Altitude:</strong> 2,475m to 2,838m</p>
+                                </div>
+                            </div>
+
+                            <!-- Day 5 -->
+                            <div class="itinerary-day">
+                                <div class="day-header" onclick="toggleDay(this)">
+                                    <div class="day-header-content">
+                                        <span class="day-number">DAY 5</span>
+                                        <span class="day-title">TREK TO SANDUWA/AMCHI HOSPITAL (3,110M) TO RINGMO/PHOKSUNDO LAKE (3,733M)</span>
+                                        <span class="day-altitude"><i class="fas fa-water"></i> To Phoksundo Lake</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </div>
+                                <div class="day-details">
+                                    <p style="margin-bottom: 1rem">
+                                        <strong>To the Turquoise Lake:</strong> Trek continues through beautiful pine forests along Phoksundo River. Pass
+                                        through several small villages with traditional stone houses. Reach Sanduwa/Amchi Hospital area (3,110m) - note
+                                        the traditional Tibetan medical facility. The trail then climbs more steeply through birch forests to a ridge
+                                        offering first breathtaking view of Phoksundo Lake and its spectacular 167m waterfall. Descend to Ringmo village
+                                        (3,733m) beside the stunning turquoise lake. The color of Phoksundo Lake is unforgettable - deep turquoise due to
+                                        glacial flour in the water. Overnight at lodge by the lake.
+                                    </p>
+                                    <p><strong>Meals:</strong> Breakfast, Lunch, Dinner Included</p>
+                                    <p><strong>Accommodation:</strong> Lodge in Ringmo/Phoksundo</p>
+                                    <p><strong>Trek Duration:</strong> 7 hours total</p>
+                                    <p><strong>Altitude Gain:</strong> 895m ascent</p>
+                                </div>
+                            </div>
+
+                            <!-- Day 6 -->
+                            <div class="itinerary-day">
+                                <div class="day-header" onclick="toggleDay(this)">
+                                    <div class="day-header-content">
+                                        <span class="day-number">DAY 6</span>
+                                        <span class="day-title">EXPLORATION DAY AT PHOKSUNDO/RINGMO (3,733M)</span>
+                                        <span class="day-altitude"><i class="fas fa-binoculars"></i> Exploration Day</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </div>
+                                <div class="day-details">
+                                    <p style="margin-bottom: 1rem">
+                                        <strong>Lake Exploration and Cultural Immersion:</strong> Full day to explore Phoksundo Lake and Ringmo village.
+                                        Options include: hike to viewpoints for different perspectives of the lake, visit Bon-po monastery (ancient
+                                        pre-Buddhist religion still practiced in Dolpo), explore Ringmo village with its traditional stone houses and
+                                        barley fields, or simply relax by the stunning lake shore. The lake is 5.15km² in area and 145m deep - Nepal's
+                                        deepest lake. Learn about local legends and spiritual significance of the lake to Dolpo-pa people. Optional hike
+                                        to Phoksundo Waterfall viewpoint. Overnight at same lodge.
+                                    </p>
+                                    <p><strong>Meals:</strong> Breakfast, Lunch, Dinner Included</p>
+                                    <p><strong>Accommodation:</strong> Lodge in Ringmo/Phoksundo</p>
+                                    <p><strong>Activities:</strong> Hiking, cultural exploration, photography</p>
+                                </div>
+                            </div>
+
+                            <!-- Day 7 -->
+                            <div class="itinerary-day">
+                                <div class="day-header" onclick="toggleDay(this)">
+                                    <div class="day-header-content">
+                                        <span class="day-number">DAY 7</span>
+                                        <span class="day-title">TREK FROM PHOKSUNDO LAKE TO CHHEPKA VIA RECHI</span>
+                                        <span class="day-altitude"><i class="fas fa-hiking"></i> 7 Hours Trek</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </div>
+                                <div class="day-details">
+                                    <p style="margin-bottom: 1rem">
+                                        <strong>Return Journey Begins:</strong> After final views of Phoksundo Lake, begin return trek. Climb up from the
+                                        lake basin to the ridge, then descend through birch and pine forests. Take an alternative route via Rechi village
+                                        (2,940m), offering different scenery and cultural experiences. The trail follows Phoksundo River downstream.
+                                        Notice changing vegetation as you lose altitude. Arrive back in Chhepka by afternoon. Enjoy the familiar
+                                        surroundings and reflect on your Phoksundo Lake experience. Overnight at lodge in Chhepka.
+                                    </p>
+                                    <p><strong>Meals:</strong> Breakfast, Lunch, Dinner Included</p>
+                                    <p><strong>Accommodation:</strong> Lodge in Chhepka</p>
+                                    <p><strong>Trek Duration:</strong> 7 hours</p>
+                                    <p><strong>Altitude Loss:</strong> 895m descent</p>
+                                </div>
+                            </div>
+
+                            <!-- Day 8 -->
+                            <div class="itinerary-day">
+                                <div class="day-header" onclick="toggleDay(this)">
+                                    <div class="day-header-content">
+                                        <span class="day-number">DAY 8</span>
+                                        <span class="day-title">TREK FROM CHHEPKA TO JUPHAL (2,475M)</span>
+                                        <span class="day-altitude"><i class="fas fa-plane-departure"></i> Return to Juphal</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </div>
+                                <div class="day-details">
+                                    <p style="margin-bottom: 1rem">
+                                        <strong>Final Trekking Day:</strong> Last day of trekking follows the Thuli Bheri River downstream back to Juphal.
+                                        Pass through Dunai again. The trail is mostly gradual with some ups and downs. Final opportunity to observe daily
+                                        life in Dolpo villages. Arrive in Juphal by afternoon. Celebrate completion of your trek with your guide and
+                                        porters. Evening free to relax, wash up, and prepare for tomorrow's flight. Overnight at lodge in Juphal.
+                                    </p>
+                                    <p><strong>Meals:</strong> Breakfast, Lunch, Dinner Included</p>
+                                    <p><strong>Accommodation:</strong> Lodge in Juphal</p>
+                                    <p><strong>Trek Duration:</strong> 6 hours</p>
+                                    <p><strong>Altitude Loss:</strong> 363m descent</p>
+                                </div>
+                            </div>
+
+                            <!-- Day 9 -->
+                            <div class="itinerary-day">
+                                <div class="day-header" onclick="toggleDay(this)">
+                                    <div class="day-header-content">
+                                        <span class="day-number">DAY 9</span>
+                                        <span class="day-title">FLIGHT JUPHAL TO NEPALGUNJ, THEN TO KATHMANDU</span>
+                                        <span class="day-altitude"><i class="fas fa-plane"></i> Return Flights</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </div>
+                                <div class="day-details">
+                                    <p style="margin-bottom: 1rem">
+                                        <strong>Return to Civilization:</strong> Early morning flight from Juphal to Nepalgunj (weather-dependent). Upon
+                                        arrival in Nepalgunj, connect with flight back to Kathmandu. Upon arrival in Kathmandu, transfer to your hotel.
+                                        Rest of the day free for relaxation, shopping, or exploring areas missed earlier. Evening farewell dinner at
+                                        traditional Nepali restaurant with cultural program (included). Celebrate your successful Dolpo Phoksundo Lake
+                                        trek with your guide and team.
+                                    </p>
+                                    <p><strong>Meals:</strong> Breakfast, Farewell Dinner Included</p>
+                                    <p><strong>Accommodation:</strong> 3-star hotel in Kathmandu</p>
+                                    <p><strong>Travel:</strong> Two flights: Juphal-Nepalgunj, Nepalgunj-Kathmandu</p>
+                                </div>
+                            </div>
+
+                            <!-- Day 10 -->
+                            <div class="itinerary-day">
+                                <div class="day-header" onclick="toggleDay(this)">
+                                    <div class="day-header-content">
+                                        <span class="day-number">DAY 10</span>
+                                        <span class="day-title">DEPARTURE FROM NEPAL</span>
+                                        <span class="day-altitude"><i class="fas fa-plane-departure"></i> Final Departure</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </div>
+                                <div class="day-details">
+                                    <p style="margin-bottom: 1rem">
+                                        <strong>Tour Conclusion:</strong> Depending on your flight schedule, free time for last-minute shopping or
+                                        sightseeing. Our representative will transfer you to Tribhuvan International Airport approximately 3 hours
+                                        before your scheduled flight. Depart with unforgettable memories of remote Dolpo region, stunning Phoksundo Lake,
+                                        and the unique Tibetan Buddhist culture of western Nepal. End of services.
+                                    </p>
+                                    <p><strong>Meals:</strong> Breakfast Included</p>
+                                    <p><strong>Accommodation:</strong> Not Included (Tour Ends)</p>
+                                    <p><strong>Transfer:</strong> Hotel to airport transfer included</p>
+                                    <p><strong>Note:</strong> Extend your stay in Nepal if desired (additional cost)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COST & DATES -->
+                    <div id="costdates" class="tab-content">
+                        <div class="info-section">
+                            <h3>Package Investment</h3>
+                            <div class="highlight-box" style="background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);">
+                                <div style="text-align: center">
+                                    <div style="margin: 1.5rem 0; padding: 1rem; background: white; border-radius: 8px;">
+                                        <table class="price-table" id="priceTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>Group Size</th>
+                                                    <th id="priceTableHeader">Cost Per Person (INR)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1-3 People</td>
+                                                    <td class="price-display" data-inr="131250" >₹131,250</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4-6 People</td>
+                                                    <td class="price-display" data-inr="128125" >₹128,125</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>7+ People</td>
+                                                    <td class="price-display" data-inr="125000" >₹125,000</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">
+                                            <i class="fas fa-info-circle"></i> Discount: Save ₹3,125 for 4-6 persons | Save ₹6,250 for 7+ persons
+                                        </p>
+                                        <p style="font-size: 0.9rem; color: #2196f3; margin-top: 0.5rem;">
+                                            <i class="fas fa-plane"></i> Includes ALL flights: Kathmandu-Nepalgunj-Juphal and return
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3 style="margin-top: 2rem">What Makes This Trek Special</h3>
+                            <ul class="info-list">
+                                <li>Domestic flights Kathmandu-Nepalgunj-Juphal and return included</li>
+                                <li>All necessary permits: Dolpo permit ($10/week) and TIMS card</li>
+                                <li>3-star hotel accommodation in Kathmandu and Nepalgunj</li>
+                                <li>All meals during trek (breakfast, lunch, dinner)</li>
+                                <li>Experienced English-speaking trekking guide</li>
+                                <li>Porter service (1 porter between 2 persons, 18-20kg limit)</li>
+                                <li>Sleeping bag and first aid kit provided</li>
+                                <li>Farewell dinner with cultural program in Kathmandu</li>
+                                <li>Trekking achievement certificate and Adventure Himalayan T-shirt</li>
+                            </ul>
+
+                            <div class="remote-note">
+                                <h4 style="color: #ff9800; margin-bottom: 0.5rem">
+                                    <i class="fas fa-exclamation-triangle"></i> Important Note About Remote Trekking
+                                </h4>
+                                <p style="margin-bottom: 0">
+                                    Dolpo is one of Nepal's most remote regions. Facilities are basic but adequate. Flights to/from Juphal are
+                                    weather-dependent and may be delayed. This requires flexibility in travel plans. The trek involves moderate to
+                                    challenging walking at altitude.
+                                </p>
+                            </div>
+
+                            <h3 style="margin-top: 2rem">2024/2025 Departure Dates</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+                                <div style="flex: 1; min-width: 200px; background: #f8f9fa; padding: 1rem; border-radius: 8px;">
+                                    <h4 style="color: #2196f3; margin-bottom: 0.5rem">Spring Season</h4>
+                                    <p><strong>May:</strong> 5th, 12th, 19th, 26th</p>
+                                    <p><strong>June:</strong> 2nd, 9th, 16th, 23rd</p>
+                                    <p><strong>September:</strong> 7th, 14th, 21st, 28th</p>
+                                </div>
+                                <div style="flex: 1; min-width: 200px; background: #f8f9fa; padding: 1rem; border-radius: 8px;">
+                                    <h4 style="color: #2196f3; margin-bottom: 0.5rem">Autumn Season</h4>
+                                    <p><strong>October:</strong> 5th, 12th, 19th, 26th</p>
+                                    <p><strong>Custom Departures:</strong> Available for private groups</p>
+                                    <p><strong>Group Discounts:</strong> Available for 4+ persons</p>
+                                </div>
+                            </div>
+
+                            <div class="dolpo-highlight" style="margin-top: 1.5rem;">
+                                <h4 style="color: #2196f3; margin-bottom: 0.5rem">
+                                    <i class="fas fa-suitcase"></i> What the Price Includes
+                                </h4>
+                                <p style="margin-bottom: 0">
+                                    Unlike many operators who charge extra for flights or permits, our all-inclusive price includes ALL major costs: international and domestic airport transfers, 3-star hotels, all flights, all meals during trek, guide, porter, all permits, equipment, and farewell dinner. Comprehensive coverage for a premium trekking experience.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- INCLUDED -->
+                    <div id="included" class="tab-content">
+                        <div class="info-section">
+                            <h3>What's Included in Package</h3>
+                            <ul class="info-list">
+                                <li><strong>Airport Transfers:</strong> International airport pickup and drop-off with escort</li>
+                                <li><strong>Kathmandu Accommodation:</strong> 3 nights at 3-star hotel (twin sharing) with breakfast</li>
+                                <li><strong>Nepalgunj Accommodation:</strong> 1 night at 3-star hotel with breakfast</li>
+                                <li><strong>Trek Accommodation:</strong> 5 nights lodge/teahouse accommodation during trek</li>
+                                <li><strong>Trek Meals:</strong> All meals during trek (breakfast, lunch, dinner - 9 days total)</li>
+                                <li><strong>Flights:</strong> Kathmandu-Nepalgunj-Juphal and return flights (all sectors)</li>
+                                <li><strong>Guide:</strong> Experienced English-speaking trekking guide</li>
+                                <li><strong>Porter Service:</strong> Porters (1 porter between 2 persons, carries 18-20kg)</li>
+                                <li><strong>Permits:</strong> Dolpo restricted area permit ($10 per week) and TIMS card</li>
+                                <li><strong>Farewell Dinner:</strong> Traditional Nepali dinner with cultural program in Kathmandu</li>
+                                <li><strong>Equipment:</strong> Sleeping bag, first aid kit, oximeter provided</li>
+                                <li><strong>Staff Insurance:</strong> Insurance for all guide and porter staff</li>
+                                <li><strong>Staff Equipment:</strong> Clothing and equipment for porters and staff</li>
+                                <li><strong>Certificate & Souvenir:</strong> Trekking achievement certificate and Adventure Himalayan T-shirt</li>
+                            </ul>
+
+                            <h3 style="margin-top: 2rem">What's Not Included</h3>
+                            <ul class="info-list" style="color: #777;">
+                                <li>Nepal entry visa (Multiple entry 30 days - USD 50)</li>
+                                <li>International airfare to/from Nepal</li>
+                                <li>Lunch and dinner during hotel stays in Kathmandu and Nepalgunj</li>
+                                <li>Hot shower fees at guest houses during trek</li>
+                                <li>Electronic charging fees at guest houses during trek</li>
+                                <li>Alcoholic drinks, bottled water, candies, snacks</li>
+                                <li>Extra accommodation and meals outside of itinerary</li>
+                                <li>Personal trekking gear and clothing (available for hire)</li>
+                                <li>Tips for guide and porters</li>
+                                <li>Expenses incurred in emergency evacuation or road block</li>
+                                <li>Any services not mentioned in "What's Included"</li>
+                            </ul>
+
+                            <div class="remote-note" style="margin-top: 1.5rem;">
+                                <h4 style="color: #ff9800; margin-bottom: 0.5rem">
+                                    <i class="fas fa-info-circle"></i> About Dolpo Restricted Area Permit
+                                </h4>
+                                <p style="margin-bottom: 0">
+                                    Dolpo is a restricted area requiring special permits ($10 per week). This is INCLUDED in our package. We obtain all necessary permits before your trek. You need to provide passport copies and photos in advance.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TERMS -->
+                    <div id="terms" class="tab-content">
+                        <div class="info-section">
+                            <h3>Terms & Conditions</h3>
+                            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #2196f3;">
+                                <ul class="info-list" style="list-style-type: none; padding-left: 0">
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Booking:</strong> 40% deposit required to confirm booking (due to flight bookings)
+                                    </li>
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Balance Payment:</strong> Full payment 30 days before departure
+                                    </li>
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Flight Information:</strong> Flights Kathmandu-Nepalgunj-Juphal included; subject to weather conditions
+                                    </li>
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Baggage Allowance:</strong> 15kg check-in + 5kg hand luggage on domestic flights
+                                    </li>
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Health Requirements:</strong> Good physical fitness required; medical certificate may be requested
+                                    </li>
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Travel Insurance:</strong> Comprehensive travel insurance with emergency evacuation mandatory
+                                    </li>
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Cancellation Policy:</strong>
+                                        <ul style="margin-top: 0.5rem; padding-left: 1.5rem">
+                                            <li>60+ days before: Full refund minus ₹10,000 administration fee</li>
+                                            <li>30-59 days: 70% refund</li>
+                                            <li>15-29 days: 50% refund</li>
+                                            <li>0-14 days: No refund</li>
+                                        </ul>
+                                    </li>
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Itinerary Changes:</strong> Itinerary subject to change due to weather, flight delays, trail conditions
+                                    </li>
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Remote Area:</strong> Dolpo is remote with basic facilities; flexibility and understanding required
+                                    </li>
+                                    <li style="margin-bottom: 1rem">
+                                        <strong>Responsibility:</strong> Honest Travel Tours acts as agent for services; not liable for unforeseen circumstances
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="dolpo-highlight" style="margin-top: 1.5rem;">
+                                <h4 style="color: #2196f3; margin-bottom: 0.5rem">
+                                    <i class="fas fa-plane"></i> Flight Delay Information
+                                </h4>
+                                <p style="margin-bottom: 0">
+                                    Flights to/from Juphal are frequently delayed or cancelled due to weather, especially in monsoon and winter. We include buffer days where possible, but additional accommodation/meal costs due to flight delays are traveler's responsibility (travel insurance should cover this).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- VIDEOS & MAP SECTION -->
+                    <div id="videosmap" class="tab-content">
+                        <div class="info-section">
+                            <h3>Experience the Dolpo Phoksundo Lake Trek</h3>
+                            <p>
+                                Watch our comprehensive video guide and explore the detailed route map of this 10-day remote trekking adventure to one of Nepal's most spectacular and isolated regions.
+                            </p>
+
+                            <!-- Video Section -->
+                            <div class="video-section" style="margin-bottom: 2rem">
+                                <h4 style="color: #2196f3; margin-bottom: 1rem">
+                                    <i class="fas fa-video"></i> Dolpo Phoksundo Lake Trek Experience
+                                </h4>
+                                <div class="video-container">
+                                    <iframe width="560" height="315"
+                                        src="https://www.youtube.com/embed/8s5kaYRkA64?si=ER0_zaPavGfotUdu"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                </div>
+                                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666">
+                                    <i class="fas fa-info-circle"></i> Watch our journey through remote Dolpo to the stunning turquoise Phoksundo Lake, showcasing unique culture and breathtaking landscapes.
+                                </p>
+                            </div>
+
+                            <!-- Map Section -->
+                            <div class="map-section">
+                                <h4 style="color: #2196f3; margin-bottom: 1rem">
+                                    <i class="fas fa-map-marked-alt"></i> Dolpo Phoksundo Lake Trek Route Map
+                                </h4>
+                                <div class="map-container">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13962.29653198889!2d82.95256260840134!3d29.117978280625345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39be036504a3f815%3A0xc66576b91c107f9c!2sPhoksundo%20Lake!5e0!3m2!1sen!2snp!4v1705750000000!5m2!1sen!2snp"
+                                        width="100%" height="400"
+                                        style="border: 0; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);"
+                                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                                        title="Shey Phoksundo Lake Map"></iframe>
+                                </div>
+                                <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 1rem;">
+                                    <div style="flex: 1; min-width: 200px">
+                                        <h5 style="color: #333; margin-bottom: 0.5rem">
+                                            <i class="fas fa-route" style="color: #2196f3"></i> Route Points
+                                        </h5>
+                                        <ul style="list-style-type: none; padding-left: 0; font-size: 0.9rem;">
+                                            <li style="margin-bottom: 0.3rem"><strong>Start:</strong> Kathmandu (1,400m)</li>
+                                            <li style="margin-bottom: 0.3rem"><strong>Fly to:</strong> Nepalgunj (150m) → Juphal (2,475m)</li>
+                                            <li style="margin-bottom: 0.3rem"><strong>Day 4:</strong> Trek to Chhepka (2,838m)</li>
+                                            <li style="margin-bottom: 0.3rem"><strong>Day 5:</strong> To Phoksundo Lake (3,733m)</li>
+                                            <li style="margin-bottom: 0.3rem"><strong>Day 6:</strong> Exploration at lake</li>
+                                            <li style="margin-bottom: 0.3rem"><strong>Return:</strong> Chhepka → Juphal → Nepalgunj → Kathmandu</li>
+                                        </ul>
+                                    </div>
+                                    <div style="flex: 1; min-width: 200px">
+                                        <h5 style="color: #333; margin-bottom: 0.5rem">
+                                            <i class="fas fa-mountain" style="color: #4caf50"></i> Altitude Profile
+                                        </h5>
+                                        <ul style="list-style-type: none; padding-left: 0; font-size: 0.9rem;">
+                                            <li style="margin-bottom: 0.3rem">Lowest: Nepalgunj (150m)</li>
+                                            <li style="margin-bottom: 0.3rem">Highest: Phoksundo Lake (3,733m)</li>
+                                            <li style="margin-bottom: 0.3rem">Total Trek Days: 6 days</li>
+                                            <li style="margin-bottom: 0.3rem">Longest Trek Day: 7 hours</li>
+                                            <li style="margin-bottom: 0.3rem">Acclimatization: Built into itinerary</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Trek Information -->
+                            <div style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); padding: 1.5rem; border-radius: 12px; margin-top: 2rem; border: 1px solid rgba(76, 175, 80, 0.1);">
+                                <h4 style="color: #4caf50; margin-bottom: 1rem">
+                                    <i class="fas fa-hiking"></i> Trekking Essentials
+                                </h4>
+                                <div style="display: flex; flex-wrap: wrap; gap: 1.5rem">
+                                    <div style="flex: 1; min-width: 200px">
+                                        <h5 style="color: #333; margin-bottom: 0.5rem; font-size: 0.95rem;">
+                                            <i class="fas fa-user-check" style="color: #2196f3"></i> Fitness Requirements
+                                        </h5>
+                                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 0.5rem;">
+                                            <strong>Level:</strong> Moderate to challenging
+                                        </p>
+                                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 0.5rem;">
+                                            <strong>Experience:</strong> Previous trekking experience recommended
+                                        </p>
+                                        <p style="font-size: 0.9rem; color: #555;">
+                                            <strong>Preparation:</strong> Regular cardio exercise for 2-3 months before
+                                        </p>
+                                    </div>
+                                    <div style="flex: 1; min-width: 200px">
+                                        <h5 style="color: #333; margin-bottom: 0.5rem; font-size: 0.95rem;">
+                                            <i class="fas fa-suitcase" style="color: #ff9800"></i> Packing List
+                                        </h5>
+                                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 0.5rem;">
+                                            <strong>Provided:</strong> Sleeping bag, first aid kit
+                                        </p>
+                                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 0.5rem;">
+                                            <strong>Essential:</strong> Good hiking boots, warm layers, waterproof jacket
+                                        </p>
+                                        <p style="font-size: 0.9rem; color: #555;">
+                                            <strong>Optional:</strong> Trekking poles (highly recommended)
+                                        </p>
+                                    </div>
+                                    <div style="flex: 1; min-width: 200px">
+                                        <h5 style="color: #333; margin-bottom: 0.5rem; font-size: 0.95rem;">
+                                            <i class="fas fa-utensils" style="color: #4caf50"></i> Food & Accommodation
+                                        </h5>
+                                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 0.5rem;">
+                                            <strong>Meals:</strong> Basic but nutritious; dal bhat common
+                                        </p>
+                                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 0.5rem;">
+                                            <strong>Lodges:</strong> Basic with shared facilities
+                                        </p>
+                                        <p style="font-size: 0.9rem; color: #555;">
+                                            <strong>Water:</strong> Boiled/filtered water available (extra cost)
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cultural Information -->
+                            <div style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); padding: 1.5rem; border-radius: 12px; margin-top: 2rem; border: 1px solid rgba(255, 152, 0, 0.2);">
+                                <h4 style="color: #ff9800; margin-bottom: 1rem">
+                                    <i class="fas fa-users" style="color: #ff9800"></i> Cultural Insights - Dolpo Region
+                                </h4>
+                                <div style="display: flex; flex-wrap: wrap; gap: 1.5rem">
+                                    <div style="flex: 1; min-width: 200px">
+                                        <h5 style="color: #ff9800; margin-bottom: 0.5rem; font-size: 0.95rem;">
+                                            <i class="fas fa-place-of-worship" style="color: #ff9800"></i> Religion & Culture
+                                        </h5>
+                                        <p style="font-size: 0.9rem; color: #555;">
+                                            Dolpo people practice Tibetan Buddhism mixed with ancient Bon animist traditions. You'll see prayer flags, mani walls, chortens, and monasteries. The region was part of the ancient salt trade route between Tibet and Nepal.
+                                        </p>
+                                    </div>
+                                    <div style="flex: 1; min-width: 200px">
+                                        <h5 style="color: #ff9800; margin-bottom: 0.5rem; font-size: 0.95rem;">
+                                            <i class="fas fa-home" style="color: #ff9800"></i> Traditional Lifestyle
+                                        </h5>
+                                        <p style="font-size: 0.9rem; color: #555;">
+                                            Dolpo-pa live in stone houses, practice subsistence farming (barley, buckwheat), and herd yaks and sheep. Their lifestyle has changed little for centuries. Many still wear traditional Tibetan-style clothing.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Booking Card -->
+            <div>
+                <div class="booking-card">
+                    <div class="price-section">
+                        <div class="price-icon"><i class="fas fa-water"></i></div>
+                        <div class="price-info">
+                            <div class="price-label">Starting from</div>
+                            <div><span class="price" id="mainPriceDisplay">₹131,250</span></div>
+                            <div style="font-size: 0.8rem; color: #666; margin-top: 0.3rem" id="alternatePriceRow">
+                                <span id="alternatePriceLabel">USD</span> <span id="alternatePrice">1,580</span> <span
+                                    id="groupSizeLabel">(for 1-3 persons)</span>
+                            </div>
+                        </div>
+                        <!-- Currency Selector -->
+                        <div class="currency-selector-container">
+                            <div class="currency-selector">
+                                <div id="selectedCurrency">
+                                    <span>INR</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="currency-dropdown">
+                                    <div class="currency-option active" data-currency="INR">INR (₹)</div>
+                                    <div class="currency-option" data-currency="USD">USD ($)</div>
+                                    <div class="currency-option" data-currency="NRP">NRP (रु)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background: #e3f2fd; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; text-align: center;">
+                        <div style="font-size: 0.9rem; color: #2196f3; margin-bottom: 0.5rem"><i class="fas fa-plane"></i> All Flights Included</div>
+                        <div style="font-size: 0.9rem">Kathmandu-Nepalgunj-Juphal and return</div>
+                    </div>
+
+                    <div class="quantity-section">
+                        <div class="quantity-controls">
+                            <button class="qty-btn" onclick="updatePrice(-1)">-</button>
+                            <div class="qty-display" id="qtyDisplay">1</div>
+                            <button class="qty-btn" onclick="updatePrice(1)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="price-breakdown">
+                        <div class="price-row">
+                            <span>Base Price (Per Person)</span>
+                            <span><span id="baseCurrency">INR</span> <span id="basePrice">131,250</span></span>
+                        </div>
+                        <div class="price-row total">
+                            <span>Total</span>
+                            <span><span id="totalCurrency">INR</span> <span id="totalPrice">131,250</span></span>
+                        </div>
+                    </div>
+
+                    <button class="booking-btn btn-instant" onclick="showBookingForm()">Instant Booking</button>
+                    <button class="booking-btn btn-customize" onclick="showEnquiryModal()">Enquiry</button>
+
+                    <div class="contact-section">
+                        <div style="font-size: 2.5rem; margin-bottom: 0.5rem">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Direct Booking Assistance</h3>
+                        <div class="phone-numbers">
+                            <a href="https://wa.me/9779851140110" target="_blank" rel="noopener noreferrer"
+                                style="text-decoration: none; color: inherit; display: block; font-size: 1.2rem;">
+                                +977-9851140110
+                            </a>
+                            <a href="https://wa.me/9779856017867" target="_blank" rel="noopener noreferrer"
+                                style="text-decoration: none; color: inherit; display: block; font-size: 1.2rem;">
+                                +977-9856017867
+                            </a>
+                        </div>
+                        <div style="font-size: 0.9rem; margin-top: 0.5rem">WhatsApp Available</div>
+                    </div>
+
+                    <div class="dolpo-highlight" style="margin-top: 1.5rem; padding: 1rem">
+                        <h4 style="color: #2196f3; margin-bottom: 0.5rem; font-size: 0.9rem">
+                            <i class="fas fa-plane"></i> Flight Information
+                        </h4>
+                        <p style="font-size: 0.8rem; margin-bottom: 0">
+                            Price includes ALL flights: Kathmandu-Nepalgunj-Juphal and return. Most operators charge these separately. Our price is truly all-inclusive for this remote trek.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HOTELS SECTION -->
+        <div class="tour-facilities-section">
+            <h3 class="facilities-title"><i class="fas fa-hotel"></i> HOTELS</h3>
+            <div class="facilities-slider-container">
+                <div class="facilities-slider" id="hotelsSlider">
+                    <div class="facility-card">
+                        <div class="facility-image-wrapper"><img src="../../images/Kathmandu.jpg" alt="Hotel Shanker" class="facility-image" /></div>
+                        <div class="facility-info">
+                            <h4>Hotel Shanker</h4>
+                            <p class="facility-location">Kathmandu (4-Star Heritage)</p>
+                        </div>
+                    </div>
+                    <div class="facility-card">
+                        <div class="facility-image-wrapper"><img src="../../images/dolpa2.jpg" alt="Hotel Siddhartha" class="facility-image" /></div>
+                        <div class="facility-info">
+                            <h4>Hotel Siddhartha</h4>
+                            <p class="facility-location">Nepalgunj (3-Star)</p>
+                        </div>
+                    </div>
+                    <div class="facility-card">
+                        <div class="facility-image-wrapper"><img src="../../images/dolpa3.jpg" alt="Snowland Lodge" class="facility-image" /></div>
+                        <div class="facility-info">
+                            <h4>Snowland Lodge</h4>
+                            <p class="facility-location">Juphal (Teahouse)</p>
+                        </div>
+                    </div>
+                    <div class="facility-card">
+                        <div class="facility-image-wrapper"><img src="../../images/dolpa.jpg" alt="Phoksundo Lodge" class="facility-image" /></div>
+                        <div class="facility-info">
+                            <h4>Phoksundo Lodge</h4>
+                            <p class="facility-location">Ringmo (Teahouse)</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="facilities-nav-btn prev" onclick="scrollFacilities('hotelsSlider', -1)"><i class="fas fa-chevron-left"></i></button>
+                <button class="facilities-nav-btn next" onclick="scrollFacilities('hotelsSlider', 1)"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+
+        <!-- VEHICLES SECTION -->
+        <div class="tour-facilities-section">
+            <h3 class="facilities-title"><i class="fas fa-car"></i> VEHICLES</h3>
+            <div class="facilities-slider-container">
+                <div class="facilities-slider" id="vehiclesSlider">
+                    <a href="../Vehicle/car.html" class="facility-card clickable">
+                        <div class="facility-image-wrapper"><img src="../../images/car.webp" alt="Car" class="facility-image" />
+                            <div class="facility-overlay"><i class="fas fa-arrow-right"></i></div>
+                        </div>
+                        <div class="facility-info">
+                            <h4>Car</h4>
+                            <p class="facility-location">2-3 Person • A/C</p>
+                        </div>
+                    </a>
+                    <a href="../vehicle/scorpio.html" class="facility-card clickable">
+                        <div class="facility-image-wrapper"><img src="../../images/scorpio.jpg" alt="Scorpio Jeep" class="facility-image" />
+                            <div class="facility-overlay"><i class="fas fa-arrow-right"></i></div>
+                        </div>
+                        <div class="facility-info">
+                            <h4>Scorpio Jeep</h4>
+                            <p class="facility-location">4-6 Person • A/C</p>
+                        </div>
+                    </a>
+                    <a href="../vehicle/hiace-van.html" class="facility-card clickable">
+                        <div class="facility-image-wrapper"><img src="../../images/hiace-vehicle.jpeg" alt="Hiace Van" class="facility-image" />
+                            <div class="facility-overlay"><i class="fas fa-arrow-right"></i></div>
+                        </div>
+                        <div class="facility-info">
+                            <h4>Hiace Van</h4>
+                            <p class="facility-location">7-12 Person • A/C</p>
+                        </div>
+                    </a>
+                    <a href="../vehicle/mini-bus.html" class="facility-card clickable">
+                        <div class="facility-image-wrapper"><img src="../../images/mini-bus.jpg" alt="Mini Bus" class="facility-image" />
+                            <div class="facility-overlay"><i class="fas fa-arrow-right"></i></div>
+                        </div>
+                        <div class="facility-info">
+                            <h4>Mini Bus</h4>
+                            <p class="facility-location">12-18 Person • A/C</p>
+                        </div>
+                    </a>
+                </div>
+                <button class="facilities-nav-btn prev" onclick="scrollFacilities('vehiclesSlider', -1)"><i class="fas fa-chevron-left"></i></button>
+                <button class="facilities-nav-btn next" onclick="scrollFacilities('vehiclesSlider', 1)"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Honest Travel</h3>
+                <p>
+                    Your trusted partner for authentic Himalayan experiences and
+                    adventure journeys since 2005.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Thamel, Kathmandu, Nepal</p>
+                <p>infohonesttoursntravels@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Certifications</h3>
+                <p>TAAN Registered</p>
+                <p>NTB Licensed</p>
+                <p>Sustainable Tourism Certified</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>
+                &copy; 2025 HONEST TRAVEL Tours and Expedition. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        /* ========== CONSTANTS AND CONFIGURATION ========== */
+
+        const basePrice = 131250; // $1,575 USD converted to INR (1 USD = 83.33 INR) with markup
+        const price1to3 = basePrice;                    // ₹131,250
+        const price4to6 = basePrice - 3125;              // ₹128,125 (131,250 - 3,125)
+        const price7plus = basePrice - 6250;              // ₹125,000 (131,250 - 6,250)
+
+        const marketUsdToInr = 92;
+        const markupPercent = 15;
+
+        const exchangeRates = {
+            INR: { rate: 1, symbol: "₹", name: "INR" },
+            USD: {
+                rate: (1 / marketUsdToInr) * (1 + markupPercent / 100),
+                symbol: "$",
+                name: "USD",
+            },
+            NRP: { rate: 1.6, symbol: "रु", name: "NRP" },
+        };
+
+        let qty = 1;
+        let currentCurrency = "INR";
+
+        const currentPackage = {
+            name: "Dolpo Phoksundo Lake Trek - 10 Days Remote Himalayan Adventure",
+            duration: "10 Days / 9 Nights",
+            category: "Premium Trekking",
+            altitude: "3,733m at Phoksundo Lake",
+            location: "Dolpo Region, Nepal",
+        };
+
+        /* ========== HELPER FUNCTIONS ========== */
+
+        function getUnitPrice(persons) {
+            if (persons >= 7) return price7plus;
+            if (persons >= 4) return price4to6;
+            return price1to3;
+        }
+
+        function getConvertedPrice(persons, targetCurrency) {
+            const inrPrice = getUnitPrice(persons);
+            const rate = exchangeRates[targetCurrency]?.rate || 1;
+            return inrPrice * rate;
+        }
+
+        function getUnitUSDPrice(persons) {
+            return getConvertedPrice(persons, "USD");
+        }
+
+        function getUnitNRPPrice(persons) {
+            return getConvertedPrice(persons, "NRP");
+        }
+
+        function getCurrencySymbol() {
+            return exchangeRates[currentCurrency]?.symbol || "₹";
+        }
+
+        function formatNumber(num) {
+            if (num >= 1000) {
+                return Math.round(num).toLocaleString("en-IN");
+            } else if (num >= 100) {
+                return Math.round(num).toString();
+            } else {
+                return num.toFixed(2);
+            }
+        }
+
+        function getGroupSizeText(persons) {
+            if (persons >= 7) return "7+ People";
+            if (persons >= 4) return "4-6 People";
+            return "1-3 People";
+        }
+
+        function getGroupSizeLabel(persons) {
+            if (persons >= 7) return "(for 7+ persons)";
+            if (persons >= 4) return "(for 4-6 persons)";
+            return "(for 1-3 persons)";
+        }
+
+        function getDiscountText(persons) {
+            if (persons >= 7) return "Save ₹6,250 per person";
+            if (persons >= 4) return "Save ₹3,125 per person";
+            return "";
+        }
+
+        function getDisplayUnitPrice(persons) {
+            if (currentCurrency === "USD") return getUnitUSDPrice(persons);
+            if (currentCurrency === "NRP") return getUnitNRPPrice(persons);
+            return getUnitPrice(persons);
+        }
+
+        /* ========== PRICE UPDATE FUNCTION ========== */
+
+        function updatePrice(change) {
+            qty += change;
+            if (qty < 1) qty = 1;
+            document.getElementById("qtyDisplay").textContent = qty;
+
+            const unitPrice = getUnitPrice(qty);
+            const unitUSDPrice = getUnitUSDPrice(qty);
+            const displayUnitPrice = getDisplayUnitPrice(qty);
+
+            let alternatePrice, alternateLabel;
+            if (currentCurrency === "USD") {
+                alternatePrice = unitPrice;
+                alternateLabel = "INR";
+            } else if (currentCurrency === "NRP") {
+                alternatePrice = unitUSDPrice;
+                alternateLabel = "USD";
+            } else {
+                alternatePrice = unitUSDPrice;
+                alternateLabel = "USD";
+            }
+
+            document.getElementById("mainPriceDisplay").textContent = getCurrencySymbol() + " " + formatNumber(displayUnitPrice);
+            document.getElementById("basePrice").textContent = formatNumber(displayUnitPrice);
+            document.getElementById("totalPrice").textContent = formatNumber(qty * displayUnitPrice);
+            document.getElementById("baseCurrency").textContent = currentCurrency;
+            document.getElementById("totalCurrency").textContent = currentCurrency;
+
+            let alternateRow = document.getElementById("alternatePriceRow");
+            if (!alternateRow) {
+                const priceInfo = document.querySelector('.price-info');
+                alternateRow = document.createElement('div');
+                alternateRow.id = 'alternatePriceRow';
+                alternateRow.style.fontSize = '0.8rem';
+                alternateRow.style.color = '#666';
+                alternateRow.style.marginTop = '0.3rem';
+                priceInfo.appendChild(alternateRow);
+            }
+
+            const discountText = getDiscountText(qty);
+            const discountHtml = discountText ? `<br><span style="color: #28a745; font-size: 0.75rem;"><i class="fas fa-tag"></i> ${discountText}</span>` : '';
+            
+            alternateRow.innerHTML = `<span id="alternatePriceLabel">${alternateLabel}</span> <span id="alternatePrice">${formatNumber(alternatePrice)}</span> <span id="groupSizeLabel">${getGroupSizeLabel(qty)}</span>${discountHtml}`;
+        }
+
+        /* ========== CURRENCY CONVERTER ========== */
+
+        function initializeCurrencyConverter() {
+            const currencySelector = document.querySelector(".currency-selector");
+            const selectedCurrency = document.getElementById("selectedCurrency");
+            const currencyOptions = document.querySelectorAll(".currency-option");
+            const priceElements = document.querySelectorAll(".price-display");
+            const priceTableHeader = document.getElementById("priceTableHeader");
+
+            if (selectedCurrency) {
+                selectedCurrency.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    currencySelector.classList.toggle("active");
+                });
+            }
+
+            currencyOptions.forEach((option) => {
+                option.addEventListener("click", function () {
+                    const newCurrency = this.getAttribute("data-currency");
+
+                    if (newCurrency === "USD") {
+                        selectedCurrency.querySelector("span").textContent = "USD";
+                    } else if (newCurrency === "INR") {
+                        selectedCurrency.querySelector("span").textContent = "INR";
+                    } else if (newCurrency === "NRP") {
+                        selectedCurrency.querySelector("span").textContent = "NRP";
+                    }
+
+                    currentCurrency = newCurrency;
+
+                    currencyOptions.forEach((opt) => opt.classList.remove("active"));
+                    this.classList.add("active");
+
+                    if (priceTableHeader) {
+                        priceTableHeader.textContent = `Cost Per Person`;
+                    }
+
+                    convertPrices(newCurrency);
+                    updatePrice(0);
+
+                    currencySelector.classList.remove("active");
+                });
+            });
+
+            document.addEventListener("click", function (e) {
+                if (currencySelector && !currencySelector.contains(e.target)) {
+                    currencySelector.classList.remove("active");
+                }
+            });
+
+            function convertPrices(targetCurrency) {
+                const targetSymbol = exchangeRates[targetCurrency]?.symbol || "₹";
+
+                priceElements.forEach((element) => {
+                    let convertedValue;
+
+                    if (targetCurrency === "NRP" && element.hasAttribute("data-npr")) {
+                        convertedValue = parseFloat(element.getAttribute("data-npr"));
+                    } else if (targetCurrency === "USD" && element.hasAttribute("data-usd")) {
+                        convertedValue = parseFloat(element.getAttribute("data-usd"));
+                    } else {
+                        const inrValue = parseFloat(element.getAttribute("data-inr"));
+                        const targetRate = exchangeRates[targetCurrency]?.rate || 1;
+                        convertedValue = inrValue * targetRate;
+                    }
+
+                    element.textContent = targetSymbol + " " + formatNumber(convertedValue);
+                });
+            }
+
+            convertPrices("INR");
+        }
+
+        /* ========== NAVIGATION BURGER MENU ========== */
+
+        function initializeNavigation() {
+            const navBurger = document.getElementById("navBurger");
+            const mainNav = document.getElementById("mainNav");
+
+            if (navBurger) {
+                navBurger.addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    mainNav.classList.toggle("active");
+                    document.body.classList.toggle("nav-open");
+                });
+
+                const navLinks = mainNav.querySelectorAll("a");
+                navLinks.forEach((link) => {
+                    link.addEventListener("click", () => {
+                        navBurger.classList.remove("active");
+                        mainNav.classList.remove("active");
+                        document.body.classList.remove("nav-open");
+                    });
+                });
+            }
+        }
+
+        /* ========== TAB SYSTEM ========== */
+
+        function initializeTabs() {
+            const tabBurger = document.getElementById("tabBurger");
+            const tabsMenu = document.getElementById("tabsMenu");
+
+            if (tabBurger) {
+                tabBurger.addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    tabsMenu.classList.toggle("active");
+                });
+            }
+        }
+
+        function openTab(tabId) {
+            document.querySelectorAll(".tab-content").forEach((c) => c.classList.remove("active"));
+            document.querySelectorAll(".tab").forEach((t) => t.classList.remove("active"));
+
+            document.getElementById(tabId).classList.add("active");
+            event.currentTarget.classList.add("active");
+
+            const currentTabName = document.getElementById("currentTabName");
+            if (currentTabName) {
+                currentTabName.textContent = event.currentTarget.textContent.trim();
+            }
+
+            const tabBurger = document.getElementById("tabBurger");
+            const tabsMenu = document.getElementById("tabsMenu");
+            if (tabBurger) {
+                tabBurger.classList.remove("active");
+                tabsMenu.classList.remove("active");
+            }
+        }
+
+        /* ========== COLLAPSIBLE ITINERARY ========== */
+
+        function toggleDay(headerElement) {
+            headerElement.closest(".itinerary-day").classList.toggle("active");
+        }
+
+        function toggleAllDays(btn) {
+            const allDays = document.querySelectorAll(".itinerary-day");
+            const isExpanding = btn.innerText.trim() === "Expand All";
+
+            allDays.forEach((day) => {
+                if (isExpanding) {
+                    day.classList.add("active");
+                } else {
+                    day.classList.remove("active");
+                }
+            });
+
+            btn.innerText = isExpanding ? "Collapse All" : "Expand All";
+        }
+
+        /* ========== IMAGE GALLERY ========== */
+
+        let currentImageIndex = 0;
+        const images = document.querySelectorAll(".gallery-image");
+        const indicators = document.querySelectorAll(".indicator");
+
+        function showImage(index) {
+            if (index >= images.length) currentImageIndex = 0;
+            else if (index < 0) currentImageIndex = images.length - 1;
+            else currentImageIndex = index;
+
+            images.forEach((img) => img.classList.remove("active"));
+            indicators.forEach((ind) => ind.classList.remove("active"));
+
+            images[currentImageIndex].classList.add("active");
+            indicators[currentImageIndex].classList.add("active");
+        }
+
+        function changeImage(step) { showImage(currentImageIndex + step); }
+        function setImage(index) { showImage(index); }
+
+        setInterval(() => changeImage(1), 5000);
+
+        /* ========== BOOKING MODAL FUNCTIONS ========== */
+
+        function generateBookingId() {
+            const prefix = "HTT";
+            const timestamp = Date.now().toString().slice(-8);
+            const random = Math.floor(Math.random() * 1000).toString().padStart(3, "0");
+            const date = new Date();
+            const year = date.getFullYear().toString().slice(-2);
+            const month = (date.getMonth() + 1).toString().padStart(2, "0");
+            return `${prefix}-${year}${month}-${timestamp}-${random}`;
+        }
+
+        function showBookingForm() {
+            showConfirmationModal();
+        }
+
+        function showConfirmationModal() {
+            const displayUnitPrice = getDisplayUnitPrice(qty);
+            const symbol = getCurrencySymbol();
+            const groupSizeText = getGroupSizeText(qty);
+
+            const modalOverlay = document.createElement("div");
+            modalOverlay.className = "confirmation-modal";
+
+            modalOverlay.innerHTML = `
+                <div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; color: #2196f3; margin-bottom: 15px;">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <h3 style="color: #2c3e50; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                            <i class="fas fa-calendar-check" style="color: #2196f3;"></i> Confirm Dolpo Trek Booking
+                        </h3>
+                        <div style="font-size: 1.1rem; color: #2196f3; font-weight: 600; margin-bottom: 20px; background: rgba(33, 150, 243, 0.1); padding: 12px; border-radius: 8px; border-left: 4px solid #2196f3;">
+                            Dolpo Phoksundo Lake Trek - 10 Days
+                        </div>
+                        <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 20px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                <span>Duration:</span><span style="font-weight: 600;">10 Days / 9 Nights</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                <span>Region:</span><span style="font-weight: 600;">Dolpo (Remote Trek)</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                <span>Group Size:</span><span style="font-weight: 600;">${groupSizeText}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                <span>Participants:</span><span style="font-weight: 600;">${qty} person(s)</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                <span>Price Per Person:</span><span style="font-weight: 600;">${symbol} ${formatNumber(displayUnitPrice)}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; font-size: 1.2rem; color: #28a745;">
+                                <span>Total Amount:</span><span style="font-weight: 700;">${symbol} ${formatNumber(qty * displayUnitPrice)}</span>
+                            </div>
+                        </div>
+                        <div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; margin: 20px 0;">
+                            <h4 style="color: #388e3c; margin-bottom: 0.5rem; font-size: 0.9rem;"><i class="fas fa-info-circle"></i> Important Information</h4>
+                            <p style="margin: 0; color: #388e3c; font-size: 0.9rem;">Includes ALL flights • All permits • All meals during trek • Experienced guide</p>
+                        </div>
+                        <p style="color: #666; margin-bottom: 25px; font-size: 16px;">Are you ready to book this remote trekking adventure to Dolpo's Phoksundo Lake?</p>
+                        <div class="confirmation-buttons" style="display: flex; gap: 15px; margin-top: 25px;">
+                            <button id="confirmCancel" class="cancel-choice" style="padding: 10px 20px; background: #f5f5f5; border: none; border-radius: 6px; color: #666; cursor: pointer; transition: all 0.3s ease; flex: 1;">Cancel</button>
+                            <button id="confirmBook" class="confirm-book-btn" style="background: linear-gradient(135deg, #2196f3 0%, #0d47a1 100%); color: white; border: none; padding: 14px 24px; border-radius: 8px; font-size: 16px; font-weight: 500; cursor: pointer; flex: 1; transition: all 0.3s ease;">Yes, Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(modalOverlay);
+            document.body.classList.add("modal-open");
+
+            modalOverlay.querySelector("#confirmCancel").addEventListener("click", () => closeModal(modalOverlay));
+            modalOverlay.querySelector("#confirmBook").addEventListener("click", () => {
+                closeModal(modalOverlay);
+                showBookingModal();
+            });
+            modalOverlay.addEventListener("click", (e) => { if (e.target === modalOverlay) closeModal(modalOverlay); });
+        }
+
+        function showBookingModal() {
+            const displayUnitPrice = getDisplayUnitPrice(qty);
+            const symbol = getCurrencySymbol();
+            const groupSizeText = getGroupSizeText(qty);
+
+            const modalOverlay = document.createElement("div");
+            modalOverlay.className = "booking-modal";
+
+            modalOverlay.innerHTML = `
+                <div>
+                    <button class="close-modal">×</button>
+                    <h2 style="color: #2c3e50; margin-bottom: 1.5rem; text-align: center; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                        <i class="fas fa-water" style="color: #2196f3;"></i> Book Dolpo Phoksundo Lake Trek
+                    </h2>
+                    <form id="bookingForm">
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">Full Name *</label>
+                            <input type="text" id="bookingName" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box;" placeholder="Enter your full name">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">Email Address *</label>
+                            <input type="email" id="bookingEmail" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box;" placeholder="your@email.com">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">Phone Number *</label>
+                            <input type="tel" id="bookingPhone" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box;" placeholder="+977 98XXXXXXXX">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">Country *</label>
+                            <input type="text" id="bookingCountry" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box;" placeholder="Your country">
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div>
+                                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">Persons *</label>
+                                <input type="number" min="1" value="${qty}" id="formPersons" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box;">
+                            </div>
+                            <div>
+                                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">Preferred Date *</label>
+                                <input type="date" id="bookingDate" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box;">
+                            </div>
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">Trekking Experience Level</label>
+                            <select id="trekkingExperience" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box;">
+                                <option value="beginner">Beginner (First time trekker)</option>
+                                <option value="moderate">Moderate (Some trekking experience)</option>
+                                <option value="experienced">Experienced (Multiple treks completed)</option>
+                                <option value="advanced">Advanced (High altitude trekking experience)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">Special Requirements</label>
+                            <textarea id="bookingRequirements" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; min-height: 100px; resize: vertical; box-sizing: border-box;" placeholder="Any dietary restrictions, health concerns, or special requests..."></textarea>
+                        </div>
+                        <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; margin: 1rem 0;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Trek Package:</span><span style="font-weight: bold;">Dolpo Phoksundo Lake Trek</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Duration:</span><span>10 Days / 9 Nights</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Group Size:</span><span id="formGroupSize">${groupSizeText}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Price Per Person:</span><span id="formPricePerPerson">${symbol} ${formatNumber(displayUnitPrice)}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Persons:</span><span id="formTotalPersons">${qty}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; font-size: 1.2rem; color: #28a745;">
+                                <span>Total Amount:</span>
+                                <span><span id="formCurrency">${currentCurrency}</span> <span id="formTotalAmount">${formatNumber(qty * displayUnitPrice)}</span></span>
+                            </div>
+                        </div>
+                        <button type="submit" style="background: linear-gradient(135deg, #2196f3 0%, #0d47a1 100%); color: white; border: none; padding: 1rem; border-radius: 6px; font-size: 1.1rem; font-weight: 600; cursor: pointer; margin-top: 1rem; width: 100%;">
+                            <i class="fas fa-paper-plane"></i> Submit Trek Booking Request
+                        </button>
+                        <p style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 1rem;"><i class="fas fa-info-circle"></i> Includes ALL flights • All permits • All meals during trek</p>
+                        <p style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 0.5rem;">We'll contact you within 24 hours to confirm your booking</p>
+                    </form>
+                </div>
+            `;
+
+            document.body.appendChild(modalOverlay);
+            document.body.classList.add("modal-open");
+
+            const modalContent = modalOverlay.querySelector("div");
+            modalContent.style.webkitOverflowScrolling = "touch";
+
+            modalOverlay.querySelector(".close-modal").addEventListener("click", () => closeModal(modalOverlay));
+            modalOverlay.addEventListener("click", (e) => { if (e.target === modalOverlay) closeModal(modalOverlay); });
+
+            const personsInput = modalOverlay.querySelector("#formPersons");
+            const groupSizeSpan = modalOverlay.querySelector("#formGroupSize");
+            const totalPersonsSpan = modalOverlay.querySelector("#formTotalPersons");
+            const totalAmountSpan = modalOverlay.querySelector("#formTotalAmount");
+            const pricePerPersonSpan = modalOverlay.querySelector("#formPricePerPerson");
+            const formCurrencySpan = modalOverlay.querySelector("#formCurrency");
+
+            function updateFormTotal() {
+                const persons = Math.max(1, parseInt(personsInput.value) || 1);
+                personsInput.value = persons;
+                const dispPrice = getDisplayUnitPrice(persons);
+                const sym = getCurrencySymbol();
+
+                groupSizeSpan.textContent = getGroupSizeText(persons);
+                totalPersonsSpan.textContent = persons;
+                pricePerPersonSpan.textContent = sym + " " + formatNumber(dispPrice);
+                totalAmountSpan.textContent = formatNumber(persons * dispPrice);
+                formCurrencySpan.textContent = currentCurrency;
+
+                qty = persons;
+                updatePrice(0);
+            }
+
+            personsInput.addEventListener("input", updateFormTotal);
+
+            // Handle form submission
+            modalOverlay.querySelector("#bookingForm").addEventListener("submit", (e) => {
+                e.preventDefault();
+
+                const persons = Math.max(1, parseInt(personsInput.value) || 1);
+                const dispPrice = getDisplayUnitPrice(persons);
+
+                const formData = {
+                    name: modalOverlay.querySelector("#bookingName").value.trim(),
+                    email: modalOverlay.querySelector("#bookingEmail").value.trim(),
+                    phone: modalOverlay.querySelector("#bookingPhone").value.trim(),
+                    country: modalOverlay.querySelector("#bookingCountry").value.trim(),
+                    experience: modalOverlay.querySelector("#trekkingExperience").value,
+                    persons: persons,
+                    date: modalOverlay.querySelector("#bookingDate").value || "Not specified",
+                    requirements: modalOverlay.querySelector("#bookingRequirements").value.trim() || "None",
+                    package: currentPackage.name,
+                    totalAmount: persons * dispPrice,
+                    pricePerPerson: dispPrice,
+                    currency: currentCurrency,
+                    duration: currentPackage.duration,
+                    groupSize: getGroupSizeText(persons),
+                };
+
+                // Validation
+                if (!formData.name) {
+                    showMobileAlert("error", "Name Required", "Please enter your full name");
+                    modalOverlay.querySelector("#bookingName").focus();
+                    return;
+                }
+                if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
+                    showMobileAlert("error", "Valid Email Required", "Please enter a valid email address");
+                    modalOverlay.querySelector("#bookingEmail").focus();
+                    return;
+                }
+                if (!formData.phone || !/^\+?[\d\s\-\(\)]{10,}$/.test(formData.phone)) {
+                    showMobileAlert("error", "Valid Phone Required", "Please enter a valid phone number");
+                    modalOverlay.querySelector("#bookingPhone").focus();
+                    return;
+                }
+                if (!formData.country) {
+                    showMobileAlert("error", "Country Required", "Please enter your country");
+                    modalOverlay.querySelector("#bookingCountry").focus();
+                    return;
+                }
+
+                submitBookingDirectly(formData, modalOverlay);
+            });
+        }
+
+        function submitBookingDirectly(formData, bookingModal) {
+            const submitBtn = bookingModal.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+
+            const bookingId = generateBookingId();
+            const symbol = exchangeRates[formData.currency]?.symbol || "₹";
+
+            const whatsappMessage =
+                `*DOLPO PHOKSUNDO LAKE TREK BOOKING REQUEST*\n` +
+                `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
+                ` *Booking Details*\n` +
+                `Booking ID: ${bookingId}\n` +
+                `Package: ${formData.package}\n` +
+                `Duration: ${formData.duration}\n` +
+                `Preferred Date: ${formData.date}\n\n` +
+                ` *Customer Information*\n` +
+                `Name: ${formData.name}\n` +
+                `Email: ${formData.email}\n` +
+                `Phone: ${formData.phone}\n` +
+                `Country: ${formData.country}\n` +
+                `Experience: ${formData.experience}\n` +
+                `Number of Persons: ${formData.persons}\n\n` +
+                ` *Payment Details*\n` +
+                `Price per Person (${formData.currency}): ${symbol}${formatNumber(formData.pricePerPerson)}\n` +
+                `Total Amount (${formData.currency}): ${symbol}${formatNumber(formData.totalAmount)}\n\n` +
+                ` *Special Requirements*\n` +
+                `${formData.requirements || "None"}\n\n` +
+                `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+                `Submitted via HONEST TRAVEL TOURS AND EXPEDITION Website`;
+
+            const templateParams = {
+                booking_id: bookingId,
+                from_name: formData.name,
+                from_email: formData.email,
+                phone: formData.phone,
+                country: formData.country,
+                package_duration: formData.duration,
+                package_name: formData.package,
+                trekking_experience: formData.experience,
+                preferred_date: formData.date,
+                special_requirements: formData.requirements,
+                number_of_person: formData.persons,
+                company_name: "Honest Travel Tours and Expedition",
+                price_per_person: `${formData.currency} ${formatNumber(formData.pricePerPerson)}`,
+                total_amount: `${formData.currency} ${formatNumber(formData.totalAmount)}`,
+            };
+
+            const phoneNumber = "9779851140110";
+            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`, "_blank");
+
+            emailjs.send("service_9fq6tb6", "template_kmaga4l", templateParams)
+                .then(
+                    function (response) {
+                        console.log("Email sent successfully:", response);
+                        closeModal(bookingModal);
+                        showMobileAlert(
+                            "success",
+                            "Booking Request Sent!",
+                            `Your Dolpo trek booking request has been submitted successfully!\n\nBooking ID: ${bookingId}\n\nWe have opened WhatsApp and sent an email confirmation. Our team will contact you within 24 hours.`
+                        );
+                    },
+                    function (error) {
+                        console.error("Email send failed:", error);
+                        closeModal(bookingModal);
+                        showMobileAlert(
+                            "info",
+                            "WhatsApp Opened",
+                            `Your booking request has been sent via WhatsApp but there was an issue sending the email.\n\nBooking ID: ${bookingId}\n\nPlease check your WhatsApp messages. Our team will contact you soon.`
+                        );
+                    }
+                )
+                .finally(() => {
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                });
+        }
+
+        function showEnquiryModal() {
+            const packageName = "Dolpo Phoksundo Lake Trek - 10 Days";
+            const packagePrice = "INR 125,000 - 131,250 / USD 1,505 - 1,580 / NRP 200,000 - 210,000";
+            const packageDuration = "10 Days / 9 Nights";
+            const packageCategory = "Premium Trekking";
+            const packageAltitude = "3,733m at Phoksundo Lake";
+            const packageLocation = "Dolpo Region, Nepal";
+
+            const params = new URLSearchParams({
+                package: packageName,
+                price: packagePrice,
+                duration: packageDuration,
+                category: packageCategory,
+                altitude: packageAltitude,
+                location: packageLocation,
+                source: "dolpo-phoksundo-trek-10days",
+            }).toString();
+
+            window.location.href = `../enquiry-form.html?${params}`;
+        }
+
+        /* ========== MOBILE ALERT ========== */
+
+        function showMobileAlert(type, title, message) {
+            const alertOverlay = document.createElement("div");
+            alertOverlay.className = "mobile-alert-overlay";
+
+            alertOverlay.innerHTML = `
+                <div>
+                    <div class="mobile-alert ${type}" style="text-align: center;">
+                        <div class="mobile-alert-icon">
+                            ${type === "success" ? '<i class="fas fa-check-circle"></i>' : '<i class="fas fa-exclamation-triangle"></i>'}
+                        </div>
+                        <h3 style="color: #2c3e50; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                            ${type === "success" ? '<i class="fas fa-check-circle" style="color: #28a745;"></i>' : '<i class="fas fa-exclamation-triangle" style="color: #dc3545;"></i>'}
+                            ${title}
+                        </h3>
+                        <div class="mobile-alert-message">${message.replace(/\n/g, "<br>")}</div>
+                        <button class="mobile-alert-ok-btn" onclick="closeModal(this.closest('.mobile-alert-overlay'))">OK</button>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(alertOverlay);
+            document.body.classList.add("modal-open");
+
+            if (type === "success") {
+                setTimeout(() => {
+                    if (alertOverlay.parentNode) closeModal(alertOverlay);
+                }, 5000);
+            }
+
+            alertOverlay.addEventListener("click", (e) => {
+                if (e.target === alertOverlay) closeModal(alertOverlay);
+            });
+        }
+
+        /* ========== CLOSE MODAL ========== */
+
+        function closeModal(modalOverlay) {
+            modalOverlay.style.animation = "fadeOut 0.3s ease";
+            setTimeout(() => {
+                if (modalOverlay.parentNode) document.body.removeChild(modalOverlay);
+                if (!document.querySelector(".confirmation-modal, .booking-modal, .submission-modal, .mobile-alert-overlay")) {
+                    document.body.classList.remove("modal-open");
+                }
+            }, 300);
+        }
+
+        /* ========== FACILITIES SLIDER ========== */
+
+        function scrollFacilities(sliderId, direction) {
+            const slider = document.getElementById(sliderId);
+            slider.scrollBy({ left: direction * 300, behavior: "smooth" });
+        }
+
+        /* ========== CLOSE MENUS WHEN CLICKING OUTSIDE ========== */
+
+        function initializeClickOutside() {
+            const navBurger = document.getElementById("navBurger");
+            const mainNav = document.getElementById("mainNav");
+            const tabBurger = document.getElementById("tabBurger");
+            const tabsMenu = document.getElementById("tabsMenu");
+
+            document.addEventListener("click", function (event) {
+                if (navBurger && !navBurger.contains(event.target) && !mainNav.contains(event.target)) {
+                    navBurger.classList.remove("active");
+                    mainNav.classList.remove("active");
+                    document.body.classList.remove("nav-open");
+                }
+                if (tabBurger && !tabBurger.contains(event.target) && !tabsMenu.contains(event.target)) {
+                    tabBurger.classList.remove("active");
+                    tabsMenu.classList.remove("active");
+                }
+            });
+        }
+
+        /* ========== INITIALIZE EVERYTHING ========== */
+
+        document.addEventListener("DOMContentLoaded", function () {
+            initializeNavigation();
+            initializeTabs();
+            initializeCurrencyConverter();
+            initializeClickOutside();
+            updatePrice(0);
+        });
+
+        window.updatePrice = updatePrice;
+        window.changeImage = changeImage;
+        window.setImage = setImage;
+        window.openTab = openTab;
+        window.toggleDay = toggleDay;
+        window.toggleAllDays = toggleAllDays;
+        window.showBookingForm = showBookingForm;
+        window.showEnquiryModal = showEnquiryModal;
+        window.scrollFacilities = scrollFacilities;
+        window.closeModal = closeModal;
+    </script>
+</body>
+</html>

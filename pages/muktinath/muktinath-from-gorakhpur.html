@@ -1,0 +1,3055 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    Muktinath Tour Package from Gorakhpur via Lumbini - Honest Travel Tours
+  </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../../css/individual-packages.css" />
+
+  <!-- Add EmailJS script -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    (function () {
+      // Initialize EmailJS with your public key
+      emailjs.init("cjcB4sLQKii3OPWJ1");
+    })();
+  </script>
+
+  <style>
+    /* Currency Selector Styles */
+    .currency-selector-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 20px;
+    }
+
+    .currency-selector {
+      position: relative;
+      display: inline-block;
+    }
+
+    #selectedCurrency {
+      background: rgba(88, 101, 242, 0.1);
+      border: 1px solid #5865f2;
+      border-radius: 6px;
+      padding: 8px 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      color: #5865f2;
+      transition: all 0.3s ease;
+    }
+
+    #selectedCurrency:hover {
+      background: rgba(88, 101, 242, 0.2);
+    }
+
+    #selectedCurrency i {
+      font-size: 0.8rem;
+      transition: transform 0.3s ease;
+    }
+
+    .currency-selector.active #selectedCurrency i {
+      transform: rotate(180deg);
+    }
+
+    .currency-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      min-width: 120px;
+      margin-top: 5px;
+      display: none;
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    .currency-selector.active .currency-dropdown {
+      display: block;
+    }
+
+    .currency-option {
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #333;
+    }
+
+    .currency-option:hover {
+      background: #f5f5f5;
+      color: #5865f2;
+    }
+
+    .currency-option.active {
+      background: #5865f2;
+      color: white;
+    }
+
+    .currency-option i {
+      width: 20px;
+      font-size: 0.9rem;
+    }
+
+    /* Itinerary Day Styles - for expand/collapse */
+    .itinerary-day {
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .day-header {
+      background: #f5f5f5;
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .day-header:hover {
+      background: #e8e8e8;
+    }
+
+    .day-header-content {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .day-number {
+      background: #5865f2;
+      color: white;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .day-title {
+      font-weight: 600;
+      color: #333;
+    }
+
+    .day-altitude {
+      background: rgba(88, 101, 242, 0.1);
+      color: #5865f2;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .expand-icon {
+      color: #666;
+      transition: transform 0.3s ease;
+    }
+
+    .itinerary-day.active .expand-icon {
+      transform: rotate(180deg);
+    }
+
+    .day-details {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      background: white;
+    }
+
+    .itinerary-day.active .day-details {
+      max-height: 1000px;
+      opacity: 1;
+      padding: 1.5rem;
+    }
+
+    .expand-all-btn {
+      background: #e3f2fd;
+      border: 1px solid #5865f2;
+      color: #5865f2;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .expand-all-btn:hover {
+      background: #5865f2;
+      color: white;
+    }
+
+    /* Price table styles */
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .price-card {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .price-card .group-size {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-card .price-inr {
+      font-size: 1.8rem;
+      color: #28a745;
+      font-weight: 700;
+    }
+
+    .price-card .price-usd {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 0.3rem;
+    }
+
+    /* Discount badge */
+    .discount-badge {
+      background: #28a745;
+      color: white;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      margin-left: 0.5rem;
+    }
+
+    /* Modal Styles */
+    .confirmation-modal,
+    .booking-modal,
+    .submission-modal,
+    .mobile-alert-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .confirmation-modal>div,
+    .booking-modal>div,
+    .submission-modal>div,
+    .mobile-alert-overlay>div {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      animation: slideIn 0.3s ease;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .booking-modal>div {
+      max-width: 600px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+
+      to {
+        opacity: 0;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes checkmark {
+      0% {
+        transform: scale(0);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .close-modal,
+    .close-submission-modal {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: #666;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .close-modal:hover,
+    .close-submission-modal:hover {
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    .modal-open {
+      overflow: hidden;
+    }
+
+    .choice-options {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .choice-btn {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      background: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: left;
+      width: 100%;
+    }
+
+    .choice-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .whatsapp-choice:hover {
+      border-color: #25d366;
+      background: rgba(37, 211, 102, 0.05);
+    }
+
+    .email-choice:hover {
+      border-color: #5865f2;
+      background: rgba(88, 101, 242, 0.05);
+    }
+
+    .choice-btn i {
+      font-size: 2.5rem;
+      min-width: 40px;
+    }
+
+    .whatsapp-choice i {
+      color: #25d366;
+    }
+
+    .email-choice i {
+      color: #5865f2;
+    }
+
+    .choice-btn-content {
+      flex: 1;
+    }
+
+    .choice-btn-content span {
+      display: block;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 5px;
+      font-size: 1.1rem;
+    }
+
+    .choice-btn-content small {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .confirm-book-btn:hover {
+      background: linear-gradient(135deg, #4752c4 0%, #2a32b8 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(88, 101, 242, 0.3);
+    }
+
+    .cancel-choice:hover {
+      background: #e0e0e0;
+    }
+
+    /* Mobile Alert Styles */
+    .mobile-alert {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .mobile-alert-icon {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .mobile-alert.success .mobile-alert-icon {
+      color: #28a745;
+    }
+
+    .mobile-alert.warning .mobile-alert-icon {
+      color: #ff9800;
+    }
+
+    .mobile-alert.error .mobile-alert-icon {
+      color: #dc3545;
+    }
+
+    .mobile-alert.info .mobile-alert-icon {
+      color: #5865f2;
+    }
+
+    .mobile-alert h3 {
+      color: #2c3e50;
+      margin: 0 0 1.5rem 0;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .mobile-alert-message {
+      color: #666;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .mobile-alert-ok-btn {
+      background: #5865f2;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .mobile-alert-ok-btn:hover {
+      background: #4752c4;
+      transform: translateY(-2px);
+    }
+
+    .success-checkmark {
+      animation: checkmark 0.5s ease;
+    }
+
+    /* Group size badge */
+    .group-size-badge {
+      display: inline-block;
+      background: #5865f2;
+      color: white;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-left: 0.5rem;
+    }
+
+    /* Highlight box */
+    .highlight-box {
+      background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 100%);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 4px solid #5865f2;
+      margin: 1.5rem 0;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+
+      .confirmation-modal>div,
+      .booking-modal>div,
+      .submission-modal>div {
+        padding: 1.5rem;
+        margin: 10px;
+      }
+
+      .choice-btn {
+        padding: 15px;
+      }
+
+      .choice-btn i {
+        font-size: 2rem;
+      }
+
+      .booking-modal>div {
+        max-height: 85vh;
+      }
+
+      .currency-selector-container {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+      }
+
+      .currency-selector {
+        width: 100%;
+      }
+
+      #selectedCurrency {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .currency-dropdown {
+        width: 100%;
+      }
+
+      .day-header-content {
+        gap: 0.8rem;
+      }
+
+      .day-number {
+        font-size: 0.8rem;
+      }
+
+      .day-altitude {
+        font-size: 0.8rem;
+      }
+
+      .itinerary-day.active .day-details {
+        padding: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .confirmation-buttons {
+        flex-direction: column;
+      }
+
+      .choice-btn {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+
+      .choice-btn-content small {
+        display: none;
+      }
+
+      .day-header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="top-bar">
+      <div class="container">
+        <div class="contact-info">
+          <span>
+            📞
+            <a href="https://wa.me/9779851140110" target="_blank" rel="noopener noreferrer"
+              class="wa-link">+977-9851140110</a>
+            ,
+            <a href="https://wa.me/9779856017867" target="_blank" rel="noopener noreferrer"
+              class="wa-link">9856017867</a>
+          </span>
+          <span>✉️ infohonesttoursntravels@gmail.com</span>
+        </div>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="logo">
+        <div class="logo-icon">
+          <img src="../../images/Logo Image.png" alt="Honest Travel Logo" />
+        </div>
+        <div class="logo-text">
+          <h1>HONEST TRAVEL</h1>
+          <p>TOURS AND EXPEDITION</p>
+        </div>
+      </div>
+
+      <!-- Burger Menu Button for Navigation -->
+      <button class="burger-menu" id="navBurger" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="mainNav">
+        <ul>
+          <li><a href="../../index.html">HOME</a></li>
+          <li><a href="../../index.html#tours">TOURS</a></li>
+          <li><a href="../../index.html#trekking">TREKKING</a></li>
+          <li><a href="../../index.html#contact">CONTACT US</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Tour Detail Section -->
+  <div class="tour-detail">
+    <div class="tour-header">
+      <h1 class="tour-title">
+        Muktinath Tour Package from Gorakhpur via Lumbini
+      </h1>
+      <p class="tour-subtitle">
+        7 Nights 8 Days - Complete Spiritual Journey from India to Nepal
+      </p>
+    </div>
+
+    <div class="tour-content-wrapper">
+      <!-- LEFT COLUMN -->
+      <div>
+        <!-- Image Gallery -->
+        <div class="image-gallery">
+          <img src="../../images/Muktinath.jpg" class="gallery-image active" alt="Muktinath Temple" />
+          <img src="../../images/Muktinath1.jpg" class="gallery-image" alt="Lumbini Buddha Birthplace" />
+          <img src="../../images/Muktinath2.jpeg" class="gallery-image" alt="Pokhara Lake" />
+          <img src="../../images/Muktinath3.jpg" class="gallery-image" alt="Pashupatinath Temple" />
+
+          <div class="gallery-nav">
+            <button class="nav-btn" onclick="changeImage(-1)">‹</button>
+            <button class="nav-btn" onclick="changeImage(1)">›</button>
+          </div>
+          <div class="gallery-indicators">
+            <div class="indicator active" onclick="setImage(0)"></div>
+            <div class="indicator" onclick="setImage(1)"></div>
+            <div class="indicator" onclick="setImage(2)"></div>
+            <div class="indicator" onclick="setImage(3)"></div>
+          </div>
+        </div>
+
+        <!-- Tour Information Tabs -->
+        <div class="tour-info">
+          <!-- Mobile Tab Burger Menu -->
+          <div class="tab-burger-wrapper">
+            <button class="tab-burger-menu" id="tabBurger" aria-label="Toggle tabs menu">
+              <i class="fas fa-bars"></i>
+              <span id="currentTabName">Overview</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+
+          <div class="info-tabs" id="tabsMenu">
+            <button class="tab active" onclick="openTab('overview')">
+              Overview
+            </button>
+            <button class="tab" onclick="openTab('itinerary')">
+              Itinerary
+            </button>
+            <button class="tab" onclick="openTab('costdates')">Cost</button>
+            <button class="tab" onclick="openTab('included')">
+              Included
+            </button>
+            <button class="tab" onclick="openTab('terms')">
+              Terms & Conditions
+            </button>
+            <button class="tab" onclick="openTab('videosmap')">
+              Videos & Map
+            </button>
+          </div>
+
+          <!-- OVERVIEW -->
+          <div id="overview" class="tab-content active">
+            <div class="info-section">
+              <h3>Complete Spiritual Journey from India to Nepal</h3>
+              <p>
+                Embark on an unforgettable 8-day spiritual pilgrimage starting
+                from Gorakhpur, India, visiting the sacred birthplace of
+                Buddha in Lumbini, and culminating at the divine Muktinath
+                Temple in the Himalayas. This comprehensive package combines
+                the spiritual significance of Lumbini with the liberation
+                blessing of Muktinath, offering a complete Hindu-Buddhist
+                pilgrimage experience across borders.
+              </p>
+
+              <div class="highlight-box">
+                <h4 style="color: #5865f2; margin-bottom: 1rem">
+                  Journey Highlights
+                </h4>
+                <ul class="info-list">
+                  <li>
+                    <strong>Two Sacred Pilgrimages:</strong> Visit Buddha's
+                    birthplace in Lumbini + Muktinath Temple of Liberation
+                  </li>
+                  <li>
+                    <strong>Cross-Border Experience:</strong> Journey from
+                    India (Gorakhpur) to Nepal (Lumbini, Pokhara, Muktinath)
+                  </li>
+                  <li>
+                    <strong>Scenic Mountain Flight:</strong> Fly over
+                    Himalayas from Pokhara to Jomsom
+                  </li>
+                  <li>
+                    <strong>Comprehensive Sightseeing:</strong> Explore
+                    Lumbini, Pokhara, and Kathmandu's UNESCO sites
+                  </li>
+                  <li>
+                    <strong>Optional Cable Car Ride:</strong> Visit Manakamana
+                    Temple via scenic cable car
+                  </li>
+                  <li>
+                    <strong>Complete Spiritual Package:</strong> Hindu and
+                    Buddhist pilgrimage combined
+                  </li>
+                </ul>
+              </div>
+
+              <h3>Trip Facts</h3>
+              <ul class="info-list">
+                <li><strong>Duration:</strong> 7 Nights 8 Days</li>
+                <li><strong>Starting Point:</strong> Gorakhpur, India</li>
+                <li><strong>Ending Point:</strong> Gorakhpur, India</li>
+                <li>
+                  <strong>Transportation:</strong> Flight + Private Vehicle
+                </li>
+                <li>
+                  <strong>Maximum Altitude:</strong> 3,762m (Muktinath Temple)
+                </li>
+                <li><strong>Difficulty:</strong> Moderate</li>
+                <li><strong>Best Season:</strong> October to June</li>
+                <li>
+                  <strong>Border Crossing:</strong> India-Nepal land border
+                </li>
+                <li>
+                  <strong>Total Driving Distance:</strong> Approximately 1,000
+                  km
+                </li>
+              </ul>
+
+              <div class="highlight-box" style="background: #f0f9ff; border-left: 4px solid #2196f3">
+                <h4 style="color: #2196f3; margin-bottom: 1rem">
+                  Why Choose This Package?
+                </h4>
+                <p>
+                  This unique package offers a rare opportunity to combine two
+                  of the most sacred pilgrimages in South Asia. Starting from
+                  the Indian border, you'll visit Lumbini - the birthplace of
+                  Lord Buddha, then proceed to Muktinath - where Lord Vishnu
+                  grants salvation. Perfect for devotees seeking comprehensive
+                  spiritual experiences, this journey covers Hindu and
+                  Buddhist holy sites while experiencing the cultural
+                  diversity of Nepal from plains to Himalayas.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITINERARY (Now Expandable) -->
+          <div id="itinerary" class="tab-content">
+            <div class="info-section">
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 1.5rem;
+                  ">
+                <h3 style="
+                      margin: 0;
+                      color: #00b386;
+                      text-transform: uppercase;
+                      font-size: 1.2rem;
+                    ">
+                  Detailed Itinerary
+                </h3>
+                <button onclick="toggleAllDays(this)" class="expand-all-btn">
+                  Expand All
+                </button>
+              </div>
+
+              <!-- Day 1 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 1</span>
+                    <span class="day-title">GORAKHPUR ARRIVAL, TRANSFER TO LUMBINI</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 100m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Welcome to Gorakhpur:</strong> Our office
+                    representative or driver will pick you up from the
+                    Gorakhpur airport/railway stations and transfer to
+                    Lumbini, Nepal.
+                  </p>
+                  <p>
+                    <strong>Border Crossing:</strong> Complete border
+                    formalities at India-Nepal border and continue to Lumbini.
+                  </p>
+                  <p>
+                    <strong>Arrival in Lumbini:</strong> Upon reaching
+                    Lumbini, check-in at the hotel and rest for your
+                    tomorrow's drive to Pokhara.
+                  </p>
+                  <p>
+                    <strong>Note:</strong> Please carry valid passport/ID
+                    proof for border crossing. Indian nationals can use Voter
+                    ID card.
+                  </p>
+                  <p><strong>Meals:</strong> Not Included</p>
+                  <p>
+                    <strong>Accommodation:</strong> Bodhi Red Sun Hotel
+                    (Lumbini)
+                  </p>
+                  <p><strong>Drive Duration:</strong> 3-4 hours</p>
+                  <p><strong>Distance:</strong> Approximately 150 km</p>
+                </div>
+              </div>
+
+              <!-- Day 2 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 2</span>
+                    <span class="day-title">DRIVE TO POKHARA</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 822m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>08:00 AM:</strong> After your breakfast, start
+                    driving towards Pokhara (Approx. 7-8 hrs driving).
+                  </p>
+                  <p>
+                    <strong>Scenic Journey:</strong> Enjoy the scenic drive
+                    through Nepal's countryside, passing through towns and
+                    villages with beautiful landscapes.
+                  </p>
+                  <p>
+                    <strong>Arrival in Pokhara:</strong> After reaching
+                    Pokhara, check in at the hotel and take a rest for the
+                    next day's early morning flight to Jomsom.
+                  </p>
+                  <p>
+                    <strong>Evening:</strong> Free time to explore Pokhara's
+                    Lakeside area or relax at the hotel.
+                  </p>
+                  <p>
+                    <strong>Meals:</strong> As Mentioned (Breakfast Included)
+                  </p>
+                  <p>
+                    <strong>Accommodation:</strong> White Pearl Hotel
+                    (Pokhara)
+                  </p>
+                  <p><strong>Drive Duration:</strong> 7-8 hours</p>
+                  <p><strong>Distance:</strong> Approximately 250 km</p>
+                </div>
+              </div>
+
+              <!-- Day 3 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 3</span>
+                    <span class="day-title">FLY TO JOMSOM, DRIVE TO MUKTINATH</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 3,762m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>06:00 AM:</strong> Today, early in the morning you
+                    will fly to Jomsom. Enjoy breathtaking views of Annapurna
+                    and Dhaulagiri ranges during the 15-20 minute flight.
+                  </p>
+                  <p>
+                    <strong>Arrival in Jomsom:</strong> Have your breakfast at
+                    the hotel in Jomsom.
+                  </p>
+                  <p>
+                    <strong>Journey to Muktinath:</strong> Drive to Muktinath
+                    temple by private jeep/car. Take a full day for your Puja
+                    at the temple.
+                  </p>
+                  <p>
+                    <strong>Spiritual Activities:</strong> Perform Darshan,
+                    Puja and take Holy bath in the 108 waterspouts and two
+                    ponds at the temple.
+                  </p>
+                  <p>
+                    <strong>04:00 PM:</strong> Complete your spiritual
+                    activities and drive back to Jomsom for the night stay.
+                  </p>
+                  <p>
+                    <strong>About Muktinath Temple:</strong> Believed to be a
+                    place where Lord Vishnu got salvation from Brinda (wife of
+                    Jalandhar). The main shrine is a pagoda shaped temple
+                    dedicated to Lord Vishnu. It is believed that one washes
+                    away all the pain and sins if they take shower in holy
+                    water coming from 108 sprouts just behind the temple.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast Included</p>
+                  <p><strong>Accommodation:</strong> Om's Home (Jomsom)</p>
+                  <p><strong>Flight Duration:</strong> 15-20 minutes</p>
+                  <p><strong>Drive Duration:</strong> 1-2 hours each way</p>
+                </div>
+              </div>
+
+              <!-- Day 4 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 4</span>
+                    <span class="day-title">FLY BACK TO POKHARA, POKHARA SIGHTSEEING</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 822m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>07:30 AM:</strong> Early in the morning, fly back
+                    to Pokhara. We will transfer you to your previously stayed
+                    hotel.
+                  </p>
+                  <p>
+                    <strong>After Breakfast:</strong> You will visit for a
+                    half day of sightseeing which includes:
+                  </p>
+                  <ul style="margin-bottom: 1rem; padding-left: 1.5rem">
+                    <li>
+                      <strong>Tal Barahi:</strong> A temple situated on a
+                      small island in the Phewa Lake (boat ride included)
+                    </li>
+                    <li>
+                      <strong>Davi's Fall:</strong> Famous waterfall in
+                      Pokhara Valley
+                    </li>
+                    <li>
+                      <strong>Gupteshwor Mahadev Cave:</strong> Mystical cave
+                      with Shiva statue
+                    </li>
+                    <li>
+                      <strong>Bindhyabasini Temple:</strong> Sacred temple
+                      dedicated to Goddess Bhagwati
+                    </li>
+                  </ul>
+                  <p>
+                    <strong>Important Note:</strong> The weather condition of
+                    Jomsom decides the flight status. If your flight is
+                    canceled today, we will arrange the land transport for you
+                    which is the equivalent of the flight ticket cost up to
+                    Pokhara. The road condition is mixed - Ghansa to Beni (40
+                    KM) is completely off road and Beni to Kushma (25 KM) is
+                    under construction. While returning by driving you have to
+                    pay a TIMS permit fee (INR 400 Per Person) on the way at
+                    the checkpoint.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast Included</p>
+                  <p>
+                    <strong>Accommodation:</strong> White Pearl Hotel
+                    (Pokhara)
+                  </p>
+                </div>
+              </div>
+
+              <!-- Day 5 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 5</span>
+                    <span class="day-title">DRIVE TO KATHMANDU VIA MANAKAMANA</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 1,400m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>08:00 AM:</strong> After your breakfast, proceed
+                    to Kathmandu.
+                  </p>
+                  <p>
+                    <strong>Optional Stop:</strong> On the way you can visit
+                    Manakamana temple by cable car. It takes approx. 3 hours
+                    to complete the sightseeing of the temple.
+                  </p>
+                  <p>
+                    <strong>About Manakamana Temple:</strong> Takes 10 minutes
+                    cable car ride from a station called Kurintar takes you to
+                    the temple of Goddess Manakamana who is believed to have
+                    the power to fulfill wishes. Kurintar is 104 km away from
+                    Kathmandu on the way to Pokhara.
+                  </p>
+                  <p>
+                    <strong>Lunch:</strong> After sightseeing you can have
+                    your lunch at the Manakamana restaurant.
+                  </p>
+                  <p>
+                    <strong>Continue Journey:</strong> Continue drive to
+                    Kathmandu and check-in at hotel upon arrival.
+                  </p>
+                  <p>
+                    <strong>Note:</strong> The cable car cost (INR 550 Per
+                    Person) isn't included in our given price.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast Included</p>
+                  <p><strong>Accommodation:</strong> Arts Kathmandu Hotel</p>
+                  <p>
+                    <strong>Drive Duration:</strong> 6-7 hours (with stop)
+                  </p>
+                  <p><strong>Distance:</strong> Approximately 200 km</p>
+                </div>
+              </div>
+
+              <!-- Day 6 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 6</span>
+                    <span class="day-title">KATHMANDU SIGHTSEEING</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 1,400m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>10:00 AM:</strong> After breakfast visit for a
+                    full-day sightseeing of:
+                  </p>
+                  <ul style="margin-bottom: 1rem; padding-left: 1.5rem">
+                    <li>
+                      <strong>Pashupatinath Temple:</strong> Largest and
+                      holiest shrine for Hindus, situated on bank of Bagmati
+                      river
+                    </li>
+                    <li>
+                      <strong>Jal Narayan (Budhanilkantha):</strong> Temple
+                      dedicated to Lord Vishnu with sleeping statue on water
+                    </li>
+                    <li>
+                      <strong>Kathmandu Durbar Square:</strong> UNESCO site
+                      with Hanuman Dhoka, Taleju Temple, Kumari House
+                    </li>
+                    <li>
+                      <strong>Patan Durbar Square:</strong> Another UNESCO
+                      site with Krishna Temple, Bhimsen Temple
+                    </li>
+                    <li>
+                      <strong>Baglamukhi Temple:</strong> Famous temple of
+                      Goddess in Patan (Lalitpur)
+                    </li>
+                  </ul>
+                  <p>
+                    <strong>Optional Activity:</strong> Everest Mountain
+                    Flight at 06:00 AM, take-off from Kathmandu Airport (This
+                    is about an hour long flight to explore an eye-pleasing
+                    view of the Mt. Everest along with other Mountains)
+                  </p>
+                  <p>
+                    <strong>Evening:</strong> Free for shopping at Thamel or
+                    local markets.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast Included</p>
+                  <p><strong>Accommodation:</strong> Arts Kathmandu Hotel</p>
+                </div>
+              </div>
+
+              <!-- Day 7 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 7</span>
+                    <span class="day-title">DRIVE TO LUMBINI</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 100m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>07:00 AM:</strong> After breakfast early in the
+                    morning start drive towards Lumbini (Bhairahawa).
+                  </p>
+                  <p>
+                    <strong>Long Drive:</strong> Lumbini is about 300 KM west
+                    from Kathmandu and takes 10 hours of drive to reach.
+                  </p>
+                  <p>
+                    <strong>Arrival:</strong> Upon reaching check in at the
+                    hotel in Lumbini (Bhairahawa) and take a rest for the next
+                    morning visit to Lumbini cultural area.
+                  </p>
+                  <p>
+                    <strong>Note:</strong> This is the longest drive of the
+                    itinerary. We recommend carrying snacks and water for the
+                    journey.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast Included</p>
+                  <p>
+                    <strong>Accommodation:</strong> Bodhi Red Sun Hotel
+                    (Lumbini)
+                  </p>
+                  <p><strong>Drive Duration:</strong> 10 hours</p>
+                  <p><strong>Distance:</strong> Approximately 300 km</p>
+                </div>
+              </div>
+
+              <!-- Day 8 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 8</span>
+                    <span class="day-title">LUMBINI SIGHTSEEING, DRIVE TO GORAKHPUR</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 100m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>08:00 AM:</strong> Early morning visit to the
+                    Lumbini cultural area - the birthplace of Lord Buddha.
+                  </p>
+                  <p>
+                    <strong>Lumbini Highlights:</strong> Visit Maya Devi
+                    Temple (exact birthplace), Ashoka Pillar, sacred pond, and
+                    various monasteries built by different countries.
+                  </p>
+                  <p>
+                    <strong>After Sightseeing:</strong> Once your sightseeing
+                    is over, you will proceed your drive towards Gorakhpur.
+                    The driving duration could be about 4-5 hours.
+                  </p>
+                  <p>
+                    <strong>Border Crossing:</strong> Complete exit
+                    formalities at Nepal-India border.
+                  </p>
+                  <p>
+                    <strong>Journey End:</strong> Drop at Gorakhpur
+                    airport/railway station as per your onward journey.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast Included</p>
+                  <p style="font-style: italic; color: #5865f2">
+                    May the blessings of Lord Buddha and Lord Vishnu be with
+                    you always!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COST & DATES -->
+          <div id="costdates" class="tab-content">
+            <div class="info-section">
+              <h3>Package Pricing (Per Person)</h3>
+              <div class="highlight-box" style="
+                    background: linear-gradient(
+                      135deg,
+                      #667eea15 0%,
+                      #764ba215 100%
+                    );
+                  ">
+                <div style="text-align: center; padding: 1.5rem">
+                  <div class="price-grid">
+                    <div class="price-card">
+                      <div class="group-size">1-3 People</div>
+                      <div class="price-inr" id="price13inr">₹60,000</div>
+                    </div>
+
+                    <div class="price-card">
+                      <div class="group-size">4-6 People</div>
+                      <div class="price-inr" id="price46inr">₹56,875</div>
+                      <span class="discount-badge">Save ₹3,125</span>
+                    </div>
+
+                    <div class="price-card">
+                      <div class="group-size">7+ People</div>
+                      <div class="price-inr" id="price7plusinr">₹53,750</div>
+                      <span class="discount-badge">Save ₹6,250</span>
+                    </div>
+                  </div>
+
+                  <div style="
+                        margin: 1.5rem 0;
+                        padding: 1rem;
+                        background: white;
+                        border-radius: 8px;
+                        display: inline-block;
+                      ">
+                    <div style="
+                          font-size: 1.2rem;
+                          color: #5865f2;
+                          font-weight: 600;
+                        ">
+                      USD 556 - 620 (Approx)
+                    </div>
+                    <div style="font-size: 0.9rem; color: #666">
+                      For International Travelers
+                    </div>
+                  </div>
+
+                  <div style="font-size: 0.9rem; color: #28a745; margin-top: 0.5rem;">
+                    <i class="fas fa-tag"></i> Group discounts automatically applied: ₹3,125 off for 4-6 people, ₹6,250 off for 7+ people
+                  </div>
+                </div>
+              </div>
+
+              <h3 style="margin-top: 2rem">Package Value Highlights</h3>
+              <ul class="info-list">
+                <li>Gorakhpur airport/station pick-up and drop-off</li>
+                <li>
+                  All border crossing assistance and documentation support
+                </li>
+                <li>Pokhara-Jomsom-Pokhara flights included</li>
+                <li>Private AC vehicle for all transfers and sightseeing</li>
+                <li>Jomsom-Muktinath-Jomsom by private jeep</li>
+                <li>7 nights accommodation in 3-star hotels</li>
+                <li>Daily breakfast included at all hotels</li>
+                <li>Lumbini and Muktinath visit in one package</li>
+                <li>Annapurna Conservation Area Permit (ACAP)</li>
+                <li>Local SIM card for communication</li>
+              </ul>
+
+              <div class="highlight-box" style="background: #fff9e6; border-left: 4px solid #ff9800">
+                <h4 style="color: #ff9800; margin-bottom: 0.5rem">
+                  <i class="fas fa-gift"></i> Special Features
+                </h4>
+                <p style="margin-bottom: 0">
+                  Perfect for Indian pilgrims starting from Gorakhpur.
+                  Combines two major pilgrimages - Lumbini (Buddhist) and
+                  Muktinath (Hindu). Border crossing assistance included.
+                  Customized itineraries available for larger groups.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- INCLUDED -->
+          <div id="included" class="tab-content">
+            <div class="info-section">
+              <h3>What's Included</h3>
+              <ul class="info-list">
+                <li>
+                  Gorakhpur airport/railway station pick-up and drop-off
+                </li>
+                <li>
+                  Private vehicle with A/C for all mentioned transfers and
+                  sightseeings
+                </li>
+                <li>
+                  All (7 nights) hotel accommodations based on double/triple
+                  sharing deluxe rooms
+                </li>
+                <li>Daily breakfast at the hotel</li>
+                <li>
+                  Pokhara to Jomsom and Jomsom to Pokhara flight transfer
+                </li>
+                <li>
+                  Jomsom/Muktinath/Jomsom drive transfer by private jeep/bus
+                </li>
+                <li>Muktinath entry (ACAP) permit</li>
+                <li>One local SIM card (returnable) for communication</li>
+                <li>All government and local taxes</li>
+                <li>
+                  Driver's salary, fuel cost, toll, parking charges and
+                  allowances
+                </li>
+                <li>Border crossing assistance</li>
+              </ul>
+
+              <h3 style="margin-top: 2rem">What's Not Included</h3>
+              <ul class="info-list" style="color: #999">
+                <li>Nature of personal expenses</li>
+                <li>Lunch and dinner throughout the tour</li>
+                <li>Sightseeing entrance fee (Approx. INR 700 Per Person)</li>
+                <li>Manakamana cable car cost (INR 550 Per Person)</li>
+                <li>
+                  TIMS permit fee if driving from Jomsom (INR 400 Per Person)
+                </li>
+                <li>Tips for drivers (recommended but optional)</li>
+                <li>Travel and medical insurance</li>
+                <li>Optional Everest Mountain Flight</li>
+                <li>Services not mentioned in the inclusion list</li>
+              </ul>
+
+              <div class="highlight-box" style="background: #f0fff0; border-left: 4px solid #4caf50">
+                <h4 style="color: #4caf50; margin-bottom: 0.5rem">
+                  <i class="fas fa-exclamation-circle"></i> Important Notes
+                </h4>
+                <ul style="margin-bottom: 0; padding-left: 1.5rem">
+                  <li>Carry valid passport/ID proof for border crossing</li>
+                  <li>
+                    Muktinath is at high altitude (3,762m) - carry warm
+                    clothing
+                  </li>
+                  <li>Flights to/from Jomsom are weather-dependent</li>
+                  <li>
+                    Long driving days involved - comfortable clothing
+                    recommended
+                  </li>
+                  <li>
+                    Indian nationals can use Voter ID card for Nepal entry
+                  </li>
+                  <li>
+                    Alternative jeep transport arranged if flights cancelled
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- TERMS -->
+          <div id="terms" class="tab-content">
+            <div class="info-section">
+              <h3>Terms & Conditions</h3>
+              <div style="
+                    background: #f8f9fa;
+                    padding: 1.5rem;
+                    border-radius: 8px;
+                    border-left: 4px solid #5865f2;
+                  ">
+                <ul class="info-list" style="list-style-type: none; padding-left: 0">
+                  <li style="margin-bottom: 1rem">
+                    <strong>Booking:</strong> 30% advance payment required to
+                    confirm booking
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Balance Payment:</strong> Full payment required 15
+                    days before departure
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Cancellation Policy:</strong>
+                    <ul style="margin-top: 0.5rem; padding-left: 1.5rem">
+                      <li>30+ days before departure: 20% cancellation fee</li>
+                      <li>15-29 days before: 40% cancellation fee</li>
+                      <li>7-14 days before: 60% cancellation fee</li>
+                      <li>0-6 days before: 100% cancellation fee</li>
+                    </ul>
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Border Documentation:</strong> Travelers are
+                    responsible for carrying valid travel documents
+                    (passport/ID). We assist with border procedures but cannot
+                    guarantee entry if documents are invalid.
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Flight Operations:</strong> Jomsom flights subject
+                    to weather conditions. Alternative jeep transport arranged
+                    if flights cancelled (additional cost applies for
+                    alternative transport).
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Road Conditions:</strong> Some road sections may
+                    be rough or under construction. Driving times are
+                    estimates and may vary.
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Health Requirements:</strong> Moderate fitness
+                    required. Those with heart conditions or severe altitude
+                    sickness history should consult doctor.
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Insurance:</strong> Travel insurance covering
+                    domestic flights, road travel, and high altitude
+                    recommended.
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Itinerary Changes:</strong> We reserve right to
+                    modify itinerary due to weather, road conditions, border
+                    regulations, or other circumstances beyond our control.
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Group Size:</strong> Minimum 2 persons required.
+                    Larger groups get better rates.
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Optional Activities:</strong> Manakamana cable
+                    car, Everest flight, and TIMS permit (if driving) are
+                    optional extras.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- VIDEOS & MAP SECTION -->
+          <div id="videosmap" class="tab-content">
+            <div class="info-section">
+              <h3>Experience the Journey</h3>
+              <p>
+                Watch our exclusive video and explore the complete route map
+                from Gorakhpur to Muktinath via Lumbini.
+              </p>
+
+              <!-- Video Section -->
+              <div class="video-section" style="margin-bottom: 2rem">
+                <h4 style="color: #5865f2; margin-bottom: 1rem">
+                  <i class="fas fa-video"></i> Complete Pilgrimage Journey
+                  Experience
+                </h4>
+                <div class="video-container">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/R4vB9LFIKrY?si=9OBtlDBQlG2Bn35Y"
+                    title="YouTube video player" frameborder="0" allow="
+                        accelerometer;
+                        autoplay;
+                        clipboard-write;
+                        encrypted-media;
+                        gyroscope;
+                        picture-in-picture;
+                        web-share;
+                      " referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666">
+                  <i class="fas fa-info-circle"></i> Watch our exclusive
+                  journey video showcasing the complete pilgrimage from
+                  Gorakhpur to Muktinath via Lumbini.
+                </p>
+              </div>
+
+              <!-- Map Section -->
+              <div class="map-section">
+                <h4 style="color: #5865f2; margin-bottom: 1rem">
+                  <i class="fas fa-map-marked-alt"></i> Complete Journey Route
+                  Map
+                </h4>
+                <div class="map-container">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m52!1m12!1m3!1d8066626.939902094!2d81.47856019975188!3d31.608253369246146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m37!3e0!4m5!1s0x3991446a0c332489%3A0x1ff3f97fdcc6bfa2!2sGorakhpur%2C%20Uttar%20Pradesh%2C%20India!3m2!1d26.760554499999998!2d83.3731675!4m5!1s0x3996eb334fe91fc1%3A0x5793b8b9b8917fcd!2sLumbini%2C%2032900!3m2!1d27.45!2d83.25!4m5!1s0x3995937bbf0376ff%3A0xf6cf823b25802164!2sPokhara!3m2!1d28.2095831!2d83.9855674!4m5!1s0x39be0e42b3323685%3A0xb78689d6f4ff1019!2sJomsom!3m2!1d28.7746477!2d83.7730237!4m5!1s0x39be13dbfa97a191%3A0xe585266cbba560a0!2sMuktinath%2C%2033100!3m2!1d28.8017498!2d83.8579053!4m5!1s0x39eb198a307baabf%3A0xb5137c1bf18db1ea!2sKathmandu%2C%2044600!3m2!1d27.7103145!2d85.3221634!5e0!3m2!1sen!2snp!4v1772180921786!5m2!1sen!2snp"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div style="
+                      margin-top: 1rem;
+                      display: flex;
+                      flex-wrap: wrap;
+                      gap: 1rem;
+                    ">
+                  <div style="flex: 1; min-width: 200px">
+                    <h5 style="color: #333; margin-bottom: 0.5rem">
+                      <i class="fas fa-route" style="color: #28a745"></i>
+                      Route Points
+                    </h5>
+                    <ul style="
+                          list-style-type: none;
+                          padding-left: 0;
+                          font-size: 0.9rem;
+                        ">
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Gorakhpur:</strong> Starting Point (India)
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Lumbini:</strong> Buddha's Birthplace (Day 1 &
+                        8)
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Pokhara:</strong> Base City (Days 2-4)
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Jomsom:</strong> Flight Stop (Day 3-4)
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Muktinath:</strong> Sacred Temple (Day 3)
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Kathmandu:</strong> Capital City (Days 5-7)
+                      </li>
+                    </ul>
+                  </div>
+                  <div style="flex: 1; min-width: 200px">
+                    <h5 style="color: #333; margin-bottom: 0.5rem">
+                      <i class="fas fa-road" style="color: #dc3545"></i>
+                      Journey Information
+                    </h5>
+                    <ul style="
+                          list-style-type: none;
+                          padding-left: 0;
+                          font-size: 0.9rem;
+                        ">
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Total Distance:</strong> ~1,000 km (road)
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Flight:</strong> 15-20 min (Pokhara-Jomsom)
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Longest Drive:</strong> 10 hrs
+                        (Kathmandu-Lumbini)
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Border Crossings:</strong> 2 (India-Nepal both
+                        ways)
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Countries:</strong> India + Nepal
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Additional Videos Section -->
+              <div class="additional-videos" style="margin-top: 2rem">
+                <h4 style="color: #5865f2; margin-bottom: 1rem">
+                  <i class="fas fa-film"></i> More Visual Experiences
+                </h4>
+                <div style="
+                      display: grid;
+                      grid-template-columns: repeat(
+                        auto-fit,
+                        minmax(250px, 1fr)
+                      );
+                      gap: 1rem;
+                    ">
+                  <div class="video-thumbnail">
+                    <h5 style="margin-bottom: 0.5rem; color: #333">
+                      Lumbini - Buddha's Birthplace
+                    </h5>
+                    <div style="
+                          position: relative;
+                          padding-bottom: 56.25%;
+                          height: 0;
+                          overflow: hidden;
+                          border-radius: 8px;
+                        ">
+                      <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/csaQc_qpn8U?si=cU3thIWmTtXCDBoN" title="YouTube video player"
+                        frameborder="0" allow="
+                            accelerometer;
+                            autoplay;
+                            clipboard-write;
+                            encrypted-media;
+                            gyroscope;
+                            picture-in-picture;
+                            web-share;
+                          " referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                  </div>
+                  <div class="video-thumbnail">
+                    <h5 style="margin-bottom: 0.5rem; color: #333">
+                      Spiritual Experience at Muktinath
+                    </h5>
+                    <div style="
+                          position: relative;
+                          padding-bottom: 56.25%;
+                          height: 0;
+                          overflow: hidden;
+                          border-radius: 8px;
+                        ">
+                      <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/K18cpp_-gP8?si=J-SyVnKCSGmeZhJ0" title="YouTube video player"
+                        frameborder="0" allow="
+                            accelerometer;
+                            autoplay;
+                            clipboard-write;
+                            encrypted-media;
+                            gyroscope;
+                            picture-in-picture;
+                            web-share;
+                          " referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: Booking Card with Dynamic Pricing -->
+      <div>
+        <div class="booking-card">
+          <div class="price-section">
+            <div class="price-icon"><i class="fas fa-globe-asia"></i></div>
+            <div class="price-info">
+              <div class="price-label">Starting from</div>
+              <div><span class="price" id="mainPriceDisplay">₹60,000</span></div>
+              <div style="font-size: 0.8rem; color: #666; margin-top: 0.3rem" id="groupSizeLabel">
+                (1-3 people)
+              </div>
+              <div style="font-size: 0.8rem; color: #666; margin-top: 0.3rem" id="alternatePriceRow">
+                <span id="alternatePriceLabel">USD</span> <span id="alternatePrice">620</span>
+              </div>
+            </div>
+            <!-- Currency Selector -->
+            <div class="currency-selector-container">
+              <div class="currency-selector">
+                <div id="selectedCurrency">
+                  <span>INR</span>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="currency-dropdown">
+                  <div class="currency-option active" data-currency="INR"> INR (₹)</div>
+                  <div class="currency-option" data-currency="USD"> USD ($)</div>
+                  <div class="currency-option" data-currency="NPR"> NPR (रु)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="
+                background: #fff9e6;
+                padding: 1rem;
+                border-radius: 8px;
+                margin-bottom: 1rem;
+                text-align: center;
+              ">
+            <div style="font-size: 0.9rem; color: #856404; margin-bottom: 0.5rem">
+              <i class="fas fa-border-crossing"></i> Cross-Border Journey
+            </div>
+            <div style="font-size: 0.9rem">
+              India to Nepal via Gorakhpur-Lumbini
+            </div>
+          </div>
+
+          <div class="quantity-section">
+            <div class="quantity-controls">
+              <button class="qty-btn" onclick="updatePrice(-1)">-</button>
+              <div class="qty-display" id="qtyDisplay">2</div>
+              <button class="qty-btn" onclick="updatePrice(1)">+</button>
+            </div>
+          </div>
+
+          <div class="price-breakdown">
+            <div class="price-row">
+              <span>Base Price (Per Person)</span>
+              <span><span id="baseCurrency">INR</span> <span id="basePrice">60,000</span></span>
+            </div>
+            <div class="price-row total">
+              <span>Total</span>
+              <span><span id="totalCurrency">INR</span> <span id="totalPrice">1,20,000</span></span>
+            </div>
+            <div class="price-row" style="color: #28a745; font-size: 0.9rem; display: none;" id="discountMessage">
+              <span><i class="fas fa-tag"></i> Discount Applied</span>
+              <span id="discountAmount">₹0 off</span>
+            </div>
+          </div>
+
+          <!-- Updated Booking Buttons -->
+          <button class="booking-btn btn-instant" onclick="showBookingForm()">
+            Instant Booking
+          </button>
+          <button class="booking-btn btn-customize" onclick="showEnquiryModal()">
+            Enquiry
+          </button>
+
+          <div class="contact-section">
+            <div style="font-size: 2.5rem; margin-bottom: 0.5rem">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <h3>Book By Phone</h3>
+            <div class="phone-numbers">
+              <a href="https://wa.me/9779851140110" target="_blank" rel="noopener noreferrer"
+                style="text-decoration: none; color: inherit; display: block">
+                +977-9851140110
+              </a>
+              <a href="https://wa.me/9779856017867" target="_blank" rel="noopener noreferrer"
+                style="text-decoration: none; color: inherit; display: block">
+                +977-9856017867
+              </a>
+            </div>
+            <div style="font-size: 0.9rem; margin-top: 0.5rem">
+              WhatsApp Available
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOTELS SECTION -->
+    <div class="tour-facilities-section">
+      <h3 class="facilities-title">
+        <i class="fas fa-hotel"></i>
+        HOTELS
+      </h3>
+
+      <div class="facilities-slider-container">
+        <div class="facilities-slider" id="hotelsSlider">
+          <!-- Hotel Card 1 -->
+          <div class="facility-card">
+            <div class="facility-image-wrapper">
+              <img src="../../images/Muktinath.jpg" alt="Temple Tree Resort" class="facility-image" />
+            </div>
+            <div class="facility-info">
+              <h4>Temple Tree Resort</h4>
+              <p class="facility-location">Pokhara (4 Star)</p>
+            </div>
+          </div>
+
+          <!-- Hotel Card 2 -->
+          <div class="facility-card">
+            <div class="facility-image-wrapper">
+              <img src="../../images/Muktinath1.jpg" alt="Aloft Kathmandu" class="facility-image" />
+            </div>
+            <div class="facility-info">
+              <h4>Aloft Kathmandu</h4>
+              <p class="facility-location">Kathmandu (4 Star)</p>
+            </div>
+          </div>
+
+          <!-- Hotel Card 3 -->
+          <div class="facility-card">
+            <div class="facility-image-wrapper">
+              <img src="../../images/Muktinath2.jpeg" alt="Om's Home" class="facility-image" />
+            </div>
+            <div class="facility-info">
+              <h4>Om's Home</h4>
+              <p class="facility-location">Jomsom (3 Star)</p>
+            </div>
+          </div>
+
+          <!-- Hotel Card 4 -->
+          <div class="facility-card">
+            <div class="facility-image-wrapper">
+              <img src="../../images/Muktinath.jpg" alt="Temple Tree Resort" class="facility-image" />
+            </div>
+            <div class="facility-info">
+              <h4>Temple Tree Resort</h4>
+              <p class="facility-location">Pokhara (4 Star)</p>
+            </div>
+          </div>
+
+          <!-- Hotel Card 5 -->
+          <div class="facility-card">
+            <div class="facility-image-wrapper">
+              <img src="../../images/Muktinath.jpg" alt="Temple Tree Resort" class="facility-image" />
+            </div>
+            <div class="facility-info">
+              <h4>Temple Tree Resort</h4>
+              <p class="facility-location">Pokhara (4 Star)</p>
+            </div>
+          </div>
+        </div>
+
+        <button class="facilities-nav-btn prev" onclick="scrollFacilities('hotelsSlider', -1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="facilities-nav-btn next" onclick="scrollFacilities('hotelsSlider', 1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- VEHICLES SECTION -->
+    <div class="tour-facilities-section">
+      <h3 class="facilities-title">
+        <i class="fas fa-car"></i>
+        VEHICLES
+      </h3>
+
+      <div class="facilities-slider-container">
+        <div class="facilities-slider" id="vehiclesSlider">
+          <!-- Vehicle Card 1 - Clickable -->
+          <a href="../Vehicle/car.html" class="facility-card clickable">
+            <div class="facility-image-wrapper">
+              <img src="../../images/car.webp" alt="Car" class="facility-image" />
+              <div class="facility-overlay">
+                <i class="fas fa-arrow-right"></i>
+              </div>
+            </div>
+            <div class="facility-info">
+              <h4>Car</h4>
+              <p class="facility-location">2-3 Person</p>
+            </div>
+          </a>
+
+          <!-- Vehicle Card 2 - Clickable -->
+          <a href="../vehicle/scorpio.html" class="facility-card clickable">
+            <div class="facility-image-wrapper">
+              <img src="../../images/scorpio.jpg" alt="Scorpio Jeep" class="facility-image" />
+              <div class="facility-overlay">
+                <i class="fas fa-arrow-right"></i>
+              </div>
+            </div>
+            <div class="facility-info">
+              <h4>Scorpio Jeep</h4>
+              <p class="facility-location">4-6 Person</p>
+            </div>
+          </a>
+
+          <!-- Vehicle Card 3 - Clickable -->
+          <a href="../../vehicles/luxury-vehicle.html" class="facility-card clickable">
+            <div class="facility-image-wrapper">
+              <img src="../../images/luxury-vehicle.jpg" alt="Luxury Vehicle" class="facility-image" />
+              <div class="facility-overlay">
+                <i class="fas fa-arrow-right"></i>
+              </div>
+            </div>
+            <div class="facility-info">
+              <h4>Luxury Vehicle</h4>
+              <p class="facility-location">3-5 Persons</p>
+            </div>
+          </a>
+
+          <!-- Vehicle Card 4 - Clickable -->
+          <a href="../vehicle/hiace-van.html" class="facility-card clickable">
+            <div class="facility-image-wrapper">
+              <img src="../../images/hiace-vehicle.jpeg" alt="Hiace Van" class="facility-image" />
+              <div class="facility-overlay">
+                <i class="fas fa-arrow-right"></i>
+              </div>
+            </div>
+            <div class="facility-info">
+              <h4>Hiace Van</h4>
+              <p class="facility-location">8-15 Persons</p>
+            </div>
+          </a>
+
+          <!-- Vehicle Card 5 - Clickable -->
+          <a href="../vehicle/mini-bus.html" class="facility-card clickable">
+            <div class="facility-image-wrapper">
+              <img src="../../images/mini-bus.jpg" alt="Mini Bus" class="facility-image" />
+              <div class="facility-overlay">
+                <i class="fas fa-arrow-right"></i>
+              </div>
+            </div>
+            <div class="facility-info">
+              <h4>Mini Bus</h4>
+              <p class="facility-location">18-30 Persons</p>
+            </div>
+          </a>
+
+          <!-- Vehicle Card 6 - Clickable -->
+          <a href="../vehicle/mini-bus.html" class="facility-card clickable">
+            <div class="facility-image-wrapper">
+              <img src="../../images/tourist-bus.jpeg" alt="Tourist Bus" class="facility-image" />
+              <div class="facility-overlay">
+                <i class="fas fa-arrow-right"></i>
+              </div>
+            </div>
+            <div class="facility-info">
+              <h4>Tourist Bus</h4>
+              <p class="facility-location">12-18 Persons</p>
+            </div>
+          </a>
+        </div>
+
+        <button class="facilities-nav-btn prev" onclick="scrollFacilities('vehiclesSlider', -1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="facilities-nav-btn next" onclick="scrollFacilities('vehiclesSlider', 1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About Honest Travel</h3>
+        <p>
+          Your trusted partner for authentic Himalayan experiences and
+          cross-border spiritual journeys.
+        </p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>Kathmandu, Nepal</p>
+        <p>infohonesttoursntravels@gmail.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>
+        &copy; 2025 HONEST TRAVEL Tours and Expedition. All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    /* ========== CONSTANTS AND CONFIGURATION ========== */
+
+    // Exchange rate logic from reference page
+    const marketUsdToInr = 92;
+    const markupPercent = 15;
+
+    const exchangeRates = {
+      INR: { rate: 1, symbol: "₹", name: "INR" },
+      USD: { rate: (1 / marketUsdToInr) * (1 + markupPercent / 100), symbol: "$", name: "USD" },
+      NPR: { rate: 1.6, symbol: "रु", name: "NPR" },
+    };
+
+    // Pricing tables by group size (INR) - with exact discounts
+    // 1-3 People: ₹60,000 (base)
+    // 4-6 People: ₹60,000 - ₹3,125 = ₹56,875
+    // 7+ People: ₹60,000 - ₹6,250 = ₹53,750
+    const pricingTables = {
+      "1-3": 60000,
+      "4-6": 56875,
+      "7+": 53750,
+    };
+
+    let qty = 1; // Minimum 1 persons for this package
+    let currentCurrency = "INR";
+
+    /* ========== HELPER FUNCTIONS ========== */
+
+    function getGroupSize(persons) {
+      if (persons >= 7) return "7+";
+      if (persons >= 4) return "4-6";
+      return "1-3";
+    }
+
+    function getUnitINRPrice(persons) {
+      const groupSize = getGroupSize(persons);
+      return pricingTables[groupSize];
+    }
+
+    function getDiscountAmount(persons) {
+      if (persons >= 7) return 6250;
+      if (persons >= 4) return 3125;
+      return 0;
+    }
+
+    function getConvertedPrice(persons, targetCurrency) {
+      const inrPrice = getUnitINRPrice(persons);
+      
+      if (targetCurrency === 'INR') {
+        return inrPrice;
+      }
+      
+      const rate = exchangeRates[targetCurrency]?.rate;
+      if (!rate) return inrPrice;
+      
+      // Convert and round appropriately
+      let converted = inrPrice * rate;
+      
+      // Round based on currency
+      if (targetCurrency === 'USD') {
+        return Math.round(converted); // Round to nearest dollar
+      } else if (targetCurrency === 'NPR') {
+        return Math.round(converted / 100) * 100; // Round to nearest 100 NPR
+      }
+      
+      return Math.round(converted);
+    }
+
+    function getConvertedPriceForGroup(groupSize, targetCurrency) {
+      const inrPrice = pricingTables[groupSize];
+      
+      if (targetCurrency === 'INR') {
+        return inrPrice;
+      }
+      
+      const rate = exchangeRates[targetCurrency]?.rate;
+      if (!rate) return inrPrice;
+      
+      let converted = inrPrice * rate;
+      
+      // Round based on currency
+      if (targetCurrency === 'USD') {
+        return Math.round(converted);
+      } else if (targetCurrency === 'NPR') {
+        return Math.round(converted / 100) * 100;
+      }
+      
+      return Math.round(converted);
+    }
+
+    function getCurrencySymbol() {
+      return exchangeRates[currentCurrency]?.symbol || "₹";
+    }
+
+    function formatNumber(num) {
+      if (currentCurrency === 'USD') {
+        return Math.round(num).toLocaleString('en-US');
+      } else if (currentCurrency === 'NPR') {
+        return Math.round(num).toLocaleString('en-IN');
+      } else {
+        return Math.round(num).toLocaleString('en-IN');
+      }
+    }
+
+    function getGroupSizeText(persons) {
+      const groupSize = getGroupSize(persons);
+      if (groupSize === "7+") return "7+ People";
+      if (groupSize === "4-6") return "4-6 People";
+      return "1-3 People";
+    }
+
+    function getGroupSizeLabel(persons) {
+      const groupSize = getGroupSize(persons);
+      if (groupSize === "7+") return "(7+ people)";
+      if (groupSize === "4-6") return "(4-6 people)";
+      return "(1-3 people)";
+    }
+
+    function getDisplayUnitPrice(persons) {
+      if (currentCurrency === "USD") return getConvertedPrice(persons, "USD");
+      if (currentCurrency === "NPR") return getConvertedPrice(persons, "NPR");
+      return getUnitINRPrice(persons);
+    }
+
+    function getDiscountText(persons) {
+      if (persons >= 7) return "Save ₹6,250 per person";
+      if (persons >= 4) return "Save ₹3,125 per person";
+      return "";
+    }
+
+    /* ========== PRICE UPDATE FUNCTIONS ========== */
+
+    function updatePrice(change) {
+      qty += change;
+      if (qty < 1) qty = 1; // Minimum 1 persons
+      document.getElementById("qtyDisplay").textContent = qty;
+
+      const unitINRPrice = getUnitINRPrice(qty);
+      const displayUnitPrice = getDisplayUnitPrice(qty);
+      const symbol = getCurrencySymbol();
+      const discountAmount = getDiscountAmount(qty);
+
+      // Alternate price logic from reference page
+      let alternatePrice, alternateLabel;
+      if (currentCurrency === "USD") {
+        alternatePrice = getConvertedPrice(qty, 'INR');
+        alternateLabel = "INR";
+      } else if (currentCurrency === "NPR") {
+        alternatePrice = getConvertedPrice(qty, 'USD');
+        alternateLabel = "USD";
+      } else {
+        alternatePrice = getConvertedPrice(qty, 'USD');
+        alternateLabel = "USD";
+      }
+
+      // Update displays
+      document.getElementById("basePrice").textContent = formatNumber(displayUnitPrice);
+      document.getElementById("totalPrice").textContent = formatNumber(qty * displayUnitPrice);
+      document.getElementById("mainPriceDisplay").textContent = symbol + ' ' + formatNumber(displayUnitPrice);
+      document.getElementById("alternatePriceLabel").textContent = alternateLabel;
+      document.getElementById("alternatePrice").textContent = formatNumber(alternatePrice);
+
+      // Update currency labels
+      document.getElementById("baseCurrency").textContent = currentCurrency;
+      document.getElementById("totalCurrency").textContent = currentCurrency;
+
+      // Update group size label
+      document.getElementById("groupSizeLabel").textContent = getGroupSizeLabel(qty);
+
+      // Update discount message
+      const discountMessage = document.getElementById("discountMessage");
+      const discountAmountSpan = document.getElementById("discountAmount");
+      if (discountAmount > 0) {
+        discountMessage.style.display = "flex";
+        discountAmountSpan.textContent = `₹${discountAmount.toLocaleString()} off (${getGroupSizeText(qty)})`;
+      } else {
+        discountMessage.style.display = "none";
+      }
+
+      // Update price cards in cost tab
+      updatePriceCards(currentCurrency);
+    }
+
+    function updatePriceCards(currency) {
+      const symbol = exchangeRates[currency]?.symbol || "₹";
+
+      // Get prices for each group size using conversion logic
+      const price13 = getConvertedPriceForGroup('1-3', currency);
+      const price46 = getConvertedPriceForGroup('4-6', currency);
+      const price7plus = getConvertedPriceForGroup('7+', currency);
+
+      // Get USD and NPR prices for reference (for display)
+      const usdPrice13 = getConvertedPriceForGroup('1-3', 'USD');
+      const usdPrice46 = getConvertedPriceForGroup('4-6', 'USD');
+      const usdPrice7plus = getConvertedPriceForGroup('7+', 'USD');
+      
+      const nprPrice13 = getConvertedPriceForGroup('1-3', 'NPR');
+      const nprPrice46 = getConvertedPriceForGroup('4-6', 'NPR');
+      const nprPrice7plus = getConvertedPriceForGroup('7+', 'NPR');
+
+      // Update price cards
+      document.getElementById('price13inr').textContent = symbol + ' ' + formatNumber(price13);
+      document.getElementById('price46inr').textContent = symbol + ' ' + formatNumber(price46);
+      document.getElementById('price7plusinr').textContent = symbol + ' ' + formatNumber(price7plus);
+
+      // Update USD references
+      document.getElementById('price13usd').textContent = 'USD ' + usdPrice13;
+      document.getElementById('price46usd').textContent = 'USD ' + usdPrice46;
+      document.getElementById('price7plususd').textContent = 'USD ' + usdPrice7plus;
+
+      // Update NPR references
+      document.getElementById('price13npr').textContent = 'NPR ' + nprPrice13.toLocaleString('en-IN');
+      document.getElementById('price46npr').textContent = 'NPR ' + nprPrice46.toLocaleString('en-IN');
+      document.getElementById('price7plusnpr').textContent = 'NPR ' + nprPrice7plus.toLocaleString('en-IN');
+    }
+
+    /* ========== CURRENCY CONVERTER ========== */
+
+    function initializeCurrencyConverter() {
+      const currencySelector = document.querySelector(".currency-selector");
+      const selectedCurrency = document.getElementById("selectedCurrency");
+      const currencyOptions = document.querySelectorAll(".currency-option");
+      const priceElements = document.querySelectorAll(".price-display");
+
+      // Toggle currency dropdown
+      if (selectedCurrency) {
+        selectedCurrency.addEventListener("click", function (e) {
+          e.stopPropagation();
+          currencySelector.classList.toggle("active");
+        });
+      }
+
+      // Select currency option
+      currencyOptions.forEach((option) => {
+        option.addEventListener("click", function () {
+          const newCurrency = this.getAttribute("data-currency");
+
+          // Update selected currency display
+          selectedCurrency.querySelector("span").textContent = newCurrency;
+
+          currentCurrency = newCurrency;
+
+          // Update active state
+          currencyOptions.forEach((opt) => opt.classList.remove("active"));
+          this.classList.add("active");
+
+          // Update main price display
+          updatePrice(0);
+
+          // Close dropdown
+          currencySelector.classList.remove("active");
+        });
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener("click", function (e) {
+        if (currencySelector && !currencySelector.contains(e.target)) {
+          currencySelector.classList.remove("active");
+        }
+      });
+    }
+
+    /* ========== NAVIGATION BURGER MENU ========== */
+
+    function initializeNavigation() {
+      const navBurger = document.getElementById("navBurger");
+      const mainNav = document.getElementById("mainNav");
+
+      if (navBurger) {
+        navBurger.addEventListener("click", function () {
+          this.classList.toggle("active");
+          mainNav.classList.toggle("active");
+          document.body.classList.toggle("nav-open");
+        });
+
+        const navLinks = mainNav.querySelectorAll("a");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            navBurger.classList.remove("active");
+            mainNav.classList.remove("active");
+            document.body.classList.remove("nav-open");
+          });
+        });
+      }
+    }
+
+    /* ========== TAB SYSTEM ========== */
+
+    function initializeTabs() {
+      const tabBurger = document.getElementById("tabBurger");
+      const tabsMenu = document.getElementById("tabsMenu");
+
+      if (tabBurger) {
+        tabBurger.addEventListener("click", function () {
+          this.classList.toggle("active");
+          tabsMenu.classList.toggle("active");
+        });
+      }
+    }
+
+    function openTab(tabId) {
+      // Hide all tab contents
+      const contents = document.querySelectorAll(".tab-content");
+      contents.forEach((content) => content.classList.remove("active"));
+
+      // Remove active class from all tab buttons
+      const tabs = document.querySelectorAll(".tab");
+      tabs.forEach((tab) => tab.classList.remove("active"));
+
+      // Show current tab and add active class to button
+      document.getElementById(tabId).classList.add("active");
+      event.currentTarget.classList.add("active");
+
+      // Update mobile tab name if available
+      const currentTabName = document.getElementById("currentTabName");
+      if (currentTabName) {
+        currentTabName.textContent = event.currentTarget.textContent.trim();
+      }
+
+      // Close tab menu on mobile
+      const tabBurger = document.getElementById("tabBurger");
+      const tabsMenu = document.getElementById("tabsMenu");
+      if (tabBurger) {
+        tabBurger.classList.remove("active");
+        tabsMenu.classList.remove("active");
+      }
+    }
+
+    /* ========== COLLAPSIBLE ITINERARY ========== */
+
+    function toggleDay(headerElement) {
+      headerElement.closest(".itinerary-day").classList.toggle("active");
+    }
+
+    function toggleAllDays(btn) {
+      const allDays = document.querySelectorAll(".itinerary-day");
+      const isExpanding = btn.innerText.trim() === "Expand All";
+
+      allDays.forEach((day) => {
+        if (isExpanding) {
+          day.classList.add("active");
+        } else {
+          day.classList.remove("active");
+        }
+      });
+
+      btn.innerHTML = isExpanding ? 
+        ' Collapse All' : 
+        ' Expand All';
+    }
+
+    /* ========== IMAGE GALLERY ========== */
+
+    let currentImageIndex = 0;
+    const images = document.querySelectorAll(".gallery-image");
+    const indicators = document.querySelectorAll(".indicator");
+
+    function showImage(index) {
+      if (index >= images.length) currentImageIndex = 0;
+      else if (index < 0) currentImageIndex = images.length - 1;
+      else currentImageIndex = index;
+
+      images.forEach((img) => img.classList.remove("active"));
+      indicators.forEach((ind) => ind.classList.remove("active"));
+
+      images[currentImageIndex].classList.add("active");
+      indicators[currentImageIndex].classList.add("active");
+    }
+
+    function changeImage(step) {
+      showImage(currentImageIndex + step);
+    }
+
+    function setImage(index) {
+      showImage(index);
+    }
+
+    setInterval(() => changeImage(1), 5000);
+
+    /* ========== CLOSE MENUS WHEN CLICKING OUTSIDE ========== */
+
+    function initializeClickOutside() {
+      const navBurger = document.getElementById("navBurger");
+      const mainNav = document.getElementById("mainNav");
+      const tabBurger = document.getElementById("tabBurger");
+      const tabsMenu = document.getElementById("tabsMenu");
+
+      document.addEventListener("click", function (event) {
+        // Close nav menu
+        if (
+          navBurger &&
+          !navBurger.contains(event.target) &&
+          !mainNav.contains(event.target)
+        ) {
+          navBurger.classList.remove("active");
+          mainNav.classList.remove("active");
+          document.body.classList.remove("nav-open");
+        }
+
+        // Close tab menu
+        if (
+          tabBurger &&
+          !tabBurger.contains(event.target) &&
+          !tabsMenu.contains(event.target)
+        ) {
+          tabBurger.classList.remove("active");
+          tabsMenu.classList.remove("active");
+        }
+      });
+    }
+
+    /* ========== BOOKING MODAL FUNCTIONS ========== */
+
+    const currentPackage = {
+      name: "Muktinath Tour Package from Gorakhpur via Lumbini",
+      duration: "8 Days",
+      nights: "7 Nights 8 Days",
+      category: "Cross-Border Spiritual Pilgrimage",
+      includes: "Gorakhpur pick-up + Border crossing + Lumbini + Muktinath",
+    };
+
+    function generateBookingId() {
+      const prefix = "HTT";
+      const timestamp = Date.now().toString().slice(-8);
+      const random = Math.floor(Math.random() * 1000)
+        .toString()
+        .padStart(3, "0");
+      const date = new Date();
+      const year = date.getFullYear().toString().slice(-2);
+      const month = (date.getMonth() + 1).toString().padStart(2, "2");
+
+      return `${prefix}-${year}${month}-${timestamp}-${random}`;
+    }
+
+    function showBookingForm() {
+      showConfirmationModal();
+    }
+
+    // Create confirmation modal
+    function showConfirmationModal() {
+      const displayUnitPrice = getDisplayUnitPrice(qty);
+      const symbol = getCurrencySymbol();
+      const groupSizeText = getGroupSizeText(qty);
+      const discountAmount = getDiscountAmount(qty);
+      const unitUSDPrice = getConvertedPrice(qty, 'USD');
+
+      const modalOverlay = document.createElement("div");
+      modalOverlay.className = "confirmation-modal";
+
+      modalOverlay.innerHTML = `
+          <div>
+            <div style="text-align: center;">
+              <div style="font-size: 3rem; color: #5865f2; margin-bottom: 15px;">
+                <i class="fas fa-globe-asia"></i>
+              </div>
+              
+              <h3 style="color: #2c3e50; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <i class="fas fa-calendar-check" style="color: #5865F2;"></i> Confirm Cross-Border Pilgrimage Booking
+              </h3>
+              
+              <div class="package-info" style="font-size: 1.1rem; color: #5865F2; font-weight: 600; margin-bottom: 20px; background: rgba(88, 101, 242, 0.1); padding: 12px; border-radius: 8px; border-left: 4px solid #5865F2;">
+                Muktinath from Gorakhpur via Lumbini
+              </div>
+              
+              <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 20px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Duration:</span>
+                  <span style="font-weight: 600;">8 Days (7 Nights)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Countries:</span>
+                  <span style="font-weight: 600;">India + Nepal</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Group Size:</span>
+                  <span style="font-weight: 600;">${groupSizeText}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Participants:</span>
+                  <span style="font-weight: 600;">${qty} person(s)</span>
+                </div>
+                ${discountAmount > 0 ? `
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px; color: #28a745;">
+                  <span>Group Discount:</span>
+                  <span style="font-weight: 600;">₹${discountAmount.toLocaleString()} off</span>
+                </div>
+                ` : ''}
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Price Per Person:</span>
+                  <span style="font-weight: 600;">${symbol} ${formatNumber(displayUnitPrice)} / USD $${formatNumber(unitUSDPrice)}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 1.2rem; color: #28a745;">
+                  <span>Total Amount:</span>
+                  <span style="font-weight: 700;">${symbol} ${formatNumber(qty * displayUnitPrice)}</span>
+                </div>
+              </div>
+              
+              <div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; margin: 20px 0;">
+                <h4 style="color: #388e3c; margin-bottom: 0.5rem; font-size: 0.9rem;">
+                  <i class="fas fa-info-circle"></i> Package Includes
+                </h4>
+                <p style="margin: 0; color: #388e3c; font-size: 0.9rem;">
+                  Gorakhpur pick-up | Border crossing | Lumbini | Pokhara-Jomsom flights
+                </p>
+              </div>
+              
+              <p style="color: #666; margin-bottom: 25px; font-size: 16px;">
+                Are you ready to book this cross-border spiritual journey from Gorakhpur to Muktinath via Lumbini?
+              </p>
+              
+              <div class="confirmation-buttons" style="display: flex; gap: 15px; margin-top: 25px;">
+                <button id="confirmCancel" class="cancel-choice" style="
+                  padding: 10px 20px;
+                  background: #f5f5f5;
+                  border: none;
+                  border-radius: 6px;
+                  color: #666;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
+                  flex: 1;
+                ">
+                  Cancel
+                </button>
+                
+                <button id="confirmBook" class="confirm-book-btn" style="
+                  background: linear-gradient(135deg, #5865f2 0%, #3641d1 100%);
+                  color: white;
+                  border: none;
+                  padding: 14px 24px;
+                  border-radius: 8px;
+                  font-size: 16px;
+                  font-weight: 500;
+                  cursor: pointer;
+                  flex: 1;
+                  transition: all 0.3s ease;
+                ">
+                  Yes, Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+
+      document.body.appendChild(modalOverlay);
+      document.body.classList.add("modal-open");
+
+      // Handle button clicks
+      modalOverlay
+        .querySelector("#confirmCancel")
+        .addEventListener("click", () => {
+          closeModal(modalOverlay);
+        });
+
+      modalOverlay
+        .querySelector("#confirmBook")
+        .addEventListener("click", () => {
+          closeModal(modalOverlay);
+          showBookingModal();
+        });
+
+      // Close on backdrop click
+      modalOverlay.addEventListener("click", (e) => {
+        if (e.target === modalOverlay) {
+          closeModal(modalOverlay);
+        }
+      });
+    }
+
+    // Show booking modal
+    function showBookingModal() {
+      const displayUnitPrice = getDisplayUnitPrice(qty);
+      const unitUSDPrice = getConvertedPrice(qty, 'USD');
+      const unitNPRPrice = getConvertedPrice(qty, 'NPR');
+      const symbol = getCurrencySymbol();
+      const groupSizeText = getGroupSizeText(qty);
+      const discountAmount = getDiscountAmount(qty);
+
+      const modalOverlay = document.createElement("div");
+      modalOverlay.className = "booking-modal";
+
+      modalOverlay.innerHTML = `
+          <div>
+            <button class="close-modal">×</button>
+            
+            <h2 style="color: #2c3e50; margin-bottom: 1.5rem; text-align: center; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+              <i class="fas fa-globe-asia" style="color: #5865F2;"></i>
+              Book Cross-Border Pilgrimage
+            </h2>
+            
+            <form id="bookingForm">
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Full Name *
+                </label>
+                <input type="text" id="bookingName" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="Enter your full name">
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Email Address *
+                </label>
+                <input type="email" id="bookingEmail" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="your@email.com">
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Phone Number *
+                </label>
+                <input type="tel" id="bookingPhone" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="+91 XXXXX XXXXX">
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Country *
+                </label>
+                <input type="text" id="bookingCountry" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="Your country">
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  ID Proof for Border Crossing *
+                </label>
+                <select id="bookingIdProof" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                ">
+                  <option value="passport">Passport</option>
+                  <option value="voterid">Voter ID Card (Indian Nationals)</option>
+                  <option value="other">Other Government ID</option>
+                </select>
+              </div>
+              
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div>
+                  <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                    Persons *
+                  </label>
+                  <input type="number" min="2" value="${qty}" id="formPersons" required style="
+                    width: 100%;
+                    padding: 0.8rem;
+                    border: 1px solid #ddd;
+                    border-radius: 6px;
+                    font-size: 1rem;
+                    box-sizing: border-box;
+                  ">
+                </div>
+                
+                <div>
+                  <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                    Preferred Date *
+                  </label>
+                  <input type="date" id="bookingDate" required style="
+                    width: 100%;
+                    padding: 0.8rem;
+                    border: 1px solid #ddd;
+                    border-radius: 6px;
+                    font-size: 1rem;
+                    box-sizing: border-box;
+                  ">
+                </div>
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Pick-up Point in Gorakhpur *
+                </label>
+                <select id="bookingPickup" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                ">
+                  <option value="airport">Gorakhpur Airport</option>
+                  <option value="railway">Gorakhpur Railway Station</option>
+                  <option value="other">Other Location in Gorakhpur</option>
+                </select>
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Special Requirements
+                </label>
+                <textarea id="bookingRequirements" style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  min-height: 100px;
+                  resize: vertical;
+                  box-sizing: border-box;
+                " placeholder="Any dietary restrictions, health concerns, border crossing assistance needed, spiritual requests..."></textarea>
+              </div>
+              
+              <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; margin: 1rem 0;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Pilgrimage Package:</span>
+                  <span style="font-weight: bold;">Muktinath from Gorakhpur</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Duration:</span>
+                  <span>8 Days (7 Nights)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Countries:</span>
+                  <span>India + Nepal</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Group Size:</span>
+                  <span id="formGroupSize">${groupSizeText}</span>
+                </div>
+                ${discountAmount > 0 ? `
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; color: #28a745;">
+                  <span>Group Discount:</span>
+                  <span id="formDiscount">₹${discountAmount.toLocaleString()} off</span>
+                </div>
+                ` : ''}
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Price Per Person:</span>
+                  <span><span id="formCurrency">${currentCurrency}</span> <span id="formPricePerPerson">${formatNumber(displayUnitPrice)}</span></span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Price Per Person (USD):</span>
+                  <span>$${formatNumber(unitUSDPrice)}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Total Persons:</span>
+                  <span id="formTotalPersons">${qty}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 1.2rem; color: #28a745;">
+                  <span>Total Amount:</span>
+                  <span><span id="formTotalCurrency">${currentCurrency}</span> <span id="formTotalAmount">${formatNumber(qty * displayUnitPrice)}</span></span>
+                </div>
+              </div>
+              
+              <button type="submit" style="
+                background: linear-gradient(135deg, #5865f2 0%, #3641d1 100%);
+                color: white;
+                border: none;
+                padding: 1rem;
+                border-radius: 6px;
+                font-size: 1.1rem;
+                font-weight: 600;
+                cursor: pointer;
+                margin-top: 1rem;
+                width: 100%;
+              ">
+                <i class="fas fa-paper-plane"></i> Submit Booking Request
+              </button>
+              
+              <p style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 1rem;">
+                <i class="fas fa-info-circle"></i> Note: Includes Gorakhpur pick-up, border crossing assistance, and Lumbini visit. Group discounts automatically applied.
+              </p>
+              
+              <p style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 1rem;">
+                We'll contact you within 24 hours to confirm your booking and border crossing details
+              </p>
+            </form>
+          </div>
+        `;
+
+      document.body.appendChild(modalOverlay);
+      document.body.classList.add("modal-open");
+
+      // Make modal content scrollable on mobile
+      const modalContent = modalOverlay.querySelector("div");
+      modalContent.style.webkitOverflowScrolling = "touch";
+
+      // Close modal when X is clicked
+      modalOverlay
+        .querySelector(".close-modal")
+        .addEventListener("click", () => {
+          closeModal(modalOverlay);
+        });
+
+      // Close modal when clicking outside
+      modalOverlay.addEventListener("click", (e) => {
+        if (e.target === modalOverlay) {
+          closeModal(modalOverlay);
+        }
+      });
+
+      // Update form totals when persons change
+      const personsInput = modalOverlay.querySelector("#formPersons");
+      const groupSizeSpan = modalOverlay.querySelector("#formGroupSize");
+      const totalPersonsSpan = modalOverlay.querySelector("#formTotalPersons");
+      const totalAmountSpan = modalOverlay.querySelector("#formTotalAmount");
+      const pricePerPersonSpan = modalOverlay.querySelector("#formPricePerPerson");
+      const formTotalCurrencySpan = modalOverlay.querySelector("#formTotalCurrency");
+
+      function updateFormTotal() {
+        const persons = Math.max(2, parseInt(personsInput.value) || 2);
+        personsInput.value = persons;
+        const dispPrice = getDisplayUnitPrice(persons);
+        const sym = getCurrencySymbol();
+
+        groupSizeSpan.textContent = getGroupSizeText(persons);
+        totalPersonsSpan.textContent = persons;
+        pricePerPersonSpan.textContent = sym + " " + formatNumber(dispPrice);
+        totalAmountSpan.textContent = formatNumber(persons * dispPrice);
+        formTotalCurrencySpan.textContent = currentCurrency;
+
+        qty = persons;
+        updatePrice(0);
+      }
+
+      personsInput.addEventListener("input", updateFormTotal);
+
+      // Handle form submission
+      modalOverlay
+        .querySelector("#bookingForm")
+        .addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          // Get form data
+          const persons = Math.max(2, parseInt(personsInput.value) || 2);
+          const unitUSDPrice = getConvertedPrice(persons, 'USD');
+          const unitNPRPrice = getConvertedPrice(persons, 'NPR');
+          const displayUnitPrice = getDisplayUnitPrice(persons);
+          const discountAmount = getDiscountAmount(persons);
+
+          const formData = {
+            name: modalOverlay.querySelector("#bookingName").value.trim(),
+            email: modalOverlay.querySelector("#bookingEmail").value.trim(),
+            phone: modalOverlay.querySelector("#bookingPhone").value.trim(),
+            country: modalOverlay.querySelector("#bookingCountry").value.trim(),
+            idProof: modalOverlay.querySelector("#bookingIdProof").value,
+            pickupPoint: modalOverlay.querySelector("#bookingPickup").value,
+            groupSize: getGroupSizeText(persons),
+            persons: persons,
+            date: modalOverlay.querySelector("#bookingDate").value || "Not specified",
+            requirements: modalOverlay.querySelector("#bookingRequirements").value.trim() || "None",
+            package: currentPackage.name,
+            pricePerPerson: displayUnitPrice,
+            usdPricePerPerson: unitUSDPrice,
+            nprPricePerPerson: unitNPRPrice,
+            totalAmount: persons * displayUnitPrice,
+            currency: currentCurrency,
+            duration: currentPackage.duration,
+            nights: currentPackage.nights,
+            includes: currentPackage.includes,
+            discount: discountAmount,
+          };
+
+          // Validation
+          if (!formData.name) {
+            showMobileAlert("error", "Name Required", "Please enter your full name");
+            modalOverlay.querySelector("#bookingName").focus();
+            return;
+          }
+
+          if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
+            showMobileAlert("error", "Valid Email Required", "Please enter a valid email address");
+            modalOverlay.querySelector("#bookingEmail").focus();
+            return;
+          }
+
+          if (!formData.phone || !/^\+?[\d\s\-\(\)]{10,}$/.test(formData.phone)) {
+            showMobileAlert("error", "Valid Phone Required", "Please enter a valid phone number");
+            modalOverlay.querySelector("#bookingPhone").focus();
+            return;
+          }
+
+          if (!formData.country) {
+            showMobileAlert("error", "Country Required", "Please enter your country");
+            modalOverlay.querySelector("#bookingCountry").focus();
+            return;
+          }
+
+          if (!modalOverlay.querySelector("#bookingDate").value) {
+            showMobileAlert("error", "Date Required", "Please select a preferred start date");
+            modalOverlay.querySelector("#bookingDate").focus();
+            return;
+          }
+
+         
+
+          // Direct submission - send via both WhatsApp and email immediately
+          submitDirectBooking(formData, modalOverlay);
+        });
+    }
+
+    // Direct submission function that sends both WhatsApp and email without asking
+    function submitDirectBooking(formData, bookingModal) {
+      // Disable submit button and show loading
+      const submitBtn = bookingModal.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+      submitBtn.disabled = true;
+      
+      const bookingId = generateBookingId();
+      const symbol = exchangeRates[formData.currency]?.symbol || "₹";
+
+      const discountText = formData.discount > 0 ? `\nGroup Discount: ₹${formData.discount.toLocaleString()} off` : '';
+
+      // Prepare WhatsApp message
+      const whatsappMessage =
+        `*CROSS-BORDER PILGRIMAGE BOOKING (GORAKHPUR-MUKTINATH)*\n` +
+        `━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
+        ` *Booking Details*\n` +
+        `Booking ID: ${bookingId}\n` +
+        `Package: ${formData.package}\n` +
+        `Duration: ${formData.duration} (${formData.nights})\n` +
+        `Group Size: ${formData.groupSize}\n` +
+        `Preferred Date: ${formData.date}\n\n` +
+        ` *Customer Information*\n` +
+        `Name: ${formData.name}\n` +
+        `Email: ${formData.email}\n` +
+        `Phone: ${formData.phone}\n` +
+        `Country: ${formData.country}\n` +
+        `ID Proof: ${formData.idProof}\n` +
+        `Pick-up Point: Gorakhpur ${formData.pickupPoint}\n` +
+        `Number of Persons: ${formData.persons}\n\n` +
+        ` *Payment Details*\n` +
+        `Price per Person (${formData.currency}): ${symbol}${formatNumber(formData.pricePerPerson)}\n` +
+        `Price per Person (USD): $${formatNumber(formData.usdPricePerPerson)}\n` +
+        `Total Amount (${formData.currency}): ${symbol}${formatNumber(formData.totalAmount)}${discountText}\n\n` +
+        ` *Special Requirements*\n` +
+        `${formData.requirements || "None"}\n\n` +
+        `━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+        `Submitted via HONEST TRAVEL TOURS AND EXPEDITION Website`;
+
+      // Prepare email template parameters
+      const templateParams = {
+        booking_id: bookingId,
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        country: formData.country,
+        id_proof: formData.idProof,
+        pickup_point: `Gorakhpur ${formData.pickupPoint}`,
+        package_name: formData.package,
+        package_duration: formData.duration,
+        number_of_person: formData.persons,
+        preferred_date: formData.date,
+        special_requirements: formData.requirements || "None",
+        company_name: "Honest Travel Tours and Expedition",
+        price_per_person: `${formData.currency} ${formatNumber(formData.pricePerPerson)}`,
+        total_amount: `${formData.currency} ${formatNumber(formData.totalAmount)}`,
+      };
+
+      // Open WhatsApp in a new tab
+      const phoneNumber = "9779851140110";
+      window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`, "_blank");
+
+      // Send email via EmailJS
+      emailjs.send("service_9fq6tb6", "template_kmaga4l", templateParams)
+        .then(
+          function () {
+            console.log("Email sent successfully");
+            // Close the booking modal
+            closeModal(bookingModal);
+            // Show success message
+            showMobileAlert(
+              "success",
+              "Booking Request Submitted!",
+              `Your cross-border pilgrimage booking request has been sent successfully.\n\nBooking ID: ${bookingId}\n\nWe have opened WhatsApp and sent an email confirmation. Our team will contact you within 24 hours to confirm your booking and border crossing details.`
+            );
+          },
+          function (error) {
+            console.error("Email failed:", error);
+            // Close the booking modal
+            closeModal(bookingModal);
+            // Show warning message
+            showMobileAlert(
+              "warning",
+              "WhatsApp Opened - Email Pending",
+              `Your booking details have been opened in WhatsApp.\n\nBooking ID: ${bookingId}\n\nThere was an issue sending the email. Please send an email to infohonesttoursntravels@gmail.com with your booking details to complete the process.`
+            );
+          }
+        )
+        .finally(() => {
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.disabled = false;
+        });
+    }
+
+    /* ========== ENQUIRY MODAL FUNCTION ========== */
+    function showEnquiryModal() {
+      const packageName = "Muktinath Tour Package from Gorakhpur via Lumbini";
+      const packagePrice = "INR 53,750 - 60,000 (based on group size)";
+      const packageDuration = "8 Days";
+      const packageCategory = "Cross-Border Spiritual Pilgrimage";
+
+      const params = new URLSearchParams({
+        package: encodeURIComponent(packageName),
+        price: encodeURIComponent(packagePrice),
+        duration: encodeURIComponent(packageDuration),
+        category: encodeURIComponent(packageCategory),
+        source: "muktinath-gorakhpur-tour",
+      }).toString();
+
+      // Redirect to enquiry form with package details
+      window.location.href = `../enquiry-form.html?${params}`;
+    }
+
+    /* ========== MOBILE ALERT FUNCTION ========== */
+    function showMobileAlert(type, title, message) {
+      // Remove any existing alerts
+      const existingAlerts = document.querySelectorAll('.mobile-alert-overlay');
+      existingAlerts.forEach(alert => closeModal(alert));
+      
+      const alertOverlay = document.createElement("div");
+      alertOverlay.className = "mobile-alert-overlay";
+
+      const icons = {
+        success: "fa-check-circle",
+        warning: "fa-exclamation-triangle",
+        error: "fa-times-circle",
+        info: "fa-info-circle",
+      };
+
+      const colors = {
+        success: "#28a745",
+        warning: "#ff9800",
+        error: "#dc3545",
+        info: "#5865f2"
+      };
+
+      alertOverlay.innerHTML = `
+          <div>
+            <div class="mobile-alert ${type}" style="text-align: center;">
+              <div class="mobile-alert-icon">
+                <i class="fas ${icons[type]}" style="color: ${colors[type]}"></i>
+              </div>
+              <h3 style="color: #2c3e50; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <i class="fas ${icons[type]}" style="color: ${colors[type]}"></i>
+                ${title}
+              </h3>
+              <div class="mobile-alert-message">${message.replace(/\n/g, "<br>")}</div>
+              <button class="mobile-alert-ok-btn" onclick="closeModal(this.closest('.mobile-alert-overlay'))">OK</button>
+            </div>
+          </div>
+        `;
+
+      document.body.appendChild(alertOverlay);
+      document.body.classList.add("modal-open");
+
+      if (type === "success") {
+        setTimeout(() => {
+          if (alertOverlay.parentNode) closeModal(alertOverlay);
+        }, 5000);
+      }
+
+      alertOverlay.addEventListener("click", (e) => {
+        if (e.target === alertOverlay) {
+          closeModal(alertOverlay);
+        }
+      });
+    }
+
+    // Universal close modal function
+    function closeModal(modalOverlay) {
+      modalOverlay.style.animation = "fadeOut 0.3s ease";
+
+      setTimeout(() => {
+        if (modalOverlay.parentNode) {
+          document.body.removeChild(modalOverlay);
+        }
+        // Remove modal-open class if no other modals are open
+        if (
+          !document.querySelector(
+            ".confirmation-modal, .mobile-alert-overlay, .booking-modal, .submission-modal",
+          )
+        ) {
+          document.body.classList.remove("modal-open");
+        }
+      }, 300);
+    }
+
+    /* ========== FACILITIES SLIDER NAVIGATION ========== */
+    function scrollFacilities(sliderId, direction) {
+      const slider = document.getElementById(sliderId);
+      const scrollAmount = 300;
+      slider.scrollBy({
+        left: direction * scrollAmount,
+        behavior: "smooth",
+      });
+    }
+
+    /* ========== INITIALIZE EVERYTHING ========== */
+    document.addEventListener("DOMContentLoaded", function () {
+      initializeNavigation();
+      initializeTabs();
+      initializeCurrencyConverter();
+      initializeClickOutside();
+      updatePrice(0);
+      updatePriceCards('INR');
+    });
+
+    // Attach functions to window for global access
+    window.openTab = openTab;
+    window.toggleDay = toggleDay;
+    window.toggleAllDays = toggleAllDays;
+    window.changeImage = changeImage;
+    window.setImage = setImage;
+    window.updatePrice = updatePrice;
+    window.showBookingForm = showBookingForm;
+    window.showEnquiryModal = showEnquiryModal;
+    window.scrollFacilities = scrollFacilities;
+    window.closeModal = closeModal;
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,3133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>20 Days Everest 3 High Passes Trek - Honest Travel Tours</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../../css/individual-packages.css" />
+
+  <!-- Add EmailJS script -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    (function () {
+      // Initialize EmailJS with your public key
+      emailjs.init("cjcB4sLQKii3OPWJ1");
+    })();
+  </script>
+
+  <style>
+    /* Currency Selector Styles */
+    .currency-selector-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 20px;
+    }
+
+    .currency-selector {
+      position: relative;
+      display: inline-block;
+    }
+
+    #selectedCurrency {
+      background: rgba(88, 101, 242, 0.1);
+      border: 1px solid #5865f2;
+      border-radius: 6px;
+      padding: 8px 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      color: #5865f2;
+      transition: all 0.3s ease;
+    }
+
+    #selectedCurrency:hover {
+      background: rgba(88, 101, 242, 0.2);
+    }
+
+    #selectedCurrency i {
+      font-size: 0.8rem;
+      transition: transform 0.3s ease;
+    }
+
+    .currency-selector.active #selectedCurrency i {
+      transform: rotate(180deg);
+    }
+
+    .currency-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      min-width: 120px;
+      margin-top: 5px;
+      display: none;
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    .currency-selector.active .currency-dropdown {
+      display: block;
+    }
+
+    .currency-option {
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #333;
+    }
+
+    .currency-option:hover {
+      background: #f5f5f5;
+      color: #5865f2;
+    }
+
+    .currency-option.active {
+      background: #5865f2;
+      color: white;
+    }
+
+    .currency-option i {
+      width: 20px;
+      font-size: 0.9rem;
+    }
+
+    /* Price grid styles for group pricing */
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .price-card {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .price-card .group-size {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-card .price-inr {
+      font-size: 1.8rem;
+      color: #28a745;
+      font-weight: 700;
+    }
+
+    .price-card .price-usd {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 0.3rem;
+    }
+
+    /* Modal Styles */
+    .confirmation-modal,
+    .booking-modal,
+    .submission-modal,
+    .mobile-alert-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .confirmation-modal>div,
+    .booking-modal>div,
+    .submission-modal>div,
+    .mobile-alert-overlay>div {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      animation: slideIn 0.3s ease;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .booking-modal>div {
+      max-width: 600px;
+    }
+
+    .close-modal,
+    .close-submission-modal {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: #666;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .close-modal:hover,
+    .close-submission-modal:hover {
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    .modal-open {
+      overflow: hidden;
+    }
+
+    .choice-options {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .choice-btn {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      background: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: left;
+      width: 100%;
+    }
+
+    .choice-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .whatsapp-choice:hover {
+      border-color: #25D366;
+      background: rgba(37, 211, 102, 0.05);
+    }
+
+    .email-choice:hover {
+      border-color: #5865F2;
+      background: rgba(88, 101, 242, 0.05);
+    }
+
+    .choice-btn i {
+      font-size: 2.5rem;
+      min-width: 40px;
+    }
+
+    .whatsapp-choice i {
+      color: #25D366;
+    }
+
+    .email-choice i {
+      color: #5865F2;
+    }
+
+    .choice-btn-content {
+      flex: 1;
+    }
+
+    .choice-btn-content span {
+      display: block;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 5px;
+      font-size: 1.1rem;
+    }
+
+    .choice-btn-content small {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .confirm-book-btn {
+      background: linear-gradient(135deg, #5865f2 0%, #3641d1 100%);
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .confirm-book-btn:hover {
+      background: linear-gradient(135deg, #4752c4 0%, #2a32b8 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(88, 101, 242, 0.3);
+    }
+
+    .cancel-choice {
+      padding: 10px 20px;
+      background: #f5f5f5;
+      border: none;
+      border-radius: 6px;
+      color: #666;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      flex: 1;
+    }
+
+    .cancel-choice:hover {
+      background: #e0e0e0;
+    }
+
+    .confirmation-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    /* Mobile Alert Styles */
+    .mobile-alert {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .mobile-alert-icon {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .mobile-alert.success .mobile-alert-icon {
+      color: #28a745;
+    }
+
+    .mobile-alert.warning .mobile-alert-icon {
+      color: #ff9800;
+    }
+
+    .mobile-alert.error .mobile-alert-icon {
+      color: #dc3545;
+    }
+
+    .mobile-alert.info .mobile-alert-icon {
+      color: #5865f2;
+    }
+
+    .mobile-alert h3 {
+      color: #2c3e50;
+      margin: 0 0 1.5rem 0;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .mobile-alert-message {
+      color: #666;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .mobile-alert-ok-btn {
+      background: #5865f2;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .mobile-alert-ok-btn:hover {
+      background: #4752c4;
+      transform: translateY(-2px);
+    }
+
+    .success-checkmark {
+      animation: checkmark 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+
+      to {
+        opacity: 0;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes checkmark {
+      0% {
+        transform: scale(0);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+
+      .confirmation-modal>div,
+      .booking-modal>div,
+      .submission-modal>div {
+        padding: 1.5rem;
+        margin: 10px;
+      }
+
+      .choice-btn {
+        padding: 15px;
+      }
+
+      .choice-btn i {
+        font-size: 2rem;
+      }
+
+      .booking-modal>div {
+        max-height: 85vh;
+      }
+
+      .currency-selector-container {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+      }
+
+      .currency-selector {
+        width: 100%;
+      }
+
+      #selectedCurrency {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .currency-dropdown {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .confirmation-buttons {
+        flex-direction: column;
+      }
+
+      .choice-btn {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+
+      .choice-btn-content small {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="top-bar">
+      <div class="container">
+        <div class="contact-info">
+          <span>
+            📞
+            <a href="https://wa.me/9779851140110" target="_blank" rel="noopener noreferrer"
+              class="wa-link">+977-9851140110</a>
+            ,
+            <a href="https://wa.me/9779856017867" target="_blank" rel="noopener noreferrer"
+              class="wa-link">9856017867</a>
+          </span>
+          <span>✉️ infohonesttoursntravels@gmail.com</span>
+        </div>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="logo">
+        <div class="logo-icon">
+          <img src="../../images/Logo Image.png" alt="Honest Travel Logo" />
+        </div>
+        <div class="logo-text">
+          <h1>HONEST TRAVEL</h1>
+          <p>TOURS AND EXPEDITION</p>
+        </div>
+      </div>
+
+      <!-- Burger Menu Button for Navigation -->
+      <button class="burger-menu" id="navBurger" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="mainNav">
+        <ul>
+          <li><a href="../../index.html">HOME</a></li>
+          <li><a href="../../index.html#tours">TOURS</a></li>
+          <li><a href="../../index.html#trekking">TREKKING</a></li>
+          <li><a href="../../index.html#contact">CONTACT US</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Tour Detail Section -->
+  <div class="tour-detail">
+    <div class="tour-header">
+      <h1 class="tour-title">20 Days Everest 3 High Passes Trek</h1>
+      <p class="tour-subtitle">
+        Ultimate Himalayan Adventure: Kongma La, Cho La & Renjo La Passes
+      </p>
+    </div>
+
+    <div class="tour-content-wrapper">
+      <!-- LEFT COLUMN -->
+      <div>
+        <!-- Image Gallery -->
+        <div class="image-gallery">
+          <img src="../../images/Everest Base Camp.jpg" class="gallery-image active" alt="Everest Base Camp" />
+          <img src="../../images/Everest Base Camp1.jpg" class="gallery-image" alt="Kala Patthar Sunrise" />
+          <img src="../../images/Everest Base Camp2.jpg" class="gallery-image" alt="Namche Bazaar" />
+          <img src="../../images/Everest Base Camp3.jpg" class="gallery-image" alt="Tengboche Monastery" />
+
+          <div class="gallery-nav">
+            <button class="nav-btn" onclick="changeImage(-1)">‹</button>
+            <button class="nav-btn" onclick="changeImage(1)">›</button>
+          </div>
+          <div class="gallery-indicators">
+            <div class="indicator active" onclick="setImage(0)"></div>
+            <div class="indicator" onclick="setImage(1)"></div>
+            <div class="indicator" onclick="setImage(2)"></div>
+            <div class="indicator" onclick="setImage(3)"></div>
+          </div>
+        </div>
+
+        <!-- Tour Information Tabs -->
+        <div class="tour-info">
+          <!-- Mobile Tab Burger Menu -->
+          <div class="tab-burger-wrapper">
+            <button class="tab-burger-menu" id="tabBurger" aria-label="Toggle tabs menu">
+              <i class="fas fa-bars"></i>
+              <span id="currentTabName">Overview</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+
+          <div class="info-tabs" id="tabsMenu">
+            <button class="tab active" onclick="openTab('overview')">
+              Overview
+            </button>
+            <button class="tab" onclick="openTab('itinerary')">
+              Itinerary
+            </button>
+            <button class="tab" onclick="openTab('costdates')">Cost</button>
+            <button class="tab" onclick="openTab('included')">
+              Included
+            </button>
+            <button class="tab" onclick="openTab('terms')">
+              Terms & Conditions
+            </button>
+            <button class="tab" onclick="openTab('videosmap')">
+              Videos & Map
+            </button>
+          </div>
+
+          <!-- OVERVIEW -->
+          <div id="overview" class="tab-content active">
+            <div class="info-section">
+              <h3>The Ultimate Everest Circuit</h3>
+              <p>
+                The Everest 3 High Passes Trek is the most comprehensive and
+                challenging adventure in the Khumbu region, combining the
+                classic Everest Base Camp trek with three spectacular high
+                mountain passes over 5,350m. This 20-day epic journey takes
+                you through the heart of the Everest region, offering
+                unparalleled panoramic views, remote valleys, glacial lakes,
+                and a complete Himalayan experience that few trekkers ever
+                achieve.
+              </p>
+
+              <div class="highlight-box">
+                <h4 style="color: #5865f2; margin-bottom: 1rem">
+                  Complete Himalayan Experience
+                </h4>
+                <ul class="info-list">
+                  <li>
+                    <strong>Three High Passes:</strong> Kongma La (5,535m),
+                    Cho La (5,420m), and Renjo La (5,367m)
+                  </li>
+                  <li>
+                    <strong>Dual Base Camps:</strong> Visit both Everest Base
+                    Camp and the stunning Gokyo Lakes
+                  </li>
+                  <li>
+                    <strong>360-Degree Views:</strong> Panoramic vistas from
+                    Kala Patthar (5,545m) and Gokyo Ri (5,357m)
+                  </li>
+                  <li>
+                    <strong>Remote Trails:</strong> Experience less-traveled
+                    routes away from the main trekking crowds
+                  </li>
+                  <li>
+                    <strong>Complete Circuit:</strong> Circular route that
+                    avoids backtracking on the same trails
+                  </li>
+                  <li>
+                    <strong>Ultimate Challenge:</strong> The most
+                    comprehensive trek in the Everest region
+                  </li>
+                </ul>
+              </div>
+
+              <h3>Trip Facts</h3>
+              <ul class="info-list">
+                <li><strong>Duration:</strong> 19 Nights / 20 Days</li>
+                <li><strong>Starting Point:</strong> Kathmandu, Nepal</li>
+                <li>
+                  <strong>Maximum Altitude:</strong> 5,545m (Kala Patthar)
+                </li>
+                <li>
+                  <strong>Highest Pass:</strong> Kongma La Pass (5,535m)
+                </li>
+                <li>
+                  <strong>Trek Difficulty:</strong> Strenuous/Challenging
+                </li>
+                <li>
+                  <strong>Best Seasons:</strong> April-May & September-November
+                </li>
+                <li><strong>Daily Trekking:</strong> 5-8 hours average</li>
+                <li><strong>Group Size:</strong> 4-10 trekkers per group</li>
+              </ul>
+
+              <div class="highlight-box" style="background: #f0f9ff; border-left: 4px solid #2196f3">
+                <h4 style="color: #2196f3; margin-bottom: 1rem">
+                  Why Choose the 3 High Passes Trek?
+                </h4>
+                <p>
+                  This trek is designed for experienced trekkers seeking the
+                  ultimate Himalayan challenge. Unlike standard routes, the
+                  Three High Passes circuit offers a complete 360-degree tour
+                  of the Everest region. You'll experience the thrill of
+                  crossing three high mountain passes, visit both Everest Base
+                  Camp and the breathtaking Gokyo Lakes, and enjoy spectacular
+                  viewpoints that few trekkers ever see. The route minimizes
+                  backtracking and takes you through remote valleys and
+                  traditional Sherpa villages that remain untouched by mass
+                  tourism. This is not just a trek—it's an expedition that
+                  will test your limits and reward you with memories to last a
+                  lifetime.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITINERARY -->
+          <div id="itinerary" class="tab-content">
+            <div class="info-section">
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 1.5rem;
+                    flex-wrap: wrap;
+                    gap: 1rem;
+                  ">
+                <h3 style="
+                      margin: 0;
+                      color: #00b386;
+                      text-transform: uppercase;
+                      font-size: 1.2rem;
+                    ">
+                  20-Day Detailed Itinerary
+                </h3>
+                <button onclick="toggleAllDays(this)" style="
+                      background: none;
+                      border: 1px solid #00b386;
+                      color: #00b386;
+                      padding: 0.5rem 1rem;
+                      border-radius: 4px;
+                      cursor: pointer;
+                      font-size: 0.9rem;
+                    ">
+                  Expand All
+                </button>
+              </div>
+
+              <!-- Day 1 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 1</span>
+                    <span class="day-title">ARRIVAL IN KATHMANDU</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 1,365m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Welcome to Nepal:</strong> Arrive at Tribhuvan
+                    International Airport where our representative will greet
+                    you with traditional welcome. Transfer to your hotel in
+                    the heart of Kathmandu. After check-in and refreshment,
+                    attend a comprehensive pre-trek briefing with your guide.
+                    Receive your trekking permits and final equipment check.
+                    Evening free to explore Thamel area or rest at your hotel.
+                    Overnight in Kathmandu with dinner on your own account.
+                  </p>
+                  <p><strong>Meals:</strong> None (Dinner not included)</p>
+                  <p><strong>Accommodation:</strong> Hotel in Kathmandu</p>
+                  <p>
+                    <strong>Activities:</strong> Arrival, briefing,
+                    preparation
+                  </p>
+                </div>
+              </div>
+
+              <!-- Day 2 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 2</span>
+                    <span class="day-title">FLIGHT TO LUKLA & TREK TO PHAKDING</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 2,657m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Adventure Begins:</strong> Early morning transfer
+                    to airport for scenic mountain flight to Lukla (2,820m).
+                    The 35-minute flight offers spectacular Himalayan views.
+                    Arrive at Tenzing-Hillary Airport, meet your porter team,
+                    and begin trekking. Descend to the Dudh Koshi River,
+                    crossing several suspension bridges adorned with prayer
+                    flags. The gentle trail leads through Sherpa villages with
+                    picturesque mountain views. Arrive at Phakding village
+                    (2,657m) in about 3-4 hours. Check into teahouse, explore
+                    the village, and rest for tomorrow's climb to Namche.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast, Lunch, Dinner</p>
+                  <p><strong>Accommodation:</strong> Teahouse in Phakding</p>
+                  <p><strong>Trek Duration:</strong> 3-4 hours</p>
+                  <p><strong>Flight:</strong> 35 minutes</p>
+                </div>
+              </div>
+
+              <!-- Day 3 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 3</span>
+                    <span class="day-title">TREK TO NAMCHE BAZAAR</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 3,440m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Entering the Khumbu:</strong> Follow the Dudh
+                    Koshi River, crossing the impressive Hillary Suspension
+                    Bridge. The trail gradually ascends through pine forests.
+                    After about 2 hours, catch your first glimpse of Everest
+                    peeking behind Lhotse-Nuptse ridge. The steep climb to
+                    Namche begins here - take it slow and steady. Arrive at
+                    Namche Bazaar (3,440m), the bustling Sherpa capital and
+                    trading hub. Check into teahouse with stunning mountain
+                    views. Explore the vibrant town with its shops, bakeries,
+                    and cafes. Evening briefing on altitude awareness.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast, Lunch, Dinner</p>
+                  <p>
+                    <strong>Accommodation:</strong> Teahouse in Namche Bazaar
+                  </p>
+                  <p><strong>Trek Duration:</strong> 6-7 hours</p>
+                  <p><strong>Altitude Gain:</strong> 783m</p>
+                </div>
+              </div>
+
+              <!-- Day 4 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 4</span>
+                    <span class="day-title">ACCLIMATIZATION IN NAMCHE</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Altitude Adjustment:</strong> Essential rest day
+                    for acclimatization. Morning hike to Everest View Hotel
+                    (3,880m) for spectacular panoramic views of Everest,
+                    Lhotse, Nuptse, Ama Dablam, and other giants. Visit the
+                    Sherpa Museum to learn about local culture and
+                    mountaineering history. Optional visit to Sagarmatha
+                    National Park Visitor Center. Afternoon free to explore
+                    Namche's market, visit local bakeries, or simply rest.
+                    Important day for altitude adjustment - "climb high, sleep
+                    low" principle in practice. Evening health check with your
+                    guide.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast, Lunch, Dinner</p>
+                  <p>
+                    <strong>Accommodation:</strong> Teahouse in Namche Bazaar
+                  </p>
+                  <p>
+                    <strong>Activities:</strong> Acclimatization hike,
+                    cultural visit
+                  </p>
+                </div>
+              </div>
+
+              <!-- Day 5 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 5</span>
+                    <span class="day-title">TREK TO TENGBOCHE</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 3,867m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Spiritual Heart:</strong> Spectacular trekking day
+                    with constant mountain views. Descend to the Dudh Koshi
+                    River, then gradual climb through rhododendron forests.
+                    Stop for lunch at Phunki Tenga (3,250m). Afternoon ascent
+                    to Tengboche - the trail offers magnificent views of Ama
+                    Dablam. Arrive at Tengboche Monastery (Thyangboche), the
+                    largest in the Khumbu region. Attend evening prayers with
+                    chanting monks (if available). The monastery offers
+                    stunning sunset views of Everest, Lhotse, and Ama Dablam.
+                    Stay in teahouse with arguably the best mountain views of
+                    the trek.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast, Lunch, Dinner</p>
+                  <p><strong>Accommodation:</strong> Teahouse in Tengboche</p>
+                  <p><strong>Trek Duration:</strong> 6-7 hours</p>
+                  <p><strong>Altitude Gain:</strong> 427m</p>
+                </div>
+              </div>
+
+              <!-- Day 6 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 6</span>
+                    <span class="day-title">TREK TO DINGBOCHE</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 4,420m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>High Altitude Landscape:</strong> Descend through
+                    beautiful forest to Deboche, then cross Imja Khola river.
+                    Gradual climb to Pangboche village with views of Ama
+                    Dablam's imposing north face. Visit Pangboche Monastery,
+                    one of the oldest in the region. Continue ascending
+                    through alpine landscape with fewer trees. Arrive at
+                    Dingboche village (4,420m), a picturesque settlement
+                    surrounded by stone walls protecting crops from cold
+                    winds. Notice the change in vegetation as you enter higher
+                    altitude zone. Afternoon free for rest and
+                    acclimatization.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast, Lunch, Dinner</p>
+                  <p><strong>Accommodation:</strong> Teahouse in Dingboche</p>
+                  <p><strong>Trek Duration:</strong> 5-6 hours</p>
+                  <p><strong>Altitude Gain:</strong> 553m</p>
+                </div>
+              </div>
+
+              <!-- Day 7 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 7</span>
+                    <span class="day-title">ACCLIMATIZATION DAY (NAGARSHUNG HILL)</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Second Acclimatization:</strong> Another crucial
+                    rest day for altitude adjustment. Morning hike to
+                    Nagarshung Hill (5,100m) for spectacular views of Lhotse,
+                    Makalu, Island Peak, and the surrounding peaks. This hike
+                    follows the "climb high, sleep low" principle, essential
+                    for proper acclimatization. Return to Dingboche for lunch.
+                    Afternoon free for rest, journal writing, or exploring the
+                    village. This extra day at 4,420m significantly improves
+                    your body's adaptation to altitude, making the upcoming
+                    high passes safer and more comfortable. Evening briefing
+                    about the upcoming passes.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast, Lunch, Dinner</p>
+                  <p><strong>Accommodation:</strong> Teahouse in Dingboche</p>
+                  <p>
+                    <strong>Activities:</strong> Acclimatization hike to
+                    5,100m
+                  </p>
+                </div>
+              </div>
+
+              <!-- Day 8 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 8</span>
+                    <span class="day-title">TREK TO CHHUKUNG</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 4,750m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Gateway to Kongma La:</strong> Short but steep
+                    trek to Chhukung village (4,750m), located at the base of
+                    Island Peak. The trail follows the Imja Valley with
+                    spectacular views of Island Peak (6,189m) and Lhotse's
+                    south face. Chhukung is a small settlement with basic
+                    teahouses, serving as the staging point for Island Peak
+                    climbs and the Kongma La Pass crossing. Afternoon
+                    acclimatization hike to Chhukung Ri (5,546m) for those
+                    feeling strong, or rest and prepare for tomorrow's
+                    challenging pass crossing. Early dinner and rest.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast, Lunch, Dinner</p>
+                  <p><strong>Accommodation:</strong> Teahouse in Chhukung</p>
+                  <p><strong>Trek Duration:</strong> 3-4 hours</p>
+                  <p><strong>Altitude Gain:</strong> 330m</p>
+                </div>
+              </div>
+
+              <!-- Day 9 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 9</span>
+                    <span class="day-title">KONGMA LA PASS TO LOBUCHE</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 5,535m (Pass)</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>First High Pass:</strong> Early start for the
+                    challenging crossing of Kongma La Pass (5,535m), the
+                    highest of the three passes. The steep ascent takes you
+                    over rocky moraine and glacial terrain. From the pass,
+                    enjoy breathtaking 360-degree views of the Khumbu Glacier,
+                    Nuptse, Lhotse, Makalu, and countless other peaks. The
+                    descent is steep and rocky down to the Khumbu Glacier.
+                    Cross the glacier (carefully following your guide) to
+                    reach Lobuche (4,970m). This is a long and demanding day -
+                    celebrate your achievement! Rest well after this
+                    challenging crossing.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast, Lunch, Dinner</p>
+                  <p><strong>Accommodation:</strong> Teahouse in Lobuche</p>
+                  <p><strong>Trek Duration:</strong> 8 hours</p>
+                  <p>
+                    <strong>Challenge:</strong> High altitude pass crossing
+                  </p>
+                </div>
+              </div>
+
+              <!-- Day 10 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 10</span>
+                    <span class="day-title">EVEREST BASE CAMP & GORAKSHEP</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 5,364m (EBC)</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Dream Achievement:</strong> Trek along the Khumbu
+                    Glacier moraine to Gorakshep (5,180m), the last settlement
+                    before Base Camp. After quick lunch, continue to Everest
+                    Base Camp (5,364m). The final section involves careful
+                    walking on rocky moraine. Arrive at Base Camp - a moment
+                    of pure achievement! During climbing season (April-May),
+                    see expedition tents. Marvel at the Khumbu Icefall, the
+                    most dangerous section of the Everest climb. Take photos,
+                    celebrate, then return to Gorakshep for overnight. Drink
+                    plenty and rest well after this big day.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast, Lunch, Dinner</p>
+                  <p><strong>Accommodation:</strong> Teahouse in Gorakshep</p>
+                  <p>
+                    <strong>Trek Duration:</strong> 6-7 hours (3 hrs to
+                    Gorakshep + 3-4 hrs to EBC)
+                  </p>
+                  <p>
+                    <strong>Highlight:</strong> Everest Base Camp at 5,364m
+                  </p>
+                </div>
+              </div>
+
+              <!-- Day 11 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 11</span>
+                    <span class="day-title">KALA PATTHAR & TREK TO DZONGLA</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 5,545m (Kala
+                      Patthar)</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Best Everest Views:</strong> Pre-dawn start for
+                    Kala Patthar (5,545m) to witness sunrise over Everest. The
+                    steep climb is challenging but rewarded with the trek's
+                    most spectacular panorama. Watch the sun illuminate
+                    Everest's summit in golden light, with panoramic views of
+                    surrounding giants. Descend to Gorakshep for breakfast,
+                    then trek to Dzongla (4,830m). The trail descends through
+                    the Khumbu Valley, offering different perspectives of the
+                    mountains. Dzongla is a small, remote settlement with
+                    stunning views of Cholatse and Arakam Tse. Prepare for
+                    tomorrow's Cho La Pass.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast, Lunch, Dinner</p>
+                  <p><strong>Accommodation:</strong> Teahouse in Dzongla</p>
+                  <p><strong>Trek Duration:</strong> 5 hours</p>
+                  <p>
+                    <strong>Views:</strong> Sunrise over Everest from Kala
+                    Patthar
+                  </p>
+                </div>
+              </div>
+
+              <!-- Day 12 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 12</span>
+                    <span class="day-title">CHO LA PASS TO THANGNA</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 5,420m (Pass)</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Second High Pass:</strong> Early start for Cho La
+                    Pass (5,420m), the most famous of the three passes. The
+                    ascent involves crossing a small glacier - crampons may be
+                    required depending on conditions. The pass itself is
+                    marked by prayer flags and offers spectacular views of the
+                    Gokyo Valley and surrounding peaks. The descent is steep
+                    and rocky into the Gokyo Valley. Arrive at Thangna
+                    (4,750m), a small settlement near the Ngozumpa Glacier,
+                    the largest glacier in Nepal. Rest and recover from this
+                    challenging day. The scenery changes dramatically as you
+                    enter the Gokyo Valley.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast, Lunch, Dinner</p>
+                  <p><strong>Accommodation:</strong> Teahouse in Thangna</p>
+                  <p><strong>Trek Duration:</strong> 7-8 hours</p>
+                  <p>
+                    <strong>Challenge:</strong> Glacier crossing and steep
+                    descent
+                  </p>
+                </div>
+              </div>
+
+              <!-- Day 13 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 13</span>
+                    <span class="day-title">TREK TO GOKYO LAKES</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 4,750m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Turquoise Paradise:</strong> Short trek to Gokyo
+                    village situated beside the stunning Gokyo Lakes. These
+                    six turquoise lakes are considered sacred by both Hindus
+                    and Buddhists. The largest, Dudh Pokhari, is particularly
+                    magnificent with Cho Oyu (8,188m) reflected in its waters.
+                    Afternoon free to explore the lakeshore, visit the small
+                    Gokyo village, or simply rest and enjoy the breathtaking
+                    scenery. The Gokyo Valley offers a different perspective
+                    of the Himalayas, with Cho Oyu dominating the northern
+                    horizon. Prepare for tomorrow's climb to Gokyo Ri.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast, Lunch, Dinner</p>
+                  <p><strong>Accommodation:</strong> Teahouse in Gokyo</p>
+                  <p><strong>Trek Duration:</strong> 3-4 hours</p>
+                  <p><strong>Scenery:</strong> Sacred turquoise lakes</p>
+                </div>
+              </div>
+
+              <!-- Day 14 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 14</span>
+                    <span class="day-title">GOKYO RI VIEWPOINT</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 5,357m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Panoramic Masterpiece:</strong> Early morning
+                    climb to Gokyo Ri (5,357m) for one of the best panoramic
+                    views in the Himalayas. From the summit, enjoy 360-degree
+                    views encompassing four 8,000-meter peaks: Everest,
+                    Lhotse, Makalu, and Cho Oyu. The view down to the Gokyo
+                    Lakes is spectacular. Many trekkers consider this
+                    viewpoint even better than Kala Patthar. Return to Gokyo
+                    for breakfast. Rest of the day free for relaxation,
+                    exploring other lakes, or optional hike to Fifth Lake and
+                    the Ngozumpa Glacier viewpoint. Evening to reflect on your
+                    Himalayan achievements.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast, Lunch, Dinner</p>
+                  <p><strong>Accommodation:</strong> Teahouse in Gokyo</p>
+                  <p>
+                    <strong>Trek Duration:</strong> 3-4 hours (round trip)
+                  </p>
+                  <p><strong>Views:</strong> Four 8,000m peaks visible</p>
+                </div>
+              </div>
+
+              <!-- Day 15 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 15</span>
+                    <span class="day-title">RENJO LA PASS TO LUNGDEN</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 5,367m (Pass)</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Third High Pass:</strong> Final pass crossing -
+                    Renjo La Pass (5,367m). The ascent is steady with
+                    spectacular views back to Gokyo Lakes and the surrounding
+                    peaks. From the pass, enjoy breathtaking views of Everest,
+                    Lhotse, and Makalu to the east. The descent into the Bhote
+                    Koshi Valley is long but beautiful, passing through remote
+                    landscapes with few other trekkers. Arrive at Lungden
+                    (4,600m), a small settlement in the remote Bhote Koshi
+                    Valley. This area feels truly isolated and offers a
+                    glimpse of traditional Tibetan-influenced culture.
+                    Celebrate completing all three high passes!
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast, Lunch, Dinner</p>
+                  <p><strong>Accommodation:</strong> Teahouse in Lungden</p>
+                  <p><strong>Trek Duration:</strong> 7-8 hours</p>
+                  <p>
+                    <strong>Achievement:</strong> All three high passes
+                    completed
+                  </p>
+                </div>
+              </div>
+
+              <!-- Day 16 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 16</span>
+                    <span class="day-title">TREK TO THAME VILLAGE</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 3,800m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Cultural Descent:</strong> Descend the Bhote Koshi
+                    Valley to Thame village (3,800m), an important trading
+                    village on the ancient Tibet-Nepal trade route. Thame is
+                    known for its historic monastery and as the hometown of
+                    many famous Sherpa climbers, including Apa Sherpa who
+                    summited Everest 21 times. Visit Thame Monastery, one of
+                    the oldest in the region, perched dramatically on a
+                    hillside. The village offers insights into traditional
+                    Sherpa life away from the busier trekking routes. Enjoy
+                    the warmer temperatures and thicker air at this lower
+                    altitude.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast, Lunch, Dinner</p>
+                  <p><strong>Accommodation:</strong> Teahouse in Thame</p>
+                  <p><strong>Trek Duration:</strong> 5-6 hours</p>
+                  <p><strong>Altitude Loss:</strong> 800m descent</p>
+                </div>
+              </div>
+
+              <!-- Day 17 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 17</span>
+                    <span class="day-title">TREK TO NAMCHE BAZAAR</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Return to Civilization:</strong> Trek from Thame
+                    to Namche Bazaar, completing the circular route. The trail
+                    follows the Bhote Koshi River downstream, passing through
+                    several small villages. Notice how the landscape becomes
+                    greener and more forested as you descend. Arrive back at
+                    Namche Bazaar - it feels like returning to civilization
+                    after the remote high passes. Enjoy hot showers (available
+                    at extra cost), visit bakeries for fresh treats, and
+                    celebrate completion of the entire Three High Passes
+                    circuit. Evening free for relaxation, souvenir shopping,
+                    and farewell dinner with your team.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast, Lunch, Dinner</p>
+                  <p>
+                    <strong>Accommodation:</strong> Teahouse in Namche Bazaar
+                  </p>
+                  <p><strong>Trek Duration:</strong> 5-6 hours</p>
+                  <p><strong>Distance:</strong> Approximately 10km</p>
+                </div>
+              </div>
+
+              <!-- Day 18 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 18</span>
+                    <span class="day-title">TREK TO LUKLA</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 2,820m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Final Trekking Day:</strong> Last day of trekking
+                    retraces your steps along the Dudh Koshi River. The
+                    descent is mostly downhill with a few uphill sections.
+                    Cross the Hillary Bridge one last time. Arrive at Lukla
+                    (2,820m) by afternoon - a significant milestone marking
+                    the end of your epic 20-day adventure. Check into
+                    teahouse, then enjoy free time. Evening celebration dinner
+                    with your guide and porter team. Traditional Nepali dance
+                    and music performance (if available). Receive certificates
+                    of achievement for completing the Three High Passes Trek.
+                    Pack for tomorrow's flight.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast, Lunch, Dinner</p>
+                  <p><strong>Accommodation:</strong> Teahouse in Lukla</p>
+                  <p><strong>Trek Duration:</strong> 7-8 hours</p>
+                  <p><strong>Altitude Loss:</strong> 620m from Namche</p>
+                </div>
+              </div>
+
+              <!-- Day 19 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 19</span>
+                    <span class="day-title">FLY TO KATHMANDU</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Return to Kathmandu:</strong> Early morning flight
+                    back to Kathmandu (weather permitting). Bid farewell to
+                    your mountain crew at Lukla airport. The 35-minute flight
+                    offers final aerial views of the Himalayas. Arrive in
+                    Kathmandu and transfer to your hotel. Rest of the day free
+                    for relaxation, souvenir shopping, or exploring
+                    Kathmandu's cultural sites. Optional visits to
+                    Swayambhunath (Monkey Temple), Boudhanath Stupa, or Patan
+                    Durbar Square. Evening farewell dinner at traditional
+                    Nepali restaurant with cultural show (optional). Overnight
+                    in Kathmandu, enjoying comfortable beds and reflecting on
+                    your incredible Himalayan achievement.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast</p>
+                  <p><strong>Accommodation:</strong> Hotel in Kathmandu</p>
+                  <p><strong>Flight:</strong> 35 minutes</p>
+                  <p>
+                    <strong>Activities:</strong> Flight, free time in
+                    Kathmandu
+                  </p>
+                </div>
+              </div>
+
+              <!-- Day 20 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 20</span>
+                    <span class="day-title">FINAL DEPARTURE</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Journey Completion:</strong> Depending on your
+                    flight schedule, enjoy final breakfast in Kathmandu. Our
+                    representative will transfer you to Tribhuvan
+                    International Airport 3 hours before your flight. Depart
+                    with incredible memories, stunning photographs, and the
+                    satisfaction of having completed one of the world's most
+                    challenging and rewarding treks. Carry with you not just
+                    souvenirs, but experiences of Himalayan grandeur, Sherpa
+                    hospitality, and personal achievement that will stay with
+                    you forever.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast</p>
+                  <p style="font-style: italic; color: #5865f2">
+                    Safe travels and hope to see you again in the Himalayas!
+                  </p>
+                  <p><strong>Trek Concludes.</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COST & DATES - WITH GROUP PRICING AND CURRENCY CONVERTER -->
+          <div id="costdates" class="tab-content">
+            <div class="info-section">
+              <h3>Package Price & Dates 2026</h3>
+              <div class="highlight-box" style="
+                    background: linear-gradient(
+                      135deg,
+                      #667eea15 0%,
+                      #764ba215 100%
+                    );
+                  ">
+                <div style="text-align: center; padding: 1.5rem;">
+                  <h4 style="color: #5865f2; margin-bottom: 1.5rem;">
+                    Group Pricing with Discounts
+                  </h4>
+
+                  <div class="price-grid">
+                    <div class="price-card">
+                      <div class="group-size">1-3 People</div>
+                      <div class="price-inr price-display" data-inr="145000" >₹1,45,000</div>
+                    </div>
+
+                    <div class="price-card">
+                      <div class="group-size">4-6 People</div>
+                      <div class="price-inr price-display" data-inr="141875" >₹1,41,875</div>
+                    </div>
+
+                    <div class="price-card">
+                      <div class="group-size">7+ People</div>
+                      <div class="price-inr price-display" data-inr="138750" >₹1,38,750</div>
+                    </div>
+                  </div>
+
+                  <div style="
+                        margin: 1.5rem 0;
+                        padding: 1rem;
+                        background: white;
+                        border-radius: 8px;
+                        display: inline-block;
+                      ">
+                    <div style="
+                          font-size: 1.2rem;
+                          color: #5865f2;
+                          font-weight: 600;
+                        ">
+                      USD 1,310 - 1,370 (Approx)
+                    </div>
+                    <div style="font-size: 0.9rem; color: #666;">
+                      For International Travelers
+                    </div>
+                  </div>
+
+                  <div style="font-size: 0.9rem; color: #28a745; margin-top: 0.5rem;">
+                    <i class="fas fa-tag"></i> Discount applied: ₹3,125 off for 4-6 people, ₹6,250 off for 7+ people
+                  </div>
+
+                  <div style="
+                        background: white;
+                        padding: 1rem;
+                        border-radius: 8px;
+                        display: inline-block;
+                        margin: 0.5rem;
+                      ">
+                    <i class="fas fa-calendar-check" style="color: #5865f2"></i>
+                    <strong>2026 Departures Available</strong>
+                  </div>
+                </div>
+              </div>
+
+              <h3 style="margin-top: 2rem">2026 Group Departure Dates</h3>
+              <div style="
+                    background: #f8f9fa;
+                    padding: 1.5rem;
+                    border-radius: 8px;
+                  ">
+                <h4 style="color: #2e7d32; margin-bottom: 1rem">
+                  Spring Season (Best for Pass Crossings)
+                </h4>
+                <ul class="info-list">
+                  <li><strong>April:</strong> 5, 12, 19, 26</li>
+                  <li><strong>May:</strong> 3, 10, 17, 24</li>
+                </ul>
+
+                <h4 style="
+                      color: #e65100;
+                      margin-top: 1.5rem;
+                      margin-bottom: 1rem;
+                    ">
+                  Autumn Season (Excellent Conditions)
+                </h4>
+                <ul class="info-list">
+                  <li><strong>September:</strong> 7, 14, 21, 28</li>
+                  <li><strong>October:</strong> 5, 12, 19, 26</li>
+                  <li><strong>November:</strong> 2, 9</li>
+                </ul>
+              </div>
+
+              <div class="highlight-box" style="
+                    background: #f0fff0;
+                    border-left: 4px solid #4caf50;
+                    margin-top: 1.5rem;
+                  ">
+                <h4 style="color: #4caf50; margin-bottom: 0.5rem">
+                  <i class="fas fa-users"></i> Group Discounts
+                </h4>
+                <ul class="info-list">
+                  <li>2-3 persons: 5% discount per person</li>
+                  <li>4-6 persons: 10% discount per person</li>
+                  <li>7+ persons: 15% discount per person</li>
+                  <li>
+                    Private departures available any date (minimum 2 persons)
+                  </li>
+                </ul>
+              </div>
+
+              <div class="highlight-box" style="
+                    background: #fff8e1;
+                    border-left: 4px solid #ff9800;
+                    margin-top: 1.5rem;
+                  ">
+                <h4 style="color: #e65100; margin-bottom: 0.5rem">
+                  <i class="fas fa-exclamation-triangle"></i> Important Note
+                </h4>
+                <p>
+                  This trek requires excellent physical fitness and previous
+                  high-altitude trekking experience. Participants must be
+                  prepared for challenging conditions including steep
+                  ascents/descents, possible snow on passes, and basic
+                  teahouse accommodations in remote areas. Proper
+                  acclimatization is built into the itinerary, but individual
+                  fitness and altitude tolerance vary.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- INCLUDED -->
+          <div id="included" class="tab-content">
+            <div class="info-section">
+              <h3>What's Included</h3>
+              <ul class="info-list">
+                <li>
+                  All ground transportation (Airport Pickup and drop off by
+                  private car)
+                </li>
+                <li>Two-night Hotel in Kathmandu with Breakfast</li>
+                <li>All meals during trek: Breakfast, Lunch, and Dinner</li>
+                <li>Government license holder mountain guide</li>
+                <li>
+                  Trekking permits: Khumbu rural municipality entrance fee &
+                  Sagarmatha National Park permit
+                </li>
+                <li>Domestic airfare (Kathmandu-Lukla-Kathmandu)</li>
+                <li>
+                  14-night tea house/lodge Accommodation throughout the trek
+                </li>
+                <li>3 cups hot tea/coffee per day during the trek</li>
+                <li>Fresh fruit during the trek</li>
+                <li>
+                  Trekking gears: down jacket, sleeping bag, and duffle bag
+                </li>
+                <li>
+                  The arrangement of Emergency Helicopter service will be paid
+                  for by your Travel insurance company
+                </li>
+                <li>Medical kit bag</li>
+                <li>
+                  Porter service (1 porter for every 2 trekkers, 15kg limit)
+                </li>
+                <li>
+                  Guide and porter insurance, salary, food, and accommodation
+                </li>
+                <li>
+                  Certificate of achievement for completing Three High Passes
+                </li>
+              </ul>
+
+              <h3 style="margin-top: 2rem">What's Not Included</h3>
+              <ul class="info-list" style="color: #999">
+                <li>Nepal entry visa fee</li>
+                <li>
+                  Your Travel insurance (mandatory - must cover high altitude
+                  trekking and helicopter evacuation)
+                </li>
+                <li>
+                  All the Food in Kathmandu. Also in the case of early return
+                  from the mountain (due to any reason) then the scheduled
+                  itinerary
+                </li>
+                <li>
+                  All the expenses in the mountain over than scheduled
+                  itinerary (due to strike, delay, or canceled flight)
+                </li>
+                <li>
+                  Extra night Hotel in Kathmandu if arrive early or late
+                  departure than scheduled itinerary
+                </li>
+                <li>
+                  All the Bar bills and personal expenses (phone call, laundry
+                  service, battery recharge, a bottle of water, hot water,
+                  shower)
+                </li>
+                <li>Personal porter (available at extra cost)</li>
+                <li>Tips for the guide and porters</li>
+                <li>International airfare to/from Nepal</li>
+                <li>Alcoholic and bottled beverages</li>
+                <li>
+                  Any expenses due to flight delays or weather conditions
+                </li>
+                <li>
+                  Personal trekking equipment (except down jacket, sleeping
+                  bag, and duffle bag)
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- TERMS -->
+          <div id="terms" class="tab-content">
+            <div class="info-section">
+              <h3>Booking Terms & Conditions</h3>
+              <div style="
+                    background: #f8f9fa;
+                    padding: 1.5rem;
+                    border-radius: 8px;
+                    border-left: 4px solid #5865f2;
+                  ">
+                <ul class="info-list" style="list-style-type: none; padding-left: 0">
+                  <li style="margin-bottom: 1rem">
+                    <strong>Booking:</strong> 30% deposit required to confirm
+                    booking
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Balance Payment:</strong> Full payment 45 days
+                    before departure
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Health Requirements:</strong> Medical certificate
+                    required for all trekkers. Previous high-altitude
+                    experience strongly recommended
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Insurance:</strong> Travel insurance covering
+                    emergency evacuation up to 6,000m mandatory. Must
+                    specifically cover high mountain pass trekking
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Age Limit:</strong> Minimum age 18, maximum age 60
+                    (with medical clearance and high-altitude experience)
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Cancellation Policy:</strong>
+                    <ul style="margin-top: 0.5rem; padding-left: 1.5rem">
+                      <li>
+                        60+ days before: Full refund minus administrative fee
+                      </li>
+                      <li>45-59 days: 70% refund</li>
+                      <li>30-44 days: 50% refund</li>
+                      <li>15-29 days: 25% refund</li>
+                      <li>0-14 days: No refund</li>
+                    </ul>
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Weather Conditions:</strong> Itinerary subject to
+                    change due to weather, trail conditions, and pass
+                    accessibility. Guide's decision is final
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Flight Delays:</strong> Not responsible for Lukla
+                    flight delays due to weather. Extra nights in
+                    Kathmandu/Lukla at own expense
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Altitude Sickness:</strong> Guide's decision on
+                    continuing trek is final for safety. May require
+                    descending or alternative routing
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Fitness Level:</strong> This is a strenuous trek
+                    requiring excellent physical fitness. Training for 3-4
+                    months recommended
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Pass Conditions:</strong> Pass crossings may
+                    require crampons/ice axes in certain conditions (not
+                    provided)
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- VIDEOS & MAP SECTION -->
+          <div id="videosmap" class="tab-content">
+            <div class="info-section">
+              <h3>Everest 3 High Passes Trek Experience</h3>
+              <p>
+                Explore the ultimate Himalayan adventure through our videos
+                and detailed route map of this 20-day epic journey crossing
+                three high mountain passes in the Everest region.
+              </p>
+
+              <!-- Video Section -->
+              <div class="video-section" style="margin-bottom: 2rem">
+                <h4 style="color: #5865f2; margin-bottom: 1rem">
+                  <i class="fas fa-video"></i> Everest Three High Passes
+                  Documentary
+                </h4>
+                <div class="video-container">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/eGJEdlq7MAE?si=Yc1q3QCN6r4wP6fV"
+                    title="YouTube video player" frameborder="0" allow="
+                        accelerometer;
+                        autoplay;
+                        clipboard-write;
+                        encrypted-media;
+                        gyroscope;
+                        picture-in-picture;
+                        web-share;
+                      " referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666">
+                  <i class="fas fa-info-circle"></i> Watch the complete 20-day
+                  journey through the Everest region crossing three high
+                  passes.
+                </p>
+              </div>
+
+              <!-- Map Section -->
+              <div class="map-section">
+                <h4 style="color: #5865f2; margin-bottom: 1rem">
+                  <i class="fas fa-map-marked-alt"></i> Three High Passes
+                  Route Map
+                </h4>
+                <div class="map-container">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3522.726010294043!2d86.8528655!3d28.0022779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e9a9327a984be7%3A0x1f5047197a212375!2sEverest%20Base%20Camp!5e0!3m2!1sen!2snp!4v1767841446802!5m2!1sen!2snp"
+                    width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div style="
+                      margin-top: 1rem;
+                      display: flex;
+                      flex-wrap: wrap;
+                      gap: 1rem;
+                    ">
+                  <div style="flex: 1; min-width: 200px">
+                    <h5 style="color: #333; margin-bottom: 0.5rem">
+                      <i class="fas fa-route" style="color: #28a745"></i>
+                      Three High Passes
+                    </h5>
+                    <ul style="
+                          list-style-type: none;
+                          padding-left: 0;
+                          font-size: 0.9rem;
+                        ">
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Kongma La:</strong> 5,535m (Day 9)
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Cho La:</strong> 5,420m (Day 12)
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Renjo La:</strong> 5,367m (Day 15)
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Everest Base Camp:</strong> 5,364m (Day 10)
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Kala Patthar:</strong> 5,545m (Day 11)
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Gokyo Ri:</strong> 5,357m (Day 14)
+                      </li>
+                    </ul>
+                  </div>
+                  <div style="flex: 1; min-width: 200px">
+                    <h5 style="color: #333; margin-bottom: 0.5rem">
+                      <i class="fas fa-mountain" style="color: #dc3545"></i>
+                      Key Route Points
+                    </h5>
+                    <ul style="
+                          list-style-type: none;
+                          padding-left: 0;
+                          font-size: 0.9rem;
+                        ">
+                      <li style="margin-bottom: 0.3rem">
+                        Kathmandu: Starting Point (1,365m)
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        Namche Bazaar: Sherpa Capital (3,440m)
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        Dingboche: Acclimatization (4,420m)
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        Chhukung: Kongma La Base (4,750m)
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        Gokyo Lakes: Turquoise Lakes (4,750m)
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        Thame: Cultural Village (3,800m)
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Additional Information -->
+              <div style="
+                    background: linear-gradient(
+                      135deg,
+                      #f8f9ff 0%,
+                      #f0f2ff 100%
+                    );
+                    padding: 1.5rem;
+                    border-radius: 12px;
+                    margin-top: 2rem;
+                    border: 1px solid rgba(88, 101, 242, 0.1);
+                  ">
+                <h4 style="color: #5865f2; margin-bottom: 1rem">
+                  <i class="fas fa-info-circle"></i> Essential Trek
+                  Information
+                </h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 1.5rem">
+                  <div style="flex: 1; min-width: 200px">
+                    <h5 style="
+                          color: #333;
+                          margin-bottom: 0.5rem;
+                          font-size: 0.95rem;
+                        ">
+                      <i class="fas fa-hiking" style="color: #5865f2"></i>
+                      Fitness & Experience
+                    </h5>
+                    <p style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        ">
+                      <strong>Required:</strong> Excellent physical fitness
+                    </p>
+                    <p style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        ">
+                      <strong>Experience:</strong> Previous high-altitude
+                      trekking
+                    </p>
+                    <p style="font-size: 0.9rem; color: #555">
+                      <strong>Training:</strong> 3-4 months preparation
+                      recommended
+                    </p>
+                  </div>
+                  <div style="flex: 1; min-width: 200px">
+                    <h5 style="
+                          color: #333;
+                          margin-bottom: 0.5rem;
+                          font-size: 0.95rem;
+                        ">
+                      <i class="fas fa-temperature-low" style="color: #28a745"></i>
+                      Weather & Conditions
+                    </h5>
+                    <p style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        ">
+                      <strong>Passes:</strong> May have snow even in good
+                      seasons
+                    </p>
+                    <p style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        ">
+                      <strong>Temperatures:</strong> -5°C to -20°C on passes
+                    </p>
+                    <p style="font-size: 0.9rem; color: #555">
+                      <strong>Best:</strong> April-May & September-October
+                    </p>
+                  </div>
+                  <div style="flex: 1; min-width: 200px">
+                    <h5 style="
+                          color: #333;
+                          margin-bottom: 0.5rem;
+                          font-size: 0.95rem;
+                        ">
+                      <i class="fas fa-suitcase" style="color: #dc3545"></i>
+                      Equipment & Gear
+                    </h5>
+                    <p style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        ">
+                      <strong>Provided:</strong> Down jacket, sleeping bag,
+                      duffle
+                    </p>
+                    <p style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        ">
+                      <strong>Personal:</strong> Trekking poles, crampons
+                      (seasonal)
+                    </p>
+                    <p style="font-size: 0.9rem; color: #555">
+                      <strong>Footwear:</strong> Waterproof trekking boots
+                      essential
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Passes Information -->
+              <div style="
+                    background: linear-gradient(
+                      135deg,
+                      #fff8e1 0%,
+                      #ffecb3 100%
+                    );
+                    padding: 1.5rem;
+                    border-radius: 12px;
+                    margin-top: 2rem;
+                    border-left: 4px solid #ff9800;
+                  ">
+                <h4 style="color: #e65100; margin-bottom: 1rem">
+                  <i class="fas fa-exclamation-triangle"></i> About the Three
+                  High Passes
+                </h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 1.5rem">
+                  <div style="flex: 1; min-width: 200px">
+                    <h5 style="
+                          color: #333;
+                          margin-bottom: 0.5rem;
+                          font-size: 0.95rem;
+                        ">
+                      Kongma La (5,535m)
+                    </h5>
+                    <p style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        ">
+                      <strong>Highest Pass:</strong> Connects Chhukung to
+                      Lobuche
+                    </p>
+                    <p style="font-size: 0.9rem; color: #555">
+                      <strong>Challenge:</strong> Steep ascent and rocky
+                      descent
+                    </p>
+                  </div>
+                  <div style="flex: 1; min-width: 200px">
+                    <h5 style="
+                          color: #333;
+                          margin-bottom: 0.5rem;
+                          font-size: 0.95rem;
+                        ">
+                      Cho La (5,420m)
+                    </h5>
+                    <p style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        ">
+                      <strong>Most Famous:</strong> Connects Dzongla to
+                      Thangna
+                    </p>
+                    <p style="font-size: 0.9rem; color: #555">
+                      <strong>Feature:</strong> Small glacier crossing
+                      possible
+                    </p>
+                  </div>
+                  <div style="flex: 1; min-width: 200px">
+                    <h5 style="
+                          color: #333;
+                          margin-bottom: 0.5rem;
+                          font-size: 0.95rem;
+                        ">
+                      Renjo La (5,367m)
+                    </h5>
+                    <p style="
+                          font-size: 0.9rem;
+                          color: #555;
+                          margin-bottom: 0.5rem;
+                        ">
+                      <strong>Most Scenic:</strong> Connects Gokyo to Lungden
+                    </p>
+                    <p style="font-size: 0.9rem; color: #555">
+                      <strong>Views:</strong> Spectacular panorama of Everest
+                      range
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: Booking Card with Dynamic Pricing -->
+      <div>
+        <div class="booking-card">
+          <div class="price-section">
+            <div class="price-icon"><i class="fas fa-mountain"></i></div>
+            <div class="price-info">
+              <div class="price-label">Starting from</div>
+              <div><span class="price" id="mainPriceDisplay">₹1,38,750</span></div>
+              <div style="font-size: 0.8rem; color: #666; margin-top: 0.3rem" id="alternatePriceRow">
+                <span id="alternatePriceLabel">USD</span> <span id="alternatePrice">1,310</span>
+              </div>
+            </div>
+            <!-- Currency Selector -->
+            <div class="currency-selector-container">
+              <div class="currency-selector">
+                <div id="selectedCurrency">
+                  <span>INR</span>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="currency-dropdown">
+                  <div class="currency-option active" data-currency="INR"> INR (₹)</div>
+                  <div class="currency-option" data-currency="USD"> USD ($)</div>
+                  <div class="currency-option" data-currency="NPR"> NPR (रु)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="quantity-section">
+            <div class="quantity-controls">
+              <button class="qty-btn" onclick="updatePrice(-1)">-</button>
+              <div class="qty-display" id="qtyDisplay">1</div>
+              <button class="qty-btn" onclick="updatePrice(1)">+</button>
+            </div>
+          </div>
+
+          <div class="price-breakdown">
+            <div class="price-row">
+              <span>Base Price (Per Person)</span>
+              <span><span id="baseCurrency">INR</span> <span id="basePrice">1,38,750</span></span>
+            </div>
+            <div class="price-row total">
+              <span>Total</span>
+              <span><span id="totalCurrency">INR</span> <span id="totalPrice">1,38,750</span></span>
+            </div>
+          </div>
+
+          <button class="booking-btn btn-instant" onclick="showBookingForm()">Book Now</button>
+          <button class="booking-btn btn-customize" onclick="showEnquiryModal()">
+            Send Enquiry
+          </button>
+
+          <div class="contact-section">
+            <div style="font-size: 2.5rem; margin-bottom: 0.5rem">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <h3>Need Help?</h3>
+            <div class="phone-numbers">
+              <a href="https://wa.me/9779851140110" target="_blank" rel="noopener noreferrer" style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    font-size: 1.2rem;
+                  ">
+                +977-9851140110
+              </a>
+              <a href="https://wa.me/9779856017867" target="_blank" rel="noopener noreferrer" style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    font-size: 1.2rem;
+                  ">
+                +977-9856017867
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About Honest Travel</h3>
+        <p>
+          Your trusted partner for authentic Himalayan trekking experiences
+          since 2005.
+        </p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>Kathmandu, Nepal</p>
+        <p>infohonesttoursntravels@gmail.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>
+        &copy; 2025 HONEST TRAVEL Tours and Expedition. All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    /* ========== CONSTANTS AND CONFIGURATION ========== */
+
+    // Base prices in INR
+    const price23inr = 145000;      // 2-3 People
+    const price46inr = 141875;      // 4-6 People (₹1,45,000 - ₹3,125)
+    const price7plusinr = 138750;    // 7+ People (₹1,45,000 - ₹6,250)
+
+    // Exchange rate configuration (same as reference page)
+    const marketUsdToInr = 92;
+    const markupPercent = 15;
+
+    const exchangeRates = {
+      INR: { rate: 1, symbol: "₹", name: "INR" },
+      USD: { rate: (1 / marketUsdToInr) * (1 + markupPercent / 100), symbol: "$", name: "USD" },
+      NPR: { rate: 1.6, symbol: "रु", name: "NPR" }
+    };
+
+    let qty = 1; // Minimum 1 person for trek
+    let currentCurrency = "INR";
+
+    const currentPackage = {
+      name: '20 Days Everest 3 High Passes Trek',
+      duration: '20 Days / 19 Nights',
+      highestPoint: 'Kongma La Pass (5,535m) & Kala Patthar (5,545m)',
+      difficulty: 'Strenuous/Challenging',
+      category: 'Ultimate Everest Trekking',
+      includes: 'All meals + Accommodation + Guide + Porters + Permits + Lukla flights + Equipment',
+      requirements: 'Excellent physical fitness, previous high-altitude experience essential'
+    };
+
+    /* ========== HELPER FUNCTIONS ========== */
+
+    function getGroupSize(persons) {
+      if (persons >= 7) return "7+";
+      if (persons >= 4) return "4-6";
+      return "2-3";
+    }
+
+    function getUnitPrice(persons) {
+      const groupSize = getGroupSize(persons);
+      if (groupSize === "7+") return price7plusinr;
+      if (groupSize === "4-6") return price46inr;
+      return price23inr;
+    }
+
+    function getConvertedPrice(persons, targetCurrency) {
+      const inrPrice = getUnitPrice(persons);
+      const rate = exchangeRates[targetCurrency]?.rate || 1;
+      return inrPrice * rate;
+    }
+
+    function getUnitUSDPrice(persons) {
+      return getConvertedPrice(persons, "USD");
+    }
+
+    function getUnitNPRPrice(persons) {
+      return getConvertedPrice(persons, "NPR");
+    }
+
+    function getCurrencySymbol() {
+      return exchangeRates[currentCurrency]?.symbol || "₹";
+    }
+
+    function formatNumber(num) {
+      if (num >= 1000) {
+        return Math.round(num).toLocaleString("en-IN");
+      } else if (num >= 100) {
+        return Math.round(num).toString();
+      } else {
+        return num.toFixed(2);
+      }
+    }
+
+    function getGroupSizeText(persons) {
+      const groupSize = getGroupSize(persons);
+      if (groupSize === "7+") return "7+ People";
+      if (groupSize === "4-6") return "4-6 People";
+      return "2-3 People";
+    }
+
+    function getGroupSizeLabel(persons) {
+      const groupSize = getGroupSize(persons);
+      if (groupSize === "7+") return "(7+ people)";
+      if (groupSize === "4-6") return "(4-6 people)";
+      return "(2-3 people)";
+    }
+
+    function getDisplayUnitPrice(persons) {
+      if (currentCurrency === "USD") return getUnitUSDPrice(persons);
+      if (currentCurrency === "NPR") return getUnitNPRPrice(persons);
+      return getUnitPrice(persons);
+    }
+
+    /* ========== PRICE UPDATE FUNCTIONS ========== */
+
+    function updatePrice(change) {
+      qty += change;
+      if (qty < 1) qty = 1;
+      document.getElementById("qtyDisplay").textContent = qty;
+
+      const unitPrice = getUnitPrice(qty);
+      const displayUnitPrice = getDisplayUnitPrice(qty);
+      const symbol = getCurrencySymbol();
+
+      // Alternate price logic
+      let alternatePrice, alternateLabel;
+      if (currentCurrency === "USD") {
+        alternatePrice = unitPrice;
+        alternateLabel = "INR";
+      } else if (currentCurrency === "NPR") {
+        alternatePrice = getUnitUSDPrice(qty);
+        alternateLabel = "USD";
+      } else {
+        alternatePrice = getUnitUSDPrice(qty);
+        alternateLabel = "USD";
+      }
+
+      // Update displays
+      document.getElementById("basePrice").textContent = formatNumber(displayUnitPrice);
+      document.getElementById("totalPrice").textContent = formatNumber(qty * displayUnitPrice);
+      document.getElementById("mainPriceDisplay").textContent = symbol + ' ' + formatNumber(displayUnitPrice);
+      document.getElementById("alternatePriceLabel").textContent = alternateLabel;
+      document.getElementById("alternatePrice").textContent = formatNumber(alternatePrice);
+
+      // Update currency labels
+      document.getElementById("baseCurrency").textContent = currentCurrency;
+      document.getElementById("totalCurrency").textContent = currentCurrency;
+    }
+
+    /* ========== CURRENCY CONVERTER ========== */
+
+    function initializeCurrencyConverter() {
+      const currencySelector = document.querySelector(".currency-selector");
+      const selectedCurrency = document.getElementById("selectedCurrency");
+      const currencyOptions = document.querySelectorAll(".currency-option");
+      const priceElements = document.querySelectorAll(".price-display");
+
+      // Toggle currency dropdown
+      if (selectedCurrency) {
+        selectedCurrency.addEventListener("click", function (e) {
+          e.stopPropagation();
+          currencySelector.classList.toggle("active");
+        });
+      }
+
+      // Select currency option
+      currencyOptions.forEach((option) => {
+        option.addEventListener("click", function () {
+          const newCurrency = this.getAttribute("data-currency");
+
+          // Update selected currency display
+          if (newCurrency === "USD") {
+            selectedCurrency.querySelector("span").textContent = "USD";
+          } else if (newCurrency === "INR") {
+            selectedCurrency.querySelector("span").textContent = "INR";
+          } else if (newCurrency === "NPR") {
+            selectedCurrency.querySelector("span").textContent = "NPR";
+          }
+
+          currentCurrency = newCurrency;
+
+          // Update active state
+          currencyOptions.forEach((opt) => opt.classList.remove("active"));
+          this.classList.add("active");
+
+          // Update price table if exists
+          convertPrices(newCurrency);
+
+          // Update main price display
+          updatePrice(0);
+
+          // Close dropdown
+          currencySelector.classList.remove("active");
+        });
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener("click", function (e) {
+        if (currencySelector && !currencySelector.contains(e.target)) {
+          currencySelector.classList.remove("active");
+        }
+      });
+
+      // Function to convert prices
+      function convertPrices(targetCurrency) {
+        const targetSymbol = exchangeRates[targetCurrency]?.symbol || "₹";
+
+        priceElements.forEach(element => {
+          let convertedValue;
+          const inrValue = parseFloat(element.getAttribute("data-inr"));
+
+          if (targetCurrency === "NPR") {
+            convertedValue = inrValue * exchangeRates.NPR.rate;
+          } else if (targetCurrency === "USD") {
+            convertedValue = inrValue * exchangeRates.USD.rate;
+          } else {
+            convertedValue = inrValue;
+          }
+
+          element.textContent = targetSymbol + ' ' + formatNumber(convertedValue);
+        });
+      }
+
+      // Initialize with INR
+      convertPrices('INR');
+    }
+
+    /* ========== NAVIGATION BURGER MENU ========== */
+
+    function initializeNavigation() {
+      const navBurger = document.getElementById("navBurger");
+      const mainNav = document.getElementById("mainNav");
+
+      if (navBurger) {
+        navBurger.addEventListener("click", function () {
+          this.classList.toggle("active");
+          mainNav.classList.toggle("active");
+          document.body.classList.toggle("nav-open");
+        });
+
+        const navLinks = mainNav.querySelectorAll("a");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            navBurger.classList.remove("active");
+            mainNav.classList.remove("active");
+            document.body.classList.remove("nav-open");
+          });
+        });
+      }
+    }
+
+    /* ========== TAB SYSTEM ========== */
+
+    function initializeTabs() {
+      const tabBurger = document.getElementById("tabBurger");
+      const tabsMenu = document.getElementById("tabsMenu");
+
+      if (tabBurger) {
+        tabBurger.addEventListener("click", function () {
+          this.classList.toggle("active");
+          tabsMenu.classList.toggle("active");
+        });
+      }
+    }
+
+    function openTab(tabId) {
+      // Hide all tab contents
+      const contents = document.querySelectorAll(".tab-content");
+      contents.forEach((content) => content.classList.remove("active"));
+
+      // Remove active class from all tab buttons
+      const tabs = document.querySelectorAll(".tab");
+      tabs.forEach((tab) => tab.classList.remove("active"));
+
+      // Show current tab and add active class to button
+      document.getElementById(tabId).classList.add("active");
+      event.currentTarget.classList.add("active");
+
+      // Update mobile tab name if available
+      const currentTabName = document.getElementById("currentTabName");
+      if (currentTabName) {
+        currentTabName.textContent = event.currentTarget.textContent.trim();
+      }
+
+      // Close tab menu on mobile
+      const tabBurger = document.getElementById("tabBurger");
+      const tabsMenu = document.getElementById("tabsMenu");
+      if (tabBurger) {
+        tabBurger.classList.remove("active");
+        tabsMenu.classList.remove("active");
+      }
+    }
+
+    /* ========== COLLAPSIBLE ITINERARY ========== */
+
+    function toggleDay(headerElement) {
+      const dayContainer = headerElement.closest(".itinerary-day");
+      dayContainer.classList.toggle("active");
+    }
+
+    function toggleAllDays(btn) {
+      const allDays = document.querySelectorAll(".itinerary-day");
+      const isExpanding = btn.innerText.trim() === "Expand All";
+
+      allDays.forEach((day) => {
+        if (isExpanding) {
+          day.classList.add("active");
+        } else {
+          day.classList.remove("active");
+        }
+      });
+
+      btn.innerText = isExpanding ? "Collapse All" : "Expand All";
+    }
+
+    /* ========== IMAGE GALLERY ========== */
+
+    let currentImageIndex = 0;
+    const images = document.querySelectorAll(".gallery-image");
+    const indicators = document.querySelectorAll(".indicator");
+
+    function showImage(index) {
+      if (index >= images.length) currentImageIndex = 0;
+      else if (index < 0) currentImageIndex = images.length - 1;
+      else currentImageIndex = index;
+
+      images.forEach((img) => img.classList.remove("active"));
+      indicators.forEach((ind) => ind.classList.remove("active"));
+
+      images[currentImageIndex].classList.add("active");
+      indicators[currentImageIndex].classList.add("active");
+    }
+
+    function changeImage(step) {
+      showImage(currentImageIndex + step);
+    }
+
+    function setImage(index) {
+      showImage(index);
+    }
+
+    setInterval(() => changeImage(1), 5000);
+
+    /* ========== CLOSE MENUS WHEN CLICKING OUTSIDE ========== */
+
+    function initializeClickOutside() {
+      const navBurger = document.getElementById("navBurger");
+      const mainNav = document.getElementById("mainNav");
+      const tabBurger = document.getElementById("tabBurger");
+      const tabsMenu = document.getElementById("tabsMenu");
+
+      document.addEventListener("click", function (event) {
+        // Close nav menu
+        if (
+          navBurger &&
+          !navBurger.contains(event.target) &&
+          !mainNav.contains(event.target)
+        ) {
+          navBurger.classList.remove("active");
+          mainNav.classList.remove("active");
+          document.body.classList.remove("nav-open");
+        }
+
+        // Close tab menu
+        if (
+          tabBurger &&
+          !tabBurger.contains(event.target) &&
+          !tabsMenu.contains(event.target)
+        ) {
+          tabBurger.classList.remove("active");
+          tabsMenu.classList.remove("active");
+        }
+      });
+    }
+
+    /* ========== BOOKING MODAL FUNCTIONS ========== */
+
+    function generateBookingId() {
+      const prefix = 'HTT';
+      const timestamp = Date.now().toString().slice(-8);
+      const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+      const date = new Date();
+      const year = date.getFullYear().toString().slice(-2);
+      const month = (date.getMonth() + 1).toString().padStart(2, '2');
+
+      return `${prefix}-${year}${month}-${timestamp}-${random}`;
+    }
+
+    function showBookingForm() {
+      showConfirmationModal();
+    }
+
+    // Create confirmation modal
+    function showConfirmationModal() {
+      const displayUnitPrice = getDisplayUnitPrice(qty);
+      const symbol = getCurrencySymbol();
+      const groupSizeText = getGroupSizeText(qty);
+      const unitUSDPrice = getUnitUSDPrice(qty);
+
+      const modalOverlay = document.createElement('div');
+      modalOverlay.className = 'confirmation-modal';
+
+      modalOverlay.innerHTML = `
+          <div>
+            <div style="text-align: center;">
+              <div style="font-size: 3rem; color: #5865f2; margin-bottom: 15px;">
+                <i class="fas fa-mountain"></i>
+              </div>
+              
+              <h3 style="color: #2c3e50; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <i class="fas fa-calendar-check" style="color: #5865F2;"></i> Confirm Everest 3 High Passes Booking
+              </h3>
+              
+              <div class="package-info" style="font-size: 1.1rem; color: #5865F2; font-weight: 600; margin-bottom: 20px; background: rgba(88, 101, 242, 0.1); padding: 12px; border-radius: 8px; border-left: 4px solid #5865F2;">
+                20 Days Everest 3 High Passes Trek
+              </div>
+              
+              <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 20px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Duration:</span>
+                  <span style="font-weight: 600;">20 Days (19 Nights)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Highest Points:</span>
+                  <span style="font-weight: 600;">Kongma La (5,535m) & Kala Patthar (5,545m)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Group Size:</span>
+                  <span style="font-weight: 600;">${groupSizeText}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Participants:</span>
+                  <span style="font-weight: 600;">${qty} person(s)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Price Per Person:</span>
+                  <span style="font-weight: 600;">${symbol} ${formatNumber(displayUnitPrice)} / $${formatNumber(unitUSDPrice)}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 1.2rem; color: #28a745;">
+                  <span>Total Amount:</span>
+                  <span style="font-weight: 700;">${symbol} ${formatNumber(qty * displayUnitPrice)}</span>
+                </div>
+              </div>
+              
+              <div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; margin: 20px 0;">
+                <h4 style="color: #388e3c; margin-bottom: 0.5rem; font-size: 0.9rem;">
+                  <i class="fas fa-user-md"></i> High Altitude Trekking Requirements
+                </h4>
+                <p style="margin: 0; color: #388e3c; font-size: 0.9rem;">
+                  Excellent physical fitness required | Previous high-altitude experience essential | Comprehensive travel insurance mandatory (up to 6,000m)
+                </p>
+              </div>
+              
+              <p style="color: #666; margin-bottom: 25px; font-size: 16px;">
+                Are you ready to embark on the ultimate Everest adventure, crossing three high passes above 5,300m and standing at Everest Base Camp?
+              </p>
+              
+              <div class="confirmation-buttons" style="display: flex; gap: 15px; margin-top: 25px;">
+                <button id="confirmCancel" class="cancel-choice" style="
+                  padding: 10px 20px;
+                  background: #f5f5f5;
+                  border: none;
+                  border-radius: 6px;
+                  color: #666;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
+                  flex: 1;
+                ">
+                  Cancel
+                </button>
+                
+                <button id="confirmBook" class="confirm-book-btn" style="
+                  background: linear-gradient(135deg, #5865f2 0%, #3641d1 100%);
+                  color: white;
+                  border: none;
+                  padding: 14px 24px;
+                  border-radius: 8px;
+                  font-size: 16px;
+                  font-weight: 500;
+                  cursor: pointer;
+                  flex: 1;
+                  transition: all 0.3s ease;
+                ">
+                  Yes, Book This Epic Trek!
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+
+      document.body.appendChild(modalOverlay);
+      document.body.classList.add('modal-open');
+
+      // Handle button clicks
+      modalOverlay.querySelector('#confirmCancel').addEventListener('click', () => {
+        closeModal(modalOverlay);
+      });
+
+      modalOverlay.querySelector('#confirmBook').addEventListener('click', () => {
+        closeModal(modalOverlay);
+        showBookingModal();
+      });
+
+      // Close on backdrop click
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+          closeModal(modalOverlay);
+        }
+      });
+    }
+
+    // Show booking modal
+    function showBookingModal() {
+      const displayUnitPrice = getDisplayUnitPrice(qty);
+      const symbol = getCurrencySymbol();
+      const groupSizeText = getGroupSizeText(qty);
+
+      const modalOverlay = document.createElement('div');
+      modalOverlay.className = 'booking-modal';
+
+      modalOverlay.innerHTML = `
+          <div>
+            <button class="close-modal">×</button>
+            
+            <h2 style="color: #2c3e50; margin-bottom: 1.5rem; text-align: center; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+              <i class="fas fa-mountain" style="color: #5865F2;"></i>
+              Book Everest 3 High Passes Trek
+            </h2>
+            
+            <form id="bookingForm">
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Full Name *
+                </label>
+                <input type="text" id="bookingName" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="Enter your full name">
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Email Address *
+                </label>
+                <input type="email" id="bookingEmail" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="your@email.com">
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Phone Number *
+                </label>
+                <input type="tel" id="bookingPhone" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="+977 98XXXXXXXX">
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Country *
+                </label>
+                <input type="text" id="bookingCountry" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="Your country">
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Previous High-Altitude Experience (5000m+) *
+                </label>
+                <select id="bookingExperience" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                ">
+                  <option value="">Select your experience level</option>
+                  <option value="intermediate">Intermediate (Some treks above 5000m)</option>
+                  <option value="experienced">Experienced (Multiple treks above 5000m)</option>
+                  <option value="expert">Expert (Extensive high-altitude experience, 6000m+)</option>
+                </select>
+              </div>
+              
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div>
+                  <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                    Persons *
+                  </label>
+                  <input type="number" min="1" value="${qty}" id="formPersons" required style="
+                    width: 100%;
+                    padding: 0.8rem;
+                    border: 1px solid #ddd;
+                    border-radius: 6px;
+                    font-size: 1rem;
+                    box-sizing: border-box;
+                  " oninput="updateBookingFormPrice()">
+                </div>
+                
+                <div>
+                  <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                    Preferred Date *
+                  </label>
+                  <input type="date" id="bookingDate" required style="
+                    width: 100%;
+                    padding: 0.8rem;
+                    border: 1px solid #ddd;
+                    border-radius: 6px;
+                    font-size: 1rem;
+                    box-sizing: border-box;
+                  ">
+                </div>
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Special Requirements / Medical Conditions
+                </label>
+                <textarea id="bookingRequirements" rows="3" style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                  resize: vertical;
+                " placeholder="Any dietary restrictions, health considerations, or special requests..."></textarea>
+              </div>
+              
+              <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; margin: 1rem 0;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Trek Package:</span>
+                  <span style="font-weight: bold;">Everest 3 High Passes</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Duration:</span>
+                  <span>20 Days (19 Nights)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Group Size:</span>
+                  <span id="formGroupSize">${groupSizeText}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Price Per Person:</span>
+                  <span><span id="formCurrency">${currentCurrency}</span> <span id="formPricePerPerson">${formatNumber(displayUnitPrice)}</span> / $${formatNumber(getUnitUSDPrice(qty))}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Total Persons:</span>
+                  <span id="formTotalPersons">${qty}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 1.2rem; color: #28a745;">
+                  <span>Total Amount:</span>
+                  <span><span id="formTotalCurrency">${currentCurrency}</span> <span id="formTotalAmount">${formatNumber(qty * displayUnitPrice)}</span></span>
+                </div>
+              </div>
+              
+              <button type="submit" style="
+                background: linear-gradient(135deg, #5865f2 0%, #3641d1 100%);
+                color: white;
+                border: none;
+                padding: 1rem;
+                border-radius: 6px;
+                font-size: 1.1rem;
+                font-weight: 600;
+                cursor: pointer;
+                margin-top: 1rem;
+                width: 100%;
+              ">
+                <i class="fas fa-paper-plane"></i> Submit Ultimate Trek Booking
+              </button>
+              
+              <p style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 1rem;">
+                <i class="fas fa-info-circle"></i> Note: All prices include flights, accommodation, meals, permits, guide, porters, equipment
+              </p>
+              
+              <p style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 1rem;">
+                We'll contact you within 12 hours to confirm your booking and provide detailed trek information
+              </p>
+            </form>
+          </div>
+        `;
+
+      document.body.appendChild(modalOverlay);
+      document.body.classList.add('modal-open');
+
+      // Make modal content scrollable on mobile
+      const modalContent = modalOverlay.querySelector('div');
+      modalContent.style.webkitOverflowScrolling = 'touch';
+
+      // Close modal when X is clicked
+      modalOverlay.querySelector('.close-modal').addEventListener('click', () => {
+        closeModal(modalOverlay);
+      });
+
+      // Close modal when clicking outside
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+          closeModal(modalOverlay);
+        }
+      });
+
+      // Update form totals when persons change
+      const personsInput = modalOverlay.querySelector('#formPersons');
+      const groupSizeSpan = modalOverlay.querySelector('#formGroupSize');
+      const totalPersonsSpan = modalOverlay.querySelector('#formTotalPersons');
+      const totalAmountSpan = modalOverlay.querySelector('#formTotalAmount');
+      const pricePerPersonSpan = modalOverlay.querySelector('#formPricePerPerson');
+      const formTotalCurrencySpan = modalOverlay.querySelector('#formTotalCurrency');
+      const formCurrencySpan = modalOverlay.querySelector('#formCurrency');
+
+      function updateFormTotal() {
+        const persons = Math.max(1, parseInt(personsInput.value) || 1);
+        personsInput.value = persons;
+        const dispPrice = getDisplayUnitPrice(persons);
+        const sym = getCurrencySymbol();
+
+        groupSizeSpan.textContent = getGroupSizeText(persons);
+        totalPersonsSpan.textContent = persons;
+        pricePerPersonSpan.textContent = sym + " " + formatNumber(dispPrice);
+        totalAmountSpan.textContent = formatNumber(persons * dispPrice);
+        formTotalCurrencySpan.textContent = currentCurrency;
+        formCurrencySpan.textContent = currentCurrency;
+
+        qty = persons;
+        updatePrice(0);
+      }
+
+      personsInput.addEventListener('input', updateFormTotal);
+
+      // Handle form submission
+      modalOverlay.querySelector('#bookingForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const persons = Math.max(1, parseInt(personsInput.value) || 1);
+        const dispPrice = getDisplayUnitPrice(persons);
+        const unitUSDPrice = getUnitUSDPrice(persons);
+        const unitNPRPrice = getUnitNPRPrice(persons);
+
+        const formData = {
+          name: modalOverlay.querySelector('#bookingName').value.trim(),
+          email: modalOverlay.querySelector('#bookingEmail').value.trim(),
+          phone: modalOverlay.querySelector('#bookingPhone').value.trim(),
+          country: modalOverlay.querySelector('#bookingCountry').value.trim(),
+          experience: modalOverlay.querySelector('#bookingExperience').value,
+          persons: persons,
+          groupSize: getGroupSizeText(persons),
+          date: modalOverlay.querySelector('#bookingDate').value || 'Not specified',
+          requirements: modalOverlay.querySelector('#bookingRequirements').value.trim() || 'None',
+          package: currentPackage.name,
+          pricePerPerson: dispPrice,
+          usdPricePerPerson: unitUSDPrice,
+          nprPricePerPerson: unitNPRPrice,
+          totalAmount: persons * dispPrice,
+          currency: currentCurrency,
+          duration: currentPackage.duration,
+          highestPoint: currentPackage.highestPoint,
+          includes: currentPackage.includes,
+        };
+
+        // Validation
+        if (!formData.name) {
+          showMobileAlert('error', 'Name Required', 'Please enter your full name');
+          modalOverlay.querySelector('#bookingName').focus();
+          return;
+        }
+
+        if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
+          showMobileAlert('error', 'Valid Email Required', 'Please enter a valid email address');
+          modalOverlay.querySelector('#bookingEmail').focus();
+          return;
+        }
+
+        if (!formData.phone || !/^\+?[\d\s\-\(\)]{10,}$/.test(formData.phone)) {
+          showMobileAlert('error', 'Valid Phone Required', 'Please enter a valid phone number');
+          modalOverlay.querySelector('#bookingPhone').focus();
+          return;
+        }
+
+        if (!formData.country) {
+          showMobileAlert('error', 'Country Required', 'Please enter your country');
+          modalOverlay.querySelector('#bookingCountry').focus();
+          return;
+        }
+
+        if (!formData.experience) {
+          showMobileAlert('error', 'Experience Required', 'Please select your high-altitude trekking experience level');
+          modalOverlay.querySelector('#bookingExperience').focus();
+          return;
+        }
+
+        if (!modalOverlay.querySelector('#bookingDate').value) {
+          showMobileAlert('error', 'Date Required', 'Please select a preferred start date');
+          modalOverlay.querySelector('#bookingDate').focus();
+          return;
+        }
+
+        // Submit booking
+        submitDirectBooking(formData, modalOverlay);
+      });
+    }
+
+    // Update price in booking form
+    function updateBookingFormPrice() {
+      const modal = document.querySelector(".booking-modal");
+      if (!modal) return;
+
+      const personsInput = modal.querySelector("#formPersons");
+      const groupSizeSpan = modal.querySelector("#formGroupSize");
+      const pricePerPersonSpan = modal.querySelector("#formPricePerPerson");
+      const totalPersonsSpan = modal.querySelector("#formTotalPersons");
+      const totalAmountSpan = modal.querySelector("#formTotalAmount");
+      const formCurrencySpan = modal.querySelector("#formCurrency");
+      const formTotalCurrencySpan = modal.querySelector("#formTotalCurrency");
+
+      const persons = Math.max(1, parseInt(personsInput.value) || 1);
+      personsInput.value = persons;
+      const dispPrice = getDisplayUnitPrice(persons);
+      const sym = getCurrencySymbol();
+
+      groupSizeSpan.textContent = getGroupSizeText(persons);
+      formCurrencySpan.textContent = currentCurrency;
+      formTotalCurrencySpan.textContent = currentCurrency;
+      pricePerPersonSpan.textContent = sym + " " + formatNumber(dispPrice);
+      totalPersonsSpan.textContent = persons;
+      totalAmountSpan.textContent = formatNumber(persons * dispPrice);
+
+      qty = persons;
+      updatePrice(0);
+    }
+
+    // Direct submission function
+    function submitDirectBooking(formData, bookingModal) {
+      // Disable submit button and show loading
+      const submitBtn = bookingModal.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+      submitBtn.disabled = true;
+
+      const bookingId = generateBookingId();
+      const symbol = exchangeRates[formData.currency]?.symbol || "₹";
+
+      // Prepare WhatsApp message
+      const whatsappMessage =
+        `*EVEREST 3 HIGH PASSES TREK BOOKING*\n` +
+        `━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
+        ` *Booking Details*\n` +
+        `Booking ID: ${bookingId}\n` +
+        `Package: ${formData.package}\n` +
+        `Duration: ${formData.duration}\n` +
+        `Highest Points: Kongma La (5,535m) & Kala Patthar (5,545m)\n` +
+        `Group Size: ${formData.groupSize}\n` +
+        `Experience Level: ${formData.experience}\n` +
+        `Preferred Date: ${formData.date}\n\n` +
+        ` *Customer Information*\n` +
+        `Name: ${formData.name}\n` +
+        `Email: ${formData.email}\n` +
+        `Phone: ${formData.phone}\n` +
+        `Country: ${formData.country}\n` +
+        `Number of Persons: ${formData.persons}\n\n` +
+        ` *Payment Details*\n` +
+        `Price per Person (${formData.currency}): ${symbol}${formatNumber(formData.pricePerPerson)}\n` +
+        `Total Amount (${formData.currency}): ${symbol}${formatNumber(formData.totalAmount)}\n\n` +
+        ` *Special Requirements / Health Information*\n` +
+        `${formData.requirements}\n\n` +
+        `━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+        `Submitted via HONEST TRAVEL TOURS AND EXPEDITION Website`;
+
+      // Prepare email template parameters
+      const templateParams = {
+        booking_id: bookingId,
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        country: formData.country,
+        experience_level: formData.experience,
+        package_name: formData.package,
+        package_duration: formData.duration,
+        number_of_person: formData.persons,
+        preferred_date: formData.date,
+        special_requirements: formData.requirements || "None",
+        company_name: "Honest Travel Tours and Expedition",
+        price_per_person: `${formData.currency} ${formatNumber(formData.pricePerPerson)}`,
+        total_amount: `${formData.currency} ${formatNumber(formData.totalAmount)}`,
+      };
+
+      // Open WhatsApp in a new tab
+      const phoneNumber = "9779851140110";
+      window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`, "_blank");
+
+      // Send email via EmailJS
+      emailjs.send("service_9fq6tb6", "template_kmaga4l", templateParams)
+        .then(
+          function () {
+            console.log("Email sent successfully");
+            // Close the booking modal
+            closeModal(bookingModal);
+            // Show success message
+            showMobileAlert(
+              "success",
+              "Booking Request Submitted!",
+              `Your Everest 3 High Passes Trek booking request has been sent successfully.\n\nBooking ID: ${bookingId}\n\nWe have opened WhatsApp and sent an email confirmation. Our high-altitude trekking specialists will contact you within 24 hours to confirm your booking.`
+            );
+          },
+          function (error) {
+            console.error("Email failed:", error);
+            // Close the booking modal
+            closeModal(bookingModal);
+            // Show warning message
+            showMobileAlert(
+              "warning",
+              "WhatsApp Opened - Email Pending",
+              `Your booking details have been opened in WhatsApp.\n\nBooking ID: ${bookingId}\n\nThere was an issue sending the email. Please send an email to infohonesttoursntravels@gmail.com with your booking details to complete the process.`
+            );
+          }
+        )
+        .finally(() => {
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.disabled = false;
+        });
+    }
+
+    /* ========== ENQUIRY MODAL FUNCTION ========== */
+    function showEnquiryModal() {
+      const packageName = '20 Days Everest 3 High Passes Trek';
+      const packagePrice = '₹1,38,750 - 1,45,000 (based on group size)';
+      const packageDuration = '20 Days / 19 Nights';
+      const packageCategory = 'Everest Region Treks';
+
+      const params = new URLSearchParams({
+        package: encodeURIComponent(packageName),
+        price: encodeURIComponent(packagePrice),
+        duration: encodeURIComponent(packageDuration),
+        category: encodeURIComponent(packageCategory),
+        source: 'everest-3-high-passes'
+      }).toString();
+
+      // Redirect to enquiry form with package details
+      window.location.href = `../enquiry-form.html?${params}`;
+    }
+
+    /* ========== MOBILE ALERT FUNCTION ========== */
+    function showMobileAlert(type, title, message) {
+      // Remove any existing alerts
+      const existingAlerts = document.querySelectorAll('.mobile-alert-overlay');
+      existingAlerts.forEach(alert => closeModal(alert));
+
+      const alertOverlay = document.createElement('div');
+      alertOverlay.className = 'mobile-alert-overlay';
+
+      const icons = {
+        success: 'fa-check-circle',
+        warning: 'fa-exclamation-triangle',
+        error: 'fa-times-circle',
+        info: 'fa-info-circle'
+      };
+
+      const colors = {
+        success: '#28a745',
+        warning: '#ff9800',
+        error: '#dc3545',
+        info: '#5865f2'
+      };
+
+      alertOverlay.innerHTML = `
+          <div>
+            <div class="mobile-alert ${type}" style="text-align: center;">
+              <div class="mobile-alert-icon">
+                <i class="fas ${icons[type]}" style="color: ${colors[type]}"></i>
+              </div>
+              <h3 style="color: #2c3e50; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <i class="fas ${icons[type]}" style="color: ${colors[type]}"></i>
+                ${title}
+              </h3>
+              <div class="mobile-alert-message">${message.replace(/\n/g, '<br>')}</div>
+              <button class="mobile-alert-ok-btn" onclick="closeModal(this.closest('.mobile-alert-overlay'))">OK</button>
+            </div>
+          </div>
+        `;
+
+      document.body.appendChild(alertOverlay);
+      document.body.classList.add('modal-open');
+
+      if (type === 'success') {
+        setTimeout(() => {
+          if (alertOverlay.parentNode) closeModal(alertOverlay);
+        }, 5000);
+      }
+
+      alertOverlay.addEventListener('click', (e) => {
+        if (e.target === alertOverlay) {
+          closeModal(alertOverlay);
+        }
+      });
+    }
+
+    // Universal close modal function
+    function closeModal(modalOverlay) {
+      if (!modalOverlay || !modalOverlay.parentNode) return;
+
+      modalOverlay.style.animation = 'fadeOut 0.3s ease';
+
+      setTimeout(() => {
+        if (modalOverlay.parentNode) {
+          document.body.removeChild(modalOverlay);
+        }
+        // Remove modal-open class if no other modals are open
+        if (!document.querySelector('.confirmation-modal, .mobile-alert-overlay, .booking-modal, .submission-modal')) {
+          document.body.classList.remove('modal-open');
+        }
+      }, 300);
+    }
+
+    function closeAllModals() {
+      const modals = document.querySelectorAll('.confirmation-modal, .booking-modal, .submission-modal, .mobile-alert-overlay');
+      modals.forEach(modal => {
+        if (modal && modal.parentNode) {
+          closeModal(modal);
+        }
+      });
+    }
+
+    // Close modals on escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeAllModals();
+      }
+    });
+
+    /* ========== FACILITIES SLIDER NAVIGATION ========== */
+    function scrollFacilities(sliderId, direction) {
+      const slider = document.getElementById(sliderId);
+      const scrollAmount = 300;
+      slider.scrollBy({
+        left: direction * scrollAmount,
+        behavior: "smooth",
+      });
+    }
+
+    /* ========== INITIALIZE EVERYTHING ========== */
+    document.addEventListener("DOMContentLoaded", function () {
+      initializeNavigation();
+      initializeTabs();
+      initializeCurrencyConverter();
+      initializeClickOutside();
+      updatePrice(0);
+    });
+
+    // Attach functions to window for global access
+    window.openTab = openTab;
+    window.toggleDay = toggleDay;
+    window.toggleAllDays = toggleAllDays;
+    window.changeImage = changeImage;
+    window.setImage = setImage;
+    window.updatePrice = updatePrice;
+    window.showBookingForm = showBookingForm;
+    window.showEnquiryModal = showEnquiryModal;
+    window.scrollFacilities = scrollFacilities;
+    window.updateBookingFormPrice = updateBookingFormPrice;
+    window.closeModal = closeModal;
+    window.closeAllModals = closeAllModals;
+  </script>
+</body>
+
+</html>

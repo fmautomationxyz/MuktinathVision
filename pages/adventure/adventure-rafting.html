@@ -1,0 +1,2669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nepal River Rafting Adventure - Honest Travel Tours</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../../css/individual-packages.css" />
+
+  <!-- Add EmailJS script -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    (function () {
+      // Initialize EmailJS with your public key
+      emailjs.init("cjcB4sLQKii3OPWJ1");
+    })();
+  </script>
+
+  <style>
+    /* Currency Selector Styles */
+    .currency-selector-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 20px;
+    }
+
+    .currency-selector {
+      position: relative;
+      display: inline-block;
+    }
+
+    #selectedCurrency {
+      background: rgba(33, 150, 243, 0.1);
+      border: 1px solid #2196f3;
+      border-radius: 6px;
+      padding: 8px 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      color: #2196f3;
+      transition: all 0.3s ease;
+    }
+
+    #selectedCurrency:hover {
+      background: rgba(33, 150, 243, 0.2);
+    }
+
+    #selectedCurrency i {
+      font-size: 0.8rem;
+      transition: transform 0.3s ease;
+    }
+
+    .currency-selector.active #selectedCurrency i {
+      transform: rotate(180deg);
+    }
+
+    .currency-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      min-width: 120px;
+      margin-top: 5px;
+      display: none;
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    .currency-selector.active .currency-dropdown {
+      display: block;
+    }
+
+    .currency-option {
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #333;
+    }
+
+    .currency-option:hover {
+      background: #f5f5f5;
+      color: #2196f3;
+    }
+
+    .currency-option.active {
+      background: #2196f3;
+      color: white;
+    }
+
+    .currency-option i {
+      width: 20px;
+      font-size: 0.9rem;
+    }
+
+    /* Price grid styles for group pricing */
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .price-card {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .price-card .group-size {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-card .price-main {
+      font-size: 1.8rem;
+      color: #28a745;
+      font-weight: 700;
+    }
+
+    .price-card .price-alt {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 0.3rem;
+    }
+
+    /* Additional custom styles for river rafting page */
+    .river-highlight {
+      background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+      border-left: 4px solid #2196f3;
+    }
+
+    .difficulty-easy {
+      color: #28a745;
+    }
+
+    .difficulty-moderate {
+      color: #ffc107;
+    }
+
+    .difficulty-challenging {
+      color: #dc3545;
+    }
+
+    .river-icon {
+      color: #2196f3;
+      margin-right: 8px;
+    }
+
+    .rapid-class {
+      display: inline-block;
+      background: #f8f9fa;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      margin-left: 5px;
+      border: 1px solid #dee2e6;
+    }
+
+    /* Modal Styles */
+    .confirmation-modal,
+    .booking-modal,
+    .submission-modal,
+    .mobile-alert-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .confirmation-modal>div,
+    .booking-modal>div,
+    .submission-modal>div,
+    .mobile-alert-overlay>div {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      animation: slideIn 0.3s ease;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .booking-modal>div {
+      max-width: 600px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+
+      to {
+        opacity: 0;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes checkmark {
+      0% {
+        transform: scale(0);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .close-modal,
+    .close-submission-modal {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: #666;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .close-modal:hover,
+    .close-submission-modal:hover {
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    .modal-open {
+      overflow: hidden;
+    }
+
+    .choice-options {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .choice-btn {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      background: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: left;
+      width: 100%;
+    }
+
+    .choice-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .whatsapp-choice:hover {
+      border-color: #25D366;
+      background: rgba(37, 211, 102, 0.05);
+    }
+
+    .email-choice:hover {
+      border-color: #2196f3;
+      background: rgba(33, 150, 243, 0.05);
+    }
+
+    .choice-btn i {
+      font-size: 2.5rem;
+      min-width: 40px;
+    }
+
+    .whatsapp-choice i {
+      color: #25D366;
+    }
+
+    .email-choice i {
+      color: #2196f3;
+    }
+
+    .choice-btn-content {
+      flex: 1;
+    }
+
+    .choice-btn-content span {
+      display: block;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 5px;
+      font-size: 1.1rem;
+    }
+
+    .choice-btn-content small {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .confirm-book-btn:hover {
+      background: linear-gradient(135deg, #1976d2 0%, #0d47a1 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(33, 150, 243, 0.3);
+    }
+
+    .cancel-choice:hover {
+      background: #e0e0e0;
+    }
+
+    /* Mobile Alert Styles */
+    .mobile-alert {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .mobile-alert-icon {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .mobile-alert.success .mobile-alert-icon {
+      color: #28a745;
+    }
+
+    .mobile-alert.warning .mobile-alert-icon {
+      color: #ff9800;
+    }
+
+    .mobile-alert.error .mobile-alert-icon {
+      color: #dc3545;
+    }
+
+    .mobile-alert.info .mobile-alert-icon {
+      color: #2196f3;
+    }
+
+    .mobile-alert h3 {
+      color: #2c3e50;
+      margin: 0 0 1.5rem 0;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .mobile-alert-message {
+      color: #666;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .mobile-alert-ok-btn {
+      background: #2196f3;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .mobile-alert-ok-btn:hover {
+      background: #1976d2;
+      transform: translateY(-2px);
+    }
+
+    .success-checkmark {
+      animation: checkmark 0.5s ease;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+
+      .confirmation-modal>div,
+      .booking-modal>div,
+      .submission-modal>div {
+        padding: 1.5rem;
+        margin: 10px;
+      }
+
+      .choice-btn {
+        padding: 15px;
+      }
+
+      .choice-btn i {
+        font-size: 2rem;
+      }
+
+      .booking-modal>div {
+        max-height: 85vh;
+      }
+
+      .currency-selector-container {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+      }
+
+      .currency-selector {
+        width: 100%;
+      }
+
+      #selectedCurrency {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .currency-dropdown {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .confirmation-buttons {
+        flex-direction: column;
+      }
+
+      .choice-btn {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+
+      .choice-btn-content small {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="top-bar">
+      <div class="container">
+        <div class="contact-info">
+          <span>
+            📞
+            <a href="https://wa.me/9779851140110" target="_blank" rel="noopener noreferrer"
+              class="wa-link">+977-9851140110</a>,
+            <a href="https://wa.me/9779856017867" target="_blank" rel="noopener noreferrer"
+              class="wa-link">9856017867</a>
+          </span>
+          <span>✉️ infohonesttoursntravels@gmail.com</span>
+        </div>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="logo">
+        <div class="logo-icon">
+          <img src="../../images/Logo Image.png" alt="Honest Travel Logo" />
+        </div>
+        <div class="logo-text">
+          <h1>HONEST TRAVEL</h1>
+          <p>TOURS AND EXPEDITION</p>
+        </div>
+      </div>
+
+      <!-- Burger Menu Button for Navigation -->
+      <button class="burger-menu" id="navBurger" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="mainNav">
+        <ul>
+          <li><a href="../../index.html">HOME</a></li>
+          <li><a href="../../index.html#tours">TOURS</a></li>
+          <li><a href="../../index.html#trekking">TREKKING</a></li>
+          <li><a href="../../index.html#contact">CONTACT US</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Tour Detail Section -->
+  <div class="tour-detail">
+    <div class="tour-header">
+      <h1 class="tour-title">
+        Nepal River Rafting Adventure: Multi-River Expedition
+      </h1>
+      <p class="tour-subtitle">9 Nights 10 Days</p>
+    </div>
+
+    <div class="tour-content-wrapper">
+      <!-- LEFT COLUMN -->
+      <div>
+        <!-- Image Gallery -->
+        <div class="image-gallery">
+          <img src="../../images/Adventure1.jpg" class="gallery-image active" alt="Bhote Koshi River Rafting" />
+          <img src="../../images/rafting.jpg" class="gallery-image" alt="Trishuli River Adventure" />
+          <img src="../../images/rafting1.png" class="gallery-image" alt="Seti River Scenic Rafting" />
+          <img src="../../images/rafting2.webp" class="gallery-image" alt="Pokhara Lakeside Kayaking" />
+
+          <div class="gallery-nav">
+            <button class="nav-btn" onclick="changeImage(-1)">‹</button>
+            <button class="nav-btn" onclick="changeImage(1)">›</button>
+          </div>
+          <div class="gallery-indicators">
+            <div class="indicator active" onclick="setImage(0)"></div>
+            <div class="indicator" onclick="setImage(1)"></div>
+            <div class="indicator" onclick="setImage(2)"></div>
+            <div class="indicator" onclick="setImage(3)"></div>
+          </div>
+        </div>
+
+        <!-- Tour Information Tabs -->
+        <div class="tour-info">
+          <!-- Mobile Tab Burger Menu -->
+          <div class="tab-burger-wrapper">
+            <button class="tab-burger-menu" id="tabBurger" aria-label="Toggle tabs menu">
+              <i class="fas fa-bars"></i>
+              <span id="currentTabName">Overview</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+
+          <div class="info-tabs" id="tabsMenu">
+            <button class="tab active" onclick="openTab('overview')">
+              Overview
+            </button>
+            <button class="tab" onclick="openTab('itinerary')">
+              Itinerary
+            </button>
+            <button class="tab" onclick="openTab('costdates')">Cost</button>
+            <button class="tab" onclick="openTab('included')">
+              Included
+            </button>
+            <button class="tab" onclick="openTab('terms')">
+              Terms & Conditions
+            </button>
+            <button class="tab" onclick="openTab('videosmap')">
+              Videos & Map
+            </button>
+          </div>
+
+          <!-- OVERVIEW -->
+          <div id="overview" class="tab-content active">
+            <div class="info-section">
+              <h3>Package Overview</h3>
+              <p>
+                Embark on the ultimate white-water adventure across Nepal's
+                most thrilling rivers. This comprehensive 10-day rafting
+                expedition takes you through three distinct river systems,
+                combining adrenaline-pumping rapids with cultural exploration
+                and scenic beauty. From the technical challenges of Bhote
+                Koshi to the classic Trishuli and scenic Seti River,
+                experience the best of Nepal's rafting diversity.
+              </p>
+
+              <div class="highlight-box river-highlight">
+                <h4 style="color: #2196f3; margin-bottom: 1rem">
+                  Key Highlights
+                </h4>
+                <ul class="info-list">
+                  <li>
+                    <strong>Three River Challenge:</strong> Conquer Bhote
+                    Koshi, Trishuli, and Seti rivers with varying difficulty
+                    levels
+                  </li>
+                  <li>
+                    <strong>Professional Guidance:</strong> Expert rafting
+                    guides with international safety certifications
+                  </li>
+                  <li>
+                    <strong>Cultural Immersion:</strong> Visit UNESCO World
+                    Heritage sites in Kathmandu and Bhaktapur
+                  </li>
+                  <li>
+                    <strong>Scenic Beauty:</strong> Raft through breathtaking
+                    gorges, jungle corridors, and mountain landscapes
+                  </li>
+                  <li>
+                    <strong>Optional Activities:</strong> Kayaking, SUP,
+                    bungee jumping, and mountain biking available
+                  </li>
+                  <li>
+                    <strong>Comfortable Accommodation:</strong> Quality hotels
+                    and riverside resorts throughout the journey
+                  </li>
+                </ul>
+              </div>
+
+              <h3>Trip Facts</h3>
+              <ul class="info-list">
+                <li><strong>Duration:</strong> 9 Nights 10 Days</li>
+                <li><strong>Starting Point:</strong> Kathmandu, Nepal</li>
+                <li>
+                  <strong>River Difficulty:</strong> Class III-IV (Bhote
+                  Koshi), Class III (Trishuli), Class II-III (Seti)
+                </li>
+                <li>
+                  <strong>Best Season:</strong> September to December & March
+                  to May
+                </li>
+                <li>
+                  <strong>Group Size:</strong> 2-12 people per rafting group
+                </li>
+                <li>
+                  <strong>Age Requirement:</strong> Minimum 16 years (14 with
+                  guardian)
+                </li>
+                <li>
+                  <strong>Physical Fitness:</strong> Moderate fitness level
+                  required
+                </li>
+              </ul>
+
+              <h3>River Details</h3>
+              <div style="
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 1rem;
+                    margin-top: 1rem;
+                  ">
+                <div style="
+                      flex: 1;
+                      min-width: 250px;
+                      background: #f8f9fa;
+                      padding: 1rem;
+                      border-radius: 8px;
+                    ">
+                  <h4 style="color: #2196f3; margin-bottom: 0.5rem">
+                    <i class="fas fa-water river-icon"></i>Bhote Koshi
+                  </h4>
+                  <p>
+                    <strong>Difficulty:</strong>
+                    <span class="difficulty-challenging">Class III-IV</span>
+                  </p>
+                  <p><strong>Distance:</strong> 18km rafting</p>
+                  <p>
+                    <strong>Features:</strong> Continuous rapids, steep
+                    gradient
+                  </p>
+                </div>
+                <div style="
+                      flex: 1;
+                      min-width: 250px;
+                      background: #f8f9fa;
+                      padding: 1rem;
+                      border-radius: 8px;
+                    ">
+                  <h4 style="color: #2196f3; margin-bottom: 0.5rem">
+                    <i class="fas fa-water river-icon"></i>Trishuli River
+                  </h4>
+                  <p>
+                    <strong>Difficulty:</strong>
+                    <span class="difficulty-moderate">Class III</span>
+                  </p>
+                  <p><strong>Distance:</strong> 25km rafting</p>
+                  <p>
+                    <strong>Features:</strong> Big waves, technical sections
+                  </p>
+                </div>
+                <div style="
+                      flex: 1;
+                      min-width: 250px;
+                      background: #f8f9fa;
+                      padding: 1rem;
+                      border-radius: 8px;
+                    ">
+                  <h4 style="color: #2196f3; margin-bottom: 0.5rem">
+                    <i class="fas fa-water river-icon"></i>Seti River
+                  </h4>
+                  <p>
+                    <strong>Difficulty:</strong>
+                    <span class="difficulty-easy">Class II-III</span>
+                  </p>
+                  <p><strong>Distance:</strong> 32km rafting</p>
+                  <p>
+                    <strong>Features:</strong> Scenic float, wildlife spotting
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITINERARY -->
+          <div id="itinerary" class="tab-content">
+            <div class="info-section">
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 1.5rem;
+                    flex-wrap: wrap;
+                    gap: 1rem;
+                  ">
+                <h3 style="
+                      margin: 0;
+                      color: #00b386;
+                      text-transform: uppercase;
+                      font-size: 1.2rem;
+                    ">
+                  Detailed Itinerary
+                </h3>
+                <button onclick="toggleAllDays(this)" style="
+                      background: none;
+                      border: 1px solid #00b386;
+                      color: #00b386;
+                      padding: 0.5rem 1rem;
+                      border-radius: 4px;
+                      cursor: pointer;
+                      font-size: 0.9rem;
+                    ">
+                  Expand All
+                </button>
+              </div>
+
+              <!-- Day 1 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 1</span>
+                    <span class="day-title">ARRIVAL IN KATHMANDU</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Welcome to Nepal:</strong> Arrive at Tribhuvan
+                    International Airport where our representative will greet
+                    you with traditional welcome. Transfer to your hotel in
+                    Thamel, the tourist hub of Kathmandu. After check-in,
+                    attend a comprehensive briefing about your rafting
+                    adventure. Our team will explain safety procedures,
+                    equipment usage, and the itinerary in detail. Evening free
+                    to explore Thamel's vibrant streets, shops, and
+                    restaurants.
+                  </p>
+                  <p><strong>Meals:</strong> Welcome Dinner Included</p>
+                  <p>
+                    <strong>Accommodation:</strong> 3-4 Star Hotel in
+                    Kathmandu
+                  </p>
+                </div>
+              </div>
+
+              <!-- Day 2 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 2</span>
+                    <span class="day-title">BHAKTAPUR SIGHTSEEING & DRIVE TO BHOTEKOSHI</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Cultural Exploration:</strong> After breakfast,
+                    visit Bhaktapur Durbar Square, a UNESCO World Heritage
+                    site renowned for its well-preserved medieval
+                    architecture. Explore ancient temples, palaces, and
+                    courtyards dating back to the 12th century. After lunch,
+                    embark on a scenic 3-hour drive to Bhotekoshi through
+                    beautiful Nepali countryside. Arrive at the riverside
+                    camp, check into your accommodation, and attend a
+                    comprehensive rafting safety briefing. Evening relaxation
+                    by the river with bonfire (weather permitting).
+                  </p>
+                  <p>
+                    <strong>Meals:</strong> Breakfast, Lunch, and Dinner
+                    Included
+                  </p>
+                  <p>
+                    <strong>Accommodation:</strong> Riverside Resort at
+                    Bhotekoshi
+                  </p>
+                  <p><strong>Drive Duration:</strong> 3 hours</p>
+                </div>
+              </div>
+
+              <!-- Day 3 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 3</span>
+                    <span class="day-title">BHOTEKOSHI RIVER RAFTING</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Adrenaline Rush:</strong> After breakfast, gear up
+                    for your first rafting adventure on the Bhotekoshi River,
+                    one of Nepal's steepest and most challenging rivers. The
+                    river features continuous Class III-IV rapids with names
+                    like "Frog in a Blender," "Cave," and "Liquid Bliss." Your
+                    professional guides will provide thorough safety
+                    instructions and paddling techniques. Enjoy 3-4 hours of
+                    intense white-water action through steep gorges. After
+                    conquering the rapids, enjoy a riverside lunch. Optional
+                    afternoon activities include cliff jumping or relaxing at
+                    the resort.
+                  </p>
+                  <p>
+                    <strong>Meals:</strong> Breakfast, Lunch, and Dinner
+                    Included
+                  </p>
+                  <p>
+                    <strong>Accommodation:</strong> Riverside Resort at
+                    Bhotekoshi
+                  </p>
+                  <p><strong>Rafting Duration:</strong> 3-4 hours (18km)</p>
+                  <p>
+                    <strong>River Difficulty:</strong>
+                    <span class="difficulty-challenging">Class III-IV</span>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Day 4 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 4</span>
+                    <span class="day-title">DRIVE TO KURINTAR, OPTIONAL ACTIVITIES</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Scenic Transfer:</strong> After breakfast, drive
+                    approximately 4 hours to Kurintar, situated along the
+                    banks of the Trishuli River. The journey offers
+                    spectacular views of terraced fields, traditional
+                    villages, and Himalayan foothills. Upon arrival at the
+                    resort, check in and enjoy lunch. The afternoon offers
+                    optional adventure activities: test your courage with
+                    bungee jumping from one of Asia's highest bungee bridges
+                    (152m drop), try the spectacular canyon swing, or enjoy
+                    mountain biking along scenic trails. Evening at leisure to
+                    enjoy resort facilities.
+                  </p>
+                  <p>
+                    <strong>Meals:</strong> Breakfast, Lunch, and Dinner
+                    Included
+                  </p>
+                  <p><strong>Accommodation:</strong> Resort in Kurintar</p>
+                  <p><strong>Drive Duration:</strong> 4 hours</p>
+                  <p>
+                    <strong>Optional Activities:</strong> Bungee Jumping,
+                    Canyon Swing, Mountain Biking (extra cost)
+                  </p>
+                </div>
+              </div>
+
+              <!-- Day 5 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 5</span>
+                    <span class="day-title">TRISHULI RIVER RAFTING</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Classic Nepali Rafting:</strong> Today experience
+                    Nepal's most popular rafting river - the Trishuli. After
+                    breakfast, drive to the starting point and receive your
+                    safety briefing. The Trishuli offers a perfect blend of
+                    exciting rapids and calm floats through scenic gorges.
+                    Navigate through Class III rapids including "Teen Devi,"
+                    "Monkey," and "Upset." The river journey takes you past
+                    traditional villages where you can observe local life
+                    along the banks. Enjoy a riverside lunch break on a sandy
+                    beach. Continue rafting to the take-out point, then
+                    transfer back to your resort. Evening free to relax or
+                    share stories with fellow rafters.
+                  </p>
+                  <p>
+                    <strong>Meals:</strong> Breakfast, Lunch, and Dinner
+                    Included
+                  </p>
+                  <p><strong>Accommodation:</strong> Resort in Kurintar</p>
+                  <p><strong>Rafting Duration:</strong> 4-5 hours (25km)</p>
+                  <p>
+                    <strong>River Difficulty:</strong>
+                    <span class="difficulty-moderate">Class III</span>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Day 6 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 6</span>
+                    <span class="day-title">DRIVE TO POKHARA, OPTIONAL ACTIVITIES</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Journey to the Lake City:</strong> After
+                    breakfast, embark on a scenic 5-6 hour drive to Pokhara,
+                    Nepal's adventure capital. The road follows the
+                    Marshyangdi River valley with stunning views of Annapurna
+                    range. Upon arrival in Pokhara, check into your lakeside
+                    hotel. The afternoon offers optional activities:
+                    paragliding from Sarangkot for breathtaking Himalayan
+                    views, zip-lining through the forest, or a peaceful boat
+                    ride on Phewa Lake. Evening explore the vibrant Lakeside
+                    area with its restaurants, cafes, and shops.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast and Dinner Included</p>
+                  <p>
+                    <strong>Accommodation:</strong> Lakeside Hotel in Pokhara
+                  </p>
+                  <p><strong>Drive Duration:</strong> 5-6 hours</p>
+                  <p>
+                    <strong>Optional Activities:</strong> Paragliding,
+                    Zip-lining, Boating (extra cost)
+                  </p>
+                </div>
+              </div>
+
+              <!-- Day 7 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 7</span>
+                    <span class="day-title">SETI RIVER RAFTING</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Scenic River Journey:</strong> Experience the
+                    beautiful Seti River, known for its clear water and scenic
+                    surroundings. After an early breakfast, drive
+                    approximately 1.5 hours to the starting point. The Seti
+                    offers Class II-III rapids perfect for a more relaxed day
+                    or for practicing your rafting skills. Float through
+                    jungle corridors with opportunities to spot wildlife
+                    including various bird species and monkeys. Enjoy a
+                    leisurely lunch on a riverbank. The afternoon includes
+                    optional kayaking or stand-up paddleboarding instruction
+                    on calm sections of the river. Return to Pokhara in the
+                    late afternoon.
+                  </p>
+                  <p>
+                    <strong>Meals:</strong> Breakfast, Lunch, and Dinner
+                    Included
+                  </p>
+                  <p>
+                    <strong>Accommodation:</strong> Lakeside Hotel in Pokhara
+                  </p>
+                  <p><strong>Rafting Duration:</strong> 4-5 hours (32km)</p>
+                  <p>
+                    <strong>River Difficulty:</strong>
+                    <span class="difficulty-easy">Class II-III</span>
+                  </p>
+                  <p>
+                    <strong>Optional:</strong> Kayaking or SUP instruction
+                    included
+                  </p>
+                </div>
+              </div>
+
+              <!-- Day 8 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 8</span>
+                    <span class="day-title">POKHARA FULL DAY SIGHTSEEING</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Exploring Pokhara:</strong> Enjoy a full day
+                    exploring Pokhara's natural and cultural attractions.
+                    Morning visit to Sarangkot for sunrise views over the
+                    Annapurna range (weather permitting). Return for
+                    breakfast, then visit the International Mountain Museum to
+                    learn about Himalayan expeditions. Continue to Devi's
+                    Fall, a fascinating waterfall that disappears into an
+                    underground cavern. Visit the Gupteshwor Cave with its
+                    sacred Shiva shrine. After lunch, take a boat ride across
+                    Phewa Lake to visit the Peace Pagoda on the opposite
+                    shore, offering panoramic views of Pokhara valley and
+                    mountains. Evening free for last-minute shopping or
+                    relaxation.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast and Lunch Included</p>
+                  <p>
+                    <strong>Accommodation:</strong> Lakeside Hotel in Pokhara
+                  </p>
+                  <p><strong>Sightseeing:</strong> Full day with guide</p>
+                </div>
+              </div>
+
+              <!-- Day 9 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 9</span>
+                    <span class="day-title">FLY TO KATHMANDU, HALF-DAY SIGHTSEEING</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Return to Kathmandu:</strong> Morning transfer to
+                    Pokhara Airport for a scenic 25-minute flight to Kathmandu
+                    (alternative: 6-7 hour drive available). Upon arrival,
+                    check into your hotel. Afternoon sightseeing in Kathmandu
+                    including Swayambhunath (Monkey Temple) for panoramic city
+                    views and Pashupatinath Temple, one of Hinduism's most
+                    sacred sites. Explore the bustling markets of Thamel for
+                    last-minute souvenirs. Evening farewell dinner with
+                    traditional Nepali cultural program, celebrating your
+                    successful rafting adventure.
+                  </p>
+                  <p>
+                    <strong>Meals:</strong> Breakfast and Farewell Dinner
+                    Included
+                  </p>
+                  <p>
+                    <strong>Accommodation:</strong> 3-4 Star Hotel in
+                    Kathmandu
+                  </p>
+                  <p><strong>Flight Duration:</strong> 25 minutes</p>
+                </div>
+              </div>
+
+              <!-- Day 10 -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">DAY 10</span>
+                    <span class="day-title">FAREWELL, DEPARTURE</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem">
+                    <strong>Journey Ends:</strong> Enjoy your final breakfast
+                    in Nepal. Depending on your flight schedule, you may have
+                    some free time for last-minute shopping or exploration.
+                    Our representative will assist with hotel check-out and
+                    transfer you to Tribhuvan International Airport for your
+                    departure flight. Carry with you unforgettable memories of
+                    thrilling rapids, scenic beauty, and warm Nepali
+                    hospitality.
+                  </p>
+                  <p><strong>Meals:</strong> Breakfast Included</p>
+                  <p style="font-style: italic; color: #2196f3">
+                    Until the next adventure! Stay safe and keep paddling!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COST & DATES - WITH GROUP PRICING AND CURRENCY CONVERTER -->
+          <div id="costdates" class="tab-content">
+            <div class="info-section">
+              <h3>Package Pricing (Per Person)</h3>
+              <div class="highlight-box" style="
+                    background: linear-gradient(
+                      135deg,
+                      #e3f2fd 0%,
+                      #bbdefb 100%
+                    );
+                  ">
+                <div style="text-align: center; padding: 1.5rem;">
+                  <h4 style="color: #2196f3; margin-bottom: 1.5rem;">
+                    Group Pricing with Discounts
+                  </h4>
+
+                  <div class="price-grid">
+                    <div class="price-card">
+                      <div class="group-size">1-3 People</div>
+                      <div class="price-main" id="price13main">₹1,58,500</div>
+                    </div>
+
+                    <div class="price-card">
+                      <div class="group-size">4-6 People</div>
+                      <div class="price-main" id="price46main">₹1,55,375</div>
+                    </div>
+
+                    <div class="price-card">
+                      <div class="group-size">7+ People</div>
+                      <div class="price-main" id="price7plusmain">₹1,52,250</div>
+                    </div>
+                  </div>
+
+                  <div style="
+                        margin: 1.5rem 0;
+                        padding: 1rem;
+                        background: white;
+                        border-radius: 8px;
+                        display: inline-block;
+                      ">
+                    <div style="
+                          font-size: 1.2rem;
+                          color: #2196f3;
+                          font-weight: 600;
+                        " id="priceRange">
+                      USD 1,440 - 1,500 (Approx)
+                    </div>
+                    <div style="font-size: 0.9rem; color: #666;">
+                      For International Travelers
+                    </div>
+                  </div>
+
+                  <div style="font-size: 0.9rem; color: #28a745; margin-top: 0.5rem;">
+                    <i class="fas fa-tag"></i> Discount applied: ₹3,125 off for 4-6 people, ₹6,250 off for 7+ people
+                  </div>
+
+                  <div style="
+                        background: white;
+                        padding: 1rem;
+                        border-radius: 8px;
+                        display: inline-block;
+                        margin-top: 1rem;
+                      ">
+                    <i class="fas fa-info-circle" style="color: #2196f3"></i>
+                    <strong>Group Discounts Available</strong>
+                  </div>
+                </div>
+              </div>
+
+              <h3 style="margin-top: 2rem">
+                What Makes This Package Special
+              </h3>
+              <ul class="info-list">
+                <li>
+                  Three different river experiences in one comprehensive
+                  package
+                </li>
+                <li>
+                  Professional rafting guides with international safety
+                  certifications
+                </li>
+                <li>
+                  All rafting equipment provided (helmets, life jackets,
+                  paddles, dry bags)
+                </li>
+                <li>Combination of adventure, culture, and scenic beauty</li>
+                <li>Flexible options for different skill levels</li>
+                <li>Comfortable accommodation throughout the journey</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- INCLUDED -->
+          <div id="included" class="tab-content">
+            <div class="info-section">
+              <h3>What's Included</h3>
+              <ul class="info-list">
+                <li>Kathmandu airport transfers on arrival and departure</li>
+                <li>
+                  Private vehicle with A/C for all sightseeing and transfers
+                </li>
+                <li>Pokhara to Kathmandu transfer by domestic flight</li>
+                <li>
+                  All hotel accommodations (9 nights) at mentioned hotels and
+                  resorts
+                </li>
+                <li>Daily breakfast at hotels from arrival day onward</li>
+                <li>
+                  Lunch and dinner as mentioned in the itinerary during your
+                  trip
+                </li>
+                <li>
+                  English-speaking licensed tour guide during Kathmandu and
+                  Pokhara sightseeing
+                </li>
+                <li>
+                  Professional rafting guides for Bhotekoshi, Trishuli, and
+                  Seti rivers
+                </li>
+                <li>Kayaking or SUP instruction in Pokhara Lakeside</li>
+                <li>
+                  All rafting equipment (rafts, life jackets, helmets,
+                  paddles, dry bags)
+                </li>
+                <li>
+                  Guide's salary, food, and accommodation during the trip
+                </li>
+                <li>All mentioned sightseeing entrance fees</li>
+                <li>One local SIM card (returnable) during your stay</li>
+                <li>All government and local taxes</li>
+                <li>Farewell Nepali cultural dinner on your last night</li>
+              </ul>
+
+              <h3 style="margin-top: 2rem">What's Not Included</h3>
+              <ul class="info-list" style="color: #999">
+                <li>International airfare to/from Kathmandu</li>
+                <li>Nepal visa fee (USD 30 for 15 days)</li>
+                <li>Travel insurance (mandatory for adventure activities)</li>
+                <li>Personal expenses and beverages</li>
+                <li>Lunch and dinner except in mentioned places</li>
+                <li>Tips for driver and guide (recommended)</li>
+                <li>
+                  Optional adventure activities in Pokhara (paragliding,
+                  zip-lining, etc.)
+                </li>
+                <li>
+                  Optional activities in Kurintar (bungee jumping, canyon
+                  swing)
+                </li>
+                <li>All other services not mentioned above</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- TERMS -->
+          <div id="terms" class="tab-content">
+            <div class="info-section">
+              <h3>Terms & Conditions</h3>
+              <div style="
+                    background: #f8f9fa;
+                    padding: 1.5rem;
+                    border-radius: 8px;
+                    border-left: 4px solid #2196f3;
+                  ">
+                <ul class="info-list" style="list-style-type: none; padding-left: 0">
+                  <li style="margin-bottom: 1rem">
+                    <strong>Booking:</strong> 30% deposit required at time of
+                    booking
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Balance Payment:</strong> Full payment 15 days
+                    before departure
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Health Requirement:</strong> Medical fitness
+                    certificate mandatory for rafting
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Insurance:</strong> Comprehensive travel insurance
+                    covering adventure sports required
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Weather Conditions:</strong> Rafting schedules
+                    subject to river conditions and weather
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Cancellation:</strong> 20% fee if cancelled 30
+                    days prior; 50% fee if 15 days prior; No refund if
+                    cancelled within 7 days
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Safety:</strong> All participants must follow
+                    guide instructions; company reserves right to exclude
+                    participants for safety reasons
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>Minimum Age:</strong> 16 years for rafting (14
+                    with guardian and at guide's discretion)
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- VIDEOS & MAP SECTION -->
+          <div id="videosmap" class="tab-content">
+            <div class="info-section">
+              <h3>Experience the River Adventure</h3>
+              <p>
+                Watch our exclusive videos and explore the river routes to
+                understand this thrilling rafting adventure.
+              </p>
+
+              <!-- Video Section -->
+              <div class="video-section" style="margin-bottom: 2rem">
+                <h4 style="color: #2196f3; margin-bottom: 1rem">
+                  <i class="fas fa-video"></i> Nepal River Rafting Experience
+                </h4>
+                <div class="video-container">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/dvaU4AWz4D8?si=O1B1bUhQzAxP1SwG"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666">
+                  <i class="fas fa-info-circle"></i> Watch our comprehensive
+                  rafting adventure showcasing Nepal's best rivers.
+                </p>
+              </div>
+
+              <!-- Map Section -->
+              <div class="map-section">
+                <h4 style="color: #2196f3; margin-bottom: 1rem">
+                  <i class="fas fa-map-marked-alt"></i> River Rafting Route
+                  Map
+                </h4>
+                <div class="map-container">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112905.70472968844!2d85.76666055!3d27.831209249999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ebb1e870f8b6cf%3A0xec8863aa73670e59!2sBhotekoshi!5e0!3m2!1sen!2snp!4v1767867011030!5m2!1sen!2snp"
+                    width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div style="
+                      margin-top: 1rem;
+                      display: flex;
+                      flex-wrap: wrap;
+                      gap: 1rem;
+                    ">
+                  <div style="flex: 1; min-width: 200px">
+                    <h5 style="color: #333; margin-bottom: 0.5rem">
+                      <i class="fas fa-route" style="color: #2196f3"></i>
+                      River Routes
+                    </h5>
+                    <ul style="
+                          list-style-type: none;
+                          padding-left: 0;
+                          font-size: 0.9rem;
+                        ">
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Bhote Koshi:</strong> Near Nepal-Tibet border
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Trishuli:</strong> Kathmandu-Pokhara highway
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Seti River:</strong> Near Pokhara
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Total Rafting:</strong> ~75km across 3 rivers
+                      </li>
+                    </ul>
+                  </div>
+                  <div style="flex: 1; min-width: 200px">
+                    <h5 style="color: #333; margin-bottom: 0.5rem">
+                      <i class="fas fa-mountain" style="color: #28a745"></i>
+                      Journey Highlights
+                    </h5>
+                    <ul style="
+                          list-style-type: none;
+                          padding-left: 0;
+                          font-size: 0.9rem;
+                        ">
+                      <li style="margin-bottom: 0.3rem">
+                        Bhaktapur UNESCO heritage site
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        Bhotekoshi intense rapids
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        Trishuli classic rafting
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        Pokhara sightseeing
+                      </li>
+                      <li style="margin-bottom: 0.3rem">Seti scenic float</li>
+                      <li style="margin-bottom: 0.3rem">
+                        Cultural experiences
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: Booking Card with Dynamic Pricing -->
+      <div>
+        <div class="booking-card">
+          <div class="price-section">
+            <div class="price-icon"><i class="fas fa-water"></i></div>
+            <div class="price-info">
+              <div class="price-label">Starting from</div>
+              <div><span class="price" id="mainPriceDisplay">₹1,52,250</span></div>
+              <div style="font-size: 0.8rem; color: #666; margin-top: 0.3rem" id="groupSizeLabel">
+                (7+ people)
+              </div>
+              <div style="font-size: 0.8rem; color: #666; margin-top: 0.3rem" id="alternatePriceRow">
+                <span id="alternatePriceLabel">USD</span> <span id="alternatePrice">1,440</span>
+              </div>
+            </div>
+            <!-- Currency Selector -->
+            <div class="currency-selector-container">
+              <div class="currency-selector">
+                <div id="selectedCurrency">
+                  <span>INR</span>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="currency-dropdown">
+                  <div class="currency-option active" data-currency="INR"> INR (₹)</div>
+                  <div class="currency-option" data-currency="USD"> USD ($)</div>
+                  <div class="currency-option" data-currency="NPR"> NPR (रु)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="quantity-section">
+            <div class="quantity-controls">
+              <button class="qty-btn" onclick="updatePrice(-1)">-</button>
+              <div class="qty-display" id="qtyDisplay">1</div>
+              <button class="qty-btn" onclick="updatePrice(1)">+</button>
+            </div>
+          </div>
+
+          <div class="price-breakdown">
+            <div class="price-row">
+              <span>Base Price (Per Person)</span>
+              <span><span id="baseCurrency">INR</span> <span id="basePrice">1,52,250</span></span>
+            </div>
+            <div class="price-row total">
+              <span>Total</span>
+              <span><span id="totalCurrency">INR</span> <span id="totalPrice">1,52,250</span></span>
+            </div>
+          </div>
+
+          <button class="booking-btn btn-instant" onclick="showBookingForm()">Book Now</button>
+          <button class="booking-btn btn-customize" onclick="showEnquiryModal()">
+            Send Enquiry
+          </button>
+
+          <div class="contact-section">
+            <div style="font-size: 2.5rem; margin-bottom: 0.5rem">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <h3>Need Help?</h3>
+            <div class="phone-numbers">
+              <a href="https://wa.me/9779851140110" target="_blank" rel="noopener noreferrer" style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    font-size: 1.2rem;
+                  ">
+                +977-9851140110
+              </a>
+              <a href="https://wa.me/9779856017867" target="_blank" rel="noopener noreferrer" style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    font-size: 1.2rem;
+                  ">
+                +977-9856017867
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About Honest Travel</h3>
+        <p>
+          Your trusted partner for authentic Himalayan adventures and river
+          expeditions in Nepal.
+        </p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>Kathmandu, Nepal</p>
+        <p> infohonesttoursntravels@gmail.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>
+        &copy; 2025 HONEST TRAVEL Tours and Expedition. All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    /* ========== CONSTANTS AND CONFIGURATION ========== */
+
+    // Base price for 1-3 people in INR (converted from USD 1,500 ≈ ₹1,58,500)
+    const price13inr = 158500;
+
+    // Pricing tables by group size (INR) - with exact discounts
+    // Group sizes: 1-3 People, 4-6 People, 7+ People
+    const pricingTables = {
+      "1-3": 158500,
+      "4-6": 155375,
+      "7+": 152250,
+    };
+
+    const marketUsdToInr = 92;
+    const markupPercent = 15;
+
+    // Exchange rates based on market rate with markup
+    const exchangeRates = {
+      INR: { rate: 1, symbol: "₹", name: "INR" },
+      USD: { rate: (1 / marketUsdToInr) * (1 + markupPercent / 100), symbol: "$", name: "USD" },
+      NPR: { rate: 1.6, symbol: "रु", name: "NPR" },
+    };
+
+    let qty = 1; // Minimum 1 person for rafting adventure
+    let currentCurrency = "INR";
+
+    /* ========== HELPER FUNCTIONS ========== */
+
+    function getGroupSize(persons) {
+      if (persons >= 7) return "7+";
+      if (persons >= 4) return "4-6";
+      return "1-3";
+    }
+
+    function getUnitINRPrice(persons) {
+      const groupSize = getGroupSize(persons);
+      return pricingTables[groupSize];
+    }
+
+    function getConvertedPrice(persons, targetCurrency) {
+      const inrPrice = getUnitINRPrice(persons);
+
+      if (targetCurrency === 'INR') {
+        return inrPrice;
+      }
+
+      const rate = exchangeRates[targetCurrency]?.rate;
+      if (!rate) return inrPrice;
+
+      // Convert and round appropriately
+      let converted = inrPrice * rate;
+
+      // Round based on currency
+      if (targetCurrency === 'USD') {
+        return Math.round(converted); // Round to nearest dollar
+      } else if (targetCurrency === 'NPR') {
+        return Math.round(converted / 100) * 100; // Round to nearest 100 NPR
+      }
+
+      return Math.round(converted);
+    }
+
+    function getConvertedPriceForGroup(groupSize, targetCurrency) {
+      const inrPrice = pricingTables[groupSize];
+
+      if (targetCurrency === 'INR') {
+        return inrPrice;
+      }
+
+      const rate = exchangeRates[targetCurrency]?.rate;
+      if (!rate) return inrPrice;
+
+      let converted = inrPrice * rate;
+
+      // Round based on currency
+      if (targetCurrency === 'USD') {
+        return Math.round(converted);
+      } else if (targetCurrency === 'NPR') {
+        return Math.round(converted / 100) * 100;
+      }
+
+      return Math.round(converted);
+    }
+
+    function getCurrencySymbol() {
+      return exchangeRates[currentCurrency]?.symbol || "₹";
+    }
+
+    function formatNumber(num) {
+      if (num >= 1000) {
+        return Math.round(num).toLocaleString("en-IN");
+      } else {
+        return num.toString();
+      }
+    }
+
+    function formatNumberForCurrency(num, currency) {
+      if (currency === 'USD') {
+        return Math.round(num).toLocaleString('en-US');
+      } else if (currency === 'NPR') {
+        return Math.round(num).toLocaleString('en-IN');
+      } else {
+        return Math.round(num).toLocaleString('en-IN');
+      }
+    }
+
+    function getGroupSizeText(persons) {
+      const groupSize = getGroupSize(persons);
+      if (groupSize === "7+") return "7+ People";
+      if (groupSize === "4-6") return "4-6 People";
+      return "1-3 People";
+    }
+
+    function getGroupSizeLabel(persons) {
+      const groupSize = getGroupSize(persons);
+      if (groupSize === "7+") return "(7+ people)";
+      if (groupSize === "4-6") return "(4-6 people)";
+      return "(1-3 people)";
+    }
+
+    function getDisplayUnitPrice(persons) {
+      return getConvertedPrice(persons, currentCurrency);
+    }
+
+    /* ========== PRICE UPDATE FUNCTIONS ========== */
+
+    function updatePrice(change) {
+      qty += change;
+      if (qty < 1) qty = 1;
+      document.getElementById("qtyDisplay").textContent = qty;
+
+      const displayUnitPrice = getConvertedPrice(qty, currentCurrency);
+      const symbol = getCurrencySymbol();
+      const groupSize = getGroupSize(qty);
+
+      // Get alternate price (USD for INR/NPR, INR for USD)
+      let alternatePrice, alternateLabel, alternateSymbol;
+      if (currentCurrency === "USD") {
+        alternatePrice = getConvertedPrice(qty, 'INR');
+        alternateLabel = "INR";
+        alternateSymbol = "₹";
+      } else if (currentCurrency === "NPR") {
+        alternatePrice = getConvertedPrice(qty, 'USD');
+        alternateLabel = "USD";
+        alternateSymbol = "$";
+      } else {
+        alternatePrice = getConvertedPrice(qty, 'USD');
+        alternateLabel = "USD";
+        alternateSymbol = "$";
+      }
+
+      // Format alternate price with symbol
+      let alternatePriceFormatted = alternateSymbol + ' ' + formatNumberForCurrency(alternatePrice, alternateLabel);
+
+      // Update displays
+      document.getElementById("basePrice").textContent = formatNumberForCurrency(displayUnitPrice, currentCurrency);
+      document.getElementById("totalPrice").textContent = formatNumberForCurrency(qty * displayUnitPrice, currentCurrency);
+      document.getElementById("mainPriceDisplay").textContent = symbol + ' ' + formatNumberForCurrency(displayUnitPrice, currentCurrency);
+      document.getElementById("alternatePriceLabel").textContent = alternateLabel;
+      document.getElementById("alternatePrice").textContent = alternatePriceFormatted;
+
+      // Update currency labels
+      document.getElementById("baseCurrency").textContent = currentCurrency;
+      document.getElementById("totalCurrency").textContent = currentCurrency;
+
+      // Update group size label
+      document.getElementById("groupSizeLabel").textContent = getGroupSizeLabel(qty);
+
+      // Update price cards in cost tab
+      updatePriceCards(currentCurrency);
+    }
+
+    function updatePriceCards(currency) {
+      const symbol = exchangeRates[currency]?.symbol || "₹";
+
+      // Get prices for each group size using conversion logic
+      const price13 = getConvertedPriceForGroup('1-3', currency);
+      const price46 = getConvertedPriceForGroup('4-6', currency);
+      const price7plus = getConvertedPriceForGroup('7+', currency);
+
+      // Get USD and NPR prices for reference
+      const usdPrice13 = getConvertedPriceForGroup('1-3', 'USD');
+      const usdPrice46 = getConvertedPriceForGroup('4-6', 'USD');
+      const usdPrice7plus = getConvertedPriceForGroup('7+', 'USD');
+
+      const nprPrice13 = getConvertedPriceForGroup('1-3', 'NPR');
+      const nprPrice46 = getConvertedPriceForGroup('4-6', 'NPR');
+      const nprPrice7plus = getConvertedPriceForGroup('7+', 'NPR');
+
+      // Update price cards
+      if (document.getElementById('price13main')) {
+        document.getElementById('price13main').textContent = symbol + ' ' + formatNumberForCurrency(price13, currency);
+        document.getElementById('price46main').textContent = symbol + ' ' + formatNumberForCurrency(price46, currency);
+        document.getElementById('price7plusmain').textContent = symbol + ' ' + formatNumberForCurrency(price7plus, currency);
+      }
+
+      // Update USD references
+      if (document.getElementById('price13usd')) {
+        document.getElementById('price13usd').textContent = 'USD ' + usdPrice13;
+        document.getElementById('price46usd').textContent = 'USD ' + usdPrice46;
+        document.getElementById('price7plususd').textContent = 'USD ' + usdPrice7plus;
+      }
+
+      // Update NPR references
+      if (document.getElementById('price13npr')) {
+        document.getElementById('price13npr').textContent = 'NPR ' + nprPrice13.toLocaleString('en-IN');
+        document.getElementById('price46npr').textContent = 'NPR ' + nprPrice46.toLocaleString('en-IN');
+        document.getElementById('price7plusnpr').textContent = 'NPR ' + nprPrice7plus.toLocaleString('en-IN');
+      }
+
+      // Update price range display
+      if (document.getElementById('priceRange')) {
+        document.getElementById('priceRange').textContent = `USD ${usdPrice13} - ${usdPrice7plus} (Approx)`;
+      }
+    }
+
+    /* ========== CURRENCY CONVERTER ========== */
+
+    function initializeCurrencyConverter() {
+      const currencySelector = document.querySelector(".currency-selector");
+      const selectedCurrency = document.getElementById("selectedCurrency");
+      const currencyOptions = document.querySelectorAll(".currency-option");
+      const priceElements = document.querySelectorAll(".price-display");
+
+      // Toggle currency dropdown
+      if (selectedCurrency) {
+        selectedCurrency.addEventListener("click", function (e) {
+          e.stopPropagation();
+          currencySelector.classList.toggle("active");
+        });
+      }
+
+      // Select currency option
+      currencyOptions.forEach((option) => {
+        option.addEventListener("click", function () {
+          const newCurrency = this.getAttribute("data-currency");
+
+          // Update selected currency display
+          selectedCurrency.querySelector("span").textContent = newCurrency;
+
+          currentCurrency = newCurrency;
+
+          // Update active state
+          currencyOptions.forEach((opt) => opt.classList.remove("active"));
+          this.classList.add("active");
+
+          // Update price table header if exists
+          const priceTableHeaders = document.querySelectorAll('[id^="priceTableHeader"]');
+          priceTableHeaders.forEach(header => {
+            if (header) header.textContent = `Cost Per Person`;
+          });
+
+          // Convert all prices
+          convertPrices(newCurrency);
+
+          // Update main price display
+          updatePrice(0);
+
+          // Update price cards
+          updatePriceCards(newCurrency);
+
+          // Close dropdown
+          currencySelector.classList.remove("active");
+        });
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener("click", function (e) {
+        if (currencySelector && !currencySelector.contains(e.target)) {
+          currencySelector.classList.remove("active");
+        }
+      });
+
+      // Function to convert prices
+      function convertPrices(targetCurrency) {
+        const targetSymbol = exchangeRates[targetCurrency]?.symbol || "₹";
+
+        priceElements.forEach(element => {
+          let convertedValue;
+          const inrValue = parseFloat(element.getAttribute("data-inr"));
+
+          if (!isNaN(inrValue)) {
+            if (targetCurrency === 'USD') {
+              convertedValue = Math.round(inrValue * exchangeRates.USD.rate);
+            } else if (targetCurrency === 'NPR') {
+              convertedValue = Math.round(inrValue * exchangeRates.NPR.rate / 100) * 100;
+            } else {
+              convertedValue = inrValue;
+            }
+
+            element.textContent = targetSymbol + ' ' + formatNumberForCurrency(convertedValue, targetCurrency);
+          }
+        });
+      }
+
+      // Initialize with INR
+      convertPrices('INR');
+    }
+
+    /* ========== NAVIGATION BURGER MENU ========== */
+
+    function initializeNavigation() {
+      const navBurger = document.getElementById("navBurger");
+      const mainNav = document.getElementById("mainNav");
+
+      if (navBurger) {
+        navBurger.addEventListener("click", function () {
+          this.classList.toggle("active");
+          mainNav.classList.toggle("active");
+          document.body.classList.toggle("nav-open");
+        });
+
+        const navLinks = mainNav.querySelectorAll("a");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            navBurger.classList.remove("active");
+            mainNav.classList.remove("active");
+            document.body.classList.remove("nav-open");
+          });
+        });
+      }
+    }
+
+    /* ========== TAB SYSTEM ========== */
+
+    function initializeTabs() {
+      const tabBurger = document.getElementById("tabBurger");
+      const tabsMenu = document.getElementById("tabsMenu");
+
+      if (tabBurger) {
+        tabBurger.addEventListener("click", function () {
+          this.classList.toggle("active");
+          tabsMenu.classList.toggle("active");
+        });
+      }
+    }
+
+    function openTab(tabId) {
+      // Hide all tab contents
+      const contents = document.querySelectorAll(".tab-content");
+      contents.forEach((content) => content.classList.remove("active"));
+
+      // Remove active class from all tab buttons
+      const tabs = document.querySelectorAll(".tab");
+      tabs.forEach((tab) => tab.classList.remove("active"));
+
+      // Show current tab and add active class to button
+      document.getElementById(tabId).classList.add("active");
+      event.currentTarget.classList.add("active");
+
+      // Update mobile tab name if available
+      const currentTabName = document.getElementById("currentTabName");
+      if (currentTabName) {
+        currentTabName.textContent = event.currentTarget.textContent.trim();
+      }
+
+      // Close tab menu on mobile
+      const tabBurger = document.getElementById("tabBurger");
+      const tabsMenu = document.getElementById("tabsMenu");
+      if (tabBurger) {
+        tabBurger.classList.remove("active");
+        tabsMenu.classList.remove("active");
+      }
+    }
+
+    /* ========== COLLAPSIBLE ITINERARY ========== */
+
+    function toggleDay(headerElement) {
+      const dayContainer = headerElement.closest(".itinerary-day");
+      dayContainer.classList.toggle("active");
+    }
+
+    function toggleAllDays(btn) {
+      const allDays = document.querySelectorAll(".itinerary-day");
+      const isExpanding = btn.innerText.trim() === "Expand All";
+
+      allDays.forEach((day) => {
+        if (isExpanding) {
+          day.classList.add("active");
+        } else {
+          day.classList.remove("active");
+        }
+      });
+
+      btn.innerText = isExpanding ? "Collapse All" : "Expand All";
+    }
+
+    /* ========== IMAGE GALLERY ========== */
+
+    let currentImageIndex = 0;
+    const images = document.querySelectorAll(".gallery-image");
+    const indicators = document.querySelectorAll(".indicator");
+
+    function showImage(index) {
+      if (index >= images.length) currentImageIndex = 0;
+      else if (index < 0) currentImageIndex = images.length - 1;
+      else currentImageIndex = index;
+
+      images.forEach((img) => img.classList.remove("active"));
+      indicators.forEach((ind) => ind.classList.remove("active"));
+
+      images[currentImageIndex].classList.add("active");
+      indicators[currentImageIndex].classList.add("active");
+    }
+
+    function changeImage(step) {
+      showImage(currentImageIndex + step);
+    }
+
+    function setImage(index) {
+      showImage(index);
+    }
+
+    setInterval(() => changeImage(1), 5000);
+
+    /* ========== CLOSE MENUS WHEN CLICKING OUTSIDE ========== */
+
+    function initializeClickOutside() {
+      const navBurger = document.getElementById("navBurger");
+      const mainNav = document.getElementById("mainNav");
+      const tabBurger = document.getElementById("tabBurger");
+      const tabsMenu = document.getElementById("tabsMenu");
+
+      document.addEventListener("click", function (event) {
+        // Close nav menu
+        if (
+          navBurger &&
+          !navBurger.contains(event.target) &&
+          !mainNav.contains(event.target)
+        ) {
+          navBurger.classList.remove("active");
+          mainNav.classList.remove("active");
+          document.body.classList.remove("nav-open");
+        }
+
+        // Close tab menu
+        if (
+          tabBurger &&
+          !tabBurger.contains(event.target) &&
+          !tabsMenu.contains(event.target)
+        ) {
+          tabBurger.classList.remove("active");
+          tabsMenu.classList.remove("active");
+        }
+      });
+    }
+
+    /* ========== BOOKING MODAL FUNCTIONS ========== */
+
+    const currentPackage = {
+      name: 'Nepal River Rafting Adventure: Multi-River Expedition',
+      duration: '10 Days',
+      nights: '9 Nights 10 Days',
+      category: 'Adventure & River Rafting',
+      includes: '3 rivers rafting, professional guides, equipment, accommodation, most meals, sightseeing'
+    };
+
+    function generateBookingId() {
+      const prefix = 'HTT';
+      const timestamp = Date.now().toString().slice(-8);
+      const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+      const date = new Date();
+      const year = date.getFullYear().toString().slice(-2);
+      const month = (date.getMonth() + 1).toString().padStart(2, '2');
+
+      return `${prefix}-${year}${month}-${timestamp}-${random}`;
+    }
+
+    function showBookingForm() {
+      showConfirmationModal();
+    }
+
+    // Create confirmation modal
+    function showConfirmationModal() {
+      const displayUnitPrice = getConvertedPrice(qty, currentCurrency);
+      const unitUSDPrice = getConvertedPrice(qty, 'USD');
+      const symbol = getCurrencySymbol();
+      const groupSizeText = getGroupSizeText(qty);
+
+      const modalOverlay = document.createElement('div');
+      modalOverlay.className = 'confirmation-modal';
+
+      modalOverlay.innerHTML = `
+          <div>
+            <div style="text-align: center;">
+              <div style="font-size: 3rem; color: #2196f3; margin-bottom: 15px;">
+                <i class="fas fa-water"></i>
+              </div>
+              
+              <h3 style="color: #2c3e50; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <i class="fas fa-calendar-check" style="color: #2196f3;"></i> Confirm River Rafting Booking
+              </h3>
+              
+              <div class="package-info" style="font-size: 1.1rem; color: #2196f3; font-weight: 600; margin-bottom: 20px; background: rgba(33, 150, 243, 0.1); padding: 12px; border-radius: 8px; border-left: 4px solid #2196f3;">
+                Nepal River Rafting Adventure: 10 Days Multi-River Expedition
+              </div>
+              
+              <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 20px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Duration:</span>
+                  <span style="font-weight: 600;">10 Days (9 Nights)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Group Size:</span>
+                  <span style="font-weight: 600;">${groupSizeText}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Participants:</span>
+                  <span style="font-weight: 600;">${qty} person(s)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Price Per Person:</span>
+                  <span style="font-weight: 600;">${symbol} ${formatNumberForCurrency(displayUnitPrice, currentCurrency)} / USD $${formatNumberForCurrency(unitUSDPrice, 'USD')}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 1.2rem; color: #28a745;">
+                  <span>Total Amount:</span>
+                  <span style="font-weight: 700;">${symbol} ${formatNumberForCurrency(qty * displayUnitPrice, currentCurrency)}</span>
+                </div>
+              </div>
+              
+              <p style="color: #666; margin-bottom: 25px; font-size: 16px;">
+                Are you ready to book this exciting river rafting adventure across Nepal's best rivers?
+              </p>
+              
+              <div class="confirmation-buttons" style="display: flex; gap: 15px; margin-top: 25px;">
+                <button id="confirmCancel" class="cancel-choice" style="
+                  padding: 10px 20px;
+                  background: #f5f5f5;
+                  border: none;
+                  border-radius: 6px;
+                  color: #666;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
+                  flex: 1;
+                ">
+                  Cancel
+                </button>
+                
+                <button id="confirmBook" class="confirm-book-btn" style="
+                  background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+                  color: white;
+                  border: none;
+                  padding: 14px 24px;
+                  border-radius: 8px;
+                  font-size: 16px;
+                  font-weight: 500;
+                  cursor: pointer;
+                  flex: 1;
+                  transition: all 0.3s ease;
+                ">
+                  Yes, Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+
+      document.body.appendChild(modalOverlay);
+      document.body.classList.add('modal-open');
+
+      // Handle button clicks
+      modalOverlay.querySelector('#confirmCancel').addEventListener('click', () => {
+        closeModal(modalOverlay);
+      });
+
+      modalOverlay.querySelector('#confirmBook').addEventListener('click', () => {
+        closeModal(modalOverlay);
+        showBookingModal();
+      });
+
+      // Close on backdrop click
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+          closeModal(modalOverlay);
+        }
+      });
+    }
+
+    // Show booking modal
+    function showBookingModal() {
+      const displayUnitPrice = getConvertedPrice(qty, currentCurrency);
+      const unitUSDPrice = getConvertedPrice(qty, 'USD');
+      const unitNPRPrice = getConvertedPrice(qty, 'NPR');
+      const symbol = getCurrencySymbol();
+      const groupSizeText = getGroupSizeText(qty);
+
+      const modalOverlay = document.createElement('div');
+      modalOverlay.className = 'booking-modal';
+
+      modalOverlay.innerHTML = `
+          <div>
+            <button class="close-modal">×</button>
+            
+            <h2 style="color: #2c3e50; margin-bottom: 1.5rem; text-align: center; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+              <i class="fas fa-water" style="color: #2196f3;"></i>
+              Book Nepal River Rafting Adventure
+            </h2>
+            
+            <form id="bookingForm">
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Full Name *
+                </label>
+                <input type="text" id="bookingName" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="Enter your full name">
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Email Address *
+                </label>
+                <input type="email" id="bookingEmail" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="your@email.com">
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Phone Number *
+                </label>
+                <input type="tel" id="bookingPhone" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="+977 98XXXXXXXX">
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Country *
+                </label>
+                <input type="text" id="bookingCountry" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="Your country">
+              </div>
+              
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div>
+                  <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                    Persons *
+                  </label>
+                  <input type="number" min="1" value="${qty}" id="formPersons" required style="
+                    width: 100%;
+                    padding: 0.8rem;
+                    border: 1px solid #ddd;
+                    border-radius: 6px;
+                    font-size: 1rem;
+                    box-sizing: border-box;
+                  " oninput="updateBookingFormPrice()">
+                </div>
+                
+                <div>
+                  <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                    Preferred Date *
+                  </label>
+                  <input type="date" id="bookingDate" required style="
+                    width: 100%;
+                    padding: 0.8rem;
+                    border: 1px solid #ddd;
+                    border-radius: 6px;
+                    font-size: 1rem;
+                    box-sizing: border-box;
+                  ">
+                </div>
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Swimming Ability *
+                </label>
+                <select id="bookingSwimming" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                ">
+                  <option value="">Select swimming ability</option>
+                  <option value="strong">Strong swimmer</option>
+                  <option value="basic">Basic swimming skills</option>
+                  <option value="non">Non-swimmer (must be comfortable in water with life jacket)</option>
+                </select>
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Special Requirements / Health Concerns
+                </label>
+                <textarea id="bookingRequirements" style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  min-height: 100px;
+                  resize: vertical;
+                  box-sizing: border-box;
+                " placeholder="Any medical conditions, health concerns, or special requests for rafting..."></textarea>
+              </div>
+              
+              <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; margin: 1rem 0;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Rafting Package:</span>
+                  <span style="font-weight: bold;">Multi-River Expedition</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Duration:</span>
+                  <span>10 Days (9 Nights)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Group Size:</span>
+                  <span id="formGroupSize">${groupSizeText}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Price Per Person:</span>
+                  <span><span id="formCurrency">${currentCurrency}</span> <span id="formPricePerPerson">${formatNumberForCurrency(displayUnitPrice, currentCurrency)}</span> / $${formatNumberForCurrency(unitUSDPrice, 'USD')}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Total Persons:</span>
+                  <span id="formTotalPersons">${qty}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 1.2rem; color: #28a745;">
+                  <span>Total Amount:</span>
+                  <span><span id="formTotalCurrency">${currentCurrency}</span> <span id="formTotalAmount">${formatNumberForCurrency(qty * displayUnitPrice, currentCurrency)}</span></span>
+                </div>
+              </div>
+              
+              <button type="submit" style="
+                background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+                color: white;
+                border: none;
+                padding: 1rem;
+                border-radius: 6px;
+                font-size: 1.1rem;
+                font-weight: 600;
+                cursor: pointer;
+                margin-top: 1rem;
+                width: 100%;
+              ">
+                <i class="fas fa-paper-plane"></i> Submit Booking Request
+              </button>
+              
+              <p style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 1rem;">
+                <i class="fas fa-info-circle"></i> Note: Medical fitness certificate may be required for rafting
+              </p>
+              
+              <p style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 1rem;">
+                We'll contact you within 24 hours to confirm your booking
+              </p>
+            </form>
+          </div>
+        `;
+
+      document.body.appendChild(modalOverlay);
+      document.body.classList.add('modal-open');
+
+      // Make modal content scrollable on mobile
+      const modalContent = modalOverlay.querySelector('div');
+      modalContent.style.webkitOverflowScrolling = 'touch';
+
+      // Close modal when X is clicked
+      modalOverlay.querySelector('.close-modal').addEventListener('click', () => {
+        closeModal(modalOverlay);
+      });
+
+      // Close modal when clicking outside
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+          closeModal(modalOverlay);
+        }
+      });
+
+      // Update form totals when persons change
+      const personsInput = modalOverlay.querySelector('#formPersons');
+      const groupSizeSpan = modalOverlay.querySelector('#formGroupSize');
+      const totalPersonsSpan = modalOverlay.querySelector('#formTotalPersons');
+      const totalAmountSpan = modalOverlay.querySelector('#formTotalAmount');
+      const pricePerPersonSpan = modalOverlay.querySelector('#formPricePerPerson');
+      const formTotalCurrencySpan = modalOverlay.querySelector('#formTotalCurrency');
+
+      function updateFormTotal() {
+        const persons = Math.max(1, parseInt(personsInput.value) || 1);
+        personsInput.value = persons;
+        const dispPrice = getConvertedPrice(persons, currentCurrency);
+        const sym = getCurrencySymbol();
+
+        groupSizeSpan.textContent = getGroupSizeText(persons);
+        totalPersonsSpan.textContent = persons;
+        pricePerPersonSpan.textContent = sym + " " + formatNumberForCurrency(dispPrice, currentCurrency);
+        totalAmountSpan.textContent = formatNumberForCurrency(persons * dispPrice, currentCurrency);
+        formTotalCurrencySpan.textContent = currentCurrency;
+
+        qty = persons;
+        updatePrice(0);
+      }
+
+      personsInput.addEventListener('input', updateFormTotal);
+
+      // Handle form submission - DIRECT SUBMISSION (NO CHOICE MODAL)
+      modalOverlay.querySelector('#bookingForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const persons = Math.max(1, parseInt(personsInput.value) || 1);
+        const displayPrice = getConvertedPrice(persons, currentCurrency);
+        const unitUSDPrice = getConvertedPrice(persons, 'USD');
+        const unitNPRPrice = getConvertedPrice(persons, 'NPR');
+        const groupSizeText = getGroupSizeText(persons);
+
+        const formData = {
+          name: modalOverlay.querySelector('#bookingName').value.trim(),
+          email: modalOverlay.querySelector('#bookingEmail').value.trim(),
+          phone: modalOverlay.querySelector('#bookingPhone').value.trim(),
+          country: modalOverlay.querySelector('#bookingCountry').value.trim(),
+          swimming: modalOverlay.querySelector('#bookingSwimming').value,
+          persons: persons,
+          groupSize: groupSizeText,
+          date: modalOverlay.querySelector('#bookingDate').value || 'Not specified',
+          requirements: modalOverlay.querySelector('#bookingRequirements').value.trim() || 'None',
+          package: currentPackage.name,
+          pricePerPerson: displayPrice,
+          usdPricePerPerson: unitUSDPrice,
+          nprPricePerPerson: unitNPRPrice,
+          totalAmount: persons * displayPrice,
+          currency: currentCurrency,
+          duration: currentPackage.duration,
+          nights: currentPackage.nights,
+          includes: currentPackage.includes,
+        };
+
+        // Validation
+        if (!formData.name) {
+          showMobileAlert('error', 'Name Required', 'Please enter your full name');
+          modalOverlay.querySelector('#bookingName').focus();
+          return;
+        }
+
+        if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
+          showMobileAlert('error', 'Valid Email Required', 'Please enter a valid email address');
+          modalOverlay.querySelector('#bookingEmail').focus();
+          return;
+        }
+
+        if (!formData.phone || !/^\+?[\d\s\-\(\)]{10,}$/.test(formData.phone)) {
+          showMobileAlert('error', 'Valid Phone Required', 'Please enter a valid phone number');
+          modalOverlay.querySelector('#bookingPhone').focus();
+          return;
+        }
+
+        if (!formData.country) {
+          showMobileAlert('error', 'Country Required', 'Please enter your country');
+          modalOverlay.querySelector('#bookingCountry').focus();
+          return;
+        }
+
+        if (!formData.swimming) {
+          showMobileAlert('error', 'Swimming Ability Required', 'Please select your swimming ability for safety purposes');
+          modalOverlay.querySelector('#bookingSwimming').focus();
+          return;
+        }
+
+        if (!modalOverlay.querySelector('#bookingDate').value) {
+          showMobileAlert('error', 'Date Required', 'Please select a preferred start date');
+          modalOverlay.querySelector('#bookingDate').focus();
+          return;
+        }
+
+        // Direct submission - send via both WhatsApp and email immediately
+        submitDirectBooking(formData, modalOverlay);
+      });
+    }
+
+    // Update price in booking form
+    function updateBookingFormPrice() {
+      const modal = document.querySelector(".booking-modal");
+      if (!modal) return;
+
+      const personsInput = modal.querySelector("#formPersons");
+      const groupSizeSpan = modal.querySelector("#formGroupSize");
+      const pricePerPersonSpan = modal.querySelector("#formPricePerPerson");
+      const totalPersonsSpan = modal.querySelector("#formTotalPersons");
+      const totalAmountSpan = modal.querySelector("#formTotalAmount");
+      const formCurrencySpan = modal.querySelector("#formCurrency");
+      const formTotalCurrencySpan = modal.querySelector("#formTotalCurrency");
+
+      const persons = Math.max(1, parseInt(personsInput.value) || 1);
+      personsInput.value = persons;
+      const dispPrice = getConvertedPrice(persons, currentCurrency);
+      const sym = getCurrencySymbol();
+
+      groupSizeSpan.textContent = getGroupSizeText(persons);
+      formCurrencySpan.textContent = currentCurrency;
+      formTotalCurrencySpan.textContent = currentCurrency;
+      pricePerPersonSpan.textContent = sym + " " + formatNumberForCurrency(dispPrice, currentCurrency);
+      totalPersonsSpan.textContent = persons;
+      totalAmountSpan.textContent = formatNumberForCurrency(persons * dispPrice, currentCurrency);
+
+      qty = persons;
+      updatePrice(0);
+    }
+
+    // Direct submission function that sends both WhatsApp and email without asking
+    function submitDirectBooking(formData, bookingModal) {
+      // Disable submit button and show loading
+      const submitBtn = bookingModal.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+      submitBtn.disabled = true;
+
+      const bookingId = generateBookingId();
+      const symbol = exchangeRates[formData.currency]?.symbol || "₹";
+
+      // Prepare WhatsApp message
+      const whatsappMessage =
+        `*NEPAL RIVER RAFTING ADVENTURE BOOKING*\n` +
+        `━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
+        ` *Booking Details*\n` +
+        `Booking ID: ${bookingId}\n` +
+        `Package: ${formData.package}\n` +
+        `Duration: ${formData.duration} (${formData.nights})\n` +
+        `Group Size: ${formData.groupSize}\n` +
+        `Swimming Ability: ${formData.swimming}\n` +
+        `Preferred Date: ${formData.date}\n\n` +
+        ` *Customer Information*\n` +
+        `Name: ${formData.name}\n` +
+        `Email: ${formData.email}\n` +
+        `Phone: ${formData.phone}\n` +
+        `Country: ${formData.country}\n` +
+        `Number of Persons: ${formData.persons}\n\n` +
+        ` *Payment Details*\n` +
+        `Price per Person (${formData.currency}): ${symbol}${formatNumberForCurrency(formData.pricePerPerson, formData.currency)}\n` +
+        `Total Amount (${formData.currency}): ${symbol}${formatNumberForCurrency(formData.totalAmount, formData.currency)}\n\n` +
+        ` *Special Requirements / Health Information*\n` +
+        `${formData.requirements}\n\n` +
+        `━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+        `Submitted via HONEST TRAVEL TOURS AND EXPEDITION Website`;
+
+      // Prepare email template parameters
+      const templateParams = {
+        booking_id: bookingId,
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        country: formData.country,
+        swimming_ability: formData.swimming,
+        package_name: formData.package,
+        package_duration: formData.duration,
+        number_of_person: formData.persons,
+        preferred_date: formData.date,
+        special_requirements: formData.requirements || "None",
+        company_name: "Honest Travel Tours and Expedition",
+        price_per_person: `${formData.currency} ${formatNumberForCurrency(formData.pricePerPerson, formData.currency)}`,
+        total_amount: `${formData.currency} ${formatNumberForCurrency(formData.totalAmount, formData.currency)}`,
+      };
+
+      // Open WhatsApp in a new tab
+      const phoneNumber = "9779851140110";
+      window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`, "_blank");
+
+      // Send email via EmailJS
+      emailjs.send("service_9fq6tb6", "template_kmaga4l", templateParams)
+        .then(
+          function () {
+            console.log("Email sent successfully");
+            // Close the booking modal
+            closeModal(bookingModal);
+            // Show success message
+            showMobileAlert(
+              "success",
+              "Booking Request Submitted!",
+              `Your Nepal River Rafting Adventure booking request has been sent successfully.\n\nBooking ID: ${bookingId}\n\nWe have opened WhatsApp and sent an email confirmation. Our rafting specialists will contact you within 24 hours to confirm your booking.`
+            );
+          },
+          function (error) {
+            console.error("Email failed:", error);
+            // Close the booking modal
+            closeModal(bookingModal);
+            // Show warning message
+            showMobileAlert(
+              "warning",
+              "WhatsApp Opened - Email Pending",
+              `Your booking details have been opened in WhatsApp.\n\nBooking ID: ${bookingId}\n\nThere was an issue sending the email. Please send an email to info@honesttraveltours.com with your booking details to complete the process.`
+            );
+          }
+        )
+        .finally(() => {
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.disabled = false;
+        });
+    }
+
+    /* ========== ENQUIRY MODAL FUNCTION ========== */
+    function showEnquiryModal() {
+      const packageName = 'Nepal River Rafting Adventure: Multi-River Expedition';
+      const packagePrice = '₹1,52,250 - 1,58,500 (based on group size)';
+      const packageDuration = '9 Nights 10 Days';
+      const packageCategory = 'Adventure & River Rafting';
+
+      const params = new URLSearchParams({
+        package: encodeURIComponent(packageName),
+        price: encodeURIComponent(packagePrice),
+        duration: encodeURIComponent(packageDuration),
+        category: encodeURIComponent(packageCategory),
+        source: 'river-rafting-expedition'
+      }).toString();
+
+      // Redirect immediately without showing alert
+      window.location.href = `../enquiry-form.html?${params}`;
+    }
+
+    /* ========== MOBILE ALERT FUNCTION ========== */
+    function showMobileAlert(type, title, message) {
+      // Remove any existing alerts
+      const existingAlerts = document.querySelectorAll('.mobile-alert-overlay');
+      existingAlerts.forEach(alert => closeModal(alert));
+
+      const modalOverlay = document.createElement('div');
+      modalOverlay.className = 'mobile-alert-overlay';
+
+      const icons = {
+        success: 'fa-check-circle',
+        warning: 'fa-exclamation-triangle',
+        error: 'fa-times-circle',
+        info: 'fa-info-circle'
+      };
+
+      const colors = {
+        success: '#28a745',
+        warning: '#ff9800',
+        error: '#dc3545',
+        info: '#2196f3'
+      };
+
+      modalOverlay.innerHTML = `
+          <div>
+            <div class="mobile-alert ${type}" style="text-align: center;">
+              <div class="mobile-alert-icon">
+                <i class="fas ${icons[type]}" style="color: ${colors[type]}"></i>
+              </div>
+              <h3 style="color: #2c3e50; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <i class="fas ${icons[type]}" style="color: ${colors[type]}"></i>
+                ${title}
+              </h3>
+              <div class="mobile-alert-message">${message.replace(/\n/g, '<br>')}</div>
+              <button class="mobile-alert-ok-btn" onclick="closeModal(this.closest('.mobile-alert-overlay'))">OK</button>
+            </div>
+          </div>
+        `;
+
+      document.body.appendChild(modalOverlay);
+      document.body.classList.add('modal-open');
+
+      if (type === 'success') {
+        setTimeout(() => {
+          if (modalOverlay.parentNode) closeModal(modalOverlay);
+        }, 5000);
+      }
+
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+          closeModal(modalOverlay);
+        }
+      });
+    }
+
+    // Universal close modal function
+    function closeModal(modalOverlay) {
+      modalOverlay.style.animation = 'fadeOut 0.3s ease';
+
+      setTimeout(() => {
+        if (modalOverlay.parentNode) {
+          document.body.removeChild(modalOverlay);
+        }
+        // Remove modal-open class if no other modals are open
+        if (!document.querySelector('.confirmation-modal, .mobile-alert-overlay, .booking-modal, .submission-modal')) {
+          document.body.classList.remove('modal-open');
+        }
+      }, 300);
+    }
+
+    /* ========== FACILITIES SLIDER NAVIGATION ========== */
+    function scrollFacilities(sliderId, direction) {
+      const slider = document.getElementById(sliderId);
+      const scrollAmount = 300;
+      slider.scrollBy({
+        left: direction * scrollAmount,
+        behavior: "smooth",
+      });
+    }
+
+    /* ========== INITIALIZE EVERYTHING ========== */
+    document.addEventListener("DOMContentLoaded", function () {
+      initializeNavigation();
+      initializeTabs();
+      initializeCurrencyConverter();
+      initializeClickOutside();
+      updatePrice(0);
+      updatePriceCards('INR');
+    });
+
+    // Attach functions to window for global access
+    window.openTab = openTab;
+    window.toggleDay = toggleDay;
+    window.toggleAllDays = toggleAllDays;
+    window.changeImage = changeImage;
+    window.setImage = setImage;
+    window.updatePrice = updatePrice;
+    window.showBookingForm = showBookingForm;
+    window.showEnquiryModal = showEnquiryModal;
+    window.scrollFacilities = scrollFacilities;
+    window.updateBookingFormPrice = updateBookingFormPrice;
+    window.closeModal = closeModal;
+  </script>
+</body>
+
+</html>

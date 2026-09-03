@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Annapurna Circuit Trek - Honest Travel Tours</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../../css/kailash.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="top-bar">
+        <div class="container">
+          <div class="contact-info">
+            <span>
+              📞
+              <a
+                href="https://wa.me/9779851140110"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="wa-link"
+                >+977-9851140110</a
+              >
+              ,
+              <a
+                href="https://wa.me/9779856017867"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="wa-link"
+                >9856017867</a
+              >
+            </span>
+            <span> ✉️ infohonesttoursntravels@gmail.com </span>
+          </div>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-main">
+        <div class="logo">
+          <div class="logo-icon">
+            <img src="../../images/Logo Image.png" alt="Honest Travel Logo" />
+          </div>
+          <div class="logo-text">
+            <h1>HONEST TRAVEL</h1>
+            <p>TOURS AND EXPEDITION</p>
+          </div>
+        </div>
+
+        <!-- Hamburger Menu Button -->
+        <button class="hamburger-menu" aria-label="Menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+
+        <nav class="main-nav">
+          <ul>
+            <li><a href="../../index.html">HOME</a></li>
+            <li><a href="../../index.html#tours">TOURS</a></li>
+            <li><a href="../../index.html#trekking">TREKKING</a></li>
+            <li><a href="../../index.html#contact">CONTACT US</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Photo Gallery Section -->
+    <div class="photo-gallery-section">
+      <div class="gallery-header">
+        <h1>Annapurna Circuit Trek</h1>
+        <p>
+          Experience one of the world's greatest treks through diverse landscapes,
+          from lush subtropical forests to the high-altitude desert of the Tibetan
+          plateau, culminating at the breathtaking Thorong La Pass.
+        </p>
+      </div>
+
+      <!-- Main Featured Image with Carousel -->
+      <div class="main-image-container">
+        <img
+          src="../../images/Annapurna.jpg"
+          class="main-image active-slide"
+          alt="Annapurna Range"
+        />
+        <img
+          src="../../images/Annapurna1.jpeg"
+          class="main-image"
+          alt="Thorong La Pass"
+        />
+        <img
+          src="../../images/Annapurna2.jpg"
+          class="main-image"
+          alt="Manang Valley"
+        />
+        <img
+          src="../../images/Annapurna3.jpeg"
+          class="main-image"
+          alt="Muktinath Temple"
+        />
+
+        <div class="gallery-nav">
+          <button class="nav-btn" onclick="changeSlide(-1)">‹</button>
+          <button class="nav-btn" onclick="changeSlide(1)">›</button>
+        </div>
+
+        <div class="gallery-indicators">
+          <div class="indicator active" onclick="goToSlide(0)"></div>
+          <div class="indicator" onclick="goToSlide(1)"></div>
+          <div class="indicator" onclick="goToSlide(2)"></div>
+          <div class="indicator" onclick="goToSlide(3)"></div>
+          <div class="indicator" onclick="goToSlide(4)"></div>
+        </div>
+      </div>
+
+      <!-- Image Grid -->
+      <div class="image-grid">
+        <div class="grid-item" onclick="goToSlide(0)">
+          <img
+            src="../../images/Annapurna.jpg"
+            alt="Annapurna Sanctuary"
+          />
+        </div>
+        <div class="grid-item" onclick="goToSlide(1)">
+          <img
+            src="../../images/Annapurna1.jpeg"
+            alt="Thorong La Crossing"
+          />
+        </div>
+        <div class="grid-item" onclick="goToSlide(2)">
+          <img
+            src="../../images/Annapurna2.jpg"
+            alt="Mountain Villages"
+          />
+        </div>
+        <div class="grid-item" onclick="goToSlide(3)">
+          <img
+            src="../../images/Annapurna3.jpeg"
+            alt="Traditional Culture"
+          />
+        </div>
+      </div>
+
+      <!-- Call to Action Section -->
+      <div class="cta-section">
+        <h2>Ready to Trek Around the Annapurna Massif?</h2>
+        <p>
+          Discover our carefully curated Annapurna Circuit packages designed
+          to make your journey safe, comfortable, and unforgettable.
+        </p>
+        <a href="annapurna-packages.html" class="cta-button">
+          <i class="fas fa-mountain"></i> View Trek Packages
+        </a>
+      </div>
+    </div>
+
+    <!-- Detailed Content Section -->
+    <div class="content-section">
+      <h2 class="section-title">The Classic Himalayan Circuit</h2>
+      <p class="intro-text">
+        The Annapurna Circuit is often described as the world's best long-distance
+        trek, offering an unparalleled diversity of landscapes, cultures, and
+        ecosystems. This epic journey takes you around the entire Annapurna massif,
+        crossing the formidable Thorong La Pass at 5,416 meters, passing through
+        traditional villages, and experiencing the dramatic transition from lush
+        subtropical valleys to the arid Tibetan-like plateau of the Manang region.
+      </p>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-mountain"></i>
+          </div>
+          <h3>Mountain Majesty</h3>
+          <p>
+            Witness the entire Annapurna massif including Annapurna I (8,091m),
+            Annapurna II, III, IV, Gangapurna, and the iconic Machhapuchhre
+            (Fishtail Mountain). The circuit offers 360-degree views of some of
+            the world's most spectacular peaks.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Cultural Diversity</h3>
+          <p>
+            Experience the rich cultural tapestry of Nepal's ethnic communities
+            including Gurungs, Manangis, Thakalis, and Tibetans. Visit ancient
+            monasteries, traditional villages, and sacred pilgrimage sites that
+            have remained unchanged for centuries.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3>Ecological Zones</h3>
+          <p>
+            Trek through five distinct climatic zones - from subtropical forests
+            to alpine meadows and high-altitude desert. The dramatic changes in
+            vegetation and wildlife make this trek a naturalist's dream.
+          </p>
+        </div>
+      </div>
+
+      <div class="highlight-banner">
+        <h3><i class="fas fa-award"></i> Why Annapurna Circuit is Unique</h3>
+        <p>
+          Unlike other treks that follow a linear path, the Annapurna Circuit
+          truly lives up to its name by circling the entire Annapurna massif.
+          The journey takes you through some of the most dramatic scenery on
+          Earth, from the world's deepest gorge (Kali Gandaki) to the world's
+          highest pass accessible to trekkers (Thorong La). The trek's true
+          magic lies in its incredible diversity - each day brings completely
+          new landscapes, cultures, and experiences.
+        </p>
+      </div>
+
+      <div class="facts-container">
+        <h2 class="section-title">Essential Trek Information</h2>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Best Trekking Seasons</h4>
+            <p>
+              Spring (March-May) offers blooming rhododendrons and clear skies.
+              Autumn (October-November) provides stable weather and excellent
+              visibility. Winter (December-February) is possible but cold,
+              especially at higher altitudes. Monsoon season (June-September)
+              is challenging due to rain, leeches, and potential landslides.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-hiking"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Physical Requirements</h4>
+            <p>
+              This is a moderate to challenging trek requiring good fitness
+              levels. Daily walking distances range from 5-7 hours over varied
+              terrain. The crossing of Thorong La Pass (5,416m) is the most
+              challenging day. Pre-trek training should include cardiovascular
+              exercise, hiking with weight, and stair climbing. Proper
+              acclimatization is built into the itinerary.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-suitcase"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Permits and Documentation</h4>
+            <p>
+              Required permits include the Annapurna Conservation Area Permit
+              (ACAP) and the Trekker's Information Management System (TIMS) card.
+              These are arranged by your trekking company. The circuit can be
+              done in either direction, but the traditional counter-clockwise
+              route provides better acclimatization for crossing Thorong La.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-bed"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Accommodation and Meals</h4>
+            <p>
+              Stay in comfortable teahouses offering basic rooms with twin beds.
+              Hot showers are available at extra cost in most villages. Meals
+              are hearty and varied - dal bhat (rice and lentils), noodles,
+              soups, momos, and Western options. The circuit has better
+              facilities than most remote treks, with electricity and charging
+              available in most places.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-first-aid"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Altitude and Health</h4>
+            <p>
+              The trek includes careful acclimatization days in Manang (3,540m)
+              before crossing Thorong La. Guides are trained in altitude
+              sickness recognition and basic first aid. Travel insurance covering
+              emergency helicopter evacuation is mandatory. Medical facilities
+              are available in major villages along the route.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-road"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Road Development Impact</h4>
+            <p>
+              The construction of roads on parts of the traditional circuit has
+              shortened the trek. However, new trails have been developed to
+              avoid road sections, maintaining the wilderness experience. Many
+              trekkers now start further east to avoid road walking. The core
+              high-altitude sections remain road-free and spectacular.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-banner">
+        <h3><i class="fas fa-history"></i> Historical Significance</h3>
+        <p>
+          The Annapurna Circuit was first opened to foreign trekkers in the
+          1970s and quickly gained a reputation as one of the world's great
+          treks. It follows ancient trade routes used for centuries by salt
+          traders traveling between Tibet and Nepal. The trail passes through
+          the world's deepest gorge (Kali Gandaki) and crosses a pass that has
+          been used for millennia by pilgrims traveling to the sacred site of
+          Muktinath. Today, the trek continues to evolve while maintaining its
+          essence as a journey through the heart of the Himalayas.
+        </p>
+      </div>
+
+      <div class="info-grid" style="margin-top: 4rem">
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-camera"></i>
+          </div>
+          <h3>Photography Highlights</h3>
+          <p>
+            Capture sunrise over the Annapurna range from Poon Hill. Document
+            the dramatic landscapes of the Manang region. Photograph ancient
+            monasteries in Braga and Kagbeni. The Thorong La crossing offers
+            spectacular high-altitude photography opportunities.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3>Sustainable Trekking</h3>
+          <p>
+            Support local communities by using teahouses and buying local
+            products. Follow Leave No Trace principles. Use refillable water
+            bottles with purification tablets. Respect cultural sites and
+            traditions. The Annapurna Conservation Area Project (ACAP) works
+            to preserve the region's natural and cultural heritage.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-cloud-sun"></i>
+          </div>
+          <h3>Weather Considerations</h3>
+          <p>
+            Prepare for dramatic temperature variations - from warm days in
+            the lowlands to freezing nights at high altitude. Afternoon clouds
+            often obscure peaks. Wind can be strong on the Thorong La crossing.
+            Be prepared for all conditions including potential snow at higher
+            elevations, especially in shoulder seasons.
+          </p>
+        </div>
+      </div>
+
+      <div class="highlight-banner" style="margin-top: 4rem">
+        <h3><i class="fas fa-quote-left"></i> What Trekkers Say</h3>
+        <p>
+          "The Annapurna Circuit is more than just a trek - it's a journey
+          through the heart of Nepal. From the moment you leave the subtropical
+          forests and enter the high-altitude desert of Manang, you know you're
+          on an epic adventure. Crossing Thorong La at sunrise, surrounded by
+          prayer flags with panoramic mountain views, is one of life's great
+          achievements. The cultural diversity, from Hindu villages to Tibetan
+          settlements, adds depth to the already spectacular natural beauty."
+          - A sentiment shared by thousands of trekkers.
+        </p>
+      </div>
+
+      <div class="facts-container" style="margin-top: 4rem">
+        <h2 class="section-title">Key Highlights Along the Route</h2>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-torii-gate"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Thorong La Pass (5,416m)</h4>
+            <p>
+              The highest point of the trek and one of the most challenging
+              passes in the world accessible to trekkers. The crossing typically
+              begins before dawn to avoid afternoon winds. The panoramic views
+              from the pass encompass the entire Annapurna and Dhaulagiri ranges.
+              Prayer flags mark the summit, where trekkers celebrate their
+              achievement before the long descent to Muktinath.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-temple"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Manang Valley (3,540m)</h4>
+            <p>
+              Often called "Nepal's Tibet," Manang is a high-altitude desert
+              valley with a distinct Tibetan Buddhist culture. The acclimatization
+              days here allow exploration of ancient monasteries, traditional
+              villages, and dramatic landscapes. The Gangapurna Lake and
+              glacier offer spectacular photo opportunities. The village has
+              good facilities including bakeries, cafes, and a small cinema.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-water"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Tilicho Lake (4,919m)</h4>
+            <p>
+              One of the world's highest lakes and an optional side trip from
+              the main circuit. The turquoise waters set against the backdrop
+              of the Great Barrier and Tilicho Peak create one of the most
+              spectacular scenes in the Himalayas. The challenging trail to
+              the lake adds 2-3 days to the trek but is considered a highlight
+              by many trekkers.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-place-of-worship"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Muktinath Temple (3,710m)</h4>
+            <p>
+              A sacred pilgrimage site for both Hindus and Buddhists located
+              at the base of Thorong La. The temple complex features 108 water
+              spouts and eternal flames fed by natural gas. Pilgrims believe
+              visiting Muktinath brings salvation. For trekkers, it marks the
+              completion of the most challenging section and the beginning of
+              the descent into the Kali Gandaki valley.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-gopuram"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Kagbeni Village (2,810m)</h4>
+            <p>
+              The gateway to Upper Mustang and one of the most picturesque
+              villages on the circuit. With its narrow alleyways, medieval
+              architecture, and ancient monastery, Kagbeni feels like stepping
+              back in time. The village marks the transition from the Manang
+              region to the Kali Gandaki valley and offers stunning views of
+              Nilgiri and Dhaulagiri peaks.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-mountain"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Poon Hill (3,210m)</h4>
+            <p>
+              Famous for its spectacular sunrise views over the Annapurna and
+              Dhaulagiri ranges. Although not on the traditional circuit route,
+              many trekkers add this detour at the beginning or end of their
+              journey. The 360-degree panorama from the viewpoint is considered
+              one of the best mountain views in Nepal, particularly at sunrise
+              when the peaks glow in golden light.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-banner" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)">
+        <h3><i class="fas fa-heart"></i> A Transformative Journey</h3>
+        <p>
+          Completing the Annapurna Circuit is more than checking off a bucket
+          list item - it's a transformative experience that tests your limits,
+          expands your perspective, and connects you with the raw beauty of the
+          Himalayas. The combination of physical challenge, cultural immersion,
+          and natural wonder creates memories that last a lifetime. You return
+          not just with photographs, but with stories, friendships, and a deep
+          appreciation for the mountains and people of Nepal.
+        </p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Honest Travel</h3>
+          <p>
+            Your trusted partner for authentic Himalayan experiences. We
+            specialize in trekking, cultural tours, and pilgrimage journeys.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Kathmandu, Nepal</p>
+          <p>infohonesttoursntravels@gmail.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 HONEST TRAVEL Tours and Expedition. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile Navigation Toggle
+      const hamburgerMenu = document.querySelector(".hamburger-menu");
+      const mainNav = document.querySelector(".main-nav");
+      const body = document.body;
+
+      hamburgerMenu.addEventListener("click", (e) => {
+        e.stopPropagation();
+        mainNav.classList.toggle("active");
+        hamburgerMenu.classList.toggle("active");
+        body.classList.toggle("menu-open");
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (event) => {
+        if (
+          mainNav.classList.contains("active") &&
+          !hamburgerMenu.contains(event.target) &&
+          !mainNav.contains(event.target)
+        ) {
+          mainNav.classList.remove("active");
+          hamburgerMenu.classList.remove("active");
+          body.classList.remove("menu-open");
+        }
+      });
+
+      // Close menu when clicking on a link
+      const navLinks = document.querySelectorAll(".main-nav a");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mainNav.classList.remove("active");
+          hamburgerMenu.classList.remove("active");
+          body.classList.remove("menu-open");
+        });
+      });
+
+      // Carousel functionality
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".main-image");
+      const indicators = document.querySelectorAll(".indicator");
+
+      function showSlide(n) {
+        slides.forEach((slide) => slide.classList.remove("active-slide"));
+        indicators.forEach((dot) => dot.classList.remove("active"));
+
+        if (n >= slides.length) currentSlide = 0;
+        if (n < 0) currentSlide = slides.length - 1;
+
+        slides[currentSlide].classList.add("active-slide");
+        indicators[currentSlide].classList.add("active");
+      }
+
+      function changeSlide(direction) {
+        currentSlide += direction;
+        showSlide(currentSlide);
+      }
+
+      function goToSlide(n) {
+        currentSlide = n;
+        showSlide(currentSlide);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      // Auto-advance slides every 5 seconds
+      setInterval(() => {
+        currentSlide++;
+        showSlide(currentSlide);
+      }, 5000);
+
+      // Show first slide on load
+      showSlide(currentSlide);
+
+      // Close menu on escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && mainNav.classList.contains("active")) {
+          mainNav.classList.remove("active");
+          hamburgerMenu.classList.remove("active");
+          body.classList.remove("menu-open");
+        }
+      });
+    </script>
+  </body>
+</html>

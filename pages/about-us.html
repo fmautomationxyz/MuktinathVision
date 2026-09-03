@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Honest Travel Tours and Expedition</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Back to Home Button */
+        .back-to-home {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #1a1a2e;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+            transition: all 0.3s;
+        }
+
+        .back-to-home:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+            background: linear-gradient(135deg, #ffed4e, #ffd700);
+        }
+
+        .back-to-home i {
+            font-size: 1.1rem;
+        }
+
+        /* Hero Section */
+        .about-hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 6rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffd700" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+        }
+
+        .about-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-hero .tagline {
+            font-size: 1.4rem;
+            color: #ffd700;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #ddd;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Company Story */
+        .company-story {
+            padding: 5rem 0;
+            background: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #ffd700, #ffed4e);
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .story-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #555;
+        }
+
+        .story-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .story-highlight {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: center;
+            color: #1a1a2e;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        /* Directors Section */
+        .directors-section {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .directors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .director-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s;
+        }
+
+        .director-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
+        }
+
+        .director-header {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .director-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 4rem;
+            color: #1a1a2e;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .director-name {
+            color: #ffd700;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .director-title {
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .director-content {
+            padding: 2.5rem;
+        }
+
+        .director-quote {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-left: 4px solid #ffd700;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            font-style: italic;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .director-bio {
+            color: #666;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .director-expertise {
+            margin-top: 2rem;
+        }
+
+        .director-expertise h4 {
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .expertise-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .expertise-tag {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #1a1a2e;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Why Honest Travel */
+        .why-honest {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #fff;
+        }
+
+        .why-honest .section-title h2 {
+            color: #ffd700;
+        }
+
+        .why-honest .section-title h2::after {
+            background: linear-gradient(90deg, #fff, #ddd);
+        }
+
+        .why-honest .section-title p {
+            color: #ddd;
+        }
+
+        .honest-advantages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .advantage-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        .advantage-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #ffd700;
+            transform: translateY(-5px);
+        }
+
+        .advantage-icon {
+            font-size: 3rem;
+            color: #ffd700;
+            margin-bottom: 1.5rem;
+        }
+
+        .advantage-card h3 {
+            color: #ffd700;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .advantage-card p {
+            color: #ddd;
+            line-height: 1.8;
+        }
+
+        /* Competitive Edge */
+        .competitive-edge {
+            padding: 5rem 0;
+            background: #fff;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .comparison-card {
+            background: #f8f9fa;
+            padding: 2.5rem;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .comparison-card.honest {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #1a1a2e;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .comparison-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: #1a1a2e;
+            color: #ffd700;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .comparison-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .comparison-card.honest .comparison-list li {
+            background: rgba(26, 26, 46, 0.1);
+        }
+
+        .comparison-list i {
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .comparison-card.honest i {
+            color: #1a1a2e;
+        }
+
+        .comparison-list i.fa-check-circle {
+            color: #28a745;
+        }
+
+        .comparison-list i.fa-times-circle {
+            color: #dc3545;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+            color: #1a1a2e;
+        }
+
+        .value-card h3 {
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .value-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #fff;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #ddd;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: #fff;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            color: #1a1a2e;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #1a1a2e;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #1a1a2e;
+            border: 2px solid #1a1a2e;
+        }
+
+        .btn-secondary:hover {
+            background: #1a1a2e;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .directors-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .about-hero {
+                padding: 4rem 0 2rem;
+            }
+
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .back-to-home {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+                top: 15px;
+                right: 15px;
+            }
+
+            .back-to-home span {
+                display: none;
+            }
+
+            .back-to-home i {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Back to Home Button -->
+    <a href="../index.html" class="back-to-home">
+        <i class="fas fa-home"></i>
+        <span>Back to Home</span>
+    </a>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>About Honest Travel</h1>
+            <p class="tagline">Where Integrity Meets Adventure</p>
+            <p>Building Dreams, Creating Memories, Honoring Trust - Your Journey, Our Commitment</p>
+        </div>
+    </section>
+
+    <!-- Company Story -->
+    <section class="company-story">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Story</h2>
+                <p>Born from Passion, Built on Trust</p>
+            </div>
+            <div class="story-content">
+                <p>
+                    In the heart of the majestic Himalayas, where towering peaks touch the sky and ancient trails
+                    whisper stories of adventure, Honest Travel Tours and Expedition was born from a simple yet powerful
+                    vision: to share the authentic beauty of Nepal with the world, guided by unwavering principles of
+                    honesty, transparency, and genuine care.
+                </p>
+                <p>
+                    For over 15 years, we have walked alongside thousands of travelers from across the globe—from the
+                    spiritual pilgrims seeking enlightenment at Mount Kailash and Muktinath, to adventure seekers
+                    conquering Everest Base Camp, to families discovering the hidden treasures of Rara Lake and the
+                    Forbidden Kingdom of Upper Mustang. Each journey has reinforced our core belief: travel is not just
+                    about destinations; it's about transformative experiences built on trust.
+                </p>
+                <div class="story-highlight">
+                    "Our name isn't just what we're called—it's our promise. Every interaction, every itinerary, every
+                    price quoted reflects our commitment to complete transparency and zero hidden charges."
+                </div>
+                <p>
+                    Unlike many agencies that rely on middlemen and inflate costs, we are deeply rooted in local
+                    communities. Our guides are not just employees—they are our family, born and raised in the mountains
+                    they lead you through. This direct connection means you experience Nepal through the eyes of those
+                    who know its soul, while we maintain fair pricing that benefits both you and the communities we
+                    serve.
+                </p>
+                <p>
+                    Today, Honest Travel stands as Nepal's most trusted travel partner, certified by the Nepal Tourism
+                    Board and recognized by travelers worldwide for our exceptional service, safety standards, and the
+                    personal touch that transforms clients into lifelong friends.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Directors Section -->
+    <section class="directors-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Meet Our Leaders</h2>
+                <p>The Visionaries Behind Your Journey</p>
+            </div>
+            <div class="directors-grid">
+                <!-- Director 1 -->
+                <div class="director-card">
+                    <div class="director-header">
+                        <div class="director-photo">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3 class="director-name">Founder</h3>
+                        <p class="director-title">Founder & Managing Director</p>
+                    </div>
+                    <div class="director-content">
+                        <div class="director-quote">
+                            "Travel is not about ticking destinations off a list—it's about creating memories that last
+                            a lifetime, connections that transcend borders, and experiences that transform souls. At
+                            Honest Travel, we don't just organize trips; we craft journeys that resonate with your
+                            deepest aspirations."
+                        </div>
+                        <div class="director-bio">
+                            <p>
+                                With over 20 years of experience in the Himalayan tourism industry, NAME founded Honest
+                                Travel with a revolutionary vision: to eliminate the middleman
+                                culture that plagued the industry and bring genuine, transparent service to travelers
+                                worldwide.
+                            </p>
+
+                        </div>
+                        <div class="director-expertise">
+                            <h4>Areas of Expertise</h4>
+                            <div class="expertise-tags">
+                                <span class="expertise-tag">Kailash Mansarovar Specialist</span>
+                                <span class="expertise-tag">High-Altitude Expeditions</span>
+                                <span class="expertise-tag">Cultural Tourism</span>
+                                <span class="expertise-tag">Crisis Management</span>
+                                <span class="expertise-tag">Local Community Relations</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Director 2 -->
+                <div class="director-card">
+                    <div class="director-header">
+                        <div class="director-photo">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3 class="director-name">Director </h3>
+                        <p class="director-title">Co-Founder & Operations Director</p>
+                    </div>
+                    <div class="director-content">
+                        <div class="director-quote">
+                            "Excellence is not an act, but a habit. Every detail matters—from the quality of our
+                            equipment to the training of our guides, from the comfort of our accommodations to the
+                            responsiveness of our support team. Our commitment to quality is non-negotiable."
+                        </div>
+                        <div class="director-bio">
+                            <p>
+                                NAME brings over 18 years of operational excellence to Honest Travel. As
+                                Co-Founder and Operations Director, he is the meticulous architect behind every seamless
+                                journey, ensuring that logistics, safety protocols, and quality standards exceed
+                                international benchmarks.
+                            </p>
+
+                        </div>
+                        <div class="director-expertise">
+                            <h4>Areas of Expertise</h4>
+                            <div class="expertise-tags">
+                                <span class="expertise-tag">Expedition Logistics</span>
+                                <span class="expertise-tag">Safety Protocols</span>
+                                <span class="expertise-tag">Guide Training</span>
+                                <span class="expertise-tag">Quality Assurance</span>
+                                <span class="expertise-tag">Emergency Response</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Honest Travel -->
+    <section class="why-honest">
+        <div class="container">
+            <div class="section-title">
+                <h2>The "Honest" Advantage</h2>
+                <p>What Makes Us Different</p>
+            </div>
+            <div class="honest-advantages">
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>100% Transparent Pricing</h3>
+                    <p>
+                        No hidden charges. No surprise costs. No last-minute additions. What we quote is exactly what
+                        you pay. Every expense is itemized and explained upfront, so you know exactly where your money
+                        goes.
+                    </p>
+                </div>
+
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Middleman-Free Direct Service</h3>
+                    <p>
+                        We don't outsource or use intermediaries. Our team consists of local experts—born, raised, and
+                        trained in the regions they guide. This direct approach means better prices for travelers.
+                    </p>
+                </div>
+
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h3>Deep Local Roots</h3>
+                    <p>
+                        Our directors and guides are from mountain communities with generations of Himalayan heritage.
+                        We have personal relationships with villages, monasteries, and local authorities.
+                    </p>
+                </div>
+
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Uncompromising Safety Standards</h3>
+                    <p>
+                        Every guide is wilderness first-aid certified. All equipment meets international safety
+                        standards. We maintain strict acclimatization schedules and have 24/7 emergency evacuation
+                        protocols.
+                    </p>
+                </div>
+
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Personalized, Not Packaged</h3>
+                    <p>
+                        We don't believe in one-size-fits-all tourism. Every itinerary is customized to your interests,
+                        fitness level, budget, and dreams. Whether you're a spiritual seeker, adventure junkie, or
+                        family traveler.
+                    </p>
+                </div>
+
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support & Responsiveness</h3>
+                    <p>
+                        From your first inquiry to your safe return home, we're available around the clock. WhatsApp us
+                        at 2 AM with a question? We'll respond within minutes.
+                        Our team is always reachable.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitive Edge -->
+    <section class="competitive-edge">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Honest Travel vs Others?</h2>
+                <p>An Honest Comparison</p>
+            </div>
+            <div class="comparison-grid">
+                <!-- Honest Travel -->
+                <div class="comparison-card honest">
+                    <div class="comparison-badge">HONEST TRAVEL</div>
+                    <h3>What You Get With Us</h3>
+                    <ul class="comparison-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Direct pricing</strong> - No middleman markups, 20-30% savings compared to
+                                competitors</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Local expert guides</strong> - Born and raised in the regions, not hired from
+                                agencies</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Customized itineraries</strong> - Tailored to your specific needs, not generic
+                                packages</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>24/7 director access</strong> - Personal phone numbers of company owners for
+                                emergencies</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Hidden gem destinations</strong> - Exclusive access to Rara, Dolpa, Pathivara,
+                                Swargadwari</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Instant WhatsApp response</strong> - Average response time: under 2
+                                hours</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Community investment</strong> - 10% of profits support local schools and
+                                monasteries</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Flexible booking</strong> - Easy cancellation/rescheduling policies, no
+                                penalty fees</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Typical Competitors -->
+                <div class="comparison-card">
+                    <h3>Typical Market Competitors</h3>
+                    <ul class="comparison-list">
+                        <li>
+                            <i class="fas fa-times-circle"></i>
+                            <span><strong>Middleman markups</strong> - Prices inflated by 30-50% due to agent
+                                commissions</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-times-circle"></i>
+                            <span><strong>Hired guides</strong> - Contract workers with limited local knowledge or
+                                connection</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-times-circle"></i>
+                            <span><strong>Fixed packages</strong> - One-size-fits-all itineraries with no
+                                flexibility</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-times-circle"></i>
+                            <span><strong>Call center support</strong> - Generic customer service, no direct access to
+                                decision-makers</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-times-circle"></i>
+                            <span><strong>Popular routes only</strong> - Everest and Annapurna, missing hidden
+                                treasures</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-times-circle"></i>
+                            <span><strong>Slow email response</strong> - Average response time: 24-48 hours</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-times-circle"></i>
+                            <span><strong>Profit-focused</strong> - No community reinvestment or local support</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-times-circle"></i>
+                            <span><strong>Strict policies</strong> - High cancellation fees and rigid booking
+                                terms</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="story-content" style="margin-top: 3rem; text-align: center;">
+                <p style="font-size: 1.2rem; color: #1a1a2e; font-weight: 600;">
+                    The choice is clear. With Honest Travel, you're not just getting a tour operator—you're gaining a
+                    trusted partner who puts your experience and satisfaction above everything else.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Core Values</h2>
+                <p>The Principles That Guide Every Journey</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Integrity</h3>
+                    <p>
+                        Honesty isn't just our name—it's our foundation. We believe in transparent communication, fair
+                        pricing, and keeping every promise we make. Your trust is our most valuable asset.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Safety First</h3>
+                    <p>
+                        No compromise on safety standards. From equipment quality to guide training to emergency
+                        protocols, we maintain the highest safety benchmarks in the industry.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Sustainability</h3>
+                    <p>
+                        We practice responsible tourism that preserves our mountains for future generations.
+                        Leave-no-trace principles, community support, and environmental conservation guide our
+                        operations.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>
+                        We strive for perfection in every detail—from pre-trip planning to post-journey follow-up.
+                        Continuous improvement and exceeding expectations drive our team every day.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Community</h3>
+                    <p>
+                        We invest in the communities we serve. Fair wages for staff, support for local schools, and
+                        partnerships with village cooperatives ensure tourism benefits everyone.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Passion</h3>
+                    <p>
+                        We love what we do. Our enthusiasm for the Himalayas and genuine desire to share its beauty with
+                        the world shine through in every interaction and experience.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Years of Excellence</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5,000+</span>
+                    <span class="stat-label">Happy Travelers</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label">Satisfaction Rate</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Expert Guides</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4.9/5</span>
+                    <span class="stat-label">Average Rating</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Licensed & Certified</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Experience the Honest Difference?</h2>
+                <p>
+                    Join thousands of satisfied travelers who chose transparency, quality, and genuine care. Let us
+                    craft your perfect Himalayan adventure with the integrity and expertise that only Honest Travel can
+                    provide.
+                </p>
+                <div class="cta-buttons">
+                    <a href="enquiry-form.html" class="btn btn-primary">
+                        <i class="fas fa-calendar-check"></i> Plan Your Journey
+                    </a>
+                    <a href="tel:+9779851140110" class="btn btn-secondary">
+                        <i class="fas fa-phone"></i> Call Us Now
+                    </a>
+                    <a href="https://wa.me/9779851140110" class="btn btn-secondary">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.director-card, .advantage-card, .value-card, .comparison-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+
+        // Counter animation for stats
+        const animateCounter = (element, target) => {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + (element.dataset.suffix || '');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + (element.dataset.suffix || '');
+                }
+            }, 20);
+        };
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const number = entry.target.querySelector('.stat-number');
+                    const text = number.textContent;
+                    const value = parseInt(text.replace(/[^0-9]/g, ''));
+
+                    if (text.includes('+')) {
+                        number.dataset.suffix = '+';
+                    } else if (text.includes('%')) {
+                        number.dataset.suffix = '%';
+                    } else if (text.includes('/')) {
+                        number.textContent = text; // Keep as is for ratings
+                        statsObserver.unobserve(entry.target);
+                        return;
+                    }
+
+                    animateCounter(number, value);
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat-item').forEach(stat => {
+            statsObserver.observe(stat);
+        });
+    </script>
+</body>
+
+</html>

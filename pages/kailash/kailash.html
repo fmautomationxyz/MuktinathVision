@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kailash Mansarovar - Honest Travel Tours</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../../css/kailash.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="top-bar">
+        <div class="container">
+          <div class="contact-info">
+            <span>
+              📞
+              <a
+                href="https://wa.me/9779851140110"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="wa-link"
+                >+977-9851140110</a
+              >
+              ,
+              <a
+                href="https://wa.me/9779856017867"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="wa-link"
+                >9856017867</a
+              >
+            </span>
+            <span> ✉️ infohonesttoursntravels@gmail.com </span>
+          </div>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-main">
+        <div class="logo">
+          <div class="logo-icon">
+            <img src="../../images/Logo Image.png" alt="Honest Travel Logo" />
+          </div>
+          <div class="logo-text">
+            <h1>HONEST TRAVEL</h1>
+            <p>TOURS AND EXPEDITION</p>
+          </div>
+        </div>
+
+        <!-- Hamburger Menu Button -->
+        <button class="hamburger-menu" aria-label="Menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+
+        <nav class="main-nav">
+          <ul>
+            <li><a href="../../index.html">HOME</a></li>
+            <li><a href="../../index.html#tours">TOURS</a></li>
+            <li><a href="../../index.html#trekking">TREKKING</a></li>
+            <li><a href="../../index.html#contact">CONTACT US</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Photo Gallery Section -->
+    <div class="photo-gallery-section">
+      <div class="gallery-header">
+        <h1>Kailash Mansarovar</h1>
+        <p>
+          Experience the spiritual magnificence of Mount Kailash and the sacred
+          Lake Mansarovar. A journey that transforms the soul and connects you
+          with the divine.
+        </p>
+      </div>
+
+      <!-- Main Featured Image with Carousel -->
+      <div class="main-image-container">
+        <img
+          src="../../images/kailashimg.jpeg"
+          class="main-image active-slide"
+          alt="Mount Kailash"
+        />
+        <img
+          src="../../images/kailashimg1.jpeg"
+          class="main-image"
+          alt="Lake Mansarovar"
+        />
+        <img
+          src="../../images/kailashimg2.jpeg"
+          class="main-image"
+          alt="Kailash Trek"
+        />
+        <img
+          src="../../images/kailashimg3.jpeg"
+          class="main-image"
+          alt="Pilgrimage Journey"
+        />
+        <img
+          src="../../images/kailashimg4.jpeg"
+          class="main-image"
+          alt="Pilgrimage Journey"
+        />
+
+        <div class="gallery-nav">
+          <button class="nav-btn" onclick="changeSlide(-1)">‹</button>
+          <button class="nav-btn" onclick="changeSlide(1)">›</button>
+        </div>
+
+        <div class="gallery-indicators">
+          <div class="indicator active" onclick="goToSlide(0)"></div>
+          <div class="indicator" onclick="goToSlide(1)"></div>
+          <div class="indicator" onclick="goToSlide(2)"></div>
+          <div class="indicator" onclick="goToSlide(3)"></div>
+          <div class="indicator" onclick="goToSlide(4)"></div>
+        </div>
+      </div>
+
+      <!-- Image Grid -->
+      <div class="image-grid">
+        <div class="grid-item" onclick="goToSlide(0)">
+          <img
+            src="../../images/Kailash Mansarovar.jpg"
+            alt="Mount Kailash View"
+          />
+        </div>
+        <div class="grid-item" onclick="goToSlide(1)">
+          <img
+            src="../../images/Kailash Mansarovar1.jpg"
+            alt="Sacred Lake Mansarovar"
+          />
+        </div>
+        <div class="grid-item" onclick="goToSlide(2)">
+          <img
+            src="../../images/Kailash Mansarovar2.jpg"
+            alt="Kailash Parikrama"
+          />
+        </div>
+        <div class="grid-item" onclick="goToSlide(3)">
+          <img
+            src="../../images/Kailash Mansarovar3.jpg"
+            alt="Pilgrimage Group"
+          />
+        </div>
+      </div>
+
+      <!-- Call to Action Section -->
+      <div class="cta-section">
+        <h2>Ready to Begin Your Sacred Journey?</h2>
+        <p>
+          Explore our carefully crafted travel packages designed to make your
+          Kailash Mansarovar pilgrimage safe, comfortable, and spiritually
+          fulfilling.
+        </p>
+        <a href="kailash-packages.html" class="cta-button">
+          <i class="fas fa-hiking"></i> View Travel Packages
+        </a>
+      </div>
+    </div>
+
+    <!-- New Detailed Content Section -->
+    <div class="content-section">
+      <h2 class="section-title">The Sacred Journey to Kailash Mansarovar</h2>
+      <p class="intro-text">
+        Mount Kailash, standing at 6,638 meters in the remote reaches of Tibet,
+        is not merely a mountain—it is one of the most sacred sites in the
+        world, revered by billions across four major religions. This mystical
+        peak, with its distinctive pyramid shape and eternally snow-capped
+        summit, has drawn pilgrims, mystics, and spiritual seekers for thousands
+        of years.
+      </p>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-om"></i>
+          </div>
+          <h3>Spiritual Significance</h3>
+          <p>
+            In Hindu tradition, Mount Kailash is the eternal abode of Lord Shiva
+            and Goddess Parvati. Buddhists recognize it as the home of Buddha
+            Demchok, representing supreme bliss. For Jains, it is where their
+            first Tirthankara attained liberation.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-water"></i>
+          </div>
+          <h3>Lake Mansarovar</h3>
+          <p>
+            Located at 4,590 meters, Lake Mansarovar is one of the highest
+            freshwater lakes in the world. Created in the mind of Lord Brahma
+            according to Hindu mythology, its turquoise waters are believed to
+            cleanse the sins of a lifetime.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-hiking"></i>
+          </div>
+          <h3>The Kailash Parikrama</h3>
+          <p>
+            The 52-kilometer circumambulation (kora or parikrama) around Mount
+            Kailash is the spiritual heart of the pilgrimage. Hindus and
+            Buddhists walk clockwise, while Bon followers walk
+            counter-clockwise.
+          </p>
+        </div>
+      </div>
+
+      <div class="highlight-banner">
+        <h3><i class="fas fa-star"></i> Why Kailash Remains Unconquered</h3>
+        <p>
+          Unlike other peaks in the Himalayas, no one has ever climbed to the
+          summit of Mount Kailash, and attempts are strictly forbidden. The
+          mountain holds such immense spiritual significance that both the
+          Chinese government and local authorities have maintained a permanent
+          ban on climbing. Many believe the mountain itself would not permit
+          anyone to reach its summit, as numerous expeditions have reported
+          inexplicable obstacles and supernatural experiences.
+        </p>
+      </div>
+
+      <div class="facts-container">
+        <h2 class="section-title">Essential Facts for Travelers</h2>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-thermometer-half"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Best Time to Visit</h4>
+            <p>
+              May to September offers the most favorable weather conditions,
+              with temperatures ranging from 10°C to 25°C during the day. The
+              monsoon season (July-August) can bring occasional rain to the
+              approach routes, but the Tibetan plateau remains relatively dry.
+              Winter pilgrimages are possible but extremely challenging due to
+              temperatures dropping below -20°C and heavy snowfall.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-heartbeat"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Physical Preparation</h4>
+            <p>
+              The journey requires good physical fitness and mental preparation.
+              The high altitude (4,500-5,600 meters) means acclimatization is
+              crucial. Pilgrims should begin cardiovascular training at least
+              2-3 months before the journey. Walking 5-8 kilometers daily with a
+              backpack helps build stamina. Those with heart conditions,
+              respiratory problems, or severe altitude sensitivity should
+              consult doctors before planning the journey.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-passport"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Permits and Documentation</h4>
+            <p>
+              The Kailash Mansarovar Yatra requires several permits including a
+              Chinese visa, Tibet Travel Permit, Alien's Travel Permit, and
+              Military Permit. The process can take 4-6 weeks, and travelers
+              must book through authorized tour operators. Individual travel is
+              not permitted in Tibet, making group tours the only viable option
+              for this sacred pilgrimage.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Duration and Routes</h4>
+            <p>
+              Most pilgrimages last 12-15 days, including travel time from
+              Kathmandu. The traditional route via Kathmandu offers better
+              acclimatization and stunning Himalayan views. Alternative routes
+              from Lhasa take longer but provide insight into Tibetan culture
+              and Buddhism. The actual parikrama takes 1-3 days depending on
+              fitness levels and chosen pace.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-hotel"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Accommodation and Facilities</h4>
+            <p>
+              Accommodation ranges from basic guesthouses to comfortable hotels
+              in larger towns. During the parikrama, pilgrims stay in simple
+              guesthouses or monasteries. Facilities are basic, especially at
+              higher altitudes. Hot showers are rare, and electricity may be
+              limited. Most locations offer simple vegetarian meals, with rice,
+              dal, vegetables, and bread being staples.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-praying-hands"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Spiritual Practices</h4>
+            <p>
+              Pilgrims perform rituals including holy dips in Lake Mansarovar,
+              offering prayers at ancient monasteries, and meditation at sacred
+              sites. Many practice the traditional prostration method around the
+              mountain, which takes several days of intense physical devotion.
+              The journey is as much about inner transformation as physical
+              endurance, with many reporting profound spiritual experiences and
+              life-changing realizations.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-banner">
+        <h3><i class="fas fa-book-open"></i> Historical Pilgrimages</h3>
+        <p>
+          For centuries, saints, scholars, and seekers have undertaken this
+          arduous journey. The great Buddhist monk Atisha visited in the 11th
+          century, while the Tibetan yogi Milarepa is said to have meditated in
+          caves around the mountain. Swami Pranavananda made several journeys in
+          the early 20th century, documenting his experiences in detail. Today,
+          thousands of pilgrims from around the world continue this ancient
+          tradition, walking the same paths and experiencing the same awe that
+          has drawn humanity to this sacred peak for millennia.
+        </p>
+      </div>
+
+      <div class="info-grid" style="margin-top: 4rem">
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-camera"></i>
+          </div>
+          <h3>Photography & Memories</h3>
+          <p>
+            While photography is generally permitted, certain sacred sites and
+            monasteries restrict it. Always ask permission before photographing
+            locals or monks.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-hands-helping"></i>
+          </div>
+          <h3>Cultural Respect</h3>
+          <p>
+            Respecting local customs is paramount. Dress modestly, especially at
+            religious sites. Remove shoes before entering monasteries. Walk
+            clockwise around religious monuments. Avoid touching sacred objects
+            or murals.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fas fa-medkit"></i>
+          </div>
+          <h3>Health & Safety</h3>
+          <p>
+            Altitude sickness is the primary health concern. Carry necessary
+            medications including Diamox for altitude, pain relievers, and
+            antibiotics. Travel insurance covering high-altitude trekking and
+            emergency evacuation is essential.
+          </p>
+        </div>
+      </div>
+
+      <div class="highlight-banner" style="margin-top: 4rem">
+        <h3><i class="fas fa-quote-left"></i> What Pilgrims Say</h3>
+        <p>
+          "The journey to Kailash is not about reaching a destination—it's about
+          discovering yourself along the way. Every step around the sacred
+          mountain strips away the illusions we carry, leaving only truth and
+          peace. The physical challenge pales in comparison to the spiritual
+          transformation that occurs. You don't return as the same person who
+          started the journey." - A common sentiment shared by countless
+          pilgrims who have completed this sacred trek.
+        </p>
+      </div>
+
+      <div class="facts-container" style="margin-top: 4rem">
+        <h2 class="section-title">Sacred Sites Around Kailash</h2>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-gopuram"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Dirapuk Monastery</h4>
+            <p>
+              Located on the northern face of Kailash at 5,080 meters, Dirapuk
+              Monastery offers the closest and most dramatic views of the
+              mountain's north face. This ancient monastery, inhabited by a few
+              Buddhist monks, serves as a vital rest stop during the parikrama.
+              The name means "female yak horn cave," referring to the cave where
+              the great Tibetan yogi Götsangpa meditated in the 13th century.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-mountain"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Dolma La Pass</h4>
+            <p>
+              At 5,630 meters, Dolma La is the highest and most challenging
+              point of the parikrama. Named after the Buddhist goddess Tara
+              (Dolma in Tibetan), this pass is marked by countless prayer flags
+              and represents the death of one's ego and rebirth into spiritual
+              awareness. Pilgrims often leave personal items here, symbolizing
+              letting go of material attachments and past karma.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-hands"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Gauri Kund</h4>
+            <p>
+              This small emerald-green lake near Dolma La, at an altitude of
+              5,608 meters, is sacred to Hindus as the place where Goddess
+              Parvati (Gauri) created the lake for her bath. Despite being
+              partially frozen most of the year, devoted pilgrims take ritual
+              dips in its icy waters, believing it purifies the soul and
+              absolves sins. The courage required to bathe here at such altitude
+              adds to the spiritual merit of the act.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-place-of-worship"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Chiu Gompa</h4>
+            <p>
+              Perched dramatically on a hillside overlooking Lake Mansarovar,
+              Chiu Gompa is one of the most picturesque monasteries in the
+              region. Built in the 13th century, it houses ancient murals and
+              Buddhist scriptures. The monastery's location provides
+              breathtaking panoramic views of the turquoise lake with Mount
+              Kailash in the background—a sight that has inspired spiritual
+              awakening in countless visitors.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-dharmachakra"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Ashtapad</h4>
+            <p>
+              This sacred site for Jains marks the spot where Rishabhadeva, the
+              first Tirthankara, attained moksha (liberation). Located on the
+              southern side of Mount Kailash, it represents the culmination of
+              spiritual practice and the achievement of ultimate freedom from
+              the cycle of birth and death. Jain pilgrims consider visiting this
+              site as one of life's greatest spiritual accomplishments.
+            </p>
+          </div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-icon">
+            <i class="fas fa-water"></i>
+          </div>
+          <div class="fact-content">
+            <h4>Rakshas Tal</h4>
+            <p>
+              Located west of Lake Mansarovar, Rakshas Tal (also called Ravana
+              Tal) presents a stark contrast to its sacred neighbor. This
+              saltwater lake is associated with demon king Ravana in Hindu
+              mythology. Despite its darker associations, the lake's deep blue
+              waters and the desolate landscape create a hauntingly beautiful
+              scene. The narrow strip of land separating the two lakes
+              symbolizes the eternal balance between light and darkness, good
+              and evil.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="highlight-banner"
+        style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+      >
+        <h3><i class="fas fa-heart"></i> Life-Changing Experience</h3>
+        <p>
+          The Kailash Mansarovar Yatra is more than a pilgrimage—it's a journey
+          that tests your limits, deepens your faith, and transforms your
+          perspective on life. Whether you seek spiritual enlightenment,
+          physical challenge, or simply the awe-inspiring beauty of the
+          Himalayas, Kailash offers an experience that resonates long after you
+          return home. Many pilgrims report feeling a profound connection to
+          something greater than themselves, describing the journey as the most
+          significant spiritual experience of their lives.
+        </p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Honest Travel</h3>
+          <p>
+            Your trusted partner for authentic Himalayan experiences. We
+            specialize in trekking, cultural tours, and pilgrimage journeys.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Kathmandu, Nepal</p>
+          <p>infohonesttoursntravels@gmail.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 HONEST TRAVEL Tours and Expedition. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile Navigation Toggle
+      const hamburgerMenu = document.querySelector(".hamburger-menu");
+      const mainNav = document.querySelector(".main-nav");
+      const body = document.body;
+
+      hamburgerMenu.addEventListener("click", (e) => {
+        e.stopPropagation();
+        mainNav.classList.toggle("active");
+        hamburgerMenu.classList.toggle("active");
+        body.classList.toggle("menu-open");
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (event) => {
+        if (
+          mainNav.classList.contains("active") &&
+          !hamburgerMenu.contains(event.target) &&
+          !mainNav.contains(event.target)
+        ) {
+          mainNav.classList.remove("active");
+          hamburgerMenu.classList.remove("active");
+          body.classList.remove("menu-open");
+        }
+      });
+
+      // Close menu when clicking on a link
+      const navLinks = document.querySelectorAll(".main-nav a");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mainNav.classList.remove("active");
+          hamburgerMenu.classList.remove("active");
+          body.classList.remove("menu-open");
+        });
+      });
+
+      // Carousel functionality
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".main-image");
+      const indicators = document.querySelectorAll(".indicator");
+
+      function showSlide(n) {
+        slides.forEach((slide) => slide.classList.remove("active-slide"));
+        indicators.forEach((dot) => dot.classList.remove("active"));
+
+        if (n >= slides.length) currentSlide = 0;
+        if (n < 0) currentSlide = slides.length - 1;
+
+        slides[currentSlide].classList.add("active-slide");
+        indicators[currentSlide].classList.add("active");
+      }
+
+      function changeSlide(direction) {
+        currentSlide += direction;
+        showSlide(currentSlide);
+      }
+
+      function goToSlide(n) {
+        currentSlide = n;
+        showSlide(currentSlide);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      // Auto-advance slides every 5 seconds
+      setInterval(() => {
+        currentSlide++;
+        showSlide(currentSlide);
+      }, 5000);
+
+      // Show first slide on load
+      showSlide(currentSlide);
+
+      // Close menu on escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && mainNav.classList.contains("active")) {
+          mainNav.classList.remove("active");
+          hamburgerMenu.classList.remove("active");
+          body.classList.remove("menu-open");
+        }
+      });
+    </script>
+  </body>
+</html>

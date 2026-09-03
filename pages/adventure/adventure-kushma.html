@@ -1,0 +1,2821 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kushma Bungee Jumping Day Trip - Honest Travel Tours</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../../css/individual-packages.css" />
+
+  <!-- Add EmailJS script -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    (function () {
+      // Initialize EmailJS with your public key
+      emailjs.init("cjcB4sLQKii3OPWJ1");
+    })();
+  </script>
+
+<style>
+    /* Currency Selector Styles */
+    .currency-selector-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 20px;
+    }
+
+    .currency-selector {
+      position: relative;
+      display: inline-block;
+    }
+
+    #selectedCurrency {
+      background: rgba(76, 175, 80, 0.1);
+      border: 1px solid #4caf50;
+      border-radius: 6px;
+      padding: 8px 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      color: #4caf50;
+      transition: all 0.3s ease;
+    }
+
+    #selectedCurrency:hover {
+      background: rgba(76, 175, 80, 0.2);
+    }
+
+    #selectedCurrency i {
+      font-size: 0.8rem;
+      transition: transform 0.3s ease;
+    }
+
+    .currency-selector.active #selectedCurrency i {
+      transform: rotate(180deg);
+    }
+
+    .currency-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      min-width: 120px;
+      margin-top: 5px;
+      display: none;
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    .currency-selector.active .currency-dropdown {
+      display: block;
+    }
+
+    .currency-option {
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #333;
+    }
+
+    .currency-option:hover {
+      background: #f5f5f5;
+      color: #4caf50;
+    }
+
+    .currency-option.active {
+      background: #4caf50;
+      color: white;
+    }
+
+    .currency-option i {
+      width: 20px;
+      font-size: 0.9rem;
+    }
+
+    /* Price table styles */
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .price-card {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .price-card .group-size {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-card .price-main {
+      font-size: 1.8rem;
+      color: #28a745;
+      font-weight: 700;
+    }
+
+    .price-card .price-alt {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 0.3rem;
+    }
+
+    /* Adventure Tour Specific Styles */
+    .adventure-tour-highlight {
+      background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 4px solid #4caf50;
+      margin: 1.5rem 0;
+    }
+
+    .adventure-icon {
+      color: #4caf50;
+      margin-right: 0.5rem;
+    }
+
+    .activity-badge {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      background: #2196f3;
+      color: white;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin: 0.2rem;
+    }
+
+    .price-tag-adventure {
+      background: #4caf50;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      display: inline-block;
+      margin: 0.5rem 0;
+    }
+
+    .day-activity-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .activity-card {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .activity-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .activity-icon {
+      font-size: 2rem;
+      color: #2196f3;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Modal Styles */
+    .confirmation-modal,
+    .booking-modal,
+    .submission-modal,
+    .mobile-alert-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .confirmation-modal>div,
+    .booking-modal>div,
+    .submission-modal>div,
+    .mobile-alert-overlay>div {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      animation: slideIn 0.3s ease;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .booking-modal>div {
+      max-width: 600px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+
+      to {
+        opacity: 0;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes checkmark {
+      0% {
+        transform: scale(0);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .close-modal,
+    .close-submission-modal {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: #666;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .close-modal:hover,
+    .close-submission-modal:hover {
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    .modal-open {
+      overflow: hidden;
+    }
+
+    .choice-options {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .choice-btn {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      background: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: left;
+      width: 100%;
+    }
+
+    .choice-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .whatsapp-choice:hover {
+      border-color: #25D366;
+      background: rgba(37, 211, 102, 0.05);
+    }
+
+    .email-choice:hover {
+      border-color: #5865F2;
+      background: rgba(88, 101, 242, 0.05);
+    }
+
+    .choice-btn i {
+      font-size: 2.5rem;
+      min-width: 40px;
+    }
+
+    .whatsapp-choice i {
+      color: #25D366;
+    }
+
+    .email-choice i {
+      color: #5865F2;
+    }
+
+    .choice-btn-content {
+      flex: 1;
+    }
+
+    .choice-btn-content span {
+      display: block;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 5px;
+      font-size: 1.1rem;
+    }
+
+    .choice-btn-content small {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .confirm-book-btn:hover {
+      background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+    }
+
+    .cancel-choice:hover {
+      background: #e0e0e0;
+    }
+
+    /* Mobile Alert Styles */
+    .mobile-alert {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .mobile-alert-icon {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .mobile-alert.success .mobile-alert-icon {
+      color: #28a745;
+    }
+
+    .mobile-alert.warning .mobile-alert-icon {
+      color: #ff9800;
+    }
+
+    .mobile-alert.error .mobile-alert-icon {
+      color: #dc3545;
+    }
+
+    .mobile-alert.info .mobile-alert-icon {
+      color: #4caf50;
+    }
+
+    .mobile-alert h3 {
+      color: #2c3e50;
+      margin: 0 0 1.5rem 0;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .mobile-alert-message {
+      color: #666;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .mobile-alert-ok-btn {
+      background: #4caf50;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .mobile-alert-ok-btn:hover {
+      background: #2e7d32;
+      transform: translateY(-2px);
+    }
+
+    .success-checkmark {
+      animation: checkmark 0.5s ease;
+    }
+
+    /* Adventure-specific buttons */
+    .btn-adventure {
+      background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-adventure:hover {
+      background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+
+      .confirmation-modal>div,
+      .booking-modal>div,
+      .submission-modal>div {
+        padding: 1.5rem;
+        margin: 10px;
+      }
+
+      .choice-btn {
+        padding: 15px;
+      }
+
+      .choice-btn i {
+        font-size: 2rem;
+      }
+
+      .booking-modal>div {
+        max-height: 85vh;
+      }
+
+      .currency-selector-container {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+      }
+
+      .currency-selector {
+        width: 100%;
+      }
+
+      #selectedCurrency {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .currency-dropdown {
+        width: 100%;
+      }
+
+      .day-activity-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+    }
+
+    @media (max-width: 480px) {
+      .confirmation-buttons {
+        flex-direction: column;
+      }
+
+      .choice-btn {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+
+      .choice-btn-content small {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="top-bar">
+      <div class="container">
+        <div class="contact-info">
+          <span>
+            📞
+            <a href="https://wa.me/9779851140110" target="_blank" rel="noopener noreferrer"
+              class="wa-link">+977-9851140110</a>
+            ,
+            <a href="https://wa.me/9779856017867" target="_blank" rel="noopener noreferrer"
+              class="wa-link">9856017867</a>
+          </span>
+          <span>✉️ infohonesttoursntravels@gmail.com</span>
+        </div>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="logo">
+        <div class="logo-icon">
+          <img src="../../images/Logo Image.png" alt="Honest Travel Logo" />
+        </div>
+        <div class="logo-text">
+          <h1>HONEST TRAVEL</h1>
+          <p>TOURS AND EXPEDITION</p>
+        </div>
+      </div>
+
+      <!-- Burger Menu Button for Navigation -->
+      <button class="burger-menu" id="navBurger" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="mainNav">
+        <ul>
+          <li><a href="../../index.html">HOME</a></li>
+          <li><a href="../../index.html#tours">TOURS</a></li>
+          <li><a href="../../index.html#trekking">TREKKING</a></li>
+          <li><a href="../../index.html#contact">CONTACT US</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Tour Detail Section -->
+  <div class="tour-detail">
+    <div class="tour-header">
+      <h1 class="tour-title">Kushma Bungee Jumping Day Trip</h1>
+      <p class="tour-subtitle">
+        Experience the World's Second Tallest Canyon Bungee
+      </p>
+    </div>
+
+    <div class="tour-content-wrapper">
+      <!-- LEFT COLUMN -->
+      <div>
+        <!-- Image Gallery -->
+        <div class="image-gallery">
+          <img src="../../images/kushma.jpg" class="gallery-image active" alt="Kushma Bungee Jump" />
+          <img src="../../images/kushma1.jpeg" class="gallery-image" alt="Kushma Suspension Bridge" />
+          <img src="../../images/kushma2.jpg" class="gallery-image" alt="Kushma Canyon View" />
+
+          <div class="gallery-nav">
+            <button class="nav-btn" onclick="changeImage(-1)">‹</button>
+            <button class="nav-btn" onclick="changeImage(1)">›</button>
+          </div>
+          <div class="gallery-indicators">
+            <div class="indicator active" onclick="setImage(0)"></div>
+            <div class="indicator" onclick="setImage(1)"></div>
+            <div class="indicator" onclick="setImage(2)"></div>
+            <div class="indicator" onclick="setImage(3)"></div>
+          </div>
+        </div>
+
+        <!-- Tour Information Tabs -->
+        <div class="tour-info">
+          <!-- Mobile Tab Burger Menu -->
+          <div class="tab-burger-wrapper">
+            <button class="tab-burger-menu" id="tabBurger" aria-label="Toggle tabs menu">
+              <i class="fas fa-bars"></i>
+              <span id="currentTabName">Overview</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+
+          <div class="info-tabs" id="tabsMenu">
+            <button class="tab active" onclick="openTab('overview')">
+              Overview
+            </button>
+            <button class="tab" onclick="openTab('itinerary')">
+              Itinerary
+            </button>
+            <button class="tab" onclick="openTab('costdates')">Price</button>
+            <button class="tab" onclick="openTab('included')">
+              Included
+            </button>
+            <button class="tab" onclick="openTab('safety')">
+              Safety & Requirements
+            </button>
+            <button class="tab" onclick="openTab('videosmap')">
+              Videos & Map
+            </button>
+          </div>
+
+          <!-- OVERVIEW -->
+          <div id="overview" class="tab-content active">
+            <div class="info-section">
+              <h3>Adventure Overview</h3>
+              <p>
+                Experience the ultimate adrenaline rush at Kushma Bungee - the
+                world's second tallest canyon bungee jump at 228 meters! This
+                day trip from Pokhara takes you to one of Nepal's most
+                thrilling adventure destinations, offering breathtaking views
+                and an unforgettable free-fall experience over the stunning
+                Modi Khola river canyon.
+              </p>
+
+              <div class="adventure-highlight">
+                <h4 style="color: #2196f3; margin-bottom: 1rem">
+                  <i class="fas fa-exclamation-triangle adventure-icon"></i>World Record Features
+                </h4>
+                <ul class="info-list">
+                  <li>
+                    <strong>Second Tallest Canyon Bungee:</strong> 228 meters
+                    (748 feet) drop
+                  </li>
+                  <li>
+                    <strong>Longest Suspension Bridge:</strong> 520 meters
+                    connecting Parbat and Baglung districts
+                  </li>
+                  <li>
+                    <strong>Double Safety System:</strong> Dual rope system
+                    with international standards
+                  </li>
+                  <li>
+                    <strong>Professional Team:</strong> Internationally
+                    certified jump masters
+                  </li>
+                  <li>
+                    <strong>Stunning Location:</strong> Over the Modi Khola
+                    river with canyon views
+                  </li>
+                  <li>
+                    <strong>Perfect Day Trip:</strong> Complete experience
+                    from Pokhara in one day
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Stats Box -->
+              <div class="stats-box">
+                <div class="stat-item">
+                  <span class="stat-value">228m</span>
+                  <span class="stat-label">Bungee Height</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value">520m</span>
+                  <span class="stat-label">Bridge Length</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value">3.5s</span>
+                  <span class="stat-label">Free Fall Time</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value">100%</span>
+                  <span class="stat-label">Safety Record</span>
+
+                </div>
+              </div>
+
+              <div class="danger-note">
+                <br />
+                <h4 style="color: #d32f2f; margin-bottom: 0.5rem">
+                  Important Notice
+                </h4>
+                <p style="margin: 0; color: #d32f2f; font-weight: bold">
+                  This activity requires good physical health. Participants
+                  must be between 14-65 years old, weigh 40-120 kg, and have
+                  no heart conditions, high blood pressure, or back problems.
+                </p>
+              </div>
+
+              <h3>Trip Facts</h3>
+              <ul class="info-list">
+                <li>
+                  <strong>Duration:</strong> Full Day (Approx 8-9 hours)
+                </li>
+                <li>
+                  <strong>Starting Point:</strong> Your Hotel in Pokhara
+                </li>
+                <li>
+                  <strong>Transportation:</strong> Private Vehicle with AC
+                </li>
+                <li>
+                  <strong>Activity Duration:</strong> Actual jump: 3-5
+                  seconds, Total experience: 2-3 hours
+                </li>
+                <li>
+                  <strong>Difficulty:</strong> Extreme (Adventure Activity)
+                </li>
+                <li>
+                  <strong>Best Season:</strong> September to June (Avoid
+                  monsoon: July-August)
+                </li>
+                <li>
+                  <strong>Minimum Age:</strong> 14 years (with parental
+                  consent for under 18)
+                </li>
+                <li>
+                  <strong>Weight Limit:</strong> 40kg to 120kg (88lbs to
+                  265lbs)
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- ITINERARY (NOW EXPANDABLE) -->
+          <div id="itinerary" class="tab-content">
+            <div class="info-section">
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 1.5rem;
+                    flex-wrap: wrap;
+                    gap: 1rem;
+                  ">
+                <h3 style="
+                      margin: 0;
+                      color: #4caf50;
+                      text-transform: uppercase;
+                      font-size: 1.2rem;
+                    ">
+                  Detailed Itinerary
+                </h3>
+                <button onclick="toggleAllDays(this)" style="
+                      background: none;
+                      border: 1px solid #4caf50;
+                      color: #4caf50;
+                      padding: 0.5rem 1rem;
+                      border-radius: 4px;
+                      cursor: pointer;
+                      font-size: 0.9rem;
+                    ">
+                  Expand All
+                </button>
+              </div>
+
+              <!-- Day 1 - Drive to Kushma -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">MORNING</span>
+                    <span class="day-title">Drive to Kushma from Pokhara</span>
+                    <span class="day-altitude"><i class="fas fa-car-side"></i> 3 hours</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem; line-height: 1.6">
+                    <strong>07:00 AM - Morning Departure:</strong> After
+                    breakfast at your hotel, our representative will pick you up
+                    in a private vehicle. The scenic drive from Pokhara to
+                    Kushma takes approximately 3 hours through beautiful
+                    countryside, traditional villages, and along river valleys.
+                    Enjoy the changing landscapes as you approach the adventure
+                    destination.
+                  </p>
+                  <div style="display: flex; gap: 1rem; margin-top: 1rem">
+                    <div style="
+                        flex: 1;
+                        background: #f5f5f5;
+                        padding: 0.8rem;
+                        border-radius: 6px;
+                      ">
+                      <strong style="color: #2196f3">Duration:</strong> 3 hours
+                    </div>
+                    <div style="
+                        flex: 1;
+                        background: #f5f5f5;
+                        padding: 0.8rem;
+                        border-radius: 6px;
+                      ">
+                      <strong style="color: #2196f3">Distance:</strong> 60 km
+                    </div>
+                    <div style="
+                        flex: 1;
+                        background: #f5f5f5;
+                        padding: 0.8rem;
+                        border-radius: 6px;
+                      ">
+                      <strong style="color: #2196f3">Meal:</strong> Breakfast at
+                      hotel
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Day 2 - Arrival & Preparation -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">LATE MORNING</span>
+                    <span class="day-title">Arrival at Kushma & Bungee Preparation</span>
+                    <span class="day-altitude"><i class="fas fa-mountain"></i> 228m</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem; line-height: 1.6">
+                    <strong>10:00 AM - Arrival and Briefing:</strong> Upon
+                    reaching Kushma, take a short rest after the drive. You'll
+                    receive a comprehensive safety briefing from certified jump
+                    masters. They will explain the equipment, jumping procedure,
+                    and safety measures. Complete necessary paperwork and get
+                    fitted with your harness and safety gear.
+                  </p>
+                  <p style="margin-bottom: 1rem; line-height: 1.6">
+                    <strong>Safety Check:</strong> Double-check all equipment
+                    including harness, ropes, and connection points.
+                    Professional staff will guide you through every step and
+                    answer any last-minute questions.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Day 3 - The Jump -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">MIDDAY</span>
+                    <span class="day-title">The Bungee Jump Experience</span>
+                    <span class="day-altitude"><i class="fas fa-running"></i> 3-5 sec</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem; line-height: 1.6">
+                    <strong>11:00 AM - The Jump:</strong> Walk to the jump
+                    platform on the world's second tallest bungee bridge. Feel
+                    the adrenaline build up as you look down 228 meters into the
+                    canyon. On the count of three, take the leap of faith!
+                    Experience 3-5 seconds of pure free fall before the bungee
+                    cord catches you. Bounce several times while enjoying
+                    spectacular views of the canyon and river below.
+                  </p>
+                  <p style="margin-bottom: 1rem; line-height: 1.6">
+                    <strong>Recovery:</strong> After your jump, you'll be
+                    lowered to a recovery boat waiting in the river below. The
+                    boat will bring you to the shore where you can celebrate
+                    your achievement. Receive your jump certificate as a
+                    souvenir of this incredible experience.
+                  </p>
+                  <div style="
+                      background: #f5f5f5;
+                      padding: 1rem;
+                      border-radius: 6px;
+                      margin-top: 1rem;
+                    ">
+                    <strong style="color: #2196f3">Activity Duration:</strong>
+                    2-3 hours (including preparation and jump)
+                  </div>
+                </div>
+              </div>
+
+              <!-- Day 4 - Lunch & Exploration -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">AFTERNOON</span>
+                    <span class="day-title">Lunch & Local Exploration</span>
+                    <span class="day-altitude"><i class="fas fa-utensils"></i> 1 hour</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem; line-height: 1.6">
+                    <strong>01:00 PM - Lunch Break:</strong> Enjoy a
+                    well-deserved lunch at a local restaurant in Kushma. Sample
+                    traditional Nepali cuisine while sharing stories of your
+                    jump with fellow adventurers. This is also a great time to
+                    relax and let the adrenaline settle.
+                  </p>
+                  <p style="margin-bottom: 1rem; line-height: 1.6">
+                    <strong>Optional Bridge Exploration:</strong> If you're
+                    interested and have energy, visit other suspension bridges
+                    in the area. Kushma is famous for its network of bridges
+                    connecting hills and villages. Capture photos of the
+                    stunning landscape and engineering marvels.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Day 5 - Return to Pokhara -->
+              <div class="itinerary-day">
+                <div class="day-header" onclick="toggleDay(this)">
+                  <div class="day-header-content">
+                    <span class="day-number">LATE AFTERNOON</span>
+                    <span class="day-title">Return to Pokhara</span>
+                    <span class="day-altitude"><i class="fas fa-home"></i> 3 hours</span>
+                  </div>
+                  <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="day-details">
+                  <p style="margin-bottom: 1rem; line-height: 1.6">
+                    <strong>03:00 PM - Departure:</strong> Begin your journey
+                    back to Pokhara via the same scenic route. The return drive
+                    takes approximately 3 hours. You'll have time to reflect on
+                    your incredible experience while enjoying the beautiful
+                    landscapes.
+                  </p>
+                  <p style="margin-bottom: 1rem; line-height: 1.6">
+                    <strong>06:00 PM - Arrival in Pokhara:</strong> Arrive back
+                    at your hotel in Pokhara, filled with unforgettable memories
+                    of your bungee jumping adventure. The rest of the evening is
+                    free to relax, celebrate, or explore Pokhara's lakeside
+                    area.
+                  </p>
+                  <div style="display: flex; gap: 1rem; margin-top: 1rem">
+                    <div style="
+                        flex: 1;
+                        background: #f5f5f5;
+                        padding: 0.8rem;
+                        border-radius: 6px;
+                      ">
+                      <strong style="color: #2196f3">Drive Back:</strong> 3
+                      hours
+                    </div>
+                    <div style="
+                        flex: 1;
+                        background: #f5f5f5;
+                        padding: 0.8rem;
+                        border-radius: 6px;
+                      ">
+                      <strong style="color: #2196f3">Arrival Time:</strong>
+                      ~6:00 PM
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="
+                    margin-top: 2rem;
+                    padding: 1rem;
+                    background: #fff8e1;
+                    border-radius: 8px;
+                    border-left: 4px solid #ffa000;
+                  ">
+                <h4 style="color: #ffa000; margin-bottom: 0.5rem">
+                  <i class="fas fa-info-circle"></i> Important Notes
+                </h4>
+                <ul style="margin: 0; padding-left: 1.2rem; color: #555">
+                  <li>
+                    Timings are approximate and may vary depending on traffic
+                    and weather conditions
+                  </li>
+                  <li>
+                    The itinerary can be customized based on your preferences
+                  </li>
+                  <li>
+                    Professional photos and videos of your jump are available
+                    for purchase on-site
+                  </li>
+                  <li>
+                    Carry minimal personal belongings - lockers are available
+                    for valuables
+                  </li>
+                  <li>Wear comfortable clothing and secure shoes</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- COST & DATES -->
+          <div id="costdates" class="tab-content">
+            <div class="info-section">
+              <h3>Package Pricing (Per Person)</h3>
+              <div class="highlight-box" style="
+                    background: linear-gradient(
+                      135deg,
+                      #e3f2fd 0%,
+                      #bbdefb 100%
+                    );
+                  ">
+                <div style="text-align: center; padding: 1.5rem;">
+                  <h4 style="color: #2196f3; margin-bottom: 1.5rem;">
+                    Group Pricing with Discounts
+                  </h4>
+
+                  <div class="price-grid">
+                    <div class="price-card">
+                      <div class="group-size">1-3 People</div>
+                      <div class="price-main" id="price13main">₹20,000</div>
+                    </div>
+
+                    <div class="price-card">
+                      <div class="group-size">4-6 People</div>
+                      <div class="price-main" id="price46main">₹16,875</div>
+                    </div>
+
+                    <div class="price-card">
+                      <div class="group-size">7+ People</div>
+                      <div class="price-main" id="price7plusmain">₹13,750</div>
+                    </div>
+                  </div>
+
+                  <div style="
+                        margin: 1.5rem 0;
+                        padding: 1rem;
+                        background: white;
+                        border-radius: 8px;
+                        display: inline-block;
+                      ">
+                    <div style="
+                          font-size: 1.2rem;
+                          color: #2196f3;
+                          font-weight: 600;
+                        " id="priceRange">
+                      USD 130 - 189 (Approx)
+                    </div>
+                    <div style="font-size: 0.9rem; color: #666;">
+                      For International Travelers
+                    </div>
+                  </div>
+
+                  <div style="font-size: 0.9rem; color: #28a745; margin-top: 0.5rem;">
+                    <i class="fas fa-tag"></i> Discount applied: ₹3,125 off for 4-6 people, ₹6,250 off for 7+ people
+                  </div>
+
+                  <div class="price-tag-adventure" style="margin-top: 1.5rem;">
+                    Complete Bungee Jumping Experience
+                  </div>
+                </div>
+              </div>
+
+              <h3 style="margin-top: 2rem">What You Get</h3>
+              <ul class="info-list">
+                <li>
+                  Private round-trip transportation from your Pokhara hotel
+                </li>
+                <li>Complete bungee jumping activity with all equipment</li>
+                <li>Professional jump masters and safety staff</li>
+                <li>Comprehensive safety briefing and training</li>
+                <li>Lunch at a local restaurant in Kushma</li>
+                <li>Jump certificate upon completion</li>
+                <li>All government taxes and service charges</li>
+              </ul>
+
+              <div class="danger-note" style="margin-top: 2rem">
+                <h4 style="color: #d32f2f; margin-bottom: 0.5rem">
+                  <i class="fas fa-exclamation-circle"></i> Health
+                  Requirements
+                </h4>
+                <p style="margin: 0; color: #d32f2f">
+                  Participants must be in good physical health. Not suitable
+                  for pregnant women, people with heart conditions, high blood
+                  pressure, back problems, or recent surgeries. Minimum age:
+                  14 years. Weight limit: 40-120 kg.
+                </p>
+              </div>
+
+              <h3 style="margin-top: 2rem">Optional Extras</h3>
+              <div style="overflow-x: auto; margin-top: 1rem">
+                <table style="width: 100%; border-collapse: collapse">
+                  <thead>
+                    <tr style="background: #e3f2fd">
+                      <th style="padding: 12px; border: 1px solid #bbdefb">
+                        Service
+                      </th>
+                      <th style="padding: 12px; border: 1px solid #bbdefb">
+                        Price
+                      </th>
+                      <th style="padding: 12px; border: 1px solid #bbdefb">
+                        Description
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="padding: 10px; border: 1px solid #e0e0e0">
+                        Professional Photos
+                      </td>
+                      <td style="
+                            padding: 10px;
+                            border: 1px solid #e0e0e0;
+                            color: #2196f3;
+                            font-weight: bold;
+                          " class="price-display" data-inr="3000" data-usd="28" data-npr="4800">
+                        ₹3,000
+                      </td>
+                      <td style="padding: 10px; border: 1px solid #e0e0e0">
+                        High-quality digital photos of your jump
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 10px; border: 1px solid #e0e0e0">
+                        Video Package
+                      </td>
+                      <td style="
+                            padding: 10px;
+                            border: 1px solid #e0e0e0;
+                            color: #2196f3;
+                            font-weight: bold;
+                          " class="price-display" data-inr="5000" data-usd="47" data-npr="8000">
+                        ₹5,000
+                      </td>
+                      <td style="padding: 10px; border: 1px solid #e0e0e0">
+                        Full HD video of your jump experience
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 10px; border: 1px solid #e0e0e0">
+                        Photo + Video Combo
+                      </td>
+                      <td style="
+                            padding: 10px;
+                            border: 1px solid #e0e0e0;
+                            color: #2196f3;
+                            font-weight: bold;
+                          " class="price-display" data-inr="7000" data-usd="66" data-npr="11200">
+                        ₹7,000
+                      </td>
+                      <td style="padding: 10px; border: 1px solid #e0e0e0">
+                        Both photos and video in a souvenir package
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 10px; border: 1px solid #e0e0e0">
+                        Second Jump (Same Day)
+                      </td>
+                      <td style="
+                            padding: 10px;
+                            border: 1px solid #e0e0e0;
+                            color: #2196f3;
+                            font-weight: bold;
+                          " class="price-display" data-inr="8000" data-usd="75" data-npr="12800">
+                        ₹8,000
+                      </td>
+                      <td style="padding: 10px; border: 1px solid #e0e0e0">
+                        50% discount on second jump if done same day
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- INCLUDED -->
+          <div id="included" class="tab-content">
+            <div class="info-section">
+              <h3>What's Included</h3>
+              <ul class="info-list">
+                <li>Private hotel pickup and drop-off in Pokhara</li>
+                <li>Round-trip transportation in air-conditioned vehicle</li>
+                <li>Complete bungee jumping activity charges</li>
+                <li>All necessary bungee equipment and safety gear</li>
+                <li>Professional jump masters and safety briefing</li>
+                <li>Lunch at a local restaurant in Kushma</li>
+                <li>Jump certificate upon successful completion</li>
+                <li>Safety boat recovery service</li>
+                <li>All government taxes and local charges</li>
+                <li>Third-party liability insurance</li>
+              </ul>
+
+              <h3 style="margin-top: 2rem">What's Not Included</h3>
+              <ul class="info-list" style="color: #999">
+                <li>Personal travel insurance (highly recommended)</li>
+                <li>Professional photos and videos of your jump</li>
+                <li>Additional meals and beverages not mentioned</li>
+                <li>Personal expenses and souvenirs</li>
+                <li>Tips for guides and staff (optional)</li>
+                <li>Any services not mentioned in inclusions</li>
+              </ul>
+
+              <div style="
+                    margin-top: 2rem;
+                    padding: 1.5rem;
+                    background: #f5f5f5;
+                    border-radius: 8px;
+                  ">
+                <h4 style="color: #2196f3; margin-bottom: 1rem">
+                  <i class="fas fa-shield-alt"></i> Safety Equipment Provided
+                </h4>
+                <div style="
+                      display: grid;
+                      grid-template-columns: repeat(
+                        auto-fit,
+                        minmax(200px, 1fr)
+                      );
+                      gap: 1rem;
+                    ">
+                  <div style="
+                        background: white;
+                        padding: 1rem;
+                        border-radius: 6px;
+                      ">
+                    <strong style="color: #2196f3">Harness System</strong>
+                    <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem">
+                      Full-body industrial harness
+                    </p>
+                  </div>
+                  <div style="
+                        background: white;
+                        padding: 1rem;
+                        border-radius: 6px;
+                      ">
+                    <strong style="color: #2196f3">Bungee Cord</strong>
+                    <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem">
+                      High-tensile strength elastic cord
+                    </p>
+                  </div>
+                  <div style="
+                        background: white;
+                        padding: 1rem;
+                        border-radius: 6px;
+                      ">
+                    <strong style="color: #2196f3">Backup System</strong>
+                    <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem">
+                      Secondary safety rope
+                    </p>
+                  </div>
+                  <div style="
+                        background: white;
+                        padding: 1rem;
+                        border-radius: 6px;
+                      ">
+                    <strong style="color: #2196f3">Helmet</strong>
+                    <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem">
+                      Protective headgear
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SAFETY & REQUIREMENTS -->
+          <div id="safety" class="tab-content">
+            <div class="info-section">
+              <h3>Safety Standards & Requirements</h3>
+
+              <div style="
+                    background: #e8f5e9;
+                    padding: 1.5rem;
+                    border-radius: 8px;
+                    margin-bottom: 1.5rem;
+                  ">
+                <h4 style="color: #388e3c; margin-bottom: 1rem">
+                  <i class="fas fa-shield-alt"></i> Our Safety Commitment
+                </h4>
+                <ul class="info-list">
+                  <li>
+                    Internationally certified jump masters with 5+ years
+                    experience
+                  </li>
+                  <li>Regular equipment inspection and maintenance</li>
+                  <li>Double safety system with backup ropes</li>
+                  <li>Emergency medical team on standby</li>
+                  <li>Full safety briefing before every jump</li>
+                  <li>100% safety record since operation began</li>
+                </ul>
+              </div>
+
+              <h3>Participation Requirements</h3>
+              <div style="overflow-x: auto; margin-top: 1rem">
+                <table style="width: 100%; border-collapse: collapse">
+                  <thead>
+                    <tr style="background: #f5f5f5">
+                      <th style="padding: 12px; border: 1px solid #ddd">
+                        Requirement
+                      </th>
+                      <th style="padding: 12px; border: 1px solid #ddd">
+                        Details
+                      </th>
+                      <th style="padding: 12px; border: 1px solid #ddd">
+                        Notes
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="padding: 10px; border: 1px solid #e0e0e0">
+                        <strong>Age</strong>
+                      </td>
+                      <td style="padding: 10px; border: 1px solid #e0e0e0">
+                        14-65 years
+                      </td>
+                      <td style="padding: 10px; border: 1px solid #e0e0e0">
+                        Parental consent required for under 18
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 10px; border: 1px solid #e0e0e0">
+                        <strong>Weight</strong>
+                      </td>
+                      <td style="padding: 10px; border: 1px solid #e0e0e0">
+                        40kg - 120kg
+                      </td>
+                      <td style="padding: 10px; border: 1px solid #e0e0e0">
+                        88lbs - 265lbs
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 10px; border: 1px solid #e0e0e0">
+                        <strong>Health</strong>
+                      </td>
+                      <td style="padding: 10px; border: 1px solid #e0e0e0">
+                        Good physical condition
+                      </td>
+                      <td style="padding: 10px; border: 1px solid #e0e0e0">
+                        No heart conditions, high BP, back problems
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 10px; border: 1px solid #e0e0e0">
+                        <strong>Clothing</strong>
+                      </td>
+                      <td style="padding: 10px; border: 1px solid #e0e0e0">
+                        Comfortable, secure
+                      </td>
+                      <td style="padding: 10px; border: 1px solid #e0e0e0">
+                        Avoid loose clothing, wear secure shoes
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 10px; border: 1px solid #e0e0e0">
+                        <strong>Consent</strong>
+                      </td>
+                      <td style="padding: 10px; border: 1px solid #e0e0e0">
+                        Waiver required
+                      </td>
+                      <td style="padding: 10px; border: 1px solid #e0e0e0">
+                        All participants must sign liability waiver
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="danger-note" style="margin-top: 2rem">
+                <h4 style="color: #d32f2f; margin-bottom: 0.5rem">
+                  <i class="fas fa-ban"></i> Medical Restrictions
+                </h4>
+                <p style="margin-bottom: 0.5rem; color: #d32f2f">
+                  The following conditions prohibit participation:
+                </p>
+                <ul style="margin: 0; padding-left: 1.2rem; color: #d32f2f">
+                  <li>Heart conditions or recent heart surgery</li>
+                  <li>High blood pressure (uncontrolled)</li>
+                  <li>Back or neck injuries</li>
+                  <li>Pregnancy</li>
+                  <li>Recent fractures or surgeries</li>
+                  <li>Epilepsy or seizure disorders</li>
+                  <li>Severe mental health conditions</li>
+                </ul>
+              </div>
+
+              <h3 style="margin-top: 2rem">Booking Process</h3>
+              <div style="
+                    background: #fff8e1;
+                    padding: 1.5rem;
+                    border-radius: 8px;
+                    margin-top: 1rem;
+                  ">
+                <ol style="margin: 0; padding-left: 1.2rem">
+                  <li style="margin-bottom: 0.5rem">
+                    Book your slot at least 24 hours in advance
+                  </li>
+                  <li style="margin-bottom: 0.5rem">
+                    Receive confirmation with pickup details
+                  </li>
+                  <li style="margin-bottom: 0.5rem">
+                    Arrive at designated pickup point on time
+                  </li>
+                  <li style="margin-bottom: 0.5rem">
+                    Complete medical declaration form
+                  </li>
+                  <li style="margin-bottom: 0.5rem">
+                    Attend safety briefing at the site
+                  </li>
+                  <li>Sign liability waiver before jumping</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <!-- VIDEOS & MAP SECTION -->
+          <div id="videosmap" class="tab-content">
+            <div class="info-section">
+              <h3>Experience Kushma Bungee</h3>
+              <p>
+                Watch our adventure videos and explore the location map to see
+                what makes Kushma Bungee one of the world's most thrilling
+                adventure destinations.
+              </p>
+
+              <!-- Video Section -->
+              <div class="video-section" style="margin-bottom: 2rem">
+                <h4 style="color: #2196f3; margin-bottom: 1rem">
+                  <i class="fas fa-video"></i> Kushma Bungee Jump Experience
+                </h4>
+                <div class="video-container">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/tI5tC7hcsFM?si=7dEdFLwszr5JVt86"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666">
+                  <i class="fas fa-info-circle"></i> Watch the complete bungee
+                  jumping experience at Kushma - the world's second tallest
+                  canyon bungee.
+                </p>
+              </div>
+
+              <!-- Map Section -->
+              <div class="map-section">
+                <h4 style="color: #2196f3; margin-bottom: 1rem">
+                  <i class="fas fa-map-marked-alt"></i> Location Map - Kushma
+                </h4>
+                <div class="map-container">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14059.083324021798!2d83.67087961120448!3d28.22948679092497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3995e6cef7ccf6b3%3A0x6c824cf1c7dc9361!2sKushma!5e0!3m2!1sen!2snp!4v1704700000000!5m2!1sen!2snp"
+                    width="100%" height="400" style="
+                        border: 0;
+                        border-radius: 12px;
+                        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                      " allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    title="Kushma, Parbat Location Map">
+                  </iframe>
+                </div>
+                <div style="
+                      margin-top: 1rem;
+                      display: flex;
+                      flex-wrap: wrap;
+                      gap: 1rem;
+                    ">
+                  <div style="flex: 1; min-width: 200px">
+                    <h5 style="color: #333; margin-bottom: 0.5rem">
+                      <i class="fas fa-route" style="color: #2196f3"></i>
+                      Route Information
+                    </h5>
+                    <ul style="
+                          list-style-type: none;
+                          padding-left: 0;
+                          font-size: 0.9rem;
+                        ">
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Starting Point:</strong> Your Hotel in Pokhara
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Destination:</strong> Kushma Bungee Jump Site
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Distance:</strong> 60 km (one way)
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Travel Time:</strong> 3 hours (approx.)
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Road Condition:</strong> Well-maintained
+                        highway
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        <strong>Scenery:</strong> Mountains, rivers, villages
+                      </li>
+                    </ul>
+                  </div>
+                  <div style="flex: 1; min-width: 200px">
+                    <h5 style="color: #333; margin-bottom: 0.5rem">
+                      <i class="fas fa-bridge" style="color: #4caf50"></i>
+                      Bungee Site Features
+                    </h5>
+                    <ul style="
+                          list-style-type: none;
+                          padding-left: 0;
+                          font-size: 0.9rem;
+                        ">
+                      <li style="margin-bottom: 0.3rem">
+                        Height: 228 meters (748 feet)
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        Bridge Length: 520 meters
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        Location: Over Modi Khola River
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        World Ranking: 2nd tallest canyon bungee
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        Safety: Double rope system
+                      </li>
+                      <li style="margin-bottom: 0.3rem">
+                        Recovery: Safety boat service
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: Booking Card -->
+      <div>
+        <div class="booking-card">
+          <div class="price-section">
+            <div class="price-icon"><i class="fas fa-running"></i></div>
+            <div class="price-info">
+              <div class="price-label">Starting from</div>
+              <div><span class="price" id="mainPriceDisplay">₹13,750</span></div>
+              <div style="font-size:0.8rem; color:#666; margin-top:0.3rem;" id="groupSizeLabel">(7+ people)</div>
+              <div style="font-size:0.8rem; color:#666; margin-top:0.3rem;" id="alternatePriceRow">
+                <span id="alternatePriceLabel">USD</span> <span id="alternatePrice">130</span>
+              </div>
+            </div>
+            <!-- Currency Selector -->
+            <div class="currency-selector-container">
+              <div class="currency-selector">
+                <div id="selectedCurrency">
+                  <span>INR</span>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="currency-dropdown">
+                  <div class="currency-option active" data-currency="INR"> INR (₹)</div>
+                  <div class="currency-option" data-currency="USD"> USD ($)</div>
+                  <div class="currency-option" data-currency="NPR"> NPR (रु)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="quantity-section">
+            <div class="quantity-controls">
+              <button class="qty-btn" onclick="updatePrice(-1)">-</button>
+              <div class="qty-display" id="qtyDisplay">1</div>
+              <button class="qty-btn" onclick="updatePrice(1)">+</button>
+            </div>
+          </div>
+
+          <div class="price-breakdown">
+            <div class="price-row">
+              <span>Base Price (Per Person)</span>
+              <span><span id="baseCurrency">INR</span> <span id="basePrice">13,750</span></span>
+            </div>
+            <div class="price-row total">
+              <span>Total</span>
+              <span><span id="totalCurrency">INR</span> <span id="totalPrice">13,750</span></span>
+            </div>
+          </div>
+
+          <button class="booking-btn btn-instant" onclick="showBookingForm()">Book Now</button>
+          <button class="booking-btn btn-customize" onclick="showEnquiryModal()">
+            Send Enquiry
+          </button>
+
+          <div class="contact-section">
+            <div style="font-size: 2.5rem; margin-bottom: 0.5rem">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <h3>Need Help?</h3>
+            <div class="phone-numbers">
+              <a href="https://wa.me/9779851140110" target="_blank" rel="noopener noreferrer" style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    font-size: 1.2rem;
+                  ">
+                +977-9851140110
+              </a>
+              <a href="https://wa.me/9779856017867" target="_blank" rel="noopener noreferrer" style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    font-size: 1.2rem;
+                  ">
+                +977-9856017867
+              </a>
+            </div>
+          </div>
+
+          <div style="
+                margin-top: 1.5rem;
+                padding: 1rem;
+                background: #e3f2fd;
+                border-radius: 8px;
+              ">
+            <h4 style="color: #2196f3; margin-bottom: 0.5rem; font-size: 1rem">
+              <i class="fas fa-bolt" style="color: #ff9800"></i> Why Choose
+              This Adventure
+            </h4>
+            <ul style="font-size: 0.8rem; color: #555; padding-left: 1.2rem">
+              <li>World's 2nd tallest canyon bungee</li>
+              <li>100% safety record</li>
+              <li>Certified jump masters</li>
+              <li>All-inclusive package</li>
+              <li>Flexible daily departures</li>
+            </ul>
+          </div>
+
+          <div style="
+                margin-top: 1rem;
+                padding: 1rem;
+                background: #fff3e0;
+                border-radius: 8px;
+                border-left: 4px solid #ff9800;
+              ">
+            <h4 style="color: #ff9800; margin-bottom: 0.5rem; font-size: 0.9rem">
+              <i class="fas fa-clock"></i> Quick Facts
+            </h4>
+            <div style="font-size: 0.8rem; color: #555">
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 0.3rem;
+                  ">
+                <span>Duration:</span>
+                <span>8-9 hours</span>
+              </div>
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 0.3rem;
+                  ">
+                <span>Pickup:</span>
+                <span>7:00 AM from hotel</span>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <span>Availability:</span>
+                <span>Daily</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Honest Travel Adventure</h3>
+        <p>
+          Your trusted partner for extreme adventures and adrenaline
+          experiences in Nepal.
+        </p>
+      </div>
+      <div class="footer-section">
+        <h3>Adventure Contact</h3>
+        <p>Pokhara Adventure Center, Nepal</p>
+        <p>adventure@honesttraveltours.com</p>
+        <p>+977-9851140110, +977-9856017867</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>
+        &copy; 2025 HONEST TRAVEL Tours and Expedition. All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    /* ========== CONSTANTS AND CONFIGURATION ========== */
+
+    // Base price for 1-3 people in INR (rounded to match USD 189 ≈ ₹20,000)
+    const price13inr = 20000;
+
+    // Pricing tables by group size (INR) - with exact discounts
+    // Group sizes: 1-3 People, 4-6 People, 7+ People
+    const pricingTables = {
+      "1-3": 20000,
+      "4-6": 16875,
+      "7+": 13750,
+    };
+
+    const marketUsdToInr = 92;
+    const markupPercent = 15;
+
+    // Exchange rates based on market rate with markup
+    const exchangeRates = {
+      INR: { rate: 1, symbol: "₹", name: "INR" },
+      USD: { rate: (1 / marketUsdToInr) * (1 + markupPercent / 100), symbol: "$", name: "USD" },
+      NPR: { rate: 1.6, symbol: "रु", name: "NPR" },
+    };
+
+    let qty = 1; // Minimum 1 person for bungee
+    let currentCurrency = "INR";
+
+    /* ========== HELPER FUNCTIONS ========== */
+
+    function getGroupSize(persons) {
+      if (persons >= 7) return "7+";
+      if (persons >= 4) return "4-6";
+      return "1-3";
+    }
+
+    function getUnitINRPrice(persons) {
+      const groupSize = getGroupSize(persons);
+      return pricingTables[groupSize];
+    }
+
+    function getConvertedPrice(persons, targetCurrency) {
+      const inrPrice = getUnitINRPrice(persons);
+
+      if (targetCurrency === 'INR') {
+        return inrPrice;
+      }
+
+      const rate = exchangeRates[targetCurrency]?.rate;
+      if (!rate) return inrPrice;
+
+      // Convert and round appropriately
+      let converted = inrPrice * rate;
+
+      // Round based on currency
+      if (targetCurrency === 'USD') {
+        return Math.round(converted); // Round to nearest dollar
+      } else if (targetCurrency === 'NPR') {
+        return Math.round(converted / 100) * 100; // Round to nearest 100 NPR
+      }
+
+      return Math.round(converted);
+    }
+
+    function getConvertedPriceForGroup(groupSize, targetCurrency) {
+      const inrPrice = pricingTables[groupSize];
+
+      if (targetCurrency === 'INR') {
+        return inrPrice;
+      }
+
+      const rate = exchangeRates[targetCurrency]?.rate;
+      if (!rate) return inrPrice;
+
+      let converted = inrPrice * rate;
+
+      // Round based on currency
+      if (targetCurrency === 'USD') {
+        return Math.round(converted);
+      } else if (targetCurrency === 'NPR') {
+        return Math.round(converted / 100) * 100;
+      }
+
+      return Math.round(converted);
+    }
+
+    function getCurrencySymbol() {
+      return exchangeRates[currentCurrency]?.symbol || "₹";
+    }
+
+    function formatNumber(num) {
+      if (currentCurrency === 'USD') {
+        return Math.round(num).toLocaleString('en-US');
+      } else if (currentCurrency === 'NPR') {
+        return Math.round(num).toLocaleString('en-IN');
+      } else {
+        return Math.round(num).toLocaleString('en-IN');
+      }
+    }
+
+    function getGroupSizeText(persons) {
+      const groupSize = getGroupSize(persons);
+      if (groupSize === "7+") return "7+ People";
+      if (groupSize === "4-6") return "4-6 People";
+      return "1-3 People";
+    }
+
+    function getGroupSizeLabel(persons) {
+      const groupSize = getGroupSize(persons);
+      if (groupSize === "7+") return "(7+ people)";
+      if (groupSize === "4-6") return "(4-6 people)";
+      return "(1-3 people)";
+    }
+
+    /* ========== PRICE UPDATE FUNCTIONS ========== */
+
+    function updatePrice(change) {
+      qty += change;
+      if (qty < 1) qty = 1;
+      document.getElementById("qtyDisplay").textContent = qty;
+
+      const displayUnitPrice = getConvertedPrice(qty, currentCurrency);
+      const symbol = getCurrencySymbol();
+      const groupSize = getGroupSize(qty);
+
+      // Get alternate price (USD for INR/NPR, INR for USD)
+      let alternatePrice, alternateLabel;
+      if (currentCurrency === "USD") {
+        alternatePrice = getConvertedPrice(qty, 'INR');
+        alternateLabel = "INR";
+      } else if (currentCurrency === "NPR") {
+        alternatePrice = getConvertedPrice(qty, 'USD');
+        alternateLabel = "USD";
+      } else {
+        alternatePrice = getConvertedPrice(qty, 'USD');
+        alternateLabel = "USD";
+      }
+
+      // Format alternate price with symbol
+      let alternatePriceFormatted;
+      if (alternateLabel === 'USD') {
+        alternatePriceFormatted = '$ ' + formatNumber(alternatePrice);
+      } else if (alternateLabel === 'INR') {
+        alternatePriceFormatted = '₹ ' + formatNumber(alternatePrice);
+      } else {
+        alternatePriceFormatted = formatNumber(alternatePrice);
+      }
+
+      // Update displays
+      document.getElementById("basePrice").textContent = formatNumber(displayUnitPrice);
+      document.getElementById("totalPrice").textContent = formatNumber(qty * displayUnitPrice);
+      document.getElementById("mainPriceDisplay").textContent = symbol + ' ' + formatNumber(displayUnitPrice);
+      document.getElementById("alternatePriceLabel").textContent = alternateLabel;
+      document.getElementById("alternatePrice").textContent = alternatePriceFormatted;
+
+      // Update currency labels
+      document.getElementById("baseCurrency").textContent = currentCurrency;
+      document.getElementById("totalCurrency").textContent = currentCurrency;
+
+      // Update group size label
+      document.getElementById("groupSizeLabel").textContent = getGroupSizeLabel(qty);
+
+      // Update price cards in cost tab
+      updatePriceCards(currentCurrency);
+    }
+
+    function updatePriceCards(currency) {
+      const symbol = exchangeRates[currency]?.symbol || "₹";
+
+      // Get prices for each group size using conversion logic
+      const price13 = getConvertedPriceForGroup('1-3', currency);
+      const price46 = getConvertedPriceForGroup('4-6', currency);
+      const price7plus = getConvertedPriceForGroup('7+', currency);
+
+      // Get USD and NPR prices for reference
+      const usdPrice13 = getConvertedPriceForGroup('1-3', 'USD');
+      const usdPrice46 = getConvertedPriceForGroup('4-6', 'USD');
+      const usdPrice7plus = getConvertedPriceForGroup('7+', 'USD');
+
+      const nprPrice13 = getConvertedPriceForGroup('1-3', 'NPR');
+      const nprPrice46 = getConvertedPriceForGroup('4-6', 'NPR');
+      const nprPrice7plus = getConvertedPriceForGroup('7+', 'NPR');
+
+      // Update price cards
+      if (document.getElementById('price13main')) {
+        document.getElementById('price13main').textContent = symbol + ' ' + formatNumber(price13);
+        document.getElementById('price46main').textContent = symbol + ' ' + formatNumber(price46);
+        document.getElementById('price7plusmain').textContent = symbol + ' ' + formatNumber(price7plus);
+      }
+
+      // Update USD references
+      if (document.getElementById('price13usd')) {
+        document.getElementById('price13usd').textContent = 'USD ' + usdPrice13;
+        document.getElementById('price46usd').textContent = 'USD ' + usdPrice46;
+        document.getElementById('price7plususd').textContent = 'USD ' + usdPrice7plus;
+      }
+
+      // Update NPR references
+      if (document.getElementById('price13npr')) {
+        document.getElementById('price13npr').textContent = 'NPR ' + nprPrice13.toLocaleString('en-IN');
+        document.getElementById('price46npr').textContent = 'NPR ' + nprPrice46.toLocaleString('en-IN');
+        document.getElementById('price7plusnpr').textContent = 'NPR ' + nprPrice7plus.toLocaleString('en-IN');
+      }
+
+      // Update price range display
+      if (document.getElementById('priceRange')) {
+        document.getElementById('priceRange').textContent = `USD ${usdPrice13} - ${usdPrice7plus} (Approx)`;
+      }
+    }
+
+    /* ========== CURRENCY CONVERTER ========== */
+
+    function initializeCurrencyConverter() {
+      const currencySelector = document.querySelector(".currency-selector");
+      const selectedCurrency = document.getElementById("selectedCurrency");
+      const currencyOptions = document.querySelectorAll(".currency-option");
+      const priceElements = document.querySelectorAll(".price-display");
+
+      // Toggle currency dropdown
+      if (selectedCurrency) {
+        selectedCurrency.addEventListener("click", function (e) {
+          e.stopPropagation();
+          currencySelector.classList.toggle("active");
+        });
+      }
+
+      // Select currency option
+      currencyOptions.forEach((option) => {
+        option.addEventListener("click", function () {
+          const newCurrency = this.getAttribute("data-currency");
+
+          // Update selected currency display
+          selectedCurrency.querySelector("span").textContent = newCurrency;
+
+          currentCurrency = newCurrency;
+
+          // Update active state
+          currencyOptions.forEach((opt) => opt.classList.remove("active"));
+          this.classList.add("active");
+
+          // Convert all prices
+          convertPrices(newCurrency);
+
+          // Update main price display
+          updatePrice(0);
+
+          // Update price cards
+          updatePriceCards(newCurrency);
+
+          // Close dropdown
+          currencySelector.classList.remove("active");
+        });
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener("click", function (e) {
+        if (currencySelector && !currencySelector.contains(e.target)) {
+          currencySelector.classList.remove("active");
+        }
+      });
+
+      // Function to convert prices
+      function convertPrices(targetCurrency) {
+        const targetSymbol = exchangeRates[targetCurrency]?.symbol || "₹";
+
+        priceElements.forEach(element => {
+          let convertedValue;
+          const inrValue = parseFloat(element.getAttribute("data-inr"));
+
+          if (!isNaN(inrValue)) {
+            if (targetCurrency === 'USD') {
+              convertedValue = Math.round(inrValue * exchangeRates.USD.rate);
+            } else if (targetCurrency === 'NPR') {
+              convertedValue = Math.round(inrValue * exchangeRates.NPR.rate / 100) * 100;
+            } else {
+              convertedValue = inrValue;
+            }
+
+            let formattedValue;
+            if (targetCurrency === 'USD') {
+              formattedValue = convertedValue.toLocaleString('en-US');
+            } else {
+              formattedValue = convertedValue.toLocaleString('en-IN');
+            }
+
+            element.textContent = targetSymbol + ' ' + formattedValue;
+          }
+        });
+      }
+
+      // Initialize with INR
+      convertPrices('INR');
+    }
+
+    /* ========== NAVIGATION BURGER MENU ========== */
+
+    function initializeNavigation() {
+      const navBurger = document.getElementById("navBurger");
+      const mainNav = document.getElementById("mainNav");
+
+      if (navBurger) {
+        navBurger.addEventListener("click", function () {
+          this.classList.toggle("active");
+          mainNav.classList.toggle("active");
+          document.body.classList.toggle("nav-open");
+        });
+
+        const navLinks = mainNav.querySelectorAll("a");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            navBurger.classList.remove("active");
+            mainNav.classList.remove("active");
+            document.body.classList.remove("nav-open");
+          });
+        });
+      }
+    }
+
+    /* ========== TAB SYSTEM ========== */
+
+    function initializeTabs() {
+      const tabBurger = document.getElementById("tabBurger");
+      const tabsMenu = document.getElementById("tabsMenu");
+
+      if (tabBurger) {
+        tabBurger.addEventListener("click", function () {
+          this.classList.toggle("active");
+          tabsMenu.classList.toggle("active");
+        });
+      }
+    }
+
+    function openTab(tabId) {
+      // Hide all tab contents
+      const contents = document.querySelectorAll(".tab-content");
+      contents.forEach((content) => content.classList.remove("active"));
+
+      // Remove active class from all tab buttons
+      const tabs = document.querySelectorAll(".tab");
+      tabs.forEach((tab) => tab.classList.remove("active"));
+
+      // Show current tab and add active class to button
+      document.getElementById(tabId).classList.add("active");
+      event.currentTarget.classList.add("active");
+
+      // Update mobile tab name if available
+      const currentTabName = document.getElementById("currentTabName");
+      if (currentTabName) {
+        currentTabName.textContent = event.currentTarget.textContent.trim();
+      }
+
+      // Close tab menu on mobile
+      const tabBurger = document.getElementById("tabBurger");
+      const tabsMenu = document.getElementById("tabsMenu");
+      if (tabBurger) {
+        tabBurger.classList.remove("active");
+        tabsMenu.classList.remove("active");
+      }
+    }
+
+    /* ========== COLLAPSIBLE ITINERARY FUNCTIONS ========== */
+
+    function toggleDay(headerElement) {
+      headerElement.closest(".itinerary-day").classList.toggle("active");
+    }
+
+    function toggleAllDays(btn) {
+      const allDays = document.querySelectorAll(".itinerary-day");
+      const isExpanding = btn.innerText.trim() === "Expand All";
+
+      allDays.forEach((day) => {
+        if (isExpanding) {
+          day.classList.add("active");
+        } else {
+          day.classList.remove("active");
+        }
+      });
+
+      btn.innerHTML = isExpanding ?
+        ' Collapse All' :
+        ' Expand All';
+    }
+
+    /* ========== IMAGE GALLERY ========== */
+
+    let currentImageIndex = 0;
+    const images = document.querySelectorAll(".gallery-image");
+    const indicators = document.querySelectorAll(".indicator");
+
+    function showImage(index) {
+      if (index >= images.length) currentImageIndex = 0;
+      else if (index < 0) currentImageIndex = images.length - 1;
+      else currentImageIndex = index;
+
+      images.forEach((img) => img.classList.remove("active"));
+      indicators.forEach((ind) => ind.classList.remove("active"));
+
+      images[currentImageIndex].classList.add("active");
+      indicators[currentImageIndex].classList.add("active");
+    }
+
+    function changeImage(step) {
+      showImage(currentImageIndex + step);
+    }
+
+    function setImage(index) {
+      showImage(index);
+    }
+
+    setInterval(() => changeImage(1), 5000);
+
+    /* ========== CLOSE MENUS WHEN CLICKING OUTSIDE ========== */
+
+    function initializeClickOutside() {
+      const navBurger = document.getElementById("navBurger");
+      const mainNav = document.getElementById("mainNav");
+      const tabBurger = document.getElementById("tabBurger");
+      const tabsMenu = document.getElementById("tabsMenu");
+
+      document.addEventListener("click", function (event) {
+        // Close nav menu
+        if (
+          navBurger &&
+          !navBurger.contains(event.target) &&
+          !mainNav.contains(event.target)
+        ) {
+          navBurger.classList.remove("active");
+          mainNav.classList.remove("active");
+          document.body.classList.remove("nav-open");
+        }
+
+        // Close tab menu
+        if (
+          tabBurger &&
+          !tabBurger.contains(event.target) &&
+          !tabsMenu.contains(event.target)
+        ) {
+          tabBurger.classList.remove("active");
+          tabsMenu.classList.remove("active");
+        }
+      });
+    }
+
+    /* ========== BOOKING MODAL FUNCTIONS ========== */
+
+    const currentPackage = {
+      name: "Kushma Bungee Jumping Day Trip",
+      duration: "Full Day (8-9 hours)",
+      type: "Adventure",
+      includes: "Transportation, Bungee Jump, Safety Equipment, Professional Jump Masters, Lunch, Jump Certificate",
+    };
+
+    function generateBookingId() {
+      const prefix = 'HTT';
+      const timestamp = Date.now().toString().slice(-8);
+      const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+      const date = new Date();
+      const year = date.getFullYear().toString().slice(-2);
+      const month = (date.getMonth() + 1).toString().padStart(2, '2');
+
+      return `${prefix}-${year}${month}-${timestamp}-${random}`;
+    }
+
+    function showBookingForm() {
+      showConfirmationModal();
+    }
+
+    // Create confirmation modal
+    function showConfirmationModal() {
+      const displayUnitPrice = getConvertedPrice(qty, currentCurrency);
+      const unitUSDPrice = getConvertedPrice(qty, 'USD');
+      const symbol = getCurrencySymbol();
+      const groupSizeText = getGroupSizeText(qty);
+
+      const modalOverlay = document.createElement('div');
+      modalOverlay.className = 'confirmation-modal';
+
+      modalOverlay.innerHTML = `
+          <div>
+            <div style="text-align: center;">
+              <div style="font-size: 3rem; color: #2196f3; margin-bottom: 15px;">
+                <i class="fas fa-running"></i>
+              </div>
+              
+              <h3 style="color: #2c3e50; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <i class="fas fa-calendar-check" style="color: #2196f3;"></i> Confirm Kushma Bungee Booking
+              </h3>
+              
+              <div class="package-info" style="font-size: 1.1rem; color: #2196f3; font-weight: 600; margin-bottom: 20px; background: rgba(33, 150, 243, 0.1); padding: 12px; border-radius: 8px; border-left: 4px solid #2196f3;">
+                Kushma Bungee Jumping Day Trip
+              </div>
+              
+              <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 20px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Duration:</span>
+                  <span style="font-weight: 600;">Full Day (8-9 hours)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Group Size:</span>
+                  <span style="font-weight: 600;">${groupSizeText}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Participants:</span>
+                  <span style="font-weight: 600;">${qty} person(s)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Price Per Person:</span>
+                  <span style="font-weight: 600;">${symbol} ${formatNumber(displayUnitPrice)} / USD $${formatNumber(unitUSDPrice)}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 1.2rem; color: #28a745;">
+                  <span>Total Amount:</span>
+                  <span style="font-weight: 700;">${symbol} ${formatNumber(qty * displayUnitPrice)}</span>
+                </div>
+              </div>
+              
+              <div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; margin: 20px 0;">
+                <h4 style="color: #388e3c; margin-bottom: 0.5rem; font-size: 0.9rem;">
+                  <i class="fas fa-info-circle"></i> Important Information
+                </h4>
+                <p style="margin: 0; color: #388e3c; font-size: 0.9rem;">
+                  Includes transportation, bungee jump, lunch, and safety equipment. Must meet health requirements.
+                </p>
+              </div>
+              
+              <p style="color: #666; margin-bottom: 25px; font-size: 16px;">
+                Are you ready to book this extreme adventure experience?
+              </p>
+              
+              <div class="confirmation-buttons" style="display: flex; gap: 15px; margin-top: 25px;">
+                <button id="confirmCancel" class="cancel-choice" style="
+                  padding: 10px 20px;
+                  background: #f5f5f5;
+                  border: none;
+                  border-radius: 6px;
+                  color: #666;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
+                  flex: 1;
+                ">
+                  Cancel
+                </button>
+                
+                <button id="confirmBook" class="confirm-book-btn" style="
+                  background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+                  color: white;
+                  border: none;
+                  padding: 14px 24px;
+                  border-radius: 8px;
+                  font-size: 16px;
+                  font-weight: 500;
+                  cursor: pointer;
+                  flex: 1;
+                  transition: all 0.3s ease;
+                ">
+                  Yes, Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+
+      document.body.appendChild(modalOverlay);
+      document.body.classList.add('modal-open');
+
+      // Handle button clicks
+      modalOverlay.querySelector('#confirmCancel').addEventListener('click', () => {
+        closeModal(modalOverlay);
+      });
+
+      modalOverlay.querySelector('#confirmBook').addEventListener('click', () => {
+        closeModal(modalOverlay);
+        showBookingModal();
+      });
+
+      // Close on backdrop click
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+          closeModal(modalOverlay);
+        }
+      });
+    }
+
+    // Show booking modal
+    function showBookingModal() {
+      const displayUnitPrice = getConvertedPrice(qty, currentCurrency);
+      const unitUSDPrice = getConvertedPrice(qty, 'USD');
+      const unitNPRPrice = getConvertedPrice(qty, 'NPR');
+      const symbol = getCurrencySymbol();
+      const groupSizeText = getGroupSizeText(qty);
+
+      const modalOverlay = document.createElement('div');
+      modalOverlay.className = 'booking-modal';
+
+      modalOverlay.innerHTML = `
+          <div>
+            <button class="close-modal">×</button>
+            
+            <h2 style="color: #2c3e50; margin-bottom: 1.5rem; text-align: center; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+              <i class="fas fa-running" style="color: #2196f3;"></i>
+              Book Kushma Bungee Jumping
+            </h2>
+            
+            <form id="bookingForm">
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Full Name *
+                </label>
+                <input type="text" id="bookingName" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="Enter your full name">
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Email Address *
+                </label>
+                <input type="email" id="bookingEmail" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="your@email.com">
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Phone Number *
+                </label>
+                <input type="tel" id="bookingPhone" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="+977 98XXXXXXXX">
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Country *
+                </label>
+                <input type="text" id="bookingCountry" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                " placeholder="Your country">
+              </div>
+              
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div>
+                  <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                    Persons *
+                  </label>
+                  <input type="number" min="1" value="${qty}" id="formPersons" required style="
+                    width: 100%;
+                    padding: 0.8rem;
+                    border: 1px solid #ddd;
+                    border-radius: 6px;
+                    font-size: 1rem;
+                    box-sizing: border-box;
+                  " oninput="updateBookingFormPrice()">
+                </div>
+                
+                <div>
+                  <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                    Preferred Date *
+                  </label>
+                  <input type="date" id="bookingDate" required style="
+                    width: 100%;
+                    padding: 0.8rem;
+                    border: 1px solid #ddd;
+                    border-radius: 6px;
+                    font-size: 1rem;
+                    box-sizing: border-box;
+                  ">
+                </div>
+              </div>
+              
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Special Requirements / Health Concerns *
+                </label>
+                <textarea id="bookingRequirements" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  min-height: 100px;
+                  resize: vertical;
+                  box-sizing: border-box;
+                " placeholder="Please mention any medical conditions, health concerns, or special requests..."></textarea>
+              </div>
+              
+              <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; margin: 1rem 0;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Adventure Package:</span>
+                  <span style="font-weight: bold;">Kushma Bungee Jumping</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Duration:</span>
+                  <span>Full Day (8-9 hours)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Group Size:</span>
+                  <span id="formGroupSize">${groupSizeText}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Price Per Person:</span>
+                  <span><span id="formCurrency">${currentCurrency}</span> <span id="formPricePerPerson">${formatNumber(displayUnitPrice)}</span> / $${formatNumber(unitUSDPrice)}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Total Persons:</span>
+                  <span id="formTotalPersons">${qty}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 1.2rem; color: #28a745;">
+                  <span>Total Amount:</span>
+                  <span><span id="formTotalCurrency">${currentCurrency}</span> <span id="formTotalAmount">${formatNumber(qty * displayUnitPrice)}</span></span>
+                </div>
+              </div>
+              
+              <button type="submit" style="
+                background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+                color: white;
+                border: none;
+                padding: 1rem;
+                border-radius: 6px;
+                font-size: 1.1rem;
+                font-weight: 600;
+                cursor: pointer;
+                margin-top: 1rem;
+                width: 100%;
+              ">
+                <i class="fas fa-paper-plane"></i> Submit Booking Request
+              </button>
+              
+              <p style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 1rem;">
+                We'll contact you within 24 hours to confirm your booking
+              </p>
+            </form>
+          </div>
+        `;
+
+      document.body.appendChild(modalOverlay);
+      document.body.classList.add('modal-open');
+
+      // Make modal content scrollable on mobile
+      const modalContent = modalOverlay.querySelector('div');
+      modalContent.style.webkitOverflowScrolling = 'touch';
+
+      // Close modal when X is clicked
+      modalOverlay.querySelector('.close-modal').addEventListener('click', () => {
+        closeModal(modalOverlay);
+      });
+
+      // Close modal when clicking outside
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+          closeModal(modalOverlay);
+        }
+      });
+
+      // Update form totals when persons change
+      const personsInput = modalOverlay.querySelector('#formPersons');
+      const groupSizeSpan = modalOverlay.querySelector('#formGroupSize');
+      const totalPersonsSpan = modalOverlay.querySelector('#formTotalPersons');
+      const totalAmountSpan = modalOverlay.querySelector('#formTotalAmount');
+      const pricePerPersonSpan = modalOverlay.querySelector('#formPricePerPerson');
+      const formTotalCurrencySpan = modalOverlay.querySelector('#formTotalCurrency');
+
+      function updateFormTotal() {
+        const persons = Math.max(1, parseInt(personsInput.value) || 1);
+        personsInput.value = persons;
+        const dispPrice = getConvertedPrice(persons, currentCurrency);
+        const sym = getCurrencySymbol();
+
+        groupSizeSpan.textContent = getGroupSizeText(persons);
+        totalPersonsSpan.textContent = persons;
+        pricePerPersonSpan.textContent = sym + " " + formatNumber(dispPrice);
+        totalAmountSpan.textContent = formatNumber(persons * dispPrice);
+        formTotalCurrencySpan.textContent = currentCurrency;
+
+        qty = persons;
+        updatePrice(0);
+      }
+
+      personsInput.addEventListener('input', updateFormTotal);
+
+      // Handle form submission
+      modalOverlay.querySelector('#bookingForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const persons = Math.max(1, parseInt(personsInput.value) || 1);
+        const displayPrice = getConvertedPrice(persons, currentCurrency);
+        const unitUSDPrice = getConvertedPrice(persons, 'USD');
+        const groupSizeText = getGroupSizeText(persons);
+
+        const formData = {
+          name: modalOverlay.querySelector('#bookingName').value.trim(),
+          email: modalOverlay.querySelector('#bookingEmail').value.trim(),
+          phone: modalOverlay.querySelector('#bookingPhone').value.trim(),
+          country: modalOverlay.querySelector('#bookingCountry').value.trim(),
+          persons: persons,
+          groupSize: groupSizeText,
+          date: modalOverlay.querySelector('#bookingDate').value || 'Not specified',
+          requirements: modalOverlay.querySelector('#bookingRequirements').value.trim() || 'None',
+          package: currentPackage.name,
+          pricePerPerson: displayPrice,
+          usdPricePerPerson: unitUSDPrice,
+          totalAmount: persons * displayPrice,
+          currency: currentCurrency,
+          duration: currentPackage.duration,
+          type: currentPackage.type,
+          includes: currentPackage.includes,
+        };
+
+        // Validation
+        if (!formData.name) {
+          showMobileAlert('error', 'Name Required', 'Please enter your full name');
+          modalOverlay.querySelector('#bookingName').focus();
+          return;
+        }
+
+        if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
+          showMobileAlert('error', 'Valid Email Required', 'Please enter a valid email address');
+          modalOverlay.querySelector('#bookingEmail').focus();
+          return;
+        }
+
+        if (!formData.phone || !/^\+?[\d\s\-\(\)]{10,}$/.test(formData.phone)) {
+          showMobileAlert('error', 'Valid Phone Required', 'Please enter a valid phone number');
+          modalOverlay.querySelector('#bookingPhone').focus();
+          return;
+        }
+
+        if (!formData.country) {
+          showMobileAlert('error', 'Country Required', 'Please enter your country');
+          modalOverlay.querySelector('#bookingCountry').focus();
+          return;
+        }
+
+        if (!modalOverlay.querySelector('#bookingDate').value) {
+          showMobileAlert('error', 'Date Required', 'Please select a preferred start date');
+          modalOverlay.querySelector('#bookingDate').focus();
+          return;
+        }
+
+        if (!formData.requirements || formData.requirements === 'None') {
+          showMobileAlert('error', 'Health Information Required', 'Please provide your health information and any medical conditions for safety purposes');
+          modalOverlay.querySelector('#bookingRequirements').focus();
+          return;
+        }
+
+        // Direct submission - send via both WhatsApp and email immediately
+        submitDirectBooking(formData, modalOverlay);
+      });
+    }
+
+    // Update price in booking form
+    function updateBookingFormPrice() {
+      const modal = document.querySelector(".booking-modal");
+      if (!modal) return;
+
+      const personsInput = modal.querySelector("#formPersons");
+      const groupSizeSpan = modal.querySelector("#formGroupSize");
+      const pricePerPersonSpan = modal.querySelector("#formPricePerPerson");
+      const totalPersonsSpan = modal.querySelector("#formTotalPersons");
+      const totalAmountSpan = modal.querySelector("#formTotalAmount");
+      const formCurrencySpan = modal.querySelector("#formCurrency");
+      const formTotalCurrencySpan = modal.querySelector("#formTotalCurrency");
+
+      const persons = Math.max(1, parseInt(personsInput.value) || 1);
+      personsInput.value = persons;
+      const dispPrice = getConvertedPrice(persons, currentCurrency);
+      const sym = getCurrencySymbol();
+
+      groupSizeSpan.textContent = getGroupSizeText(persons);
+      formCurrencySpan.textContent = currentCurrency;
+      formTotalCurrencySpan.textContent = currentCurrency;
+      pricePerPersonSpan.textContent = sym + " " + formatNumber(dispPrice);
+      totalPersonsSpan.textContent = persons;
+      totalAmountSpan.textContent = formatNumber(persons * dispPrice);
+
+      qty = persons;
+      updatePrice(0);
+    }
+
+    // Direct submission function
+    function submitDirectBooking(formData, bookingModal) {
+      // Disable submit button and show loading
+      const submitBtn = bookingModal.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+      submitBtn.disabled = true;
+
+      const bookingId = generateBookingId();
+      const symbol = exchangeRates[formData.currency]?.symbol || "₹";
+
+      // Prepare WhatsApp message
+      const whatsappMessage =
+        `*KUSHMA BUNGEE JUMPING BOOKING*\n` +
+        `━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
+        ` *Booking Details*\n` +
+        `Booking ID: ${bookingId}\n` +
+        `Package: ${formData.package}\n` +
+        `Duration: ${formData.duration}\n` +
+        `Group Size: ${formData.groupSize}\n` +
+        `Preferred Date: ${formData.date}\n\n` +
+        ` *Customer Information*\n` +
+        `Name: ${formData.name}\n` +
+        `Email: ${formData.email}\n` +
+        `Phone: ${formData.phone}\n` +
+        `Country: ${formData.country}\n` +
+        `Number of Persons: ${formData.persons}\n\n` +
+        ` *Payment Details*\n` +
+        `Price per Person (${formData.currency}): ${symbol}${formatNumber(formData.pricePerPerson)}\n` +
+        `Total Amount (${formData.currency}): ${symbol}${formatNumber(formData.totalAmount)}\n\n` +
+        ` *Special Requirements / Health Information*\n` +
+        `${formData.requirements}\n\n` +
+        ` *Package Includes*\n` +
+        `${formData.includes}\n\n` +
+        `━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+        `Submitted via HONEST TRAVEL TOURS AND EXPEDITION Website`;
+
+      // Prepare email template parameters
+      const templateParams = {
+        booking_id: bookingId,
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        country: formData.country,
+        package_name: formData.package,
+        package_duration: formData.duration,
+        package_type: formData.type,
+        number_of_person: formData.persons,
+        preferred_date: formData.date,
+        special_requirements: formData.requirements,
+        company_name: "Honest Travel Tours and Expedition",
+        price_per_person: `${formData.currency} ${formatNumber(formData.pricePerPerson)}`,
+        total_amount: `${formData.currency} ${formatNumber(formData.totalAmount)}`,
+      };
+
+      // Open WhatsApp in a new tab
+      const phoneNumber = "9779851140110";
+      window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`, "_blank");
+
+      // Send email via EmailJS
+      emailjs.send("service_9fq6tb6", "template_kmaga4l", templateParams)
+        .then(
+          function () {
+            console.log("Email sent successfully");
+            // Close the booking modal
+            closeModal(bookingModal);
+            // Show success message
+            showMobileAlert(
+              "success",
+              "Booking Request Submitted!",
+              `Your Kushma Bungee Jumping booking request has been sent successfully.\n\nBooking ID: ${bookingId}\n\nWe have opened WhatsApp and sent an email confirmation. Our team will contact you within 24 hours to confirm your booking.`
+            );
+          },
+          function (error) {
+            console.error("Email failed:", error);
+            // Close the booking modal
+            closeModal(bookingModal);
+            // Show warning message
+            showMobileAlert(
+              "warning",
+              "WhatsApp Opened - Email Pending",
+              `Your booking details have been opened in WhatsApp.\n\nBooking ID: ${bookingId}\n\nThere was an issue sending the email. Please send an email to adventure@honesttraveltours.com with your booking details to complete the process.`
+            );
+          }
+        )
+        .finally(() => {
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.disabled = false;
+        });
+    }
+
+    /* ========== ENQUIRY MODAL FUNCTION ========== */
+    function showEnquiryModal() {
+      const packageName = 'Kushma Bungee Jumping Day Trip';
+      const packagePrice = '₹13,750 - 20,000 (based on group size)';
+      const packageDuration = 'Full Day (8-9 hours)';
+      const packageCategory = 'Adventure & Extreme Sports';
+
+      const params = new URLSearchParams({
+        package: encodeURIComponent(packageName),
+        price: encodeURIComponent(packagePrice),
+        duration: encodeURIComponent(packageDuration),
+        category: encodeURIComponent(packageCategory),
+        source: 'kushma-bungee'
+      }).toString();
+
+      window.location.href = `../enquiry-form.html?${params}`;
+    }
+
+    /* ========== MOBILE ALERT FUNCTION ========== */
+    function showMobileAlert(type, title, message) {
+      // Remove any existing alerts
+      const existingAlerts = document.querySelectorAll('.mobile-alert-overlay');
+      existingAlerts.forEach(alert => closeModal(alert));
+
+      const alertOverlay = document.createElement('div');
+      alertOverlay.className = 'mobile-alert-overlay';
+
+      const icons = {
+        success: 'fa-check-circle',
+        warning: 'fa-exclamation-triangle',
+        error: 'fa-times-circle',
+        info: 'fa-info-circle'
+      };
+
+      const colors = {
+        success: '#28a745',
+        warning: '#ff9800',
+        error: '#dc3545',
+        info: '#2196f3'
+      };
+
+      alertOverlay.innerHTML = `
+          <div>
+            <div class="mobile-alert ${type}" style="text-align: center;">
+              <div class="mobile-alert-icon">
+                <i class="fas ${icons[type]}" style="color: ${colors[type]}"></i>
+              </div>
+              <h3 style="color: #2c3e50; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <i class="fas ${icons[type]}" style="color: ${colors[type]}"></i>
+                ${title}
+              </h3>
+              <div class="mobile-alert-message">${message.replace(/\n/g, '<br>')}</div>
+              <button class="mobile-alert-ok-btn" onclick="closeModal(this.closest('.mobile-alert-overlay'))">OK</button>
+            </div>
+          </div>
+        `;
+
+      document.body.appendChild(alertOverlay);
+      document.body.classList.add('modal-open');
+
+      if (type === 'success') {
+        setTimeout(() => {
+          if (alertOverlay.parentNode) closeModal(alertOverlay);
+        }, 5000);
+      }
+
+      alertOverlay.addEventListener('click', (e) => {
+        if (e.target === alertOverlay) {
+          closeModal(alertOverlay);
+        }
+      });
+    }
+
+    // Universal close modal function
+    function closeModal(modalOverlay) {
+      modalOverlay.style.animation = 'fadeOut 0.3s ease';
+
+      setTimeout(() => {
+        if (modalOverlay.parentNode) {
+          document.body.removeChild(modalOverlay);
+        }
+        // Remove modal-open class if no other modals are open
+        if (!document.querySelector('.confirmation-modal, .mobile-alert-overlay, .booking-modal, .submission-modal')) {
+          document.body.classList.remove('modal-open');
+        }
+      }, 300);
+    }
+
+    /* ========== FACILITIES SLIDER NAVIGATION ========== */
+    function scrollFacilities(sliderId, direction) {
+      const slider = document.getElementById(sliderId);
+      const scrollAmount = 300;
+      slider.scrollBy({
+        left: direction * scrollAmount,
+        behavior: "smooth",
+      });
+    }
+
+    /* ========== INITIALIZE EVERYTHING ========== */
+    document.addEventListener("DOMContentLoaded", function () {
+      initializeNavigation();
+      initializeTabs();
+      initializeCurrencyConverter();
+      initializeClickOutside();
+      updatePrice(0);
+      updatePriceCards('INR');
+    });
+
+    // Attach functions to window for global access
+    window.openTab = openTab;
+    window.toggleDay = toggleDay;
+    window.toggleAllDays = toggleAllDays;
+    window.changeImage = changeImage;
+    window.setImage = setImage;
+    window.updatePrice = updatePrice;
+    window.showBookingForm = showBookingForm;
+    window.showEnquiryModal = showEnquiryModal;
+    window.scrollFacilities = scrollFacilities;
+    window.updateBookingFormPrice = updateBookingFormPrice;
+    window.closeModal = closeModal;
+  </script>
+</body>
+
+</html>

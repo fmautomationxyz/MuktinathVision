@@ -1,0 +1,557 @@
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Enquiry & FAQ - Honest Travel Tours</title>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      />
+      <link rel="stylesheet" href="../css/enquiry.css" />
+    </head>
+    <body>
+      <!-- Header -->
+      <header>
+        <div class="top-bar">
+          <div class="container">
+            <div class="contact-info">
+              <span>
+                📞
+                <a
+                  href="https://wa.me/9779851140110"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="wa-link"
+                  >+977-9851140110 </a
+                >,
+                <a
+                  href="https://wa.me/9779856017867"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="wa-link"
+                  >9856017867</a
+                >
+              </span>
+              <span> ✉️ infohonesttoursntravels@gmail.com </span>
+            </div>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="header-main">
+          <div class="logo">
+            <div class="logo-icon">
+              <img src="../images/Logo Image.png" alt="Honest Travel Logo" />
+            </div>
+            <div class="logo-text">
+              <h1>HONEST TRAVEL</h1>
+              <p>TOURS AND EXPEDITION</p>
+            </div>
+          </div>
+
+          <!-- Burger Menu Button -->
+          <button
+            class="burger-menu"
+            id="burgerMenu"
+            aria-label="Toggle navigation menu"
+          >
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+          </button>
+
+          <nav id="mainNav">
+            <ul>
+              <li><a href="../index.html" class="nav-link">HOME</a></li>
+              <li><a href="../index.html#tours" class="nav-link">TOURS</a></li>
+              <li>
+                <a href="../index.html#trekking" class="nav-link">TREKKING</a>
+              </li>
+              <li>
+                <a href="../index.html#contact" class="nav-link">CONTACT US</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <div class="main-container">
+        <!-- Page Header -->
+        <div class="section-header">
+          <h1>Get in Touch with Us</h1>
+          <p>
+            Have questions about your dream Himalayan adventure? Send us your
+            enquiry and find answers to common questions below.
+          </p>
+        </div>
+
+        <!-- Enquiry Form Section -->
+        <section class="enquiry-form-section">
+          <h2 class="form-title">
+            <i class="fas fa-envelope-open-text"></i> Send Your Enquiry
+          </h2>
+
+          <form id="enquiryForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Full Name <span class="required">*</span></label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="fullName"
+                  placeholder="Enter your full name"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label>Email Address <span class="required">*</span></label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="your.email@example.com"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Phone Number <span class="required">*</span></label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="phone"
+                  placeholder="+977 98XXXXXXXX"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label>Country</label>
+                <select class="form-control" id="country">
+                  <option value="">Select your country</option>
+                  <option value="nepal">Nepal</option>
+                  <option value="india">India</option>
+                  <option value="usa">China</option>
+                  <option value="uk">Bangladesh</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Package Selection Section -->
+            <div class="form-row">
+              <div class="form-group">
+                <label
+                  >Select Travel Destination
+                  <span class="required">*</span></label
+                >
+                <select class="form-control" id="mainPackage" required>
+                  <option value="">Select a Destination</option>
+                  <option value="package1">Everest Adventure</option>
+                  <option value="package2">Annapurna Circuit</option>
+                  <option value="package3">Kailash Pilgrimage</option>
+                  <option value="package4">Langtang Valley</option>
+                  <option value="package5">Muktinath Spiritual</option>
+                  <option value="package6">Custom Destination</option>
+                </select>
+                <small class="package-hint"
+                  >Please select a destination first to choose packages</small
+                >
+              </div>
+
+              <div class="form-group">
+                <label>Select Package</label>
+                <select class="form-control" id="subPackage" disabled>
+                  <option value="">Select Package</option>
+                  <!-- Options will be populated dynamically -->
+                </select>
+                <small class="package-hint"
+                  >Available after selecting travel destination</small
+                >
+              </div>
+            </div>
+
+            <div class="form-row">
+               <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500;">
+                  Travel Date 
+                </label>
+                <input type="date" id="bookingDate" required style="
+                  width: 100%;
+                  padding: 0.8rem;
+                  border: 1px solid #ddd;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  box-sizing: border-box;
+                ">
+              </div>
+
+              <div class="form-group">
+                <label>Group Size</label>
+                <select class="form-control" id="groupSize">
+                  <option value="">Select group size</option>
+                  <option value="solo">Solo Traveler</option>
+                  <option value="couple">Couple (2 people)</option>
+                  <option value="family">Family (3-5 people)</option>
+                  <option value="small">Small Group (6-10 people)</option>
+                  <option value="large">Large Group (10+ people)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Your Message <span class="required">*</span></label>
+              <textarea
+                class="form-control"
+                id="message"
+                placeholder="Tell us about your travel plans, questions, or special requirements..."
+                required
+              ></textarea>
+            </div>
+
+            <div class="checkbox-group">
+              <input type="checkbox" id="newsletter" checked />
+              <label for="newsletter"
+                >Subscribe to our newsletter for travel tips and special
+                offers</label
+              >
+            </div>
+
+            <div class="checkbox-group">
+              <input type="checkbox" id="terms" required />
+              <label for="terms"
+                >I agree to the <a href="terms.html">Terms & Conditions</a> and
+                <a href="privacy.html">Privacy Policy</a>
+                <span class="required">*</span></label
+              >
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+              <i class="fas fa-paper-plane"></i> Send Enquiry
+            </button>
+
+            <p class="form-note">
+              We typically respond within 24 hours. For urgent inquiries, please
+              call us directly.
+            </p>
+          </form>
+
+          <!-- Success Message (Hidden by default) -->
+          <div class="success-message" id="successMessage">
+            <i class="fas fa-check-circle"></i>
+            <h3>Thank You for Your Enquiry!</h3>
+            <p>
+              Your message has been sent successfully. Our travel expert will
+              contact you within 24 hours to discuss your dream Himalayan
+              adventure.
+            </p>
+            <p style="margin-top: 1rem; font-size: 0.9rem">
+              Check your email for a confirmation message.
+            </p>
+          </div>
+
+          <!-- Contact Info Box -->
+          <div class="contact-info-box">
+            <h4><i class="fas fa-headset"></i> Need Immediate Assistance?</h4>
+            <div class="contact-details">
+              <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                  <strong>Phone</strong><br />
+                  +977-9851140110<br />
+                  +977-9856017867
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                  <strong>Email</strong><br />
+                  infohonesttoursntravels@gmail.com
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fab fa-whatsapp"></i>
+                <div>
+                  <strong>WhatsApp</strong><br />
+                  +977-9851140110
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+          <h2 class="faq-title">
+            <i class="fas fa-question-circle"></i> Frequently Asked Questions
+          </h2>
+
+          <div class="faq-search">
+            <i class="fas fa-search"></i>
+            <input
+              type="text"
+              id="faqSearch"
+              placeholder="Search for questions..."
+            />
+          </div>
+
+          <div class="faq-container">
+            <div class="faq-grid">
+              <!-- Column 1 -->
+              <div class="faq-column">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                  <div class="faq-question">
+                    <span
+                      >What is the best time to visit Nepal for trekking?</span
+                    >
+                    <i class="fas fa-chevron-down"></i>
+                  </div>
+                  <div class="faq-answer">
+                    <p>The best trekking seasons in Nepal are:</p>
+                    <ul>
+                      <li>
+                        <strong>Spring (March to May):</strong> Perfect weather,
+                        blooming rhododendrons, clear mountain views
+                      </li>
+                      <li>
+                        <strong>Autumn (September to November):</strong> Stable
+                        weather, clear skies, best visibility
+                      </li>
+                      <li>
+                        <strong>Winter (December to February):</strong> Cold but
+                        clear, fewer crowds, lower prices
+                      </li>
+                      <li>
+                        <strong>Monsoon (June to August):</strong> Rainy season,
+                        lush greenery, fewer trekkers
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                  <div class="faq-question">
+                    <span
+                      >What documents are required for Kailash Mansarovar
+                      Yatra?</span
+                    >
+                    <i class="fas fa-chevron-down"></i>
+                  </div>
+                  <div class="faq-answer">
+                    <p>For Kailash Mansarovar pilgrimage, you need:</p>
+                    <ul>
+                      <li>Valid passport with at least 6 months validity</li>
+                      <li>Chinese visa</li>
+                      <li>Tibet Travel Permit (arranged by us)</li>
+                      <li>Aliens Travel Permit</li>
+                      <li>Military Permit for restricted areas</li>
+                      <li>Recent passport-size photographs</li>
+                    </ul>
+                    <p>We handle all permit arrangements for our clients.</p>
+                  </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                  <div class="faq-question">
+                    <span
+                      >How fit do I need to be for Everest Base Camp trek?</span
+                    >
+                    <i class="fas fa-chevron-down"></i>
+                  </div>
+                  <div class="faq-answer">
+                    <p>
+                      While you don't need to be an athlete, good physical fitness
+                      is essential:
+                    </p>
+                    <ul>
+                      <li>Regular walking/hiking experience</li>
+                      <li>Able to walk 5-7 hours daily with a daypack</li>
+                      <li>Cardiovascular fitness (running, cycling, swimming)</li>
+                      <li>Strength training for legs and core</li>
+                      <li>
+                        We recommend starting training 2-3 months before your trek
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                  <div class="faq-question">
+                    <span>What is included in your tour packages?</span>
+                    <i class="fas fa-chevron-down"></i>
+                  </div>
+                  <div class="faq-answer">
+                    <p>Our standard packages include:</p>
+                    <ul>
+                      <li>Airport transfers and all ground transportation</li>
+                      <li>Accommodation (hotels, lodges, tea houses)</li>
+                      <li>All meals during treks/tours</li>
+                      <li>Experienced guide and support staff</li>
+                      <li>All necessary permits and fees</li>
+                      <li>First aid kit and emergency oxygen</li>
+                      <li>Porters for luggage (weight limits apply)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Column 2 -->
+              <div class="faq-column">
+                <!-- FAQ Item 5 -->
+                <div class="faq-item">
+                  <div class="faq-question">
+                    <span>How do I prepare for high altitude?</span>
+                    <i class="fas fa-chevron-down"></i>
+                  </div>
+                  <div class="faq-answer">
+                    <p>
+                      High altitude preparation is crucial for Himalayan treks:
+                    </p>
+                    <ul>
+                      <li>Spend 2-3 days acclimatizing in Kathmandu</li>
+                      <li>Follow the "climb high, sleep low" principle</li>
+                      <li>Stay hydrated (3-4 liters of water daily)</li>
+                      <li>Walk slowly and maintain steady pace</li>
+                      <li>Consider Diamox after consulting your doctor</li>
+                      <li>
+                        Recognize symptoms of AMS (headache, nausea, dizziness)
+                      </li>
+                      <li>Inform your guide immediately if symptoms appear</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="faq-item">
+                  <div class="faq-question">
+                    <span>What is your cancellation policy?</span>
+                    <i class="fas fa-chevron-down"></i>
+                  </div>
+                  <div class="faq-answer">
+                    <p>Our cancellation policy is as follows:</p>
+                    <ul>
+                      <li>
+                        <strong>60+ days before departure:</strong> Full refund
+                        (minus bank charges)
+                      </li>
+                      <li>
+                        <strong>30-59 days before departure:</strong> 75% refund
+                      </li>
+                      <li>
+                        <strong>15-29 days before departure:</strong> 50% refund
+                      </li>
+                      <li>
+                        <strong>8-14 days before departure:</strong> 25% refund
+                      </li>
+                      <li>
+                        <strong>0-7 days before departure:</strong> No refund
+                      </li>
+                    </ul>
+                    <p>We strongly recommend purchasing travel insurance.</p>
+                  </div>
+                </div>
+
+                <!-- FAQ Item 7 -->
+                <div class="faq-item">
+                  <div class="faq-question">
+                    <span>Do I need travel insurance?</span>
+                    <i class="fas fa-chevron-down"></i>
+                  </div>
+                  <div class="faq-answer">
+                    <p>
+                      <strong>Yes, travel insurance is mandatory</strong> for all
+                      our treks and tours. Your insurance must cover:
+                    </p>
+                    <ul>
+                      <li>Emergency medical evacuation (up to 6000m)</li>
+                      <li>Medical expenses (including COVID-19)</li>
+                      <li>Trip cancellation and interruption</li>
+                      <li>Lost or delayed baggage</li>
+                      <li>Personal liability</li>
+                    </ul>
+                    <p>We require proof of insurance before departure.</p>
+                  </div>
+                </div>
+
+                <!-- FAQ Item 8 -->
+                <div class="faq-item">
+                  <div class="faq-question">
+                    <span>What kind of accommodation can I expect?</span>
+                    <i class="fas fa-chevron-down"></i>
+                  </div>
+                  <div class="faq-answer">
+                    <p>Accommodation varies by package:</p>
+                    <ul>
+                      <li>
+                        <strong>City stays:</strong> 3-4 star hotels with modern
+                        amenities
+                      </li>
+                      <li>
+                        <strong>Popular trekking routes:</strong> Tea houses with
+                        basic private rooms
+                      </li>
+                      <li><strong>Remote areas:</strong> Camping with tents</li>
+                      <li>
+                        <strong>Luxury packages:</strong> Premium lodges with
+                        en-suite bathrooms
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <footer>
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>About Honest Travel</h3>
+            <p>
+              Your trusted partner for authentic Himalayan experiences. We
+              specialize in trekking, cultural tours, and pilgrimage journeys with
+              over 15 years of experience.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <p><a href="../index.html">Home</a></p>
+            <p><a href="../index.html#tours">Tour Packages</a></p>
+            <p><a href="../index.html#trekking">Trekking Routes</a></p>
+            <p>
+              <a href="enquiry.html" class="active-footer-link">Enquiry Form</a>
+            </p>
+          </div>
+          <div class="footer-section">
+            <h3>Contact Info</h3>
+            <p>📍 Kathmandu, Nepal</p>
+            <p>📞 +977-9851140110</p>
+            <p>📧 infohonesttoursntravels@gmail.com</p>
+            <p>🕐 24/7 Customer Support</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 HONEST TRAVEL Tours and Expedition. All Rights Reserved.
+          </p>
+        </div>
+      </footer>
+
+      <script src="../scripts/enquiry.js"></script>
+    </body>
+  </html>
